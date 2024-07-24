@@ -181,7 +181,6 @@ gulp.task("browserSync", function () {
     port: 9000,
     server: {
       baseDir: ["dist/"],
-      // index: "./html/guide/intro/index.html",
       open: true,
     },
   });
