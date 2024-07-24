@@ -19,15 +19,15 @@
 // ellipsis
 @mixin ellipsis($line: 1) {
     @if $line ==1 {
-        overflow: hidden;
         text-overflow: ellipsis;
+        overflow: hidden;
         white-space: nowrap;
     }
 
     @else {
+        text-overflow: ellipsis;
         display: -webkit-box;
         overflow: hidden;
-        text-overflow: ellipsis;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: $line;
     }

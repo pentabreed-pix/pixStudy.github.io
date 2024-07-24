@@ -1059,6 +1059,11 @@
                         counter-reset: item-counter; /* 카운터 초기화 */
                     
                         .para {
+                            display: flex;
+                            color: color(typo,010);
+                            gap: 0.5rem;
+                            @include font(small-4x, bold);
+
                             &.pop{
                                 button{
                                     @include font(small-4x, bold);
@@ -1067,10 +1072,7 @@
                                     text-align: left !important;
                                 }
                             }
-                            @include font(small-4x, bold);
-                            display: flex;
-                            color: color(typo,010);
-                            gap: 0.5rem;
+                            
                             @include mobile{
                                 @include font(small-5x, bold);
                                 &.pop{

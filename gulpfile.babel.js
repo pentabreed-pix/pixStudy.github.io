@@ -17,30 +17,30 @@ const DIST_FOLDER = "./dist/";
 
 const SRC_PATH = {
     ASSETS: {
-      FONTS: "./src/front/assets/fonts",
-      IMAGES: "./src/front/assets/images",
-      SCSS: "./src/front/assets/scss",
-      JS: "./src/front/assets/js",
-      AJAX: "./src/front/assets/ajax",
-      MODULES: "./src/front/assets/modules",
-      DOC: "./src/front/assets/doc",
-      GLTF: "./src/front/assets/gltf",
-      MOVIES: "./src/front/assets/movies",
+      FONTS: "./src/assets/fonts",
+      IMAGES: "./src/assets/images",
+      SCSS: "./src/assets/scss",
+      JS: "./src/assets/js",
+      AJAX: "./src/assets/ajax",
+      MODULES: "./src/assets/modules",
+      DOC: "./src/assets/doc",
+      GLTF: "./src/assets/gltf",
+      MOVIES: "./src/assets/movies",
       BOOTSTRAP: "./node_modules/bootstrap/dist",
     },
-    EJS: "./src/front/ejs",
+    EJS: "./src/ejs",
   },
   DEST_PATH = {
     ASSETS: {
-      FONTS: "./dist/front/assets/fonts",
-      IMAGES: "./dist/front/assets/images",
-      CSS: "./dist/front/assets/css",
-      JS: "./dist/front/assets/js",
-      AJAX: "./dist/front/assets/ajax",
-      MODULES: "./dist/front/assets/modules",
-      DOC: "./dist/front/assets/doc",
-      GLTF: "./dist/front/assets/gltf",
-      MOVIES: "./dist/front/assets/movies",
+      FONTS: "./dist/assets/fonts",
+      IMAGES: "./dist/assets/images",
+      CSS: "./dist/assets/css",
+      JS: "./dist/assets/js",
+      AJAX: "./dist/assets/ajax",
+      MODULES: "./dist/assets/modules",
+      DOC: "./dist/assets/doc",
+      GLTF: "./dist/assets/gltf",
+      MOVIES: "./dist/assets/movies",
     },
   },
   // 옵션
@@ -178,7 +178,7 @@ gulp.task("watch", function () {
 gulp.task("browserSync", function () {
   browserSync.init({
     notify: false,
-    port: 5000,
+    port: 9000,
     server: {
       baseDir: ["dist/"],
       // index: "./html/guide/intro/index.html",

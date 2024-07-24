@@ -155,6 +155,6 @@ $font-weight: (
 // }
 
 @mixin font($size, $weight: regular) {
-    font-size: map-get($font-size, $size);
     font-weight: map-get($font-weight, $weight);
+    font-size: map-get($font-size, $size);
 }

@@ -67,11 +67,11 @@
                                         transition: 1s ease;
                                         transform: scale(1.1);
                                         @include mobile {
+                                            @include font(medium, extrabold);
                                             &.space {
                                                 letter-spacing: -0.05rem;
                                                 padding-right: 0.5rem;
                                             }
-                                            @include font(medium, extrabold);
                                         }
                                     }
                                     &[class*=action] {

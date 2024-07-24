@@ -38,12 +38,12 @@
                     .board-wrap {
                         .board-head {
                             .board-subject {
-                                @include font(small-1x,bold);
                                 color: color(typo,020);
+                                @include font(small-1x,bold);
                             }
                             .board-date {
-                                @include font(small-3x,medium);
                                 color: color(typo,020);
+                                @include font(small-3x,medium);
                             }
                         }
                     }
@@ -109,13 +109,13 @@
                 .board-item {
                     .board-info {
                         .board-name {
-                            @include font(small-3x,bold);
                             color: color(typo,020);
                             white-space: nowrap;
+                            @include font(small-3x,bold);
                         }
                         .board-caption {
-                            @include font(small-3x,medium);
                             color: color(typo,010);
+                            @include font(small-3x,medium);
                             @include ellipsis;
                         }
                     }
@@ -175,8 +175,8 @@
                     .board-wrap {
                         .board-info {
                             .board-name {
-                                @include font(small-1x,bold);
                                 color: color(typo,020);
+                                @include font(small-1x,bold);
                             }
                         }
                     }
@@ -275,13 +275,13 @@
                     .board-wrap {
                         .board-info {
                             .board-caption {
-                                @include font(small-5x,bold);
                                 color: color(primary,080);
+                                @include font(small-5x,bold);
                             }
                             .board-name {
-                                @include font(small-1x,bold);
                                 color: color(typo,020);
                                 @include ellipsis(2);
+                                @include font(small-1x,bold);
                             }
                         }
                     }
@@ -359,14 +359,14 @@
                     .board-wrap {
                         .board-head {
                             .board-name {
-                                @include font(small-1x,bold);
                                 color: color(primary,080);
+                                @include font(small-1x,bold);
                             }
                         }
                         .board-body {
                             .para {
-                                @include font(small-4x,bold);
                                 color: color(typo,010);
+                                @include font(small-4x,bold);
                             }
                         }
                     }
@@ -447,21 +447,21 @@
                     .board-wrap {
                         .board-head {
                             .board-rank {
-                                @include font(large-5x, bold);
-                                color: color(system, 080);
                                 text-align: center;
+                                color: color(system, 080);
+                                @include font(large-5x, bold);
                             }
                         }
                         .board-info {
                             .data-head{
                                 .data-subject {
-                                    @include font(small-1x, bold);
                                     color: color(typo, 020);
+                                    @include font(small-1x, bold);
                                 }
                             }
                             .data-body {
-                                @include font(small-3x, medium);
                                 color: color(typo, 005);
+                                @include font(small-3x, medium);
                             }
                         }
                     }
@@ -524,7 +524,7 @@
                     width: 100%;
                     text-align: center;
                     .board-name {
-                       ~.para,
+                        ~.para,
                         ~.comment,
                         ~.board-data {
                             padding-top: 0.8rem;
@@ -1016,8 +1016,8 @@
                     padding: 4rem;
                     text-align: left;
                     >.board-name{
-                        @include font(small-2x, bold);
                         color: color(primary, 070);
+                        @include font(small-2x, bold);
                         + .board-body{
                             margin-top: 0.8rem;
                         }
@@ -1082,8 +1082,8 @@
         }
         &.type1{
             .board-subject {
-                @include font(small-3x, bold);
                 color: color(typo, 005);
+                @include font(small-3x, bold);
             }
         }
         @include mobile {
@@ -1252,9 +1252,9 @@
         }
         &.type1{
             .para {
-                @include font(small-4x, medium);
                 color: color(typo, 010);
                 text-align: center;
+                @include font(small-4x, medium);
             }
             @include mobile {
                 .para {
@@ -1320,8 +1320,8 @@
                 text-align: center;
                 .board-name{
                     .board-caption{
-                        @include font(small-1x, bold);
                         color: color(primary, 080);
+                        @include font(small-1x, bold);
                         @include mobile{
                             @include font(small-2x, bold);
                         }
@@ -1355,8 +1355,8 @@
                 text-align: center;
                 .board-head {
                     .subject {
-                        @include font(small-1x,bold);
                         color: color(typo,020);
+                        @include font(small-1x,bold);
                     }
                     + .board-figure {
                         margin: 2.6rem auto 0;
@@ -1436,8 +1436,8 @@
                     }
                 }
                 .board-name{
-                    @include font(small-4x, bold);
                     margin-top: 1.6rem;
+                    @include font(small-4x, bold);
                 }
             }
         }
@@ -1450,8 +1450,8 @@
                 padding: 1.4rem;
                 .board-wrap{
                     .board-name{
-                        @include font(small-5x, bold);
                         margin-top: 1.2rem;
+                        @include font(small-5x, bold);
                     }
                 }
             }
@@ -1486,9 +1486,9 @@
                     }
                 }
                 .board-name{
-                    @include font(small-3x, bold);
-                    color: color(primary, 070);
                     margin-top: 0.8rem;
+                    color: color(primary, 070);
+                    @include font(small-3x, bold);
                 }
                 .board-body{
                     display: flex;
@@ -1513,8 +1513,8 @@
                 padding: 2.4rem;
                 .board-wrap{
                     .board-name{
-                        @include font(small-5x, bold);
                         margin-top: 1.2rem;
+                        @include font(small-5x, bold);
                     }
                 }
             }
@@ -1613,15 +1613,15 @@
                     }
                 }
                 .haed {
-                    @include font(small-3x,bold);
                     color: color(typo,010);
+                    @include font(small-3x,bold);
                     + .body {
                         margin-top: 0.8rem
                     }
                 }
                 .body {
-                    @include font(small-1x,bold);
                     color: color(typo,020);
+                    @include font(small-1x,bold);
                 }
                 &.type1 {
                     display: flex;
@@ -1630,8 +1630,8 @@
                     justify-content: center;
                     background-color: color(primary,070);
                     .body {
-                        @include font(medium,bold);
                         color: color(system,070);
+                        @include font(medium,bold);
                     }
                 }
             }
@@ -1689,13 +1689,13 @@
         &.type1 {
             .board-head {
                 .board-subject {
-                    @include font(small-2x,bold);
                     color: color(typo,020);
+                    @include font(small-2x,bold);
                 }
                 .caption {
-                    @include font(small-4x,medium);
-                    color: color(typo,010);
                     text-align: right;
+                    color: color(typo,010);
+                    @include font(small-4x,medium);
                 }
             }
             @include mobile {
@@ -1855,8 +1855,8 @@
                     }
                 }
                 .board-name{
-                    @include font(small-4x, bold);
                     margin-top: 1.6rem;
+                    @include font(small-4x, bold);
                 }
             }
         }

@@ -42,20 +42,20 @@
         }
         &.type1 {
             .mark-text {
-                @include font(small-5x, bold);
                 color: color(neutral, 080);
                 line-height: 2.2rem;
+                @include font(small-5x, bold);
                 @include mobile {
-                    @include font(small-6x, bold);
                     line-height: 1.9rem;
+                    @include font(small-6x, bold);
                 }
             }
         }
         &.type2 {
             .mark-text {
-                @include font(small-4x, medium);
-                color: color(typo, 010);
                 line-height: 2.6rem; 
+                color: color(typo, 010);
+                @include font(small-4x, medium);
             }
         }
         &[class*=color1]::before {
@@ -84,8 +84,8 @@
         display: flex;
         &.case1 {
             .mark-text {
-                @include font(small-3x, bold);
                 color: color(typo, 010);
+                @include font(small-3x, bold);
                 @include mobile {
                     @include font(small-4x, bold);
                 }
