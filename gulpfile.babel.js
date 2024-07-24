@@ -12,8 +12,8 @@ const rename = require("gulp-rename");
 const browserSync = require("browser-sync").create();
 const del = require("del");
 
-const SRC_FOLDER = "./src/front";
-const DIST_FOLDER = "./dist/front";
+const SRC_FOLDER = "./src/";
+const DIST_FOLDER = "./dist/";
 
 const SRC_PATH = {
     ASSETS: {
@@ -180,7 +180,7 @@ gulp.task("browserSync", function () {
     notify: false,
     port: 5000,
     server: {
-      baseDir: ["dist/front"],
+      baseDir: ["dist/"],
       // index: "./html/guide/intro/index.html",
       open: true,
     },
