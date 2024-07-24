@@ -1,70 +1,101 @@
-/* font-family:"SUIT" */
+/* font-family:"Pretendard" */
 @font-face {
-    font-family: "SUIT";
-    font-weight: 300;
-    font-style: normal;
-    src: url('../fonts/SUIT-Light.woff2') format('woff2'),
-        url('../fonts/SUIT-Light.otf') format('opentype'),
-        url('../fonts/SUIT-Light.ttf') format("truetype");
+    font-family:"Pretendard";
+    font-weight:100;
+    font-style:normal;
+    src:url('../fonts/Pretendard-Thin.woff2') format('woff2'),
+        url('../fonts/Pretendard-Thin.woff') format('woff'),
+        url('../fonts/Pretendard-Thin.otf') format('opentype'),
+        url('../fonts/Pretendard-Thin.ttf') format("truetype"),
+        url('../fonts/Pretendard-Thin.svg') format('svg');
+    font-display: swap;
+}
+@font-face {
+    font-family:"Pretendard";
+    font-weight:200;
+    font-style:normal;
+    src:url('../fonts/Pretendard-ExtraLight.woff2') format('woff2'),
+        url('../fonts/Pretendard-ExtraLight.woff') format('woff'),
+        url('../fonts/Pretendard-ExtraLight.otf') format('opentype'),
+        url('../fonts/Pretendard-ExtraLight.ttf') format("truetype"),
+        url('../fonts/Pretendard-ExtraLight.svg') format('svg');
+    font-display: swap;
+}
+@font-face {
+    font-family:"Pretendard";
+    font-weight:300;
+    font-style:normal;
+    src:url('../fonts/Pretendard-Light.woff2') format('woff2'),
+        url('../fonts/Pretendard-Light.woff') format('woff'),
+        url('../fonts/Pretendard-Light.otf') format('opentype'),
+        url('../fonts/Pretendard-Light.ttf') format("truetype"),
+        url('../fonts/Pretendard-Light.svg') format('svg');
+    font-display: swap;
+}
+@font-face {
+    font-family:"Pretendard";
+    font-weight:400;
+    font-style:normal;
+    src:url('../fonts/Pretendard-Regular.woff2') format('woff2'),
+        url('../fonts/Pretendard-Regular.woff') format('woff'),
+        url('../fonts/Pretendard-Regular.otf') format('opentype'),
+        url('../fonts/Pretendard-Regular.ttf') format("truetype"),
+        url('../fonts/Pretendard-Regular.svg') format('svg');
+    font-display: swap;
+}
+@font-face {
+    font-family:"Pretendard";
+    font-weight:500;
+    font-style:normal;
+    src:url('../fonts/Pretendard-Medium.woff2') format('woff2'),
+        url('../fonts/Pretendard-Medium.woff') format('woff'),
+        url('../fonts/Pretendard-Medium.otf') format('opentype'),
+        url('../fonts/Pretendard-Medium.ttf') format("truetype"),
+        url('../fonts/Pretendard-Medium.svg') format('svg');
+    font-display: swap;
+}
+@font-face {
+    font-family:"Pretendard";
+    font-weight:600;
+    font-style:normal;
+    src:url('../fonts/Pretendard-SemiBold.woff2') format('woff2'),
+        url('../fonts/Pretendard-SemiBold.woff') format('woff'),
+        url('../fonts/Pretendard-SemiBold.otf') format('opentype'),
+        url('../fonts/Pretendard-SemiBold.ttf') format("truetype"),
+        url('../fonts/Pretendard-SemiBold.svg') format('svg');
+    font-display: swap;
+}
+@font-face {
+    font-family:"Pretendard";
+    font-weight:700;
+    font-style:normal;
+    src:url('../fonts/Pretendard-Bold.woff2') format('woff2'),
+        url('../fonts/Pretendard-Bold.woff') format('woff'),
+        url('../fonts/Pretendard-Bold.otf') format('opentype'),
+        url('../fonts/Pretendard-Bold.ttf') format("truetype"),
+        url('../fonts/Pretendard-Bold.svg') format('svg');
+    font-display: swap;
+}
+@font-face {
+    font-family:"Pretendard";
+    font-weight:800;
+    font-style:normal;    
+    src:url('../fonts/Pretendard-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Pretendard-ExtraBold.woff') format('woff'),
+        url('../fonts/Pretendard-ExtraBold.otf') format('opentype'),
+        url('../fonts/Pretendard-ExtraBold.ttf') format("truetype"),
+        url('../fonts/Pretendard-ExtraBold.svg') format('svg');
     font-display: swap;
 }
 
 @font-face {
-    font-family: "SUIT";
-    font-weight: 400;
-    font-style: normal;
-    src: url('../fonts/SUIT-Regular.woff2') format('woff2'),
-        url('../fonts/SUIT-Regular.otf') format('opentype'),
-        url('../fonts/SUIT-Regular.ttf') format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "SUIT";
-    font-weight: 500;
-    font-style: normal;
-    src: url('../fonts/SUIT-Medium.woff2') format('woff2'),
-        url('../fonts/SUIT-Medium.otf') format('opentype'),
-        url('../fonts/SUIT-Medium.ttf') format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "SUIT";
-    font-weight: 600;
-    font-style: normal;
-    src: url('../fonts/SUIT-SemiBold.woff2') format('woff2'),
-        url('../fonts/SUIT-SemiBold.otf') format('opentype'),
-        url('../fonts/SUIT-SemiBold.ttf') format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "SUIT";
-    font-weight: 700;
-    font-style: normal;
-    src: url('../fonts/SUIT-Bold.woff2') format('woff2'),
-        url('../fonts/SUIT-Bold.otf') format('opentype'),
-        url('../fonts/SUIT-Bold.ttf') format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "SUIT";
-    font-weight: 800;
-    font-style: normal;
-    src: url('../fonts/SUIT-ExtraBold.woff2') format('woff2'),
-        url('../fonts/SUIT-ExtraBold.otf') format('opentype'),
-        url('../fonts/SUIT-ExtraBold.ttf') format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "SUIT";
-    font-weight: 900;
-    font-style: normal;
-    src: url('../fonts/SUIT-Heavy.woff2') format('woff2'),
-        url('../fonts/SUIT-Heavy.otf') format('opentype'),
-        url('../fonts/SUIT-Heavy.ttf') format("truetype");
+    font-family:"Pretendard";
+    font-weight:900;
+    font-style:normal;    
+    src:url('../fonts/Pretendard-Black.woff2') format('woff2'),
+        url('../fonts/Pretendard-Black.woff') format('woff'),
+        url('../fonts/Pretendard-Black.otf') format('opentype'),
+        url('../fonts/Pretendard-Black.ttf') format("truetype"),
+        url('../fonts/Pretendard-Black.svg') format('svg');
     font-display: swap;
 }
