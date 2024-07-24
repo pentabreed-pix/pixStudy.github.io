@@ -1,0 +1,2861 @@
+.esg {
+    &:not(.overview){
+        .content-body {
+            padding-top: 16rem;
+            .section {
+                +.section {
+                    margin-top: 16rem;
+                }
+                &.bg-color{
+                    position: relative;
+                    padding: 8rem 0;
+                    &::after{
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        width: 100vw;
+                        height: 100%;
+                        content: '';
+                        background-color: color(secondary, 070);
+                        transform: translateX(-50%);
+                        z-index: -1;
+                    }
+                    .section-subject{
+                        .section-name{
+                            text-align: center;
+                        }
+                    }
+                    @include mobile {
+                        padding: 4.8rem 0;
+                    }
+                }
+                &.over{
+                    img{
+                        display: inline-block;
+                        width: 100%
+                    }
+                    .post-list {
+                        + .data-display {
+                            margin-top: 8rem;
+                            @include mobile {
+                                margin-top: 6.4rem;
+                            }
+                        }
+                    }
+                }
+
+                .section-body{
+                    .doudle-bottom{
+                        display: flex;
+                        width: 100%;
+                        justify-content: center;
+                        .dbl-circle{
+                            display: flex;
+                            gap: 7.2rem;
+                            .value{
+                                width: 43.6rem;
+                                height: 43.6rem;
+                                padding: 13.8rem 4.85rem 7.8rem;
+                                text-align: center;
+                                border-radius: 100%;
+                                &.purple{
+                                    background: rgba(151, 53, 208, 0.06);
+                                    color: color(primary, 080);
+                                }
+                                &.orange{
+                                    background: rgba(244, 119, 37, 0.06);
+                                    color: color(secondary, 100);
+                                }
+
+                                .value-txt{
+                                    @include font(small-2x, bold);
+                                    .para{
+                                        @include font(small-4x, medium);
+                                        margin: 0.8rem 0 3.2rem;
+                                    }
+                                }
+                                .value-type{
+                                    width: 15rem;
+                                    padding: 0.8rem 1.65rem;
+                                    margin: 0 auto;
+                                    background: color(system, 070);
+                                    border-radius: 6.8rem;
+                                    @include font(small-4x, bold);
+                                    + .value-type{
+                                        margin-top: 1.2rem
+                                    }
+                                }
+                            }
+                        }
+                        @include mobile{
+                            .dbl-circle{
+                                flex-direction: column;
+                                gap: 3rem;
+                                .value{
+                                    width: 32.2rem;
+                                    height: 32.2rem;
+                                    padding: 8rem 3rem 7.8rem;
+                                    .value-txt{
+                                        @include font(small-4x, bold);
+                                        .para{
+                                            @include font(small-6x, medium);
+                                        }
+                                    }
+                                    .value-type{
+                                        padding: 0.6rem 1.4rem;
+                                        @include font(small-4x, bold);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .section-figure{
+                        @include mobile{
+                            img{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //글로벌 투자
+        &.global-stock {
+            .data-display{
+                .data-item{
+                    & + .data-item{
+                        margin-top: 8rem;
+                    }
+                    .para {
+                        + .comment {
+                            margin-top: 1.6rem;
+                        }
+                    }
+                    @include mobile {
+                        & + .data-item{
+                            margin-top: 4.8rem;
+                        }
+                        .para {
+                            + .comment {
+                                margin-top: 1.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+            .post-list{
+                .post-item{
+                    .post-head{
+                        padding: 0;
+                        .post-subject{
+                            @include font(small-3x, bold);
+                        }
+                        .para{
+                            @include font(small-4x, medium);
+                            color: color(neutral, 060);
+                            margin-top: 0.8rem
+                        }
+
+                        @include mobile{
+                            .post-subject{
+                                @include font(small-4x, bold);
+                            }
+                            .para{
+                                @include font(small-5x, bold);
+                            }
+                        }
+                    }
+                }
+            }
+            .section-figure {
+                &.hotel{
+                    position: relative;
+                    width: 100%;
+                    height: 40rem;
+                    background: url(../images/esg/skms-banner.jpg) no-repeat center center;
+                    border-radius: 1.6rem;
+                    margin-bottom: 6.4rem;
+                    background-size: cover;
+
+                    @include mobile{
+                        background: url(../images/esg/skms-banner-m.jpg) no-repeat center center;
+                        border-radius: 0.8rem;
+                        background-size: cover;
+                        margin-bottom: 3.2rem;
+                    }
+                }
+            }
+        }
+
+        //환경경영
+        &.environmental{
+            .section{
+                .section-body{
+                    .comment {
+                        margin-top: 3.2rem;
+                        @include mobile {
+                            margin-top: 2.4rem;
+                        }
+                    }
+                    .table{
+                        margin-top: 6.4rem;
+                        .section-wrap{
+                            .section-body{
+                                margin-top: 2.4rem !important;
+                            }
+                        }
+
+                        @include mobile{
+                            margin-top: 3.2rem !important;
+                        }
+                    }
+                    img{
+                        display: inline-block;
+                        width: 100%;
+                    }
+                    button{
+                        @include font(small-3x, medium);
+                        text-decoration: underline;
+                        vertical-align: top;
+                        @include mobile {
+                            @include font(small-4x, medium);
+                        }
+                    }
+                }
+            }
+
+            // table col width
+            table{
+                &.col-w-1 {
+                    col {
+                        @each $index, $width in (1: 13%, 2: 17.4%, 3: 17.4%, 4: 17.4%, 5: 17.4%, 6: auto) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                    
+                        @include mobile {
+                            @each $index, $width in (1: 14.15%, 2: 15.72%, 3: 14.68%, 4: 16.56%, 5: 18.66%, 6: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-2 {
+                    col {
+                        @each $index, $width in (1: 14.1%, 2: 13.55%, 3: 25%, 4: auto) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                    
+                        @include mobile {
+                            @each $index, $width in (1: 13.35%, 2: 12.78%, 3: 23.58%, 4: 50.28%) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                    @include mobile {
+                        min-width: 720px;
+                    }
+                }
+                &.col-w-3 {
+                    col {
+                        @each $index, $width in (1: 15.6%, 2: 33%, 3: 14.6%, 4: auto) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                    
+                        @include mobile {
+                            @each $index, $width in (1: 15.63%, 2: 33.1%, 3: 15%, 4: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-4 {
+                    col {
+                        @each $index, $width in (1: 20.8%, 2: 27.8%, 3: 13.3%, 4: 13.3%, 5: 13.3%, 6: auto) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                    
+                        @include mobile {
+                            @each $index, $width in (1: 20.88%, 2: 27.84%, 3: 13.35%, 4: 13.35%, 5: 13.35%, 6: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 구성원 행복
+        &.member{
+            .panel-display{
+                .panel-list{
+                    .panel-item{
+                        .panel-head{
+                            margin-top: 6.4rem;
+                            @include mobile{
+                                margin-top: 3.2rem;
+                            }
+                        }
+                        .panel-body{
+                            .section{
+                                .section-subject {
+                                    + .comment{
+                                        margin-top: 1.6rem;
+                                        @include mobile{
+                                            margin-top: 1.2rem;
+                                        }
+                                    }
+                                }
+                                .para{
+                                    + .comment{
+                                        margin-top: 1.6rem;
+                                        @include mobile{
+                                            margin-top: 1.2rem;
+                                        }
+                                    }
+                                }
+                                .section-body{
+                                    .post-list{
+                                        &.design5{
+                                            .post-item{
+                                                .post-head{
+                                                    text-align: center;
+                                                    .post-subject{
+                                                        padding: 4rem 0 6.4rem;
+                                                    }
+                                                }
+                                            }
+                                            @include mobile{
+                                                .post-item{
+                                                    .post-figure{
+                                                        @include scroll-x;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    > .para {
+                                        + .data-display {
+                                            margin-top: 6.4rem;
+                                            @include mobile{
+                                                margin-top: 3.2rem;
+                                            }
+                                        }
+                                        + .post-list {
+                                            margin-top: 6.4rem;
+                                            @include mobile{
+                                                margin-top: 3.2rem;
+                                            }
+                                        }
+                                    }
+
+                                    &.process{
+                                        align-items: center;
+                                        justify-content: space-between;
+                                        >.post-list {
+                                            width: 46.83%;
+                                        }
+                                        >.data-display{
+                                            width: 43.83%;
+                                            >.data-list{
+                                                >.data-item{
+                                                    padding: 2.4rem 0;
+                                                    + .data-item{
+                                                        border-top: 0.1rem solid #E4E4E7;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        @include mobile{
+                                            flex-direction: column;
+                                            gap: 2.4rem;
+                                            >.post-list {
+                                                width: 100%;
+                                            }
+                                            >.data-display{
+                                                width: 100%;
+                                                >.data-list{
+                                                    >.data-item{
+                                                        padding: 1.6rem 0;
+                                                    }
+                                                }
+                                            }
+                                            .post-figure{
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                    .t-display{
+                                        &.design1{
+                                            margin-top: 6.4rem;
+                                            .comment{
+                                                margin-top: 8rem;
+                                                + table{
+                                                    margin-top: 2.4rem;
+                                                }
+                                            }
+                                            @include mobile{
+                                                .comment{
+                                                    margin-top: 4.8rem;
+                                                    + table{
+                                                        margin-top: 1.6rem;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .board-list{
+                                        &.design3{
+                                            margin-top: 6.4rem;
+                                            @include mobile{
+                                                margin-top: 3.2rem;
+                                            }
+                                        }
+                                        &.esg-health{
+                                            margin-top: 6.4rem;
+                                            @include mobile{
+                                                margin-top: 3.2rem;
+                                            }
+                                        }
+
+                                        &.esg-happy-day{
+                                            margin-top: 6.4rem;
+                                            @include mobile{
+                                                margin-top: 3.2rem;
+                                            }
+                                        }
+
+                                    }
+                                    .section-figure{
+                                        @include mobile{
+                                            img{
+                                                width: 100% !important;
+                                            }
+                                        }
+                                    }
+                                }
+                                .section-aside {
+                                    margin-top: 14.4rem;
+                                    @include mobile {
+                                        margin-top: 4.8rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // table col width
+            table{
+                &.col-w-1 {
+                    col {
+                        @each $index, $width in (1: 25%, 2: auto) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                        @include mobile {
+                            @each $index, $width in (1: 17.15%, 2: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 이해관계자 행복
+        &.understand{
+            .panel-display{
+                .panel-list{
+                    .panel-item{
+                        .t-display{
+                            tbody{
+                                border-bottom: .1rem solid color(neutral, 030);
+                                tr{
+                                    th,
+                                    td {
+                                        vertical-align: top;
+                                    }
+                                    th {
+                                        text-align: center;
+                                    }
+                                    &.sort-line {
+                                        border-top: .1rem solid color(neutral, 030);
+                                    }
+                                }
+                            }
+                        }
+
+                        .section{
+                            .section-body{
+                                .post-list{
+                                    &.social{
+                                        .post-wrap{
+                                            .post-head{
+                                                padding: 2.7rem;
+                                                text-align: center;
+                                                background-color: color(primary, 070);
+                                                border-radius: 1.6rem;
+                                                margin-bottom: 1.6rem;
+                                                .post-caption{
+                                                    @include font(small-3x, bold);
+                                                    color: color(system, 070)
+                                                }
+                                            }
+                                            .post-body{
+                                                .data-display{
+                                                    .data-list{
+                                                        .data-head{
+                                                            .data-subject{
+                                                                color: color(primary, 070);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    &.design5{
+                                        .post-figure{
+                                            margin-top: 6.4rem;
+                                            @include mobile{
+                                                margin-top: 3.2rem;
+                                                @include scroll-x;
+                                            }
+                                        }
+                                    }
+                                    + .comment{
+                                        width: 100%;
+                                        text-align: right;
+                                    }
+                                }
+                                .para{
+                                    + .data-display.roadmap {
+                                        margin-top: 6.4rem;
+                                        @include mobile {
+                                            margin-top: 3.2rem;
+                                        }
+                                    }
+                                }
+
+                                .btn-display{
+                                    .btn-area{
+                                        display: flex;
+                                        gap: 2.4rem;
+                                        margin-top: 8rem;
+                                        @include mobile{
+                                            margin-top: 4.8rem;
+                                            gap: 1.6rem;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.design2{
+                                .section-wrap{
+                                    gap: 6.4rem;
+                                    @include mobile{
+                                        gap: 4.8rem;
+                                    }
+                                    .section-body{
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            &.sharing {
+                                .section-head {
+                                    width: 45.5%;
+                                }
+                                .section-figure {
+                                    width: 49.25%;
+                                    border-radius: 1.6rem;
+                                    overflow: hidden;
+                                    img {
+                                        width: 100%;
+                                    }
+                                }
+                                @include mobile {
+                                    .section-head {
+                                        width: 100%;
+                                    }
+                                    .section-figure {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                            &.gallery {
+                                .section-head {
+                                    width: 47.5%;
+                                }
+                                .section-figure {
+                                    width: 45%;
+                                    border-radius: 1.6rem;
+                                    overflow: hidden;
+                                    img {
+                                        width: 100%;
+                                    }
+                                }
+                                @include mobile {
+                                    .section-head {
+                                        width: 100%;
+                                    }
+                                    .section-figure {
+                                        width: calc(100% - 6rem);
+                                        margin: 0 auto;
+                                    }
+                                }
+                            }
+                            &.probono {
+                                .post-list.layout1 {
+                                    .post-inform {
+                                        width: 45.5%;
+                                    }
+                                    .post-body {
+                                        width: 49.17%;
+                                    }
+                                }
+                                .post-list.layout2 {
+                                    .post-inform {
+                                        width: 64.25%;
+                                    }
+                                    .post-body {
+                                        width: 30.42%;
+                                    }
+                                }
+                                @include mobile {
+                                    .post-list.layout1 {
+                                        .post-inform {
+                                            width: 100%;
+                                        }
+                                        .post-body {
+                                            width: 100%;
+                                        }
+                                    }
+                                    .post-list.layout2 {
+                                        .post-inform {
+                                            width: 100%;
+                                        }
+                                        .post-body {
+                                            width: 53.33%;
+                                            margin: 0 auto;
+                                        }
+                                    }
+                                }
+                            }
+                            &.collabo {
+                                .section-head {
+                                    width: 45.5%;
+                                }
+                                .section-figure {
+                                    width: 49.25%;
+                                    border-radius: 1.6rem;
+                                    overflow: hidden;
+                                    img {
+                                        width: 100%;
+                                    }
+                                }
+                                @include mobile {
+                                    .section-head {
+                                        width: 100%;
+                                    }
+                                    .section-figure {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                        .post-figure {
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            // table col width
+            table{
+                &.col-w-1 {
+                    col {
+                        @each $index, $width in (1: auto) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                        @include mobile {
+                            @each $index, $width in (1: 13.7%) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .comment {
+                margin-top: 1.6rem;
+                @include mobile {
+                    margin-top: 1.2rem;
+                }
+            }
+        }
+
+        // 사회적 가치 성과
+        &.social-val{
+            .section-body{
+                .data-display{
+                    &.type2{
+                        .data-item{
+                            .item-wrap{
+                                .item-head{
+                                    .item-subject{
+                                        @include font(small-1x, bold);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 보고서 및 정책
+        &.report-st{
+            .section{
+                &.design2{
+                    .section-wrap{
+                        gap: 14.7rem;
+                        .section-head {
+                            width: 32.25%;
+                            .section-name{
+                                @include font(small-2x, bold);
+                                color: color(system, 070);
+                                margin-bottom: 2.4rem;
+                            }
+                            @include mobile{
+                                width: 100%;
+                            }
+                        }
+                        .section-body{
+                            width: calc(100% - 32.25%);
+                            .post-list{
+                                &.design5{
+                                    .post-figure{
+                                        img{
+                                            border-radius: 1.6rem;
+                                            @include mobile{
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .data-list{
+                                &.network{
+                                    .data-item{
+                                        padding: 0;
+                                        border-bottom: none;
+                                        margin-top: 2.4rem;
+                                        .item-wrap{
+                                            .item-head{
+                                                .item-date{
+                                                    @include font(small-1x, bold);
+                                                    @include mobile{
+                                                        @include font(small-2x, bold);
+                                                    }
+                                                }
+                                            }
+                                            @include mobile{
+                                                flex-direction: column;
+                                                justify-content: center;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            @include mobile{
+                                width: 100%;
+                            }
+                        }
+                        @include mobile{
+                            gap: 0;
+                        }
+                    }
+                }
+                &.design1{
+                    .section-wrap{
+                        .section-body{
+                            width: 100%;
+                            .data-display{
+                                &.design5{
+                                    margin-top: 4rem;
+                                    @include mobile{
+                                        margin-top: 2.4rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        // 사회적가치성과
+        &.social-val{
+            .section {
+                .board-display {
+                    .board-list {
+                        + .comment {
+                            margin-top: 1.6rem;
+                        }
+                    }
+                    + .board-display {
+                        margin-top: 6.4rem;
+                    }
+                }
+                .data-display.design2 {
+                    + .board-display {
+                        margin-top: 4rem;
+                    }
+                    + .esg-inform-list {
+                        margin-top: 4rem;
+                    }
+                }
+                &.select-value {
+                    .section-body {
+                        > .para {
+                            + .data-display.design2 {
+                                margin-top: 6.4rem;
+                            }
+                        }
+                    }
+
+                }
+            }
+            @include mobile {
+                .section {
+                    .board-display {
+                        .board-list {
+                            + .comment {
+                                margin-top: 1.2rem;
+                            }
+                        }
+                        + .board-display {
+                            margin-top: 3.2rem;
+                        }
+                        &.scroll {
+                            @include scroll-x;
+                        }
+                    }
+                    .data-display.design2 {
+                        + .board-display {
+                            margin-top: 4rem;
+                        }
+                    }
+                    &.select-value {
+                        .section-body {
+                            > .para {
+                                + .data-display.design2 {
+                                    margin-top: 3.2rem;
+                                }
+                            }
+                        }
+                        .esg-inform {
+                            margin-top: 2.4rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 기후변화
+        &.climate-change {
+            .section {
+                &.csr-cont {
+                    position: relative;
+                    padding: 6.4rem 0;
+
+                    .data-display {
+                        .data-item {
+                            + .data-item {
+                                margin-top: 4rem;
+                            }
+                        }
+                    }
+                    &::before {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: calc(50% - calc(50vw - 5%));
+                        width:calc(100vw - 10%);
+                        height:100%;
+                        content: "";
+                        z-index: -1;
+                        background-color: color(neutral,020);
+                        border-radius: 1.6rem;
+                    }
+
+                    @media (max-width: 1380px) {
+                        &::before {
+                            left: calc(50% - 50vw);
+                            width:100vw;
+                            border-radius: unset;
+                        }
+                    }
+
+                    @include mobile {
+                        padding: 8rem 0;
+                        .data-display {
+                            .data-item {
+                                + .data-item {
+                                    margin-top: 2.4rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .post-list.design5 {
+                    + .data-display {
+                        margin-top: 8rem;
+                    }
+                    + .comment {
+                        display: block;
+                        margin-top: 4rem;
+                        ~ .comment {
+                            display: block;
+                            margin-top: 0.4rem
+                        }
+                    }
+                }
+                .data-display.design2 {
+                    + .esg-inform-list {
+                        margin-top: 4rem;
+                        + .banner.design1 {
+                            margin-top: 8rem;
+                        }
+                    }
+                }
+
+
+                @include mobile {
+                    .post-list.design5 {
+                        + .data-display {
+                            margin-top: 4.8rem;
+                            @include scroll-x;
+                        }
+                        + .comment {
+                            margin-top: 2.4rem;
+                        }
+                        .post-figure {
+                            @include scroll-x;
+                        }
+                    }
+
+                    .data-display.design2 {
+                        + .esg-inform-list {
+                            margin-top: 2.4rem;
+                            + .banner.design1 {
+                                margin-top: 4.8rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 지배구조
+        &.governance-structure {
+            .tab-display {
+                + .panel-display {
+                    margin-top: 6.4rem;
+                }
+            }
+            .section {
+                &.structure {
+                    .data-display.design1.case2 {
+                        > .data-list {
+                            > .data-item {
+                                + .data-item {
+                                    margin-top: 6.4rem;
+                                }
+                            }
+                        }
+                    }
+                    @include mobile {
+                        .data-display.design1.case2 {
+                            > .data-list {
+                                > .data-item {
+                                    + .data-item {
+                                        margin-top: 3.2rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.activity-detail {
+                    .data-display {
+                        + .data-display {
+                            margin-top: 6.4rem;
+                        }
+                    }
+                    .data-display.design2 {
+                        + .esg-inform-list {
+                            margin-top: 2.4rem;
+                        }
+                    }
+                    @include mobile {
+                        .data-display {
+                            + .data-display {
+                                margin-top: 3.2rem;
+                            }
+                        }
+                        .data-display.design2 {
+                            + .esg-inform-list {
+                                margin-top: 1.6rem;
+                            }
+                        }
+                    }
+                }
+                &.committee {
+                    > .section-wrap {
+                        > .section-body {
+                            > .data-display {
+                                + .data-display {
+                                    margin-top: 6.4rem;
+                                }
+                                .data-display.design1.case6 {
+                                    .data-wrap {
+                                        gap: 2rem;
+                                    }
+                                    .data-head {
+                                        width: 32.25%;
+                                    }
+                                    .data-body {
+                                        width: 66.08%;
+                                        .data-display {
+                                            ~ .data-display {
+                                                margin-top: 4rem;
+                                            }
+                                        }
+                                        .comment {
+                                            margin-top: 1.6rem;
+                                            + .data-display {
+                                                margin-top: 6.4rem;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .data-display.design2 {
+                        + .esg-inform-list {
+                            margin-top: 2.4rem;
+                        }
+                    }
+
+                    @include mobile {
+                        > .section-wrap {
+                            > .section-body {
+                                > .data-display {
+                                    + .data-display {
+                                        margin-top: 3.2rem;
+                                    }
+                                    .data-display.design1.case6 {
+                                        .data-wrap {
+                                            gap: 1.2rem;
+                                        }
+                                        .data-head {
+                                            width: 100%;
+                                        }
+                                        .data-body {
+                                            width: 100%;
+                                            .data-display {
+                                                ~ .data-display {
+                                                    margin-top: 3.2rem;
+                                                }
+                                            }
+                                            .comment {
+                                                margin-top: 1.2rem;
+                                                + .data-display {
+                                                    margin-top: 3.2rem;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .data-display.design2 {
+                            + .esg-inform-list {
+                                margin-top: 1.6rem;
+                            }
+                        }
+                    }
+                }
+                &.download1 {
+                    .board-list {
+                        .board-item {
+                            width: calc(100% / 3 - 1.333rem);
+                            .board-head {
+                                min-height: 8.3rem;
+                            }
+                        }
+                    }
+                    @include mobile {
+                        .board-list {
+                            .board-item {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+                &.download2 {
+                    .section-wrap {
+                        gap: 2rem;
+                        .section-head {
+                            width: 32.25%;
+                        }
+                        .section-body {
+                            width: calc(100% - 32.25% - 2rem);
+                        }
+                    }
+                    @include mobile {
+                        .section-wrap {
+                            gap: 2.4rem;
+                            .section-head {
+                                width: 100%;
+                            }
+                            .section-body {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            @include mobile {
+                .tab-display {
+                    + .panel-display {
+                        margin-top: 3.2rem;
+                    }
+                }
+                .esg-committee-table {
+                    min-width: 1337px;
+                }
+                .esg-personnel-table {
+                    table {
+                        min-width: 844px;
+                    }
+                }
+                .esg-management-table {
+                    table {
+                        min-width: 696px;
+                    }
+                }
+                .esg-activity-table {
+                    table {
+                        min-width: 880px;
+                    }
+                }
+                .esg-audit-table {
+                    table {
+                        min-width: 1024px;
+                    }
+                }
+            }
+
+            //table col width
+            table {
+                &.col-w-1 {
+                    col {
+                        @include mobile {
+                            @each $index, $width in (1: 23%, 2: 24%, 3: auto, 4: 23%) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-2 {
+                    col {
+                        @include mobile {
+                            @each $index, $width in (1: 9.8%, 2: 33.5%, 3: 26.36%, 4: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-3 {
+                    col {
+                        @each $index, $width in (1: 8.33%, 2: 15.38%, 3: auto, 4: 15.38%, 5: 15.38%, 6: 15.38%) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+
+                        @include mobile {
+                            @each $index, $width in (1: 8.79%, 2: 14%, 3: auto, 4: 18.15%, 5: 12.02%, 6: 12.02%) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-4 {
+                    col {
+                        @each $index, $width in (1: 8.33%, 2: 15.38%, 3: auto, 4: 15.38%, 5: 15.38%) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+
+                        @include mobile {
+                            @each $index, $width in (1: 8.79%, 2: 14%, 3: auto, 4: 18.15%, 5: 12.02%) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-5 {
+                    col {
+                        @each $index, $width in (1: 10.09%, 2: 15.64%, 3: 42.88%, 4: 15.64%, 5: auto) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+
+                        @include mobile {
+                            @each $index, $width in (1: 11.21%, 2: 17.7%, 3: 42.48%, 4: 11.21%, 5: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-6 {
+                    col {
+                        @each $index, $width in (1: 9%, 2: 15.38%, 3: auto, 4: 15.38%, 5: 15.38%, 6: 15.38%) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+
+                        @include mobile {
+                            @each $index, $width in (1: 7.42%, 2: 12%, 3: auto, 4: 8%, 5: 11.91%, 6: 11.52%) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 윤리경영
+        &.ethical-man{
+            .panel-display{
+                .panel-list{
+                    .panel-item{
+                        .panel-head{
+                            margin-top: 6.4rem;
+                        }
+                        .panel-body{
+                            .section{
+                                .section-subject {
+                                    + .comment{
+                                        margin-top: 1.6rem;
+                                        @include mobile{
+                                            margin-top: 1.2rem;
+                                        }
+                                    }
+                                }
+                                .para{
+                                    + .comment{
+                                        margin-top: 1.6rem;
+                                        @include mobile{
+                                            margin-top: 1.2rem;
+                                        }
+                                    }
+                                }
+                                .section-body{
+                                    .post-list{
+                                        &.design5{
+                                            .post-item{
+                                                .post-head{
+                                                    text-align: center;
+                                                    .post-subject{
+                                                        padding: 4rem 0 6.4rem;
+                                                    }
+                                                }
+                                            }
+                                            @include mobile{
+                                                .post-item{
+                                                    .post-figure{
+                                                        @include scroll-x;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    > .para {
+                                        + .data-display {
+                                            margin-top: 6.4rem;
+                                            @include mobile{
+                                                margin-top: 3.2rem;
+                                            }
+                                        }
+                                    }
+
+                                    &.process{
+                                        display: flex;
+                                        // gap: 1rem;
+                                        align-items: center;
+                                        justify-content: space-between;
+                                        margin-top: 2.4rem !important;
+                                        >.post-list {
+                                            width: 46.83%;
+                                        }
+                                        >.data-display{
+                                            width: 43.83%;
+                                            >.data-list{
+                                                margin-top: 7.8rem;
+                                                @include mobile{
+                                                    margin-top: 0;
+                                                }
+                                                >.data-item{
+                                                    border-bottom: 0.1rem solid #E4E4E7;
+                                                    .num-tit{
+                                                        font-weight: 700;
+                                                        @include mobile{
+                                                            @include font(small-5x, bold);
+                                                        }
+                                                    }
+                                                    @include web {
+                                                        + .data-item{
+                                                            padding: 2.4rem 0;
+                                                            margin-top: 0;
+                                                        }
+                                                        &:first-child {
+                                                            padding-bottom: 2.4rem;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        @include mobile{
+                                            flex-direction: column;
+                                            gap: 2.4rem;
+                                            >.post-list {
+                                                width: 100%;
+                                            }
+                                            >.data-display{
+                                                width: 100%;
+                                                padding: .8rem 2.4rem 0;
+                                                margin-top: 0;
+                                                padding-top: 0;
+                                                >.data-list{
+                                                    >.data-item{
+                                                        padding: 1.6rem 0;
+                                                    }
+                                                }
+                                            }
+                                            .post-list{
+                                                margin-top: 0;
+                                            }
+                                        }
+                                    }
+                                    .comment{
+                                        &.design1{
+                                            margin-top: 1.6rem;
+                                            @include mobile{
+                                                margin-top: 1.2rem;
+                                            }
+                                        }
+                                        &.design2{
+                                            margin: 8rem 0 2.4rem;
+                                            @include mobile{
+                                                margin: 4.8rem 0 1.6rem;
+                                            }
+                                        }
+                                    }
+
+                                    .spec{
+                                        > .data-list{
+                                            height: 100%;
+                                            min-height: 10.4rem;
+                                            @include mobile{
+                                                min-height: auto;
+                                            }
+                                        }
+                                    }
+                                }
+
+
+
+                                .section-util{
+                                    // margin-top: 0;
+                                    .btn-area{
+                                        gap: 2.4rem;
+                                        @include mobile{
+                                            gap: 1.2rem;
+                                        }
+                                    }
+                                }
+
+                                &.bg-color{
+                                    position: relative;
+                                    padding: 8rem 0;
+                                    @include mobile {
+                                        padding: 4.8rem 0;
+                                    }
+                                    &::after{
+                                        position: absolute;
+                                        top: 0;
+                                        left: 50%;
+                                        width: 100vw;
+                                        height: 100%;
+                                        content: '';
+                                        background-color: color(secondary, 080);
+                                        transform: translateX(-50%);
+                                        z-index: -1;
+
+                                    }
+                                    .section-head{
+                                        .section-name{
+                                            color: color(system, 070) !important;
+                                            text-align: center;
+                                        }
+                                    }
+                                    .section-figure{
+                                        margin: 4rem 0;
+                                        border-radius: 1.6rem;
+                                        overflow: hidden;
+                                        @include mobile {
+                                            margin: 2.4rem 0;
+                                        }
+                                        img{
+                                            width: 100%;
+                                        }
+                                    }
+                                    .section-util{
+                                        display: flex;
+                                        padding-top: 0;
+                                        justify-content: space-between;
+                                        @include web {
+                                            .btn-display {
+                                                align-self: flex-end;
+                                            }
+                                        }
+                                        @include mobile{
+                                            flex-direction: column;
+                                            .btn-display{
+                                                text-align: center;
+                                                margin-top: 4.8rem;
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            .board-list.design15 {
+                .t-display.scroll {
+                    @include mobile {
+                        width: calc(100% + 4.8rem);
+                        padding-right: 2.4rem;
+                        padding-left: 2.4rem;
+                        margin-left: -2.4rem;
+                    }
+                }
+            }
+            
+            // table col width
+            table {
+                &.col-w-1 {
+                    col {
+                        @each $index, $width in (1: 26.9%, 2: auto, 3: 9%) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                        @include mobile {
+                            @each $index, $width in (1: 24.35%, 2: 27%, 3: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-2 {
+                    col {
+                        @each $index, $width in (1: 33.333%, 2: 33.333%, 3: 33.333%) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                        @include mobile {
+                            @each $index, $width in (1: 14.92%, 2: 48.14%, 3: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+
+        @include mobile {
+            .content-body {
+                padding-top: 8rem;
+                .section {
+                    // .section-head {
+                    //     ~.section-util {
+                    //         padding-top: 4.8rem;
+                    //     }
+                    // }
+                    &.major {
+                        padding: 4.8rem 0;
+                    }
+                    +.section {
+                        margin-top: 8rem;
+                    }
+                }
+            }
+        }
+        // 수상및인증
+        &.award {
+            .section {
+                .data-display.design1 {
+                    > .data-list {
+                        > .data-item {
+                            + .data-item {
+                                margin-top: 8rem;
+                            }
+                        }
+                    }
+                }
+                .data-display.design2 {
+                    > .data-list {
+                        > .data-item {
+                            .item-head {
+                                width: calc(100% - 22rem);
+                            }
+                            .item-util {
+                                .btn-text {
+                                }
+                            }
+                        }
+                    }
+                }
+                @include mobile {
+                    .data-display.design1 {
+                        > .data-list {
+                            > .data-item {
+                                + .data-item {
+                                    margin-top: 4.8rem;
+                                }
+                            }
+                        }
+                    }
+                    .data-display.design2 {
+                        > .data-list {
+                            > .data-item {
+                                .item-head {
+                                    width: calc(100% - 9rem);
+                                }
+                                .item-util {
+                                    .btn-text {
+                                        font-size: 0;
+                                        &::after {
+                                            margin-left: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // 정보보호 및 보안
+        &.info-protection {
+            .section {
+                &.security {
+                    .section-body {
+                        .para {
+                            + .data-display {
+                                margin-top: 8rem;
+                            }
+                        }
+                        > .data-display {
+                            .data-item {
+                                + .data-item {
+                                    margin-top: 6.4rem;
+                                }
+                                .data-head {
+                                    + .data-figure {
+                                        margin-top: 2.4rem;
+                                    }
+                                }
+                                .data-body.layout1 {
+                                    @include mobile {
+                                        @include scroll-x;
+                                    }
+                                }
+                                .post-list.design6 {
+                                    .post-inform {
+                                        width: 61.08%;
+                                    }
+                                    .post-body {
+                                        width: 33.58%;
+                                    }
+                                }
+                            }
+                        }
+                        @include mobile {
+                            .para {
+                                + .data-display {
+                                    margin-top: 4.8rem;
+                                }
+                            }
+                            > .data-display {
+                                .data-item {
+                                    + .data-item {
+                                        margin-top: 3.2rem;
+                                    }
+                                    .data-head {
+                                        + .data-figure {
+                                            margin-top: 1.2rem;
+                                        }
+                                    }
+                                    .post-list.design6 {
+                                        .post-inform {
+                                            width: 100%;
+                                        }
+                                        .post-body {
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.bg-1 {
+                    position: relative;
+                    padding: 8rem 0;
+                    .section-body {
+                        .section-figure {
+                            display: flex;
+                            justify-content: center;
+                            img + img {
+                                margin-left: 1.6rem;
+                            }
+                            + .para {
+                                margin-top: 4rem;
+                                + .comment {
+                                    margin-top: 1.6rem;
+                                }
+                            }
+                        }
+                    }
+                    &::before {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: calc(50% - 50vw);
+                        width:100vw;
+                        height:100%;
+                        content: "";
+                        z-index: -1;
+                        background-color: color(neutral,020);
+                    }
+                    @include mobile {
+                        padding: 4.8rem 0;
+                        .section-body {
+                            .section-figure {
+
+                                img {
+                                    max-width: 13.3rem;
+                                    + img {
+                                        margin-left: 1.2rem;
+                                    }
+                                }
+                                + .para {
+                                    margin-top: 2.4rem;
+                                    + .comment {
+                                        margin-top: 1.2rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.organization {
+                    .post-list {
+                        .post-inform {
+                            width: 48%;
+                        }
+                        .post-body {
+                            width: 46.67%;
+                        }
+                    }
+                    @include mobile {
+                        .post-list {
+                            .post-inform {
+                                width: 100%;
+                            }
+                            .post-body {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+                &.response {
+                    .data-display {
+                        + .para {
+                            margin-top: 4rem;
+                            + .comment {
+                                margin-top: 1.6rem;
+                            }
+                        }
+                        @include mobile {
+                            + .para {
+                                margin-top: 2.4rem;
+                                + .comment {
+                                    margin-top: 1.2rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.direction {
+                    .section-body {
+                        > .para {
+                            + .data-display {
+                                margin-top: 6.4rem;
+                                + .para {
+                                    margin-top: 8rem;
+                                }
+                            }
+                        }
+                        @include mobile {
+                            > .para {
+                                + .data-display {
+                                    margin-top: 3.2rem;
+                                    + .para {
+                                        margin-top: 4.8rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .data-figure {
+                img {
+                    width: 100%;
+                }
+            }
+            .board-list.design16 {
+                + .para {
+                    margin-top: 4rem;
+                    + .comment {
+                        margin-top: 1.6rem;
+                    }
+                }
+                @include mobile {
+                    + .para {
+                        margin-top: 2.4rem;
+                        + .comment {
+                            margin-top: 1.2rem;
+                        }
+                    }
+                }
+            }
+            .bg-shadow-layout {
+                border-radius: 1.6rem;
+                box-shadow: 0px 1.33562px 5.34247px rgba(0, 0, 0, 0.1);
+                &.case1 {
+                    padding: 8rem 6.4rem;
+                    @include mobile {
+                        padding: 4.8rem 3.2rem;
+                        .data-figure {
+                            // @include scroll-x;
+                            // width: calc(100% + 3.2rem);
+                            // padding-right: 3.2rem;
+                            // padding-bottom: 1.6rem;
+                            // overflow: auto;
+                        }
+                    }
+                }
+                &.case2 {
+                    padding: 6.4rem;
+                    @include mobile {
+                        padding: 3.2rem 2.4rem;
+                    }
+                }
+            }
+        }
+    }
+    &.overview {
+        .section {
+            &.story1 {
+                .section-wrap {
+                    padding: 16rem 0;
+                    margin: 0 auto;
+                    max-width: 120rem;
+
+                    @include mobile{
+                        padding: 8rem 0;
+                    }
+
+                    .section-head {
+                        .section-subject {
+                            .section-name {
+                                @include font(large-6x, bold);
+                                color: color(typo, 020);
+                                line-height: 1.4;
+
+                                @include mobile{
+                                    @include font(large-1x, bold);
+                                    color: color(typo, 020);
+                                    line-height: 1.2;
+                                }
+                            }
+                        }
+
+                        & + .section-body {
+                            margin-top: 6.4rem;
+
+                            @include mobile{
+                                margin-top: 4.8rem;
+                            }
+                        }
+                    }
+                    .section-body {
+                        .post-list {
+                            &.visaul {
+                                .post-item {
+                                    .post-wrap {
+                                        display: flex;
+                                        flex-direction: column;
+                                        .post-figure {
+                                            position: relative;
+                                            width: 100%;
+                                            padding-bottom: 30px;
+                                            transition: all 0.5s ease-out;
+
+                                            @include mobile{
+                                                padding-bottom: 8.4rem;
+                                            }
+
+                                            .post-figure-wrap {
+                                                position: absolute;
+                                                bottom: 0;
+                                                left: 50%;
+                                                transform: translateX(-50%);
+                                                border-radius: 1.6rem;
+                                                overflow: hidden;
+                                                transition: all 0.5s ease-out;
+
+                                                img {
+                                                    position: absolute;
+                                                    top: 0;
+                                                    left: 50%;
+                                                    width: 1200px;
+                                                    height: 100%;
+                                                    transform: translateX(-50%);
+                                                    object-fit: cover;
+
+                                                    @include mobile{
+                                                        width: 100%;
+                                                    }
+                                                }
+                                            }
+
+                                            & + .post-head {
+                                                margin-top: 8rem;
+
+                                                @include mobile{
+                                                    margin-top: 4.8rem;
+                                                }
+                                            }
+                                        }
+                                        .post-head {
+                                            max-width: 48.8rem;
+
+                                            @include mobile{
+                                                max-width: 100%;
+                                            }
+
+                                            .post-subject {
+                                                .post-name {
+                                                    @include font(small-1x, bold);
+                                                    color: color(typo, 020);
+
+                                                    @include mobile{
+                                                        @include font(small-2x, bold);
+                                                    }
+                                                }
+                                                & + .post-summary {
+                                                    margin-top: 2.4rem;
+
+                                                    @include mobile{
+                                                        margin-top: 1.6rem;
+                                                    }
+                                                }
+                                            }
+                                            .post-summary {
+                                                @include font(small-3x, medium);
+                                                color: color(typo, 010);
+
+                                                @include mobile{
+                                                    @include font(small-4x, medium);
+                                                }
+                                            }
+
+                                            & + .post-figure {
+                                                margin-top: 8rem;
+
+                                                @include mobile{
+                                                    margin-top: 4.8rem;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    & + .post-item {
+                                        margin-top: 1.6rem;
+
+                                        @include mobile{
+                                            margin-top: 1.2rem;
+                                        }
+                                    }
+                                    &.first {
+                                        .post-wrap {
+                                            align-items: flex-end;
+
+                                            @include mobile{
+                                                align-items: flex-start;
+                                            }
+                                            .post-figure {
+                                                .post-figure-wrap {
+                                                    width: 0;
+                                                    height: 0;
+                                                }
+                                            }
+                                        }
+                                        &.active1 {
+                                            .post-wrap {
+                                                .post-figure {
+                                                    padding-bottom: 500px;
+
+                                                    @include mobile{
+                                                        padding-bottom: 30rem;
+                                                    }
+                                                }
+                                                .post-figure-wrap {
+                                                    width: 100%;
+                                                    height: 500px;
+
+                                                    @include mobile{
+                                                        width: 100%;
+                                                        height: 30rem;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &.active2 {
+                                            .post-wrap {
+                                                .post-figure {
+                                                    padding-bottom: 0;
+                                                }
+                                                .post-figure-wrap {
+                                                    width: 1200px;
+                                                    height: 0px;
+
+                                                    @include mobile {
+                                                        width: 100%;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    &.second {
+                                        .post-wrap {
+                                            align-items: flex-start;
+                                            .post-figure {
+                                                .post-figure-wrap {
+                                                    width: 100%;
+                                                    height: 30px;
+
+                                                    @include mobile {
+                                                        width: 100%;
+                                                        height: 8rem;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &.active {
+                                            margin-top: 0;
+                                            transition: margin-top .5s ease 0.4s;
+                                            .post-wrap {
+                                                .post-figure {
+                                                    padding-bottom: 500px;
+
+                                                    @include mobile{
+                                                        padding-bottom: 300px;
+                                                    }
+                                                }
+                                                .post-figure-wrap {
+                                                    height: 500px;
+
+                                                    @include mobile{
+                                                        height: 300px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                & + .post-display {
+                                    margin-top: 16rem;
+
+                                    @include mobile{
+                                        margin-top: 8rem;
+                                    }
+                                }
+                            }
+                        }
+                        .post-display  {
+                            display: flex;
+                            flex-direction: column;
+                            row-gap: 4rem;
+
+                            @include mobile{
+                                row-gap: 2.4rem;
+                            }
+
+                            &.slide {
+                                .post-list {
+                                    display: flex;
+                                    position: relative;
+                                    column-gap: 2rem;
+                                    transition: .5s ease-out;
+
+                                    @include mobile{
+                                        column-gap: 1.6rem;
+                                    }
+
+                                    .post-item {
+                                        position: relative;
+                                        width: 26rem;
+                                        padding-bottom: 15.2rem;
+                                        overflow: hidden;
+                                        border-radius: 1.6rem;
+                                        flex-shrink: 0;
+
+                                        @include mobile{
+                                            width: 12rem;
+                                            padding-bottom: 7.2rem;
+                                        }
+
+                                        img {
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 50%;
+                                            width: 100%;
+                                            height: 100%;
+                                            transform: translate(-50%,-50%);
+                                            object-fit: cover;
+                                        }
+                                    }
+
+                                    &.first {
+                                        transform: translateX(-42%);
+                                    }
+                                    &.second {
+                                        transform: translateX(42%);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.story2 {
+                position: relative;
+                margin: 0 -1.8rem -300px -1.8rem;
+                transition: 0.5s ease-out;
+                background-color: #fff;
+
+                @include mobile {
+                    margin: 0 -1.8rem -200px -1.8rem;
+                }
+
+                &::after {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    content: '';
+                    border-radius: 2.4rem;
+                    background-image: url(../images/esg/bg-story2.png);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
+                    z-index: -1;
+                    opacity: 1;
+                }
+
+                .section-bg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 2.4rem;
+                    background-color: #ededed;
+                    z-index: -2;
+                    transition: 0.5s ease-out;
+                }
+                .section-wrap {
+                    display: flex;
+                    padding: 8rem 0 16rem 0;
+                    flex-direction: column;
+                    align-items: center;
+
+                    @include mobile {
+                        padding: 4.8rem 1.8rem 4.8rem 1.8rem;
+                    }
+
+                    .section-head {
+                        text-align: center;
+                        .section-subject {
+                            .section-name {
+                                @include font(medium, bold);
+                                color: color(typo, 020);
+
+                                @include mobile {
+                                    @include font(small-1x, bold);
+                                }
+
+                                & + .section-summary {
+                                    margin-top: 2.4rem;
+
+                                    @include mobile {
+                                        margin-top: 1.6rem;
+                                    }
+                                }
+                            }
+                            .section-summary {
+                                @include font(small-3x, medium);
+                                color: color(typo, 010);
+
+                                @include mobile {
+                                    @include font(small-4x, medium);
+                                }
+                            }
+                        }
+                        & + .section-body {
+                            margin-top: 6.4rem;
+
+                            @include mobile {
+                                margin-top: 3.2rem;
+                            }
+                        }
+                    }
+                    .section-body {
+                        .post-list {
+                            display: flex;
+                            width: 79.4rem;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            column-gap: 20px;
+                            row-gap: 2.4rem;
+
+                            @include mobile {
+                                width: 100%;
+                                row-gap: 1.6rem;
+                            }
+
+                            .post-item {
+                                position: relative;
+                                width: calc(50% - 10px);
+                                height: 58rem;
+                                padding: 4rem 2.4rem 2.4rem 2.4rem;
+                                border-radius: 1.6rem;
+                                overflow: hidden;
+                                transition: .5s ease-out;
+
+                                @include mobile {
+                                    width: 100%;
+                                    height: 38rem;
+                                    padding: 2.4rem 2.4rem 2.4rem 2.4rem;
+                                    row-gap: 1.6rem;
+                                }
+
+                                &::after {
+                                    display: block;
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 30rem;
+                                    content: '';
+                                    background-repeat: no-repeat;
+                                    background-size: 100%;
+                                    background-position: top;
+
+                                    @include mobile {
+                                        height: 18rem;
+                                    }
+                                }
+
+                                .post-wrap {
+                                    display: flex;
+                                    flex-direction: column;
+
+                                    .post-head {
+                                        .post-subject {
+                                            .post-name {
+                                                @include font(small-1x, bold);
+                                                color: color(typo, 000);
+
+                                                @include mobile {
+                                                    @include font(small-2x, bold);
+                                                }
+                                            }
+                                        }
+                                        & + .post-body {
+                                            margin-top: 1.6rem;
+
+                                            @include mobile {
+                                                margin-top: 1.2rem;
+                                            }
+                                        }
+                                    }
+                                    .post-body {
+                                        .para {
+                                            @include font(small-4x, bold);
+                                            color: color(typo, 000);
+
+                                            @include mobile {
+                                                @include font(small-5x, bold);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &:nth-child(1) {
+                                    background-color:#009A93;
+
+                                    &::after {
+                                        background-image: url(../images/esg/bg-story2-01.png);
+                                    }
+                                }
+                                &:nth-child(2) {
+                                    transform: translateY(250px);
+                                    background-color:#0072C6;
+
+                                    @include mobile {
+                                        transform: translateY(150px);
+                                    }
+
+                                    &::after {
+                                        background-image: url(../images/esg/bg-story2-02.png);
+                                    }
+                                }
+                                &:nth-child(3) {
+                                    transform: translateY(280px);
+                                    background-color:#0E306D;
+
+                                    @include mobile {
+                                        transform: translateY(280px);
+                                    }
+
+                                    &::after {
+                                        background-image: url(../images/esg/bg-story2-03.png);
+                                    }
+                                }
+                                &:nth-child(4) {
+                                    transform: translateY(300px);
+                                    background-color:#F47725;
+
+                                    @include mobile {
+                                        transform: translateY(400px);
+                                    }
+
+                                    &::after {
+                                        background-image: url(../images/esg/bg-story2-04.png);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.story3 {
+                .section-wrap {
+                    padding: 16rem 0;
+                    margin: 0 auto;
+                    max-width: 120rem;
+
+                    @include mobile {
+                        padding: 8rem 0;
+                    }
+
+                    .section-head {
+                        .section-subject {
+                            .section-name {
+                                @include font(medium, bold);
+                                color: color(typo, 020);
+
+                                @include mobile {
+                                    @include font(small-1x, bold);
+                                }
+
+                                & + .section-summary {
+                                    margin-top: 2.4rem;
+
+                                    @include mobile {
+                                        margin-top: 1.6rem;
+                                    }
+                                }
+                            }
+                            .section-summary {
+                                @include font(small-3x, medium);
+                                color: color(typo, 010);
+
+                                @include mobile {
+                                    @include font(small-4x, medium);
+                                }
+                            }
+                        }
+                        & + .section-body {
+                            margin-top: 6.4rem;
+
+                            @include mobile {
+                                margin-top: 3.2rem;
+                            }
+                        }
+                    }
+                    .section-body {
+                        .data-list {
+                            display: flex;
+                            position: relative;
+                            flex-wrap: wrap;
+                            gap: 2rem;
+                            transform: translateY(50px);
+                            transition: all .5s ease-out;
+
+                            @include mobile {
+                                gap: 1.6rem;
+                            }
+
+                            .data-item {
+                                width: calc(50% - 10px);
+                                padding: 4rem;
+                                border-radius: 1.6rem;
+                                box-shadow: 0px 1.336px 5.342px 0px rgba(0, 0, 0, 0.10);
+
+                                @include mobile {
+                                    width: 100%;
+                                    padding: 2.4rem;
+                                    border-radius: 0.8rem;
+                                }
+
+                                .data-wrap {
+                                    display: flex;
+                                    flex-direction: column;
+
+                                    @include mobile {
+                                        align-items: center;
+                                    }
+
+                                    .data-figure {
+                                        & + .data-head {
+                                            margin-top: 2.4rem;
+
+                                            @include mobile {
+                                                margin-top: 1.6rem;
+                                            }
+                                        }
+                                    }
+                                    .data-head {
+                                        .data-subject {
+                                            .data-name {
+                                                @include font(small-2x, bold);
+                                                color: color(typo, 020);
+
+                                                @include mobile {
+                                                    @include font(small-3x, bold);
+                                                }
+                                            }
+                                        }
+                                        & + .data-body {
+                                            margin-top: 2.4rem;
+
+                                            @include mobile {
+                                                margin-top: 1.6rem;
+                                            }
+                                        }
+                                    }
+                                    .data-body {
+                                        .para {
+                                            @include font(small-4x, medium);
+                                            color: color(typo, 010);
+
+                                            @include mobile {
+                                                @include font(small-5x, bold);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.story4 {
+                position: relative;
+                transition: 0.5s ease-out;
+
+                .section-wrap {
+                    .section-head {
+                        text-align: center;
+                        .section-subject {
+                            .section-name {
+                                @include font(medium, bold);
+                                color: color(typo, 020);
+
+                                @include mobile {
+                                    @include font(small-1x, bold);
+                                }
+
+                                & + .section-summary {
+                                    margin-top: 2.4rem;
+
+                                    @include mobile {
+                                        margin-top: 1.6rem;
+                                    }
+                                }
+                            }
+                            .section-summary {
+                                @include font(small-3x, medium);
+                                color: color(typo, 010);
+
+                                @include mobile {
+                                    @include font(small-4x, medium);
+                                }
+                            }
+                        }
+                        & + .section-body {
+                            margin-top: 6.4rem;
+
+                            @include mobile {
+                                margin-top: 3.2rem;
+                            }
+                        }
+                    }
+                    .section-body {
+                        display: flex;
+                        justify-content: center;
+
+                        .post-list {
+                            display: flex;
+                            position: relative;
+                            flex-wrap: wrap;
+                            max-width: 120rem;
+                            column-gap: 21px;
+
+                            @include mobile {
+                                row-gap: 4.8rem;
+                            }
+
+                            .post-item {
+                                position: relative;
+                                width: calc(33.333333% - 14px);
+
+                                @include mobile {
+                                    width: 100%;
+                                }
+
+                                .post-wrap {
+                                    display: flex;
+                                    flex-direction: column;
+
+                                    .post-figure {
+                                        display: flex;
+                                        position: relative;
+                                        width: 100%;
+                                        height: 46rem;
+                                        justify-content: center;
+                                        align-items: center;
+                                        background-color: color(neutral ,020);
+                                        border-radius: 0.8rem;
+
+                                        @include mobile {
+                                            height: 28rem;
+                                        }
+
+                                        &::after {
+                                            position: absolute;
+                                            top: 0;
+                                            width: 100%;
+                                            height: 70%;
+                                            content:'';
+                                            background-color: #fff;
+                                            transition: all 0.5s ease-out;
+                                        }
+
+                                        & + .post-head {
+                                            margin-top:2.4rem;
+
+                                            @include mobile {
+                                                margin-top: 1.6rem;
+                                            }
+                                        }
+                                    }
+
+                                    .post-head {
+                                        padding: 0 1.6rem;
+
+                                        @include mobile {
+                                            padding: 0 1.2rem;
+                                        }
+
+                                        .post-subject {
+                                            .post-name {
+                                                @include font(small-2x, bold);
+                                                color: color(typo, 020);
+
+                                                @include mobile {
+                                                    @include font(small-3x, bold);
+                                                }
+                                            }
+                                        }
+                                        & + .post-date {
+                                            margin-top: 1.6rem;
+
+                                            @include mobile {
+                                                margin-top: 0.8rem;
+                                            }
+                                        }
+                                    }
+                                    .post-date {
+                                        padding: 0 1.6rem;
+                                        color: color(typo, 005);
+                                        @include font(small-3x, medium);
+
+                                        @include mobile {
+                                            padding: 0 1.2rem;
+                                            @include font(small-4x, medium);
+                                        }
+
+                                        & + .post-body {
+                                            margin-top: 2.4rem;
+
+                                            @include mobile {
+                                                margin-top: 1.6rem;
+                                            }
+                                        }
+                                    }
+                                    .post-body {
+                                        padding: 0 1.6rem;
+
+                                        @include mobile {
+                                            padding: 0 1.2rem;
+                                        }
+                                        .para {
+                                            @include font(small-4x, medium);
+                                            color: color(typo, 010);
+
+                                            @include mobile {
+                                                @include font(small-5x, medium);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &:nth-child(1) {
+                                    @include mobile {
+                                        img {
+                                            max-width: 114px;
+                                        }
+                                    }
+                                }
+
+                                &:nth-child(2) {
+                                    margin-top: 6rem;
+
+                                    @include mobile {
+                                        margin-top: 0;
+
+                                        img {
+                                            max-width: 224px;
+                                        }
+                                    }
+                                }
+
+                                &:nth-child(3) {
+                                    @include mobile {
+                                        img {
+                                            max-width: 172px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.active {
+                    .section-wrap {
+                        .section-body {
+                            .post-list {
+                                .post-item {
+                                    .post-wrap {
+                                        .post-figure {
+                                            &::after {
+                                                height: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            &.story5 {
+                position: relative;
+                padding: 16rem 0;
+                transition: 0.5s ease-out;
+
+                @include mobile {
+                    padding: 8rem 0;
+                }
+
+
+                .section-wrap {
+                    margin: 0 auto;
+                    max-width: 120rem;
+                    .section-head {
+                        text-align: center;
+                        padding-top: 8.4rem;
+                        border-top: 0.4rem solid rgba(151, 53, 208, 0.4);
+
+                        @include mobile {
+                            padding-top: 4.8rem;
+                        }
+
+                        .section-subject {
+                            .section-name {
+                                @include font(medium, bold);
+                                color: color(primary, 080);
+                                @include mobile {
+                                    @include font(small-1x, bold);
+                                }
+                            }
+                        }
+                        & + .section-body {
+                            margin-top: 6.4rem;
+
+                            @include mobile {
+                                margin-top: 3.2rem;
+                            }
+                        }
+                    }
+                    .section-body {
+                        display: flex;
+                        justify-content: center;
+
+                        .data-display {
+                            width: 100%;
+                        }
+
+                        & + .section-util {
+                            margin-top: 8rem;
+
+                            @include mobile {
+                                margin-top: 4.8rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    sup {
+        font-size: large;
+        vertical-align: baseline;
+    }
+}
+
+#modalLaw{
+    .modal-inner{
+        .modal-area {
+            @include mobile {
+                padding: 6.4rem 0.5rem 4rem 1.8rem;
+            }
+            .modal-wrap {
+                padding: 0 4rem 0 2rem;
+                @include mobile {
+                    padding: unset;
+                    padding-right: 0.8rem;
+                }
+            }
+        }
+        .modal-list{
+            .modal-item{
+                .modal-head{
+                    .modal-caption{
+                        @include font(small-2x, bold);
+                        margin-top: 1.6rem;
+                    }
+                }
+                .modal-body{
+                    .para{
+                        + .para{
+                            margin-top: 1.6rem;
+                            margin-bottom: 4rem;
+                        }
+                    }
+                    .t-display{
+                        &.design4{
+                            margin-top: 4rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#modalMatchup{
+    .modal-inner{
+        .modal-area{
+            // padding: 8rem 4rem 4rem;
+            padding: 8rem 2.5rem 4rem 2rem;
+            @include mobile{
+                padding: 8rem 0.8rem 4rem 1.8rem;
+            }
+            .modal-list{
+                .modal-item{
+                    .modal-head{
+                        .modal-caption{
+                            @include font(small-2x, bold);
+                            margin-top: 1.6rem;
+                        }
+                    }
+                    .modal-body{
+                        .para{
+                            margin-top: 1.6rem;
+                            margin-bottom: 4rem;
+                            @include mobile{
+                                margin-bottom: 2.4rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // table col width
+    table{
+        &.col-w-1 {
+            col {
+                @each $index, $width in (1: 26%, 2: auto, 3: auto, 4: auto) {
+                    &.col#{$index} {
+                        width: $width;
+                    }
+                }
+            
+                @include mobile {
+                    @each $index, $width in (1: 35%, 2: auto, 3: auto, 4: auto) {
+                        &.col#{$index} {
+                            width: $width;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#modalPerformance{
+    .modal-inner{
+        .modal-area{
+            padding: 8rem 2.5rem 4rem 2rem;
+            @include mobile{
+                padding: 8rem 0.8rem 4rem 1.8rem;
+            }
+            .modal-list{
+                .modal-item{
+                    .modal-body{
+                        .para{
+                            margin-bottom: 1.6rem;
+                        }
+                        .bullet-display{
+                            .data-list{
+                                .data-item{
+                                    font-weight: 700 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

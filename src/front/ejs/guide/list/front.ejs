@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+<script src="./../../assets/js/guide.pubList.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            headerBackChange()
+        });
+        window.addEventListener("scroll",() => {
+        });
+        window.addEventListener("resize",() => {
+        });
+        pubListUp()
+    </script>
+</head>
+<body>
+<div id="wrap">
+	<!-- page -->
+	<div id="guide-list">
+      <%-include('../_templates/_guide.header.ejs') %>
+		<!-- page-body -->
+		<div class="page-body pub-list" id="local">
+			<!-- local-head -->
+			<div class="local-head">
+				<div class="local-subject blind"><h2 class="local-name" id="localName">preview</h2></div>
+                <div id="pubListSearch" class="page-search">
+                    <div class="select-wrap">
+                        <div class="search-select">
+                            <span class="select-item choice">All</span>
+                        </div>
+                        <ul class="search-category">
+                            <li class="select-item menu">All</option>
+                            <li class="select-item menu">Menu</option>
+                            <li class="select-item menu">Worker</option>
+                        </ul>
+                    </div>
+                    <div class="search-input-wrap"><input type="text" class="search-input" placeholder="Please enter the keyword" /></div>
+                </div>
+                <div class="menu-anchor">
+                    <div class="anchor-list swiper">
+                        <ul class="swiper-wrapper">
+                            <li class="anchor-item swiper-slide active"><span class="anchor-btn">Main</span></li>
+                            <li class="anchor-item swiper-slide"><span class="anchor-btn">Company</span></li>
+                            <li class="anchor-item swiper-slide"><span class="anchor-btn">Business</span></li>
+                            <li class="anchor-item swiper-slide"><span class="anchor-btn">ESG</span></li>
+                            <li class="anchor-item swiper-slide"><span class="anchor-btn">IR</span></li>
+                            <li class="anchor-item swiper-slide"><span class="anchor-btn">PR</span></li>
+                            <li class="anchor-item swiper-slide"><span class="anchor-btn">Career</span></li>
+                            <li class="anchor-item swiper-slide"><span class="anchor-btn">ETC</span></li>
+                        </ul>
+                    </div>
+                </div>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body" id="content">
+				<!-- content-body -->
+				<div class="content-body">
+                    <div class="no-result">
+                        <div class="no-result-inner">
+                            <p class="des">검색결과가 없습니다.</p>
+                        </div>
+                    </div>
+				</div>
+				<!-- //content-body -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+      <%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+	<!-- //page -->
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</html>

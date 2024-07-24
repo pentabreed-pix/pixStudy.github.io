@@ -1,0 +1,183 @@
+.mark {
+    position: relative;
+    .mark-text {
+        white-space: nowrap;
+    }
+
+    &[class*="al-"]::before {
+        content: '';
+        background-repeat: no-repeat;
+        background-position: center center;
+        transition: 0.3s ease;
+    }
+    &[class*="ar-"]::after {
+        content: '';
+        background-repeat: no-repeat;
+        background-position: center center;
+        transition: 0.3s ease;
+    }
+
+    &.design1 {
+        display: flex;
+        align-items: center;
+        &.case1 {
+            &[class*=square]::before {
+                width: 1.8rem;
+                height: 1.8rem;
+                border-radius: 0.4rem;
+                margin-right: 0.8rem;
+            }
+        }
+        &.case2 {
+            align-items: baseline;
+            &[class*=square]::before {
+                width: 1.6rem;
+                height: 1.6rem;
+                border-radius: 0.4rem;
+                margin-right: 0.8rem;
+
+                top: 0.2rem;
+                position: relative;
+            }
+        }
+        &.type1 {
+            .mark-text {
+                @include font(small-5x, bold);
+                color: color(neutral, 080);
+                line-height: 2.2rem;
+                @include mobile {
+                    @include font(small-6x, bold);
+                    line-height: 1.9rem;
+                }
+            }
+        }
+        &.type2 {
+            .mark-text {
+                @include font(small-4x, medium);
+                color: color(typo, 010);
+                line-height: 2.6rem; 
+            }
+        }
+        &[class*=color1]::before {
+            background-color: color(primary, 070);
+        }
+        &[class*=color2]::before {
+            background-color: color(primary, 080);
+        }
+        &[class*=color3]::before {
+            background-color: color(etc, 090);
+        }
+        &[class*=color4]::before {
+            background-color: color(etc, 080);
+        }
+        &[class*=color5]::before {
+            background: linear-gradient(180deg, #9735D0 0%, rgba(151, 53, 208, 0.40) 100%);
+        }
+        &[class*=color6]::before {
+            background: linear-gradient(180deg, #6D0CA6 0%, rgba(109, 12, 166, 0.40) 100%);
+        }
+        &[class*=color7]::before {
+            background: linear-gradient(180deg, #E4E4E7 0%, rgba(228, 228, 228, 0.40) 100%);
+        }
+    }
+    &.design2 {
+        display: flex;
+        &.case1 {
+            .mark-text {
+                @include font(small-3x, bold);
+                color: color(typo, 010);
+                @include mobile {
+                    @include font(small-4x, bold);
+                }
+            }
+            .mark-text-area {
+                margin-top: 0.5rem;
+                @include mobile {
+                    margin-top: 0rem;
+                }
+            }
+            &[class*=al-icon-]::before,
+			&[class*=ar-icon-]::after {
+				width: 4rem;
+				min-width: 4rem;
+				height: 4rem;
+                @include mobile {
+                    width: 2.6rem;
+                    min-width: 2.6rem;
+                    height: 2.6rem;
+                }
+			}
+			&[class*="al-icon-"]::before {
+                margin-right: 1.6rem;
+                @include mobile {
+                    margin-right: 0.8rem;
+                }
+			}
+			&[class*="ar-icon-"]::after {
+                margin-left: 1.6rem;
+			}
+            &[class*=location]::before {
+                background-image: icon(location,color(neutral,080));
+                background-size: 2rem 2.2rem;
+                background-color: color(neutral,020);
+                border-radius: 1.6rem;
+                @include mobile {
+                    background-size: 1.4rem 1.6rem;
+                    border-radius: 100%;
+                }
+            }
+            &[class*=calendar]::before {
+                background-image: icon(calendar,color(neutral,080));
+                background-size: 1.9rem 2rem;
+                background-color: color(neutral,020);
+                border-radius: 1.6rem;
+                @include mobile {
+                    background-size: 1.2rem 1.4rem;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+}
+
+.mark-text-area {
+    display: flex;
+    &.case1 {
+        flex-direction: column;
+        @include mobile {
+            flex-direction: row;
+            gap: 0.8rem;
+        }
+    }
+}
+
+.mark-display {
+    .mark-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &.case1 {
+        .mark-list {
+            gap: 1.6rem;
+            @include mobile {
+                gap: 0.8rem 1.2rem;
+            }
+        }
+    }
+    &.case2 {
+        .mark-list {
+            flex-direction: column;
+            gap: 0.8rem;
+            @include mobile {
+                flex-direction: row;
+                gap: 0.8rem 2.4rem;
+            }
+        }
+    }
+    &.case3 {
+        .mark-list {
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+    }
+}

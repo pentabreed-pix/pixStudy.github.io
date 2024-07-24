@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<%-include('../_templates/_guide.header.ejs') %>
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-subject">
+					<span class="local-name">Mark</span>
+					<span class="local-desc">마크에 대한 설명마크에 대한 설명마크에 대한 설명마크에 대한 설명</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body">
+				<!-- section -->
+				<div class="section mark-guide">
+					<div class="section-head">
+						<h4 class="section-subject"><span class="section-name">Mark system</span></h4>
+					</div>
+					<div class="section-body">
+						<div class="subsection">
+							<div class="subsection-head">square</div>
+							<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;span class="mark design1 case1 type1 al-square-color1"&gt;&lt;span class="mark-text"&gt;mark Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="mark design1 case2 type2 al-square-color1"&gt;&lt;span class="mark-text"&gt;mark Text&lt;/span&gt;&lt;/span&gt;	
+</code></pre>
+									<!-- //highlight-js -->
+								<div class="guide-mark-area">
+									<!-- mark -->
+									<div class="mark design1 case1 type1 al-square-color1"><span class="mark-text">SK㈜</span></div>
+									<div class="mark design1 case1 type1 al-square-color2"><span class="mark-text">그 외 특수관계인</span></div>
+									<div class="mark design1 case1 type1 al-square-color3"><span class="mark-text">국민연금</span></div>
+									<div class="mark design1 case1 type1 al-square-color4"><span class="mark-text">기타</span></div>
+									<!-- //mark -->
+								</div>
+								<div class="guide-mark-area">
+									<!-- mark -->
+									<div class="mark design1 case2 type2 al-square-color5"><span class="mark-text">자산총계</span></div>
+									<div class="mark design1 case2 type2 al-square-color6"><span class="mark-text">자본총계</span></div>
+									<div class="mark design1 case2 type2 al-square-color7"><span class="mark-text">부채총계</span></div>
+									<!-- //mark -->
+								</div>
+							</div>
+						</div>
+						<div class="subsection">
+							<div class="subsection-head">icon</div>
+							<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js">
+<code class="html">&lt;span class="mark design1 case2 al-icon-"&gt;&lt;span class="mark-text"&gt;mark Text&lt;/span&gt;&lt;/span&gt;</code></pre>
+									<!-- //highlight-js -->
+								<div class="guide-mark-area">
+									<!-- mark -->
+									<div class="mark design2 case1 al-icon-location">
+										<div class="mark-text-area case1">
+											<span class="mark-text">해외</span>
+										</div>
+									</div>
+									<!-- //mark -->
+									<!-- mark -->
+									<div class="mark design2 case1 al-icon-calendar">
+										<div class="mark-text-area case1">
+											<span class="mark-text">2024.04.01</span>
+											<span class="mark-text accent case2 color3">오후 1시</span>
+										</div>
+									</div>
+									<!-- //mark -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //section -->
+				<!-- section -->
+				<div class="section mark-guide">
+					<div class="section-head">
+						<h4 class="section-subject"><span class="section-name">Mark display</span></h4>
+					</div>
+					<div class="section-body">
+						<div class="subsection">
+							<div class="subsection-head">case1</div>
+							<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js"><code class="html">&lt;div class=&quot;mark-display case1&quot;&gt;
+&#x9;&lt;div class=&quot;mark-list&quot;&gt;
+&#x9;&#x9;&lt;div class=&quot;mark design1 case1 al-square-color1&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;mark-text&quot;&gt;SK&#x321C;&lt;/span&gt;&lt;/div&gt;
+&#x9;&#x9;&lt;div class=&quot;mark design1 case1 al-square-color2&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;mark-text&quot;&gt;&#xADF8; &#xC678; &#xD2B9;&#xC218;&#xAD00;&#xACC4;&#xC778;&lt;/span&gt;&lt;/div&gt;
+&#x9;&#x9;&lt;div class=&quot;mark design1 case1 al-square-color3&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;mark-text&quot;&gt;&#xAD6D;&#xBBFC;&#xC5F0;&#xAE08;&lt;/span&gt;&lt;/div&gt;
+&#x9;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+									<!-- //highlight-js -->
+								<div class="guide-mark-area">
+									<!-- mark -->
+									<div class="mark-display case1">
+										<div class="mark-list">
+											<div class="mark design1 case1 type1 al-square-color1"><span class="mark-text">SK㈜</span></div>
+											<div class="mark design1 case1 type1 al-square-color2"><span class="mark-text">그 외 특수관계인</span></div>
+											<div class="mark design1 case1 type1 al-square-color3"><span class="mark-text">국민연금</span></div>
+											<div class="mark design1 case1 type1 al-square-color4"><span class="mark-text">기타</span></div>
+										</div>
+									</div>
+									<!-- //mark -->
+								</div>
+							</div>
+						</div>
+						<div class="subsection">
+							<div class="subsection-head">case2</div>
+							<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js"><code class="html">&lt;div class=&quot;mark-display case2&quot;&gt;
+&#x9;&lt;div class=&quot;mark-list&quot;&gt;
+		&lt;div class=&quot;mark design1 case1 al-square-color1&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;mark-text&quot;&gt;자산총계&lt;/span&gt;&lt;/div&gt;
+		&lt;div class=&quot;mark design1 case1 al-square-color2&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;mark-text&quot;&gt;자본총계&lt;/span&gt;&lt;/div&gt;
+		&lt;div class=&quot;mark design1 case1 al-square-color3&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;mark-text&quot;&gt;부채총계&lt;/span&gt;&lt;/div&gt;
+&#x9;&lt;/div&gt;	
+&lt;/div&gt;</code></pre>
+									<!-- //highlight-js -->
+								<div class="guide-mark-area">
+									<!-- mark -->
+									<div class="mark-display case2">
+										<div class="mark-list">
+											<div class="mark design1 case2 type2 al-square-color5"><span class="mark-text">자산총계</span></div>
+											<div class="mark design1 case2 type2 al-square-color6"><span class="mark-text">자본총계</span></div>
+											<div class="mark design1 case2 type2 al-square-color7"><span class="mark-text">부채총계</span></div>
+										</div>
+									</div>
+									<!-- //mark -->
+								</div>
+							</div>
+						</div>
+						<div class="subsection">
+							<div class="subsection-head">case3</div>
+							<div class="subsection-body">
+									<!-- highlight-js -->
+									<pre class="highlight-js"><code class="html">&lt;div class=&quot;mark-display case3&quot;&gt;
+	...
+&lt;/div&gt;</code></pre>
+									<!-- //highlight-js -->
+								<div class="guide-mark-area">
+									<!-- mark -->
+									<div class="mark-display case3">
+										<div class="mark-list">
+											<div class="mark design2 case1 al-icon-location">
+												<div class="mark-text-area case1">
+													<span class="mark-text">해외</span>
+												</div>
+											</div>
+											<div class="mark design2 case1 al-icon-calendar">
+												<div class="mark-text-area case1">
+													<span class="mark-text">2024.04.01</span>
+													<span class="mark-text accent case2 color3">오후 1시</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- //mark -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //section -->
+				<!-- section -->
+				<div class="section mark-guide">
+					<div class="section-head">
+						<h4 class="section-subject"><span class="section-name">label mark</span></h4>
+					</div>
+					<div class="section-body">
+						<div class="subsection">
+							<div class="subsection-body">
+							<!-- highlight-js -->
+<pre class="highlight-js">
+<code class="html">&lt;span class="mark design1 case1"&gt;&lt;span class="mark-text"&gt;mark Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="mark design1 case2"&gt;&lt;span class="mark-text"&gt;mark Text&lt;/span&gt;&lt;/span&gt;
+&lt;span class="mark design1 case3"&gt;&lt;span class="mark-text"&gt;mark Text&lt;/span&gt;&lt;/span&gt;</code></pre>
+							<!-- //highlight-js -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //section -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+</div>
+</body>
+</html>

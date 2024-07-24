@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<%-include('../_templates/_guide.header.ejs') %>
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-subject">
+					<span class="local-name">Icon</span>
+					<span class="local-desc">아이콘은 일관성이 핵심 요소이며 기본 사이즈가 같아야 합니다.</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body">
+				<!-- section -->
+				<div class="section icon-guide">
+					<div class="section-head">
+						<h4 class="section-subject"><span class="section-name">SVG Icon</span></h4>
+					</div>
+					<div class="section-body">
+						<div class="subsection">
+							<div class="subsection-head">Action</div>
+							<div class="subsection-body">
+								<div class="data-list svg-icon">
+									<li class="data-item arrow-up1"><span class="data-name">arrow-up1</span></li>
+									<li class="data-item arrow-down1"><span class="data-name">arrow-down1</span></li>
+									<li class="data-item arrow-down2"><span class="data-name">arrow-down2</span></li>
+									<li class="data-item arrow-left1"><span class="data-name">arrow-left1</span></li>
+									<li class="data-item arrow-left2"><span class="data-name">arrow-left2</span></li>
+									<li class="data-item arrow-right1"><span class="data-name">arrow-right1</span></li>
+									<li class="data-item arrow-right2"><span class="data-name">arrow-right2</span></li>
+									<li class="data-item arrow-right-up2"><span class="data-name">arrow-right-up2</span></li>
+									<li class="data-item arrow-right-up3"><span class="data-name">arrow-right-up3</span></li>
+									<li class="data-item arrow-fill-up"><span class="data-name">arrow-fill-up</span></li>
+									<li class="data-item arrow-fill-down"><span class="data-name">arrow-fill-down</span></li>
+									<li class="data-item arrow-fill-right"><span class="data-name">arrow-fill-right</span></li>
+									<li class="data-item arrow-fill-left"><span class="data-name">arrow-fill-left</span></li>
+									<li class="data-item play"><span class="data-name">play</span></li>
+									<li class="data-item more"><span class="data-name">more</span></li>
+									<li class="data-item trash"><span class="data-name">trash</span></li>
+									<li class="data-item language"><span class="data-name">language</span></li>
+									<li class="data-item download"><span class="data-name">download</span></li>
+									<li class="data-item close"><span class="data-name">close</span></li>
+									<li class="data-item minus"><span class="data-name">minus</span></li>
+									<li class="data-item plus"><span class="data-name">plus</span></li>
+									<li class="data-item menu"><span class="data-name">menu</span></li>
+									<li class="data-item link"><span class="data-name">link</span></li>
+									<li class="data-item refresh"><span class="data-name">refresh</span></li>
+									<li class="data-item restore"><span class="data-name">restore</span></li>
+									<li class="data-item filter"><span class="data-name">filter</span></li>
+									<li class="data-item calendar"><span class="data-name">calendar</span></li>
+									<li class="data-item check"><span class="data-name">check</span></li>
+									<li class="data-item share"><span class="data-name">share</span></li>
+									<li class="data-item search"><span class="data-name">search</span></li>
+									<li class="data-item folder"><span class="data-name">folder</span></li>
+									<li class="data-item copy"><span class="data-name">copy</span></li>
+									<li class="data-item home"><span class="data-name">home</span></li>
+									<li class="data-item location"><span class="data-name">location</span></li>
+									<li class="data-item printer"><span class="data-name">printer</span></li>
+									<li class="data-item price"><span class="data-name">price</span></li>
+									<li class="data-item category"><span class="data-name">category</span></li>
+									<li class="data-item my-page"><span class="data-name">my-page</span></li>
+									<li class="data-item volume"><span class="data-name">volume</span></li>
+								</div>
+							</div>
+						</div>
+						<div class="subsection">
+							<div class="subsection-head">Information</div>
+							<div class="subsection-body">
+								<ul class="data-list svg-icon">
+									<li class="data-item info"><span class="data-name">info</span></li>
+									<li class="data-item warning"><span class="data-name">warning</span></li>
+									<li class="data-item people"><span class="data-name">people</span></li>
+								</ul>
+							</div>
+						</div>
+						<div class="subsection">
+							<div class="subsection-head">Radio, Checkbox</div>
+							<div class="subsection-body">
+								<ul class="data-list svg-icon">
+									<li class="data-item radio-on"><span class="data-name">radio-on</span></li>
+									<li class="data-item radio-off"><span class="data-name">radio-off</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //section -->
+				<!-- section -->
+				<div class="section icon-guide">
+					<div class="section-head">
+						<h4 class="section-subject"><span class="section-name">SCSS 작성 방법</span></h4>
+						<p class="section-desc">scss 작성 예시입니다.</p>
+					</div>
+					<div class="section-body">
+						<!-- subsection -->
+						<div class="subsection">
+							<div class="subsection-head">Argument</div>
+							<div class="subsection-body">
+								<pre class="highlight-js"><code class="scss">icon($name, $color)</code></pre>
+							</div>
+							<!-- <div class="icon-button"><span class="icon-text blind">인쇄 하기</span></div> -->
+						</div>
+						<!-- //subsection -->
+						<!-- subsection -->
+						<div class="subsection">
+							<div class="subsection-head">Example</div>
+							<div class="subsection-body">
+								<pre class="highlight-js">
+<code class="scss">background-image: icon(arrow-up1, color(primary, 198));</code></pre>
+							</div>
+						</div>
+						<!-- //subsection -->
+					</div>
+				</div>
+				<!-- //section -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+</div>
+</body>
+</html>

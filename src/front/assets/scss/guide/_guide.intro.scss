@@ -1,0 +1,228 @@
+#wrap{
+    #guide-intro {
+        position: relative;
+        min-height: 100vh;
+        height: 100%;
+        overflow-y: auto;
+        @media ( max-width: 1200px ) {
+            height: auto;
+        }
+        .guide-wrap {
+            display: flex;
+            height: 100%;
+            justify-content: flex-start;
+            @media ( max-width: 1200px ) {
+                flex-direction: column;
+            }
+            .guide-head {
+                flex-shrink: 0;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 300px;
+                padding-left: 230px;
+
+                @media ( max-width: 1200px ) {
+                    padding-left: 135px;
+                }
+
+                @media ( max-width: 768px ) {
+                    width: 100%;
+                    padding: 150px 20px 0 20px;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 350px;
+                    width: 2px;
+                    height: 200px;
+                    background-color: #454545;
+
+                    @media ( max-width: 1200px ) {
+                        width: 1px;
+                        left: 250px;
+                    }
+
+                    @media ( max-width: 768px ) {
+                        display: none;
+                    }
+                }
+                .guide-summary {
+                    font-size: 20px;
+                    font-weight: 200;
+                    color: #202020;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+
+                    & + .guide-subject {
+                        margin-top: 10px;
+                    }
+
+                    @media ( max-width: 1200px ) {
+                        font-size: 16px;
+                    }
+
+                    @media ( max-width: 768px ) {
+                        font-size: 14px;
+                    }
+                }
+                .guide-subject {
+                    font-size: 120px;
+                    font-weight: 900;
+                    color: #14121F;
+                    line-height: 1;
+
+                    @media ( max-width: 1200px ) {
+                        font-size: 80px;
+                    }
+
+                    @media ( max-width: 768px ) {
+                        font-size: 50px;
+                    }
+
+                    & + .guide-title {
+                        margin-top: 270px;
+
+                        @media ( max-width: 1200px ) {
+                            margin-top: 50px;
+                        }
+
+                        @media ( max-width: 768px ) {
+                            margin-top: 70px;
+                        }
+
+                    }
+                }
+                .guide-title {
+                    padding-left: 10px;
+                    font-size: 24px;
+                    font-weight: 900;
+                    color: #14121F;
+
+                    @media ( max-width: 1200px ) {
+                        padding-left: 0;
+                        font-size: 18px;
+                    }
+
+                    @media ( max-width: 768px ) {
+                        font-size: 14px;
+                    }
+                }
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 500px;
+                height: 100%;
+                background-color: #f4f4f4;
+                z-index: -1;
+
+                @media ( max-width: 1200px ) {
+                    width: 320px;
+                }
+
+                @media ( max-width: 768px ) {
+                    width: 130px;
+                }
+            }
+            .guide-body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @media ( max-width: 1200px ) {
+                    justify-content: flex-start;
+                }
+
+                .para {
+                    font-size: 16px;
+                    line-height: 1.4;
+                    padding: 478px 20px 0 6.25vw;
+                    color: #afaeae;
+                    text-align: left;
+                    strong {color: #454545;}
+
+                    @media ( max-width: 1200px ) {
+                        padding: 100px 20px 0 135px;
+                        font-size: 14px;
+                    }
+
+                    @media ( max-width: 768px ) {
+                        padding: 150px 20px 0 20px;
+                        font-size: 12px;
+                    }
+                }
+            }
+            .guide-util {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: flex;
+                padding-top: 20px;
+                padding-right: 40px;
+                height: 75px;
+                align-items: center;
+                gap: 40px;
+
+                @media ( max-width: 768px ) {
+                   padding: 20px;
+                   width: 100%;
+                   justify-content: space-between;
+                }
+
+                .btn {
+                    position: relative;
+                    display: block;
+                    overflow: hidden;
+                    width: 100%;
+                    height: auto;
+                    padding: 12px 50px;
+                    max-width: 250px;
+                    margin: 1rem auto;
+                    text-transform: uppercase;
+                    border: 1px solid currentColor;
+                    color: #161616;
+                    font-size: 16px;
+                    border-radius: 0px;
+
+                    @media ( max-width: 768px ) {
+                        padding: 6px 25px;
+                        font-size: 14px;
+                    }
+
+                    .btn-text {
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: -50px;
+                        bottom: 0;
+                        left: 0;
+                        border-right: 50px solid transparent;
+                        border-bottom: 80px solid #161616;
+                        transform: translateX(-100%);
+                        box-sizing: border-box;
+                        transition: 0.5s ease-in-out;
+                    }
+
+                    &:hover {
+                        color: #ffffff;
+
+                        &::before {
+                            transform: translateX(0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

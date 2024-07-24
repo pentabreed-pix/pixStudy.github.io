@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<%-include('../_templates/_guide.header.ejs') %>
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-subject">
+					<span class="local-name">Banner</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body">
+				<!-- section -->
+				<div class="section">
+					<div class="section-head">
+						<h4 class="section-subject"><span class="section-name">Banner display</span></h4>
+					</div>
+					<div class="section-body">
+						<div class="subsection">
+							<div class="subsection-head">HTML structure</div>
+							<div class="subsection-body">
+                                <!-- highlight -->
+<pre class="highlight-js">
+<code class="html">&lt;div class="banner design1 case1 type1"&gt;
+    &lt;div class="banner-wrap"&gt;
+        &lt;div class="banner-head"&gt;...&lt;/div&gt;
+        &lt;div class="banner-body"&gt;...&lt;/div&gt;
+        &lt;div class="banner-util"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;div&gt;
+</code></pre>
+							</div>
+						</div>
+						<div class="subsection">
+							<div class="subsection-head">design1</div>
+							<div class="subsection-body">
+                                <div class="banner design1 case1 type1">
+                                    <div class="banner-wrap">
+                                        <div class="banner-head">
+                                            <img src="../../assets/images/logo/logo-c1-e.svg" alt="SK networks 로고 이미지">
+                                        </div>
+                                        <div class="banner-body">
+                                            <p class="para">사업제안·고객문의가 필요하신가요?</p>
+                                        </div>
+                                        <div class="banner-footer">
+                                            <span class="summary">SK네트웍스는 여러분의 소중한 제안을 기다리고 있습니다.</span>
+                                        </div>
+                                        <div class="banner-util">
+                                            <a class="btn design3 case1 type1 color2 ar-icon-arrow-right2-bg" href="/#">
+                                                <span class="btn-text">문의하기</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //section -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+</div>
+</body>
+</html>

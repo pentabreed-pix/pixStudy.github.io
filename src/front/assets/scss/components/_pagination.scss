@@ -1,0 +1,33 @@
+.pagination {
+    &.design1 {
+        &.case1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .page-util {
+                .util-item {
+                    &.disabled {
+                        pointer-events: none;
+                    }
+                }
+            }
+            .page-list {
+                display: flex;
+                margin: 0 4rem;
+                gap: 0.1rem;
+                .page-item {
+                    @include font(small-3x,bold);
+                    color: color(semantic,020);
+                    text-align: center;
+                    min-width: 4rem;
+                    &.current {
+                        color: color(primary,070);
+                    }
+                }
+                @include mobile {
+                    margin: 0 2.4rem;
+                }
+            }
+        }
+    }
+}

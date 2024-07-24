@@ -1,0 +1,160 @@
+// breakpoints
+$mobile : 320px;
+$mobile-large : 768px;
+$tablet : 1024px;
+$web-small : 1280px;
+$web : 1920px;
+
+
+// color palettes
+$color-palettes: (
+    primary: (100: #EA002C,
+        090: #AD0021,
+        080: #6D0CA6,
+        070: #9735D0,
+        // 060: #000000,
+        // 050: #000000,
+        // 040: #000000,
+        // 030: #000000,
+        // 020: #000000,
+        // 010: #000000,
+        // 005: #000000,
+        // 000: #000000,
+    ),
+    secondary: (100: #F47725,
+        090: #C24D00,
+        080: #27272A,
+        070: #F6F6F7,
+        // 060: #ffffff,
+        // 050: #ffffff,
+        // 040: #ffffff,
+        // 030: #ffffff,
+        // 020: #ffffff,
+        // 010: #ffffff,
+        // 005: #ffffff,
+        // 000: #ffffff,
+    ),
+    neutral: (100: #15151A,
+        090: #27272A,
+        080: #3F3F46,
+        070: #52525B,
+        060: #71717A,
+        050: #A1A1AA,
+        040: #D4D4D8,
+        030: #E4E4E7,
+        020: #F6F6F7,
+        010: #FBFBFC,
+        // 005: #ffffff,
+        // 000: #ffffff,
+    ),
+    system: (100: #000000,
+        090: #000000,
+        080: #000000,
+        070: #FFFFFF,
+        060: #3F68BF,
+        050: #5389FC,
+        040: #E3A01B,
+        030: #FFBA30,
+        020: #009B46,
+        010: #00CC5C,
+        005: #D93232,
+        000: #FF4444,
+    ),
+    semantic: ( // 100: #000000,
+        // 090: #000000,
+        // 080: #000000,
+        // 070: #000000,
+        // 060: #000000,
+        // 050: #000000,
+        // 040: #000000,
+        // 030: #000000,
+        020: #27272A,
+        010: #71717A,
+        005: #D4D4D8,
+        000: #F4F4F5,
+    ),
+    typo: ( // 100: #FFFFFF,
+        // 090: #FFFFFF,
+        // 080: #FFFFFF,
+        // 070: #FFFFFF,
+        // 060: #FFFFFF,
+        // 050: #FFFFFF,
+        // 040: #FFFFFF,
+        // 030: #FFFFFF,
+        020: #15151A,
+        010: #3F3F46,
+        005: #71717A,
+        000: #FFFFFF,
+    ),
+    etc: (100: #0072C6,
+        090: #DFC0F0,
+        080: #F5EBFA,
+        070: #E4E4E4,
+        // 060: #FFFFFF,
+        // 050: #FFFFFF,
+        // 040: #FFFFFF,
+        // 030: #FFFFFF,
+        // 020: #FFFFFF,
+        // 010: #FFFFFF,
+        // 005: #FFFFFF,
+        // 000: #FFFFFF,
+    ),
+);
+
+// create color
+@function color($theme: neutral, $variant: 000, $opacity: 1) {
+    $set-color: map-get($color-palettes, $theme, $variant);
+    $create-color: rgba(red($set-color), green($set-color), blue($set-color), $opacity);
+    @return $create-color;
+}
+
+// font
+$font-size: (
+    small-6x: 1.2rem,
+    small-5x: 1.4rem,
+    small-4x: 1.6rem,
+    small-3x: 1.8rem,
+    small-2x: 2rem,
+    small-1x: 2.4rem,
+    small: 2.8rem,
+    medium: 3.2rem,
+    large: 3.6rem,
+    large-1x: 4rem,
+    large-2x: 4.5rem,
+    large-3x: 4.8rem,
+    large-4x: 5.6rem,
+    large-5x: 6.4rem,
+    large-6x: 7.4rem,
+    large-7x: 8rem,
+    large-8x: 8.8rem,
+    large-9x: 9.6rem,
+    large-10x: 10.4rem,
+    large-11x: 11.2rem,
+    large-12x: 12rem,
+);
+
+$font-weight: (
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    heavy: 900,
+);
+
+// @mixin font($type: "headline") {
+//     @if ($type=="headline") {
+//         font-size: map-get($font-size, large-6x);
+//         font-weight: map-get($font-weight, bold);
+//     }
+//     @if ($type=="title1") {
+//         font-size: map-get($font-size, large-4x);
+//         font-weight: map-get($font-weight, bold
+//     }
+// }
+
+@mixin font($size, $weight: regular) {
+    font-size: map-get($font-size, $size);
+    font-weight: map-get($font-weight, $weight);
+}

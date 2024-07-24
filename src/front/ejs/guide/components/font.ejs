@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<%-include('../_templates/_guide.head.ejs', {
+		pageJavascript: ''
+	}) %>
+</head>
+<body>
+	<div id="wrap">
+		<div id="guide-list">
+			<%-include('../_templates/_guide.header.ejs') %>
+				<!-- page-body -->
+				<div class="page-body">
+					<!-- local-head -->
+					<div class="local-head">
+						<h2 class="local-subject">
+							<span class="local-name">Font</span>
+							<span class="local-desc">타이포는 정보 시각화에서 중요한 역할을 합니다. 폰트 스타일이 일관되면 가독성이 향상됩니다.</span>
+						</h2>
+					</div>
+					<!-- //local-head -->
+					<!-- local-body -->
+					<div class="local-body">
+						<!-- section -->
+						<div class="section font-guide">
+							<div class="section-head">
+								<h4 class="section-subject"><span class="section-name">Typography</span></h4>
+								<!-- <p class="section-desc">헤드라인, 타이틀, 바디, 라벨, 버튼 등에 사용되는 텍스트의 class 를 통일해주세요.</p> -->
+							</div>
+							<div class="section-body">
+								<div class="subsection">
+									<div class="subsection-head">Typeface</div>
+									<div class="subsection-body">
+										<div class="font-info medium">
+											<p class="text">Aa</p>
+											<p class="family">SUIT</p>
+											<p class="type"><span>Medium</span><span>500</span></p>
+										</div>
+										<div class="font-info bold">
+											<p class="text">Aa</p>
+											<p class="family">SUIT</p>
+											<p class="type"><span>Bold</span><span>700</span></p>
+										</div>
+									</div>
+								</div>
+								<div class="subsection">
+									<div class="subsection-head">Font Style</div>
+									<div class="subsection-body">
+										<table class="table">
+											<caption>이 표는 폰트 가이드 정보를 제공하며 type, size, line height, weight 로 구성되어 있습니다.</caption>
+											<colgroup>
+												<col style="width: auto;">
+												<col style="width: 10%;">
+												<col style="width: 10%;">
+												<col style="width: 10%;">
+												<col style="width: 10%;">
+												<col style="width: 10%;">
+											</colgroup>
+											<thead>
+												<tr>
+													<th scope="col">Type</th>
+													<th scope="col">Size (PC)</th>
+													<th scope="col">Line (PC)</th>
+													<th scope="col">Size (MO)</th>
+													<th scope="col">Line (MO)</th>
+													<th scope="col">Weight</th>
+												</tr>
+											<thead>
+											<tbody>
+												<tr>
+													<td>
+														<span style="font-size: 88px; line-height: 120%; font-weight: 700;">Headline/h1</span>
+													</td>
+													<td>
+														<span>88px</span>
+													</td>
+													<td>
+														<span>120%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>120%</span>
+													</td>
+													<td>
+														<span>bold</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 64px; line-height: 160%; font-weight: 700;">Title/T1_64_bd</span>
+													</td>
+													<td>
+														<span>64px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>bold</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 48px; line-height: 150%; font-weight: 700;">Title/T2_48_bd</span>
+													</td>
+													<td>
+														<span>48px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>bold</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 32px; line-height: 160%; font-weight: 700;">Title/T3_32_bd</span>
+													</td>
+													<td>
+														<span>32px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>bold</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 24px; line-height: 160%; font-weight: 700;">Title/T4_24_bd</span>
+													</td>
+													<td>
+														<span>24px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>bold</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 20px; line-height: 160%; font-weight: 700;">Title/T4_20_bd</span>
+													</td>
+													<td>
+														<span>20px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>bold</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 18px; line-height: 160%; font-weight: 700;">Body/B1_18_bd</span>
+													</td>
+													<td>
+														<span>18px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>bold</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 16px; line-height: 160%; font-weight: 700;">Body/B2_16_bd</span>
+													</td>
+													<td>
+														<span>16px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>bold</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 16px; line-height: 160%; font-weight: 500;">Body/B3_16_md</span>
+													</td>
+													<td>
+														<span>16px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>medium</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 14px; line-height: 160%; font-weight: 700;">Body/B4_14_md</span>
+													</td>
+													<td>
+														<span>14px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>medium</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span style="font-size: 12px; line-height: 160%; font-weight: 500;">Body/B5_12_md</span>
+													</td>
+													<td>
+														<span>12px</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>-</span>
+													</td>
+													<td>
+														<span>160%</span>
+													</td>
+													<td>
+														<span>medium</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //section -->
+					</div>
+					<!-- //local-body -->
+				</div>
+				<!-- //page-body -->
+				<%-include('../_templates/_guide.footer.ejs') %>
+		</div>
+	</div>
+</body>
+
+</html>

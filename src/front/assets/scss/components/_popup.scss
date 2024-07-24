@@ -1,0 +1,109 @@
+body {
+	&.modal-open {
+		overflow: hidden !important;
+	}
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 2.4rem;
+	z-index: 60;
+	background-color: rgba(0, 0, 0, 0.3);
+	pointer-events: none;
+    z-index: 100;
+
+	@include mobile {
+		padding: 0;
+	}
+
+	.modal-inner {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		@include mobile {
+			justify-content: flex-end;
+		}
+
+		.modal-area {
+			position: relative;
+			padding: 4rem 0.5rem 8rem 2rem;
+			max-width: 100%;
+			background-color: rgb(255, 255, 255);
+			border-radius: 2.4rem;
+			pointer-events: auto;
+			max-height: 100%;
+			transition: all .5s linear;
+
+			@include mobile {
+                padding: 5.6rem 1rem 4.8rem 2rem;
+				border-radius: 2.4rem 2.4rem 0 0;
+			}
+
+			.modal-wrap {
+				width: 100%;
+				padding: 0 3.5rem 0 2rem;
+				max-height: 100%;
+				@include scroll-y;
+				@include mobile {
+					padding: 0 1rem 0 0;
+				}
+
+                // 리스트 팝업일때
+                .modal-list {
+                    .modal-item {
+                        +.modal-item {
+                            margin-top: 8rem;
+                            @include mobile {
+                                margin-top: 4.8rem;
+                            }
+                        }
+                    }
+                }
+
+				.modal-head {
+					.modal-subjec {
+						.modal-name {
+							@include font(medium, bold);
+							color: color(primary, 080);
+                            @include mobile {
+                                @include font(small-1x, bold);
+                            }
+						}
+					}
+					& + .modal-body {
+						margin-top: 1.6rem;
+
+						@include mobile {
+							margin-top: 1.2rem;
+						}
+					}
+				}
+				.modal-fuc {
+					position: absolute;
+					top: 2.4rem;
+					right: 2.4rem;
+                    @include mobile {
+                        top: 1.6rem;
+                        right: 1.8rem;
+                    }
+				}
+			}
+		}
+	}
+
+	&.medium {
+		.modal-area {
+			width: 79.4rem;
+			max-height: 100%;
+		}
+	}
+}

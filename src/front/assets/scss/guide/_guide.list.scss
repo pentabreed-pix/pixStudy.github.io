@@ -1,0 +1,748 @@
+#guide-list{
+    .page-body {
+        &.pub-list{
+            min-height: calc(100vh - 12rem);
+            background-color: #f6f4f5;
+            .local-head {
+                position: relative;
+                background-color: #fff;
+                .page-search {
+                    display: flex;
+                    width: 100%;
+                    margin: 0 auto;
+                    gap: 1.5rem;
+                    max-width: 120rem;
+                    padding-top: 4rem;
+                    padding-bottom: 3.6rem;
+                    @include mobile {
+                        gap: 1.3rem;
+                        padding-top: 2.7rem;
+                        padding-bottom: 2.4rem;
+                    }
+                    .select-wrap {
+                        position: relative;
+                        width: 23.1rem;
+                        border: 0.1rem solid #dddbdc;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-radius: 0.6rem;
+                        cursor: pointer;
+                        @include mobile {
+                            width: 10rem;
+                        }
+                        .search-select {
+                            display: flex;
+                            padding: 1.1rem 1.9rem;
+                            align-items: center;
+                            padding-right: 5rem;
+                            @include mobile {
+                                padding: 0.7rem 1rem;
+                            }
+                            .select-item {
+                                width: 100%;
+                                color: #afaeae;
+                                font-weight: 600;
+                                font-size: 2rem;
+                                line-height: 3.2rem;
+                                letter-spacing: -0.05rem;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                @include mobile {
+                                    font-size: 1.4rem;
+                                    line-height: 1.6rem;
+                                }
+                            }
+                            &::after {
+                                display: inline-block;
+                                position: absolute;
+                                right: 1.8rem;
+                                width: 1.6rem;
+                                height: 1.6rem;
+                                content: '';
+                                background-image: url("data:image/svg+xml,%0A%3Csvg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 0.585815L15.7071 8.29292C16.0976 8.68345 16.0976 9.31661 15.7071 9.70714C15.3166 10.0977 14.6834 10.0977 14.2929 9.70714L8 3.41424L1.70711 9.70714C1.31658 10.0977 0.683417 10.0977 0.292893 9.70714C-0.0976311 9.31661 -0.0976311 8.68345 0.292893 8.29292L8 0.585815Z' fill='rgb(175,174,174)'/%3E%3C/svg%3E%0A");
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                transform: rotate(180deg);
+                                transition: .3s ease;
+                                @include mobile {
+                                    right: 1rem;
+                                    background-size: 1rem;
+                                }
+                            }
+                            &.active {
+                                +.search-category {
+                                    top: 5.8rem;
+                                    opacity: 1;
+                                    z-index: 10;
+                                    @include mobile {
+                                        top: 3.8rem;
+                                    }
+                                }
+                                &::after {
+                                    transform: rotate(0deg);
+                                }
+                            }
+                        }
+                        .search-category {
+                            position: absolute;
+                            top: 4.8rem;
+                            width: 100%;
+                            padding: 1.1rem 1.9rem;
+                            border: 0.1rem solid #dddbdc;
+                            background-color: #fff;
+                            border-radius: 0.6rem;
+                            opacity: 0;
+                            z-index: -1;
+                            transition: .3s ease;
+                            @include mobile {
+                                top: 2.8rem;
+                                padding: 1.1rem 0.9rem;
+                            }
+                            .select-item {
+                                color: #afaeae;
+                                font-weight: 400;
+                                font-size: 1.6rem;
+                                line-height: 3.2rem;
+                                letter-spacing: -0.05rem;
+                                cursor: default;
+                                @include mobile {
+                                    font-size: 1.2rem;
+                                    line-height: 2.4rem;
+                                }
+                                &:hover {
+                                    color: #14121f;
+                                }
+                            }
+                        }
+                    }
+                    .search-input-wrap {
+                        display: flex;
+                        position: relative;
+                        flex-grow: 1;
+                        align-items: center;
+                        .search-input {
+                            width: 100%;
+                            padding: 1.1rem 1.4rem 1.1rem 6.2rem;
+                            color: #afaeae;
+                            font-weight: 500; 
+                            font-size: 2rem;
+                            line-height: 3.2rem;
+                            background-color: #f6f4f5;
+                            border-radius: .6rem;
+                            @include mobile {
+                                padding: 0.7rem 1rem 0.7rem 3.2rem;
+                                font-weight: 400;
+                                font-size: 1.2rem;
+                                line-height: 1.6rem;
+                            }
+                            &::placeholder {
+                                color: #afaeae;
+                                font-weight: 400;
+                                font-size: 2rem;
+                                line-height: 3.2rem;
+                                @include mobile {
+                                    font-weight: 400;
+                                    font-size: 1.2rem;
+                                    line-height: 1.6rem;
+                                }
+                            }
+                        }
+                        &::before {
+                            display: block;
+                            position: absolute;
+                            left: 1.4rem;
+                            width: 2.6rem;
+                            height: 2.6rem;
+                            content: '';
+                            background-image: url("data:image/svg+xml,%0A%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.375 2.15758C9.90664 2.15771 8.4596 2.5075 7.15461 3.17779C5.84962 3.84807 4.72452 4.81941 3.87317 6.01076C3.02183 7.20211 2.46893 8.57892 2.2606 10.0263C2.05227 11.4737 2.19456 12.9498 2.67559 14.3313C3.15662 15.7128 3.96245 16.9597 5.02584 17.968C6.08923 18.9764 7.37935 19.7168 8.78856 20.1277C10.1978 20.5385 11.6852 20.6078 13.1268 20.3297C14.5683 20.0517 15.9222 19.4344 17.0755 18.5293L21.0318 22.4691C21.2362 22.6656 21.5098 22.7743 21.7939 22.7718C22.0779 22.7694 22.3496 22.6559 22.5505 22.4559C22.7513 22.2559 22.8653 21.9853 22.8677 21.7025C22.8702 21.4196 22.761 21.1471 22.5637 20.9437L18.6073 17.0039C19.6777 15.6518 20.3441 14.0269 20.5304 12.3152C20.7166 10.6035 20.4152 8.87416 19.6606 7.32509C18.906 5.77603 17.7286 4.46982 16.2633 3.55594C14.798 2.64207 13.104 2.15747 11.375 2.15758ZM4.33333 11.3273C4.33333 9.46757 5.07522 7.68401 6.39579 6.36897C7.71636 5.05394 9.50743 4.31516 11.375 4.31516C13.2426 4.31516 15.0336 5.05394 16.3542 6.36897C17.6748 7.68401 18.4167 9.46757 18.4167 11.3273C18.4167 13.187 17.6748 14.9706 16.3542 16.2856C15.0336 17.6007 13.2426 18.3394 11.375 18.3394C9.50743 18.3394 7.71636 17.6007 6.39579 16.2856C5.07522 14.9706 4.33333 13.187 4.33333 11.3273Z' fill='rgb(165,165,165)'/%3E%3C/svg%3E%0A");
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            @include mobile {
+                                left: 1rem;
+                                width: 1.4rem;
+                                height: 1.4rem;
+                                background-size: 1.4rem;
+                            }
+                        }
+                    }
+                    .search-btn {
+                        flex-shrink: 0;
+                    }
+                }
+                .menu-anchor {
+                    position: absolute;
+                    top: 13rem;
+                    left: 0;
+                    width: 100%;
+                    padding: 0 1.5rem;
+                    background-color: #ffffff;
+                    @include mobile {
+                        top: 8.3rem;
+                    }
+                    .anchor-list {
+                        display: flex;
+                        width: 100%;
+                        max-width: 120rem;
+                        @include mobile {
+                            gap: 2rem;
+                        }
+                        .anchor-item {
+                            position: relative;
+                            width: auto;
+                            cursor: pointer;
+                            .anchor-btn {
+                                display: inline-block;
+                                color: #afaeae;
+                                font-weight: 600;
+                                font-size: 1.8rem;
+                                line-height: 4rem;
+                                margin-bottom: 0.5rem;
+                                transition: color .3s ease;
+                                @include mobile {
+                                    font-size: 1.4rem;
+                                    margin-bottom: 0;
+                                }
+                            }
+                            &.active {
+                                .anchor-btn {
+                                    color: #14121f;
+                                }
+                                &::after {
+                                    width: 100%;
+                                }
+                            }
+                            &::after {
+                                position: absolute;
+                                bottom: 0;
+                                left: 50%;
+                                width: 0;
+                                height: 0.2rem;
+                                content: '';
+                                background-color: #14121f;
+                                border-radius: .6rem;
+                                transform: translateX(-50%);
+                                transition: width .3s ease;
+                            }
+                            +.anchor-item {
+                                margin-left: 6rem;
+                                @include mobile {
+                                    margin-left: 2rem;
+                                }
+                            }
+                        }
+                    }
+                    &.fix {
+                        position: fixed;
+                        // top: 6.1rem;
+                        top: 0;
+                        z-index: 999;
+                        .swiper-wrapper {
+                            justify-content: center;
+                            @include mobile {
+                                justify-content: flex-start;
+                            }
+                        }
+                    }
+                }
+            }
+            .local-body {
+                position: relative;
+                padding: 0 1.8rem;
+                margin: 6rem auto 0;
+                max-width: 119rem;
+                .content-body {
+                    min-height: 65rem;
+                    padding-top: 0;
+                    padding-bottom: 10rem;
+                    @include mobile {
+                        padding-top: 2.8rem;
+                    }
+                    .section {
+                        padding-top: 6rem;
+                        @include mobile {
+                            padding-top: 3.2rem;
+                        }
+                        .section-head {
+                            position: relative;
+                            .section-subject {
+                                .section-name {
+                                    color: #14121f;
+                                    font-weight: 600;
+                                    font-size: 2.8rem;
+                                    line-height: 4rem;
+                                    @include mobile {
+                                        font-size: 2rem;
+                                        line-height: 2rem;
+                                    }
+                                }
+                
+                                +.para {
+                                    color: #000;
+                                    font-weight: 400;
+                                    font-size: 1.6rem;
+                                    line-height: 1.5;
+                                    padding-top: 1rem;
+                                }
+                            }
+                
+                            +.section-body {
+                                padding-top: 1.8rem;
+                                padding-left: 0;
+                                @include mobile {
+                                    padding-top: 1.5rem;
+                                }
+                            }
+                
+                            button{
+                                position: absolute;
+                                top: 1.5rem;
+                                right: 0;
+                                padding: 0.5rem 1rem;
+                                border: 0.1rem solid #2d2d2d;
+                                font-size: 1.4rem;
+                                border-radius: 0.5rem;
+                            }
+                        }
+                
+                        .section-body {
+                            .data-display {
+                                .data-head {
+                                    padding: 1.1rem 0;
+                                    background-color: #14121f;
+                                    border-top-left-radius: 1.2rem;
+                                    border-top-right-radius: 1.2rem;
+                                    @include mobile {
+                                        padding: 0.5rem 0;
+                                        border-top-left-radius: .4rem;
+                                        border-top-right-radius: .4rem;
+                                    }
+                                    .cate-list {
+                                        display: flex;
+                                        width: 100%;
+                                        color: #ffffff;
+                                        max-width: 111rem;
+                                        @include mobile {
+                                            display: none;
+                                        }
+                                        .cate-item {
+                                            color: #ffffff;
+                                            font-weight: 600;
+                                            font-size: 1.4rem;
+                                            line-height: 3rem;
+                                            &.al {
+                                                padding-left: 2rem;
+                                            }
+                                            &.ac {
+                                                text-align: center;
+                                            }
+
+                                            &:nth-child(1) {
+                                                width: 7.75%;
+                                            }
+                                            &:nth-child(2) {
+                                                width: 18.47%;
+                                            }
+                                            &:nth-child(3) {
+                                                width: 29.55%;
+                                            }
+                                            &:nth-child(4) {
+                                                flex: 1;
+                                            }
+                                            &:nth-child(5),
+                                            &:nth-child(6) {
+                                                width: 7.21%;
+                                            }
+                                        }
+                                    }
+                                }
+                                .data-body {
+                                    background-color: #ffffff;
+                                    .data-item {
+                                        transition: border-top .3s ease;
+                                        @include mobile {
+                                            transition: margin .3s ease;
+                                        }
+                                        .data-area {
+                                            .data-wrap {
+                                                display: flex;
+                                                flex-direction: column;
+                                            }
+                                            .data {
+                                                display: inline-block;
+                                                font-weight: 600;
+                                                font-size: 1.5rem;
+                                                letter-spacing: -0.05rem;
+                                                word-break: break-all;
+                                                @include mobile {
+                                                    text-align: left;
+                                                }
+                                            }
+                                            &.default {
+                                                border: .1rem solid #ffffff;
+                                                border-left-width: .6rem;
+                                                transition: border-color .3s ease;
+                                                @include mobile {
+                                                    border: none;
+                                                }
+                                                .default-list {
+                                                    display: flex;
+                                                    width: 100%;
+                                                    padding: 1.3rem 0;
+                                                    max-width: 119rem;
+                                                    @include mobile {
+                                                        position: relative;
+                                                        padding: 1.5rem;
+                                                        flex-direction: column;
+                                                        gap: 1.2rem;
+                                                        padding-bottom: 0;
+                                                        padding-bottom: 2rem;
+                                                    }
+                                                    .default-item {
+                                                        display: flex;
+                                                        text-align: center;
+                                                        flex-direction: column;
+                                                        
+                                                        .data {
+                                                            color: #4d4d4d;
+                                                            line-height: 3rem;
+                                                            &.data-view {
+                                                                .data-text {
+                                                                    display: inline-block;
+                                                                    width: 6rem;
+                                                                    border: .1rem solid #e1e1e1;
+                                                                    color: #4e4e4e;
+                                                                    border-radius: .6rem;
+                                                                    background-color: #f3f3f3;
+                                                                    transition: .3s ease;
+                                                                    @include mobile {
+                                                                        width: auto;
+                                                                        padding: 0.3rem 0.85rem;
+                                                                    }
+                                                                    +.data-text {
+                                                                        margin-top: 0.5rem;
+                                                                    }
+                                                                    &.disabled {
+                                                                        pointer-events: none;
+                                                                    }
+                                                                    &.complete {
+                                                                        color: #ffffff;
+                                                                        background-color: #39d979;
+                                                                        border-color: #39d979;
+                                                                    }
+                                                                    &.remove {
+                                                                        color: #ffffff;
+                                                                        background-color: rgb(215, 29, 29);
+                                                                        background-color: rgb(215, 29, 29);
+                                                                        pointer-events: none;
+                                                                    }
+                                                                }
+                                                                @include mobile {
+                                                                    +.data-view {
+                                                                        margin-top: .4rem;
+                                                                    }
+                                                                }
+                                                            }
+                                                            +.data {
+                                                                margin-top: 1rem;
+                                                            }
+                                                            @include mobile {
+                                                                font-size: 1.3rem;
+                                                                line-height: 1.4rem;
+                                                            }
+                                                        }
+                                                        &.no,
+                                                        &.status,
+                                                        &.view,
+                                                        &.btn {
+                                                            width: 6.76%;
+                                                            @include mobile {
+                                                                width: 100%;
+                                                            }
+                                                        }
+                                                        &.no,
+                                                        &.menu {
+                                                            align-self: center;
+                                                        }
+                                                        &.id {
+                                                            width: 17.31%;
+                                                            @include mobile {
+                                                                width: 100%;
+                                                            }
+                                                        }
+                                                        &.menu {
+                                                            width: 27.7%;
+                                                            text-align: left;
+                                                            padding-left: 2rem;
+                                                            @include mobile {
+                                                                width: 100%;
+                                                                padding: 0;
+                                                                padding-right: 15rem;
+                                                            }
+                                                        }
+                                                        &.root {
+                                                            text-align: left;
+                                                            padding-left: 2rem;
+                                                            flex: 1;
+                                                            @include mobile {
+                                                                width: 100%;
+                                                                padding: 0;
+                                                                padding-right: 15rem;
+                                                                .data-root {
+                                                                    @include ellipsis;
+                                                                }
+                                                            }
+                                                        }
+                                                        &.btn {
+                                                            display: flex;
+                                                            align-items: center;
+                                                            flex-direction: column;
+                                                            
+                                                            .btn {
+                                                                display: inline-block;
+                                                                width: 3rem;
+                                                                height: 3rem;
+                                                                background-color: #f3f3f3;
+                                                                border-radius: 50%;
+                                                                transition: background-color .3s ease;
+                                                                @include mobile {
+                                                                    width: 2rem;
+                                                                    height: 2rem;
+                                                                }
+                                                                &::after {
+                                                                    display: block;
+                                                                    height: 100%;
+                                                                    content: '';
+                                                                    background-image: url("data:image/svg+xml,%0A%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.264138 0.266446C0.433317 0.0958407 0.662742 0 0.901961 0C1.14118 0 1.37061 0.0958407 1.53978 0.266446L6.00545 4.77111L10.4711 0.266446C10.6413 0.100676 10.8691 0.00894946 11.1057 0.0110229C11.3422 0.0130963 11.5685 0.108803 11.7358 0.277531C11.903 0.446259 11.9979 0.674507 12 0.913115C12.002 1.15172 11.9111 1.3816 11.7468 1.55323L6.64327 6.7013C6.47409 6.8719 6.24467 6.96774 6.00545 6.96774C5.76623 6.96774 5.5368 6.8719 5.36762 6.7013L0.264138 1.55323C0.0950107 1.38258 0 1.15115 0 0.90984C0 0.668531 0.0950107 0.437102 0.264138 0.266446Z' fill='rgb(204,204,204)'/%3E%3C/svg%3E%0A");
+                                                                    background-repeat: no-repeat;
+                                                                    background-position: center 1.303rem;
+                                                                    transition: .3s ease;
+                                                                    @include mobile {
+                                                                        background-size: .8rem;
+                                                                        background-position: center;
+                                                                    }
+                                                                }
+                                                                +.btn {
+                                                                    margin-top: 0.5rem;
+                                                                }
+                                                            }
+                                                            @include mobile {
+                                                                position: absolute;
+                                                                top: 1.5rem;
+                                                                right: 1.5rem;
+                                                                width: auto;
+                                                                font-weight: 400;
+                                                                font-size: 1.2rem;
+                                                                line-height: 1.2rem;
+                                                            }
+                                                        }
+                                                        @include mobile {
+                                                            text-align: left;
+                                                            &.no {
+                                                                display: none;
+                                                            }
+                                                            &.status {
+                                                                position: absolute;
+                                                                top: 50%;
+                                                                right: 10.5rem;
+                                                                width: auto;
+                                                                font-size: 1.2rem;
+                                                                max-width: unset;
+                                                                transform: translateY(-50%);
+                                                                .data {
+                                                                    line-height: 2rem;
+                                                                    text-align: right;
+                                                                }
+                                                            }
+                                                            &.view {
+                                                                position: absolute;
+                                                                top: 50%;
+                                                                right: 5.5rem;
+                                                                width: auto;
+                                                                text-align: center;
+                                                                transform: translateY(-50%);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            &.detail {
+                                                height: 0;
+                                                overflow: hidden;
+                                                transition: height .3s ease;
+                                                .data-inner {
+                                                    padding: 1.5rem 0;
+                                                    background-color: #efefef;
+                                                    border-left-width: .6rem;
+                                                    border-style: solid;
+                                                    border-color: #ffffff;
+                                                    @include mobile {
+                                                        padding: .2rem 0;
+                                                        margin: 0 1.5rem;
+                                                        border: none;
+                                                        border-radius: .4rem;
+                                                    }
+                                                }
+                                                .data-list {
+                                                    display: flex;
+                                                    position: relative;
+                                                    width: 100%;
+                                                    padding: 1.5rem .6rem;
+                                                    margin: 0 auto;
+                                                    justify-content: space-between;
+                                                    max-width: 100rem;
+                                                    .data {
+                                                        color: #14121f;
+                                                        line-height: 2rem;
+                                                        max-width: 50rem;
+                                                        @include mobile {
+                                                            &.name {
+                                                                font-size: 1.2rem;
+                                                                line-height: 1.4rem;
+                                                                letter-spacing: 0.05rem;
+                                                            }
+                                                            &.contents {
+                                                                font-size: 1rem;
+                                                                line-height: 1.2rem;
+                                                            }
+                                                        }
+                                                        &.title {
+                                                            font-weight: 600;
+                                                            padding-right: 1.8rem;
+                                                            @include mobile {
+                                                                font-size: 1.2rem;
+                                                                line-height: 1.4rem;
+                                                                letter-spacing: -0.025rem;
+                                                            }
+                                                        }
+                                                        &.name,
+                                                        &.contents {
+                                                            font-weight: 400;
+                                                        }
+                                                        &.name {
+                                                            position: relative;
+                                                            &.ko::before {
+                                                                content: 'ko';
+                                                            }
+                                                            &.en::before {
+                                                                content: 'en';
+                                                            }
+                                                            &::before {
+                                                                display: inline-block;
+                                                                position: absolute;
+                                                                top: 50%;
+                                                                left: -5rem;
+                                                                width: 3.5rem;
+                                                                padding: .1rem 0;
+                                                                // padding: auto;
+                                                                color: #fff;
+                                                                text-align: center;
+                                                                background-color: #14121f;
+                                                                border-radius: .6rem;
+                                                                transform: translateY(-50%);
+                                                                @include mobile {
+                                                                    right: 4rem;
+                                                                }
+                                                            }
+                                                            +.name {
+                                                                margin-top: 1.2rem;
+                                                            }
+                                                        }
+                                                    }
+                                                    &.worker {
+                                                        .title {
+                                                            align-self: center;
+                                                        }
+                                                    }
+                                                    +.data-list {
+                                                        &::before {
+                                                            position: absolute;
+                                                            top: 0;
+                                                            left: 0;
+                                                            width: 100%;
+                                                            content: '';
+                                                            border-top: .05rem solid #000000;
+                                                            opacity: .4;
+                                                        }
+                                                    }
+                                                    @include mobile {
+                                                        padding: .9rem 1.2rem .9rem 1.5rem;
+                                                    }
+                                                }
+                                                .data {
+                                                    line-height: 2rem;
+                                                }
+                                            }
+                                        }
+                                        +.data-item {
+                                            border-top: .1rem solid #eeeded;
+                                        }
+                                        &.active {
+                                            .default {
+                                                border-color: #14121f;
+                                                .default-list {
+                                                    .default-item.btn {
+                                                        .btn {
+                                                            background-color: #000;
+                                                            &::after {
+                                                                background-position: center;
+                                                                transform: rotate(180deg);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            @include mobile {
+                                                padding-bottom: 2rem;
+                                            }
+                                            +.data-item {
+                                                border-top: 0;
+                                                @include mobile {
+                                                    border-top: .1rem solid #eeeded;
+                                                }
+                                            }
+                                        }
+                                        &.hidden {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                
+                    }
+                    .no-result {
+                        display: none;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        .no-result-inner {
+                            &::before {
+                                display: block;
+                                width: 5.5rem;
+                                height: 5.5rem;
+                                margin: 0 auto;
+                                content: '';
+                                margin-bottom: 3rem;
+                                background-image: url("data:image/svg+xml,%0A%3Csvg width='55' height='55' viewBox='0 0 55 55' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M27.5 52.7083C41.4222 52.7083 52.7083 41.4222 52.7083 27.5C52.7083 13.5778 41.4222 2.29167 27.5 2.29167C13.5778 2.29167 2.29167 13.5778 2.29167 27.5C2.29167 41.4222 13.5778 52.7083 27.5 52.7083ZM27.5 55C42.6878 55 55 42.6878 55 27.5C55 12.3122 42.6878 0 27.5 0C12.3122 0 0 12.3122 0 27.5C0 42.6878 12.3122 55 27.5 55ZM27.9582 12.3177C28.7493 12.3177 29.3905 12.959 29.3905 13.75V33C29.3905 33.791 28.7493 34.4323 27.9582 34.4323C27.1672 34.4323 26.5259 33.791 26.5259 33V13.75C26.5259 12.959 27.1672 12.3177 27.9582 12.3177ZM27.9583 44.0001C29.4771 44.0001 30.7083 42.7689 30.7083 41.2501C30.7083 39.7313 29.4771 38.5001 27.9583 38.5001C26.4396 38.5001 25.2083 39.7313 25.2083 41.2501C25.2083 42.7689 26.4396 44.0001 27.9583 44.0001Z' fill='rgb(68,68,68)'/%3E%3C/svg%3E%0A");
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            }
+                        }
+                        .des {
+                            color: #4d4d4d;
+                            font-weight: 600;
+                            font-size: 2rem;
+                            line-height: 2rem;
+                            letter-spacing: -0.05rem;
+                        }
+                        &.active {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

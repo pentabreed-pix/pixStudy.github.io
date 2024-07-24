@@ -1,0 +1,33 @@
+html.layout-sample {
+	body {
+		margin: 0;
+	}
+
+	#content {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+
+		.content-head {
+			text-align: center;
+			color: red;
+		}
+		
+		.content-body {
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: gray;
+		
+			.info-board {
+				margin: 0 auto;
+				width: 480px;
+				max-width: 100%;
+		
+				// 상단 공정일 경우
+				// align-self: flex-start;
+			}	
+		}
+	}
+}

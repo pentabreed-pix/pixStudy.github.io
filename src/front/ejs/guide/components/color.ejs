@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<%-include('../_templates/_guide.header.ejs') %>
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-subject">
+					<span class="local-name">Color</span>
+					<span class="local-desc">색상을 사용하여 계층 구조, 상태 및 브랜드 아이덴티티를 표현하면서 의미 있는 경험을 만듭니다.</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body">
+					<!-- section -->
+					<div class="section color-guide">
+						<div class="section-head">
+							<h4 class="section-subject"><span class="section-name">Color system</span></h4>
+							<p class="section-desc">
+								Primary는 프로젝트를 대표하는 최우선순위 색상입니다. Secondary는 포인트가 되거나 뒷받침되는 색상입니다. Neutral은 중립적인 회색톤의 색상입니다. System은 상태의 의미를 전달합니다. Semantic은 배경, 비활성화 등의 의미를 가지고 있는 색상입니다. Typography는 글자색을 정의합니다.
+							</p>
+						</div>
+						<div class="section-body">
+							<div class="subsection">
+								<div class="subsection-head">Primary</div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item">
+											<span class="data-box" style="background-color: #EA002C"></span>
+											<span class="data-name">primary, 100</span> 
+											<span class="data-code">#EA002C</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #AD0021"></span>
+											<span class="data-name">primary, 090</span> 
+											<span class="data-code">#AD0021</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #6D0CA6"></span>
+											<span class="data-name">primary, 080</span> 
+											<span class="data-code">#6D0CA6</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #9735D0"></span>
+											<span class="data-name">primary, 070</span> 
+											<span class="data-code">#9735D0</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="subsection secondary">
+								<div class="subsection-head">Secondary</div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item">
+											<span class="data-box" style="background-color: #F47725"></span>
+											<span class="data-name">secondary, 100</span> 
+											<span class="data-code">#F47725</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #C24D00"></span>
+											<span class="data-name">secondary, 090</span> 
+											<span class="data-code">#C24D00</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #27272A"></span>
+											<span class="data-name">secondary, 080</span> 
+											<span class="data-code">#27272A</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #F6F6F7"></span>
+											<span class="data-name">secondary, 070</span> 
+											<span class="data-code">#F6F6F7</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="subsection">
+								<div class="subsection-head">Neutral</div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item">
+											<span class="data-box" style="background-color: #15151A"></span>
+											<span class="data-name">neutral, 100</span> 
+											<span class="data-code">#15151A</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #27272A"></span>
+											<span class="data-name">neutral, 090</span> 
+											<span class="data-code">#27272A</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #3F3F46"></span>
+											<span class="data-name">neutral, 080</span> 
+											<span class="data-code">#3F3F46</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #52525B"></span>
+											<span class="data-name">neutral, 070</span> 
+											<span class="data-code">#52525B</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #71717A"></span>
+											<span class="data-name">neutral, 060</span> 
+											<span class="data-code">#71717A</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #A1A1AA"></span>
+											<span class="data-name">neutral, 050</span> 
+											<span class="data-code">#A1A1AA</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #D4D4D8"><span class="use">Disabled</span></span>
+											<span class="data-name">neutral, 040</span> 
+											<span class="data-code">#D4D4D8</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #E4E4E7"></span>
+											<span class="data-name">neutral, 030</span> 
+											<span class="data-code">#E4E4E7</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #F6F6F7"></span>
+											<span class="data-name">neutral, 020</span> 
+											<span class="data-code">#F6F6F7</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #FBFBFC"></span>
+											<span class="data-name">neutral, 010</span> 
+											<span class="data-code">#FBFBFC</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="subsection normal">
+								<div class="subsection-head">System</div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item">
+											<span class="data-box" style="background-color: #FF4444"><span class="use">Error</span></span>
+											<span class="data-name">system, 000</span> 
+											<span class="data-code">#FF4444</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #D93232"><span class="use">Error sub</span></span>
+											<span class="data-name">system, 005</span> 
+											<span class="data-code">#D93232</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #00CC5C"><span class="use">Success</span></span>
+											<span class="data-name">system, 010</span> 
+											<span class="data-code">#00CC5C</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #009B46"><span class="use">Success sub</span></span>
+											<span class="data-name">system, 020</span> 
+											<span class="data-code">#009B46</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #FFBA30"><span class="use">Warning</span></span>
+											<span class="data-name">system, 030</span> 
+											<span class="data-code">#FFBA30</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #E3A01B"><span class="use">Warning sub</span></span>
+											<span class="data-name">system, 040</span> 
+											<span class="data-code">#E3A01B</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #5389FC"><span class="use">Info</span></span>
+											<span class="data-name">system, 050</span> 
+											<span class="data-code">#5389FC</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #3F68BF"><span class="use">Info sub</span></span>
+											<span class="data-name">system, 060</span> 
+											<span class="data-code">#3F68BF</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #FFFFFF"></span>
+											<span class="data-name">system, 070</span> 
+											<span class="data-code">#FFFFFF</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #000000"></span>
+											<span class="data-name">system, 080</span> 
+											<span class="data-code">#000000</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="subsection accent">
+								<div class="subsection-head">Semantic</div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item">
+											<span class="data-box" style="background-color: #27272A"><span class="use">Bg, Disabled</span></span>
+											<span class="data-name">semantic, 020</span> 
+											<span class="data-code">#27272A</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #71717A"><span class="use">Line, Disabled</span></span>
+											<span class="data-name">semantic, 010</span> 
+											<span class="data-code">#71717A</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #D4D4D8"><span class="use">Line, Disabled</span></span>
+											<span class="data-name">semantic, 005</span> 
+											<span class="data-code">#D4D4D8</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #F4F4F5"><span class="use">Bg, Disabled</span></span>
+											<span class="data-name">semantic, 000</span> 
+											<span class="data-code">#F4F4F5</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="subsection accent">
+								<div class="subsection-head">Typography</div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item">
+											<span class="data-box" style="background-color: #15151A"></span>
+											<span class="data-name">typo, 020</span> 
+											<span class="data-code">#15151A</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #3F3F46"></span>
+											<span class="data-name">typo, 010</span> 
+											<span class="data-code">#3F3F46</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #71717A"></span>
+											<span class="data-name">typo, 005</span> 
+											<span class="data-code">#71717A</span>
+										</li>
+										<li class="data-item">
+											<span class="data-box" style="background-color: #FFFFFF"></span>
+											<span class="data-name">typo, 000</span> 
+											<span class="data-code">#FFFFFF</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="subsection accent">
+								<div class="subsection-head">etc</div>
+								<div class="subsection-body">
+									<ul class="data-list">
+										<li class="data-item">
+											<span class="data-box" style="background-color: #0072C6"></span>
+											<span class="data-name">etc, 100</span> 
+											<span class="data-code">#0072C6</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //section -->
+					<!-- section -->
+					<div class="section color-guide">
+						<div class="section-head">
+							<h4 class="section-subject"><span class="section-name">SCSS 작성 방법</span></h4>
+							<p class="section-desc">scss 작성 예시입니다.</p>
+						</div>
+						<div class="section-body">
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">Argument</div>
+								<div class="subsection-body">
+									<pre class="highlight-js"><code class="scss">color($theme, $variant, $opacity);</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+							<!-- subsection -->
+							<div class="subsection">
+								<div class="subsection-head">Example</div>
+								<div class="subsection-body">
+									<pre class="highlight-js">
+<code class="scss">color: color(primary, 020);
+border-color: color(secondary, 060);
+background-color: color((system,070), 0.6);</code></pre>
+								</div>
+							</div>
+							<!-- //subsection -->
+						</div>
+					</div>
+					<!-- //section -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+</div>
+</body>
+</html>

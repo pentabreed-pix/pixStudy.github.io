@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<%-include('../_templates/_guide.head.ejs', {
+		pageJavascript: ''
+	}) %>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<%-include('../_templates/_guide.header.ejs') %>
+				<!-- page-body -->
+				<div class="page-body">
+					<!-- local-head -->
+					<div class="local-head">
+						<h2 class="local-subject">
+							<span class="local-name">공통 레이아웃 구조</span>
+							<span class="local-desc">
+								공통 마크업 구조를 정의함으로써 웹사이트의 일관성을 유지합니다. 모든 페이지에서 동일한 구조를 사용하고 일관된 마크업 원칙을 준수해야 합니다.
+							</span>
+						</h2>
+					</div>
+					<!-- //local-head -->
+					<!-- local-body -->
+					<div class="local-body">
+						<!-- section -->
+						<div class="section layout-guide">
+							<div class="section-body">
+								<!-- subsection -->
+								<div class="subsection">
+									<div class="subsection-head">head</div>
+									<div class="subsection-body">
+										<div class="subcontent-wrap">
+											<div class="subcontent-body">
+<!-- highlight-js -->
+<pre class="highlight-js"><code class="html">&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta name=&quot;Robots&quot; content=&quot;index,follow&quot;&gt;
+    &lt;meta name=&quot;title&quot; content=&quot;&quot;&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
+    &lt;meta property=&quot;og:url&quot; content=&quot;&quot;&gt;
+    &lt;meta property=&quot;og:site_name&quot; content=&quot;&quot;&gt;
+    &lt;meta property=&quot;og:title&quot; content=&quot;&quot;&gt;
+    &lt;meta name=&quot;google-site-verification&quot; content=&quot;&quot;&gt;
+    &lt;meta property=&quot;og:description&quot; content=&quot;&quot;&gt;
+    &lt;meta property=&quot;og:type&quot; content=&quot;website&quot;&gt;
+    &lt;meta property=&quot;og:image&quot; content=&quot;&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;&quot;&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+<!-- //highlight-js -->
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //subsection -->
+								<!-- subsection -->
+								<div class="subsection">
+									<div class="subsection-head">body 공통</div>
+									<div class="subsection-body">
+										<div class="subcontent-wrap">
+											<div class="subcontent-body">
+<!-- highlight-js -->
+<pre class="highlight-js"><code class="html">&lt;body&gt;
+    &lt;div id=&quot;wrap&quot;&gt;
+        &lt;div class=&quot;skip&quot;&gt;
+            &lt;span class=&quot;blind&quot;&gt;skip navigation&lt;/span&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;#naviMenu&quot;&gt;&#xBA54;&#xB274;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#main&quot;&gt;&#xBCF8;&#xBB38;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#footer&quot;&gt;&#xD558;&#xB2E8; &#xC815;&#xBCF4;(&#xB9C1;&#xD06C;)&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;header id=&quot;header&quot;&gt;
+            &lt;div class=&quot;header-inner&quot;&gt;
+                &lt;h1 class=&quot;site-logo&quot;&gt;
+                    &lt;a href=&quot;#&quot; class=&quot;site-name&quot;&gt;&lt;/a&gt;
+                &lt;/h1&gt;
+                &lt;div class=&quot;site-navi&quot; id=&quot;naviMenu&quot;&gt; ... &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;div class=&quot;main&quot; id=&quot;main&quot;&gt;
+            &lt;div class=&quot;main-inner&quot;&gt; ... &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;footer id=&quot;footer&quot;&gt;
+            &lt;div class=&quot;footer-inner&quot;&gt; ... &lt;/div&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<!-- //highlight-js -->
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //subsection -->
+								<!-- subsection -->
+								<div class="subsection">
+									<div class="subsection-head">header</div>
+									<div class="subsection-body">
+										<div class="subcontent-wrap">
+											<div class="subcontent-body">
+<!-- highlight-js -->
+<pre class="highlight-js"><code class="html">&lt;header id=&quot;header&quot;&gt;
+    &lt;div class=&quot;header-inner&quot;&gt;
+        &lt;h1 class=&quot;site-logo&quot;&gt;
+            &lt;a href=&quot;#&quot; class=&quot;site-name&quot;&gt;&lt;/a&gt;
+        &lt;/h1&gt;
+        &lt;div class=&quot;site-navi&quot; id=&quot;naviMenu&quot;&gt;
+            &lt;ul class=&quot;depth1-list&quot;&gt;
+                &lt;li class=&quot;depth1-item&quot;&gt;
+                    &lt;a href="" class=&quot;depth1&quot;&gt;&lt;/a&gt;
+                    &lt;div href="" clss=&quot;depth2-wrap&quot;&gt;
+                        &lt;ul href="" clss=&quot;depth2-list&quot;&gt;
+                            &lt;li href="" clss=&quot;depth2-item&quot;&gt;...&lt;/li&gt;
+                                            .
+                                            .
+                                            .
+                            &lt;li href="" clss=&quot;depth2-item&quot;&gt;...&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/li&gt;
+                                .
+                                .
+                                .
+                &lt;li class=&quot;depth1-item&quot;&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;site-util&quot;&gt;
+            &lt;div class=&quot;util contact-wrap&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;util field select design1 case1&quot; id=&quot;lang&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;site-control&quot;&gt;
+            &lt;button class=&quot;btn menu-header&quot;&gt;&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+</code></pre>
+<!-- //highlight-js -->
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //subsection -->
+								<!-- subsection -->
+								<div class="subsection">
+									<div class="subsection-head">main</div>
+									<div class="subsection-body">
+										<div class="subcontent-wrap">
+											<div class="subcontent-body">
+<!-- highlight-js -->
+<pre class="highlight-js"><code class="html">&lt;div class=&quot;main&quot; id=&quot;main&quot;&gt;
+    &lt;div class=&quot;main-inner&quot;&gt;
+        &lt;div class=&quot;local&quot;&gt;
+            &lt;div class=&quot;local-head&quot;&gt;
+                &lt;div class=&quot;local-subject&quot;&gt;
+                    &lt;h2 class=&quot;local-name&quot;&gt;&lt;/h2&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;local-body&quot;&gt;
+                &lt;div class=&quot;content-head&quot;&gt;...&lt;/div&gt; &lt;!-- 페이지 heading 텍스트 : blind 처리 --&gt;
+                &lt;div class=&quot;content-info&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;content-body&quot;&gt;
+                    &lt;div class=&quot;section design1 case1 type1&quot;&gt; &lt;!-- 고유 클래스 추가 사용 --&gt;
+                        &lt;div class=&quot;section-wrap&quot;&gt;
+                            &lt;div class=&quot;section-head&quot;&gt;
+                                &lt;div class=&quot;section-subject&quot;&gt;
+                                    &lt;h4 class=&quot;section-name&quot;&gt;...&lt;/h4&gt;
+                                    &lt;span class=&quot;section-summary&quot;&gt;...&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;section-body&quot;&gt;
+                                &lt;!-- 컴포넌트 삽입 --&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;section design2&quot;&gt; &lt;!-- section-head와 section-body가 flex 되는 경우 --&gt;
+                        &lt;div class=&quot;section-wrap&quot;&gt;
+                            &lt;div class=&quot;section-head&quot;&gt;
+                                &lt;div class=&quot;section-subject&quot;&gt;
+                                    &lt;h4 class=&quot;section-name&quot;&gt;...&lt;/h4&gt;
+                                    &lt;span class=&quot;section-summary&quot;&gt;...&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;section-body&quot;&gt;
+                                &lt;!-- 컴포넌트 삽입 --&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;section design3 case1 type1&quot;&gt; &lt;!-- section-name과 util이 flex 되는 경우 --&gt;
+                        &lt;div class=&quot;section-wrap&quot;&gt;
+                            &lt;div class=&quot;section-info&quot;&gt; 
+                                &lt;h4 class=&quot;section-name&quot;&gt;...&lt;/h4&gt;
+                                &lt;div class=&quot;submit-form&quot;&gt;...&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;section-body&quot;&gt;
+                                &lt;!-- 컴포넌트 삽입 --&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- //highlight-js -->
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //subsection -->
+								<!-- subsection -->
+								<div class="subsection">
+									<div class="subsection-head">footer</div>
+									<div class="subsection-body">
+										<div class="subcontent-wrap">
+											<div class="subcontent-body">
+<!-- highlight-js -->
+<pre class="highlight-js"><code class="html">&lt;footer id=&quot;footer&quot;&gt;
+    &lt;div class=&quot;footer-inner&quot;&gt;
+        &lt;div class=&quot;footer-head&quot;&gt;
+            &lt;div class=&quot;site-logo&quot;&gt;
+                &lt;a href=&quot;#&quot; class=&quot;site-name&quot;&gt;&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;footer-body&quot;&gt;
+            &lt;div class=&quot;section service&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;section info&quot;&gt;
+                &lt;div class=&quot;section wrap&quot;&gt;
+                    &lt;div class=&quot;section-head&quot;&gt;&lt;/div&gt;
+                    &lt;div class=&quot;section-body&quot;&gt;
+                        &lt;ul class=&quot;info-list&quot;&gt;
+                            &lt;li class=&quot;info-item&quot;&gt;&#xD68C;&#xC0AC;&#xC18C;&#xAC1C;&lt;/li&gt;
+                            &lt;li class=&quot;info-item&quot;&gt;&#xC0AC;&#xC6A9;&#xAD8C; &#xC57D;&#xAD00;&lt;/li&gt;
+                            &lt;li class=&quot;info-item&quot;&gt;&#xAC1C;&#xC778;&#xC815;&#xBCF4;&#xCC98;&#xB9AC;&#xBC29;&#xCE68;&lt;/li&gt;
+                            &lt;li class=&quot;info-item&quot;&gt;&#xC774;&#xC6A9;&#xC57D;&#xAD00;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;section company&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;section sns&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+</code></pre>
+<!-- //highlight-js -->
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //subsection -->
+							</div>
+						</div>
+						<!-- //section -->
+                        <!-- section -->
+						<div class="section layout-guide">
+							<div class="section-body">
+								<div class="subsection">
+                                    <div class="content-body">
+                                        <!-- common section -->
+                                        <div class="section design1 case1 type1">
+                                            <div class="section-wrap">
+                                                <div class="section-head">
+                                                    <div class="section-subject">
+                                                        <h4 class="section-name">타이틀 T3-32-bd</h4>
+                                                        <p class="section-summary">summary 내용을 입력하세요.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="section-body" style="background-color: #ddd; padding: 15px; width: 70%; border-radius: 10px;">
+                                                    <p class="para">section body</p></div>
+                                            </div>
+                                        </div>
+                                        <!-- common section -->
+                                    </div>
+                                </div>
+                                <div class="subsection">
+                                    <div class="content-body">
+                                        <!-- common section -->
+                                        <div class="section design1 case1 type1 align3">
+                                            <div class="section-wrap">
+                                                <div class="section-head">
+                                                    <div class="section-subject">
+                                                        <h4 class="section-name">타이틀 T3-32-bd</h4>
+                                                        <p class="section-summary">summary 내용을 입력하세요.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- common section -->
+                                    </div>
+                                </div>
+                                <div class="subsection line">
+                                    <div class="content-body">
+                                        <!-- common section -->
+                                        <div class="section design1 case2 type1">
+                                            <div class="section-wrap">
+                                                <div class="section-head">
+                                                    <div class="section-subject">
+                                                        <h4 class="section-name">타이틀 T3-32-bd</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="section-body">
+                                                    <p class="para">para 내용을 입력하세요. para 내용을 입력하세요. para 내용을 입력하세요.</p>
+                                                    <p class="para">para 내용을 입력하세요. para 내용을 입력하세요. para 내용을 입력하세요.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- common section -->
+                                    </div>
+                                </div>
+                                <div class="subsection line">
+                                    <div class="content-body">
+                                        <!-- common section -->
+                                        <div class="section design1 case3 type1">
+                                            <div class="section-wrap">
+                                                <div class="section-head">
+                                                    <div class="section-subject">
+                                                        <h4 class="section-name">타이틀 T3-32-bd</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="section-body" style="background-color: #ddd; padding: 15px; width: 70%; border-radius: 10px;">
+                                                <p class="para">section body</p></div>
+                                            </div>
+                                        </div>
+                                        <!-- common section -->
+                                    </div>
+                                </div>
+                                <div class="subsection line">
+                                    <div class="content-body">
+                                        <!-- common section -->
+                                        <div class="section design1 case4 type1">
+                                            <div class="section-wrap">
+                                                <div class="section-head">
+                                                    <div class="section-subject">
+                                                        <h4 class="section-name">타이틀 T3-32-bd</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="section-body" style="background-color: #ddd; padding: 15px; width: 70%; border-radius: 10px;">
+                                                    <p class="para">section body</p></div>
+                                            </div>
+                                        </div>
+                                        <!-- common section -->
+                                    </div>
+                                </div>
+                                <div class="subsection line">
+                                    <div class="content-body">
+                                        <!-- common section -->
+                                        <div class="section design2 type1">
+                                            <div class="section-wrap">
+                                                <div class="section-head">
+                                                    <div class="section-subject">
+                                                        <h4 class="section-name">타이틀 T3-32-bd</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="section-body" style="background-color: #ddd; padding: 15px; width: 70%; border-radius: 10px;">
+                                                    <p class="para">section body</p></div>
+                                            </div>
+                                        </div>
+                                        <!-- common section -->
+                                    </div>
+                                </div>
+                                <div class="subsection line">
+                                    <div class="content-body">
+                                        <!-- common section -->
+                                        <div class="section design3 case1 type1">
+                                            <div class="section-wrap">
+                                                <div class="section-head">
+                                                    <h4 class="section-name">타이틀 T3-32-bd</h4>
+                                                    <div class="section-util">
+                                                        <div class="submit-form design1 case1 align1">
+                                                            <div class="form-list">
+                                                                <div class="form-item">
+                                                                    <div class="form select design1 case1 type1">
+                                                                        <label for="temp" class="blind">Label</label>
+                                                                        <select name="name" id="temp">
+                                                                            <option value="option1">Option1</option>
+                                                                            <option value="option2">Option2</option>
+                                                                            <option value="option3">Option3</option>
+                                                                            <option value="option4">Option4</option>
+                                                                            <option value="option5">Option5</option>
+                                                                        </select>
+                                                                        <div class="arrow"><span class="blind">닫힘</span></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-item">
+                                                                    <div class="form search design1 case1 type1">
+                                                                        <label for="temp-search" class="blind">
+                                                                            검색
+                                                                        </label>
+                                                                        <input id="temp-search" class="input-elem" type="text" placeholder="Default"/>
+                                                                        <div class="input-icon">
+                                                                            <button class="btn icon case3 remove">
+                                                                                <span class="btn-text blind">삭제</span>
+                                                                            </button>
+                                                                            <button class="btn icon case3 search">
+                                                                                <span class="btn-text blind">검색</span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- common section -->
+                                    </div>
+                                </div>
+                                <div class="subsection line">
+                                    <div class="content-body">
+                                        <!-- common section -->
+                                        <div class="section design4 case1 type1">
+                                            <div class="section-wrap">
+                                                <div class="section-body" style="gap: 2rem;">
+                                                    <div style="background-color: #ddd; padding: 30px; width: 100%; border-radius: 10px;"></div>
+                                                    <div style="background-color: #ddd; padding: 30px; width: 100%; border-radius: 10px;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- common section -->
+                                    </div>
+                                </div>
+                                <div class="subsection line">
+                                    <div class="content-body">
+                                        <!-- common section -->
+                                        <div class="section design1 case2 type2">
+                                            <div class="section-wrap">
+                                                <div class="section-head">
+                                                    <div class="section-subject">
+                                                        <h4 class="section-name">타이틀 T4_24_bd</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="section-body">
+                                                    <p class="para">para 내용을 입력하세요. para 내용을 입력하세요. para 내용을 입력하세요.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- common section -->
+                                    </div>
+                                </div>
+							</div>
+						</div>
+						<!-- //section -->
+					</div>
+					<!-- local-body -->
+				</div>
+				<!-- //page-body -->
+				<%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+</div>
+</body>
+</html>

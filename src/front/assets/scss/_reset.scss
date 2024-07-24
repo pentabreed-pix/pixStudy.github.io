@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    line-height: 160%;
+    font-style: normal;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    word-break: keep-all;
+    touch-action: auto;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+}
+
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1rem;
+}
+
+html,
+body {
+    font-family: "SUIT", sans-serif;
+    letter-spacing: 0;
+    -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -o-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+em,
+i,
+cite,
+code,
+address {
+    font-weight: normal;
+    font-style: normal;
+}
+
+a,
+u,
+ins {
+    color: inherit;
+    text-decoration: none;
+}
+
+table caption {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    color: transparent;
+    font-size: 1px;
+    line-height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+}
+
+button {
+    border: none;
+    background: none;
+    font-family: "SUITE", sans-serif;
+    cursor: pointer;
+}
+
+label,
+img,
+input,
+select,
+textarea,
+button,
+a {
+    vertical-align: middle;
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: unset;
+    appearance: none;
+    border-radius: 0;
+}
+
+sub {
+    font-size: smaller;
+    vertical-align: text-bottom;
+}

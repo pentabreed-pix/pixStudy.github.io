@@ -1,0 +1,900 @@
+/* IR CSS */
+.ir { 
+    &.stock-info{
+        // 신용등급
+        &.credit-rating{
+            .section {
+                &.credit-year {
+                    position: relative;
+                    width: 100%;
+                    height: 24rem;
+                    margin: 0 auto;
+                    background: url(../../assets/images/ir/banner1-ir.jpg);
+                    border-radius: 2.4rem;
+                    margin-bottom: 16rem;
+                    .section-head{
+                        position: absolute;
+                        top: 50%; 
+                        left: 50%;
+                        text-align: center;
+                        transform: translate(-50%, -50%);
+                        .section-name{
+                            @include font(small-2x, bold);
+                            margin-bottom: 2.4rem;
+                        }
+                    }
+                    @include mobile {
+                        background: url(../../assets/images/ir/banner1-ir-mo.jpg);
+                        background-size: cover;
+                        height: 16.5rem;
+                        border-radius: unset;
+                        width: 100vw;
+                        margin-left: -1.8rem;
+                        margin-bottom: 8rem;
+                        .section-head {
+                            width: 100%;
+                            .section-name{
+                                @include font(small-3x, bold);
+                                margin-bottom: 1.6rem;
+                            }
+                            .submit-form {
+                                width: 18.3rem;
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+                }
+                &.credit-area {
+                    display: none;
+                    .section-wrap {
+                        gap: 2rem;
+                    }
+                    .section-head {
+                        width: 18.3%;
+                    }
+                    .section-body {
+                        width: calc(100% - 18.3%);
+                    }
+
+                    @include mobile {
+                        .section-head {
+                            width: 100%;
+                            .submit-form {
+                                .form-list{
+                                    .form.select.design1 > select{
+                                        width: 18.3rem;
+                                    }
+                                }
+                            }
+                        }
+                        .section-body {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                & ~ .section{
+                    width: 100%;
+                    margin-top: 16rem;
+                    .section-wrap{
+                        margin-top: 16rem;
+                    }
+                }
+        
+                
+
+                @include mobile {
+                    .section-head {
+                        width: 100%;
+                    }
+                    .section-body {
+                        width: 100%;
+                        .form.select.design1 {
+                            width: 18.3rem !important;
+                        }
+                    }
+                    & ~ .section{
+                        width: 100%;
+                        margin-top: 0rem;
+                        &.hidden {
+                            display: none;
+                        }
+                        .section-wrap{
+                            margin-top: 8rem;
+                        }
+                    }
+                }
+            }
+
+            .dataCont{
+                display: none;
+            }
+        }
+
+        // 감사보고서
+        &.audit-report{
+            .section{
+                .section-wrap {
+                    gap: 2rem;
+                    @include mobile {
+                        gap: 2.4rem;
+                    }
+                }
+                .section-head {
+                    width: 32.25%;
+                    .section-name{
+                        @include font(small-2x, bold);
+                        color: color(system, 070);
+                    }
+                }
+                .section-body {
+                    width: calc(100% - 32.25%);
+                    .board-list{
+                        .board-item{
+                            width: 38.6rem;
+                        }
+                    }
+                }
+
+                & ~ .section{
+                    margin-top: 16rem;
+                }
+    
+                @include mobile {
+                    .section-head {
+                        width: 100%;
+                    }
+                    .section-body {
+                        width: 100%;
+                        .board-list{
+                            .board-item{
+                                width: 100%;
+                            }
+                        }
+                    }
+                    & ~ .section{
+                        margin-top: 8rem;
+                        .section-wrap{
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 주요재무현황
+        &.financial-status{
+            .section{
+                .section-wrap{
+                    flex-direction: column;
+                }
+                & ~ .section{
+                    width: 100%;
+                    margin-top: 16rem;
+                }
+
+                    
+                @include mobile {
+                    .section-head {
+                        width: 100%;
+                    }
+                    .section-body {
+                        width: 100%;
+                    }
+                    .onePair-table {
+                        > .data-list {
+                            @include scroll-x;
+                        }
+                    }
+        
+                    & ~ .section{
+                        margin-top: 8rem;
+                    }
+                }
+            }
+
+            // table col width
+            table{
+                &.col-w-1 {
+                    col {
+                        @include mobile {
+                            @each $index, $width in (1: 17.94%, 2: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                        @at-root
+                        .en & {
+                            @include mobile {
+                                @each $index, $width in (1: 24.45%, 2: auto) {
+                                    &.col#{$index} {
+                                        width: $width;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        // IR 일정
+        &.ir-schedule{
+            .content-body{
+                .section{
+                    .section-wrap{
+                        flex-direction: column;
+                        gap: 4rem;
+                        .section-body {
+                            width: 100%;
+                        }
+                        .btn-display{
+                            margin-top: 8rem;
+                            justify-content: center;
+                        }
+                    }
+                    & ~ .section{
+                        width: 100%;
+                        margin-top: 16rem;
+                    }
+        
+                    @include mobile {
+                        .section-wrap {
+                            gap: 2.4rem;
+                            .section-head {
+                                width: 100%;
+                            }
+                            .section-body {
+                                width: 100%;
+                            }
+                            .btn-display {
+                                margin-top: 4.8rem;
+                            }
+                        }
+         
+                        & ~ .section{
+                            margin-top: 8rem;
+                            .section-wrap{
+                                margin-top: 8rem;
+                            }
+                        }
+                    }
+                }
+                
+                //bg
+                &.bg-color{
+                    position: relative;
+                    padding-top: 8rem;
+                    @include mobile {
+                        padding-top: 4.8rem;
+                    }
+                    &::after{
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        width: 100vw;
+                        height: 100%;
+                        content: '';
+                        background-color: color(secondary, 070);
+                        transform: translateX(-50%);
+                        z-index: -1;
+                        
+                    }
+                }
+            }
+        }
+
+        // IR 자료
+        &.ir-document{
+            .section{
+                .panel-display{
+                    .panel-head {
+                        +.panel-body {
+                            margin-top: 4rem;
+                        }
+                    }
+                    .panel-body{
+                        .pagination{
+                            margin-top: 6.4rem;
+                        }
+                    }
+                }
+    
+                @include mobile {
+                    .section-head {
+                        width: 100%;
+                    }
+                    .section-body {
+                        width: 100%;
+                        
+                        .panel-head{
+                            .data-display{
+                                .item-util{
+                                    width: 100%;
+                                }
+                            }
+                            +.panel-body {
+                                margin-top: 2.4rem;
+                            }
+                        }
+                        .panel-body {
+                            .pagination{
+                                margin-top: 3.2rem;
+                            }
+                        }
+                    }
+     
+                    & ~ .section{
+                        margin-top: 8rem;
+                        .section-wrap{
+                            margin-top: 8rem;
+                        }
+                    }
+                }
+            }
+        }
+        
+        &.ir-news {
+            .section {
+                .section-util {
+                    // width: 100%;
+                }
+            }
+        }
+
+        // 주가정보
+        &.price-info{
+            .content-body{
+                padding-bottom: 0 !important;
+                .section{
+                    //bg
+                    &.bg-color{
+                        position: relative;
+                        padding: 8rem 0 16rem;
+                        @include mobile {
+                            padding: 4.8rem 0 8rem;
+                        }
+                        &::after{
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            width: 100vw;
+                            height: 100%;
+                            content: '';
+                            background-color: color(secondary, 070);
+                            transform: translateX(-50%);
+                            z-index: -1;
+                            
+                        }
+                    }
+
+                    .section-body{
+                        &.sk{
+                            display: flex;
+                            gap: 10.4rem;
+                            .table-result{
+                                width: 32.25%;
+                                padding: 4.4rem 0;
+                                text-align: center;
+                                .result-data{
+                                    @include font(large-5x, bold);
+                                }
+                                .t-display table{
+                                    min-width: 54rem;
+                                }
+                            }
+                            .t-display.design1.type1 table > tbody > tr > td{
+                                padding: 4.8rem 1.8rem;
+                                background: transparent;
+                            }
+                        }
+                        &.chart-display.case1 {
+                            margin-top: -2.2rem !important;
+                            @include mobile {
+                                margin-top: 2.4rem !important;
+                            }
+                        }
+
+                        .chart-info{
+                            display: flex;
+                            justify-content: flex-end;
+                            flex-wrap: wrap;
+                            gap: 1.6rem;
+                            @include mobile {
+                                justify-content: flex-start;
+                            }
+                            +.chart-list {
+                                margin-top: 4rem;
+                            }
+                        }
+                        .chart-exchange{
+                            width: 100%;
+                            padding: 1.6rem 0;
+                            margin-top: 6.8rem;
+                            border-top: 0.1rem solid color(neutral, 060);
+                            border-bottom: 0.1rem solid color(neutral, 060);
+                            .chart-exchange-list{
+                                display: flex;
+                                width: 100%;
+                                .item{
+                                    display: flex;
+                                    width: 20%;
+                                    padding: 2.4rem;
+                                    border-right: 0.1rem solid color(neutral, 030);
+                                    flex-direction: column;
+                                    gap: 2.4rem;
+                                    .title{
+                                        @include font(small-5x, bold);
+                                        color: color(typo, 020);
+                                        +.data {
+                                            padding-top: 0.8rem;
+                                        }
+                                    }
+                                    .data{
+                                        @include font(small-3x, bold);
+                                        color: color(typo, 010);
+                                    }
+                                    &:last-child{
+                                        border-right: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    & ~ .section{
+                        width: 100%;
+                        margin-top: 16rem;
+
+                        .section-head{
+                        .section-subject{
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                            .comment{
+                                margin-top: 2.4rem;
+                            }
+                        }
+                    }
+
+                    @include mobile {
+                        .section-body{
+                            &.sk{
+                                flex-direction: column;
+                                gap: 2rem;
+                                
+                                .data-display.onePair-table > .data-list .data-item{
+                                    min-width: auto;
+                                }
+                                .data-display.onePair-table > .data-list .data-item .data-tr .data-th{
+                                    flex: 1;
+                                }
+                                .table-result{
+                                    width: 100%;
+                                }
+                            }
+
+                            .chart-exchange{
+                                width: 100%;
+                                padding: 1.6rem 0;
+                                margin-top: 3.2rem;
+                                .chart-exchange-list{
+                                    flex-wrap: wrap;
+                                    .item{
+                                        width: 50%;
+                                        padding: 1.6rem 2.4rem;
+                                        &:last-child{
+                                            border-right: 0.1rem solid color(neutral, 030);
+                                        }
+                                        &:nth-child(2), &:nth-child(4){
+                                            border-right: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        & ~ .section{
+                            margin-top: 8rem;
+        
+                            .section-head{
+                                .section-subject{
+                                    flex-direction: column;
+                                    .section-summary{
+                                        flex-wrap: wrap;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.shareholder-status {
+                        position: relative;
+                        padding-bottom: 16rem;
+
+                        @include mobile {
+                            padding-bottom: 8rem;
+                        }
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            display: block;
+                            width: 100vw;
+                            height: 93.3rem;
+                            background-color: #f6f6f7;
+                            z-index: -1;
+
+                            @include mobile {
+                                height: 141.8rem;
+                            }
+                        }
+
+                        iframe {
+                            height: 125.7rem;
+
+                            @include mobile {
+                                height: 201.8rem;
+                            }
+                        }
+                    }
+                }
+            }
+            // table col width
+            table{
+                &.col-w-1 {
+                    col {
+                        @each $index, $width in (1: 33.333%, 2: 33.333%, 3: 33.333%) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                        @include mobile {
+                            @each $index, $width in (1: auto, 2: 34.98%, 3: 24.87%) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                            @at-root .en & {
+                                @each $index, $width in (1: auto, 2: 35.65%, 3: 19.01%) {
+                                    &.col#{$index} {
+                                        width: $width;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-2 {
+                    col {
+                        @each $index, $width in (1: 25%, 2: 25%, 3: 25%, 4: 25%) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                        @include mobile {
+                            @each $index, $width in (1: auto, 2: auto, 3: 22.12%, 4: 25.55%) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                            @at-root .en & {
+                                @each $index, $width in (1: 29.41%, 2: auto, 3: 21.24%, 4: 17.21%) {
+                                    &.col#{$index} {
+                                        width: $width;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 주주환원
+        &.ir-shareholders{
+            .section{
+                position: relative;
+                .section-wrap{
+                    .section-head {
+                        +.section-body.banner {
+                            padding-top: 53rem;
+                            @include mobile {
+                                padding-top: 51.4rem;
+                                @at-root .en & {
+                                    padding-top: 67rem;
+                                }
+                            }
+                        }
+                    }
+                    .section-body{
+                        &.banner{
+                            position: relative;
+                            &::after{
+                                display: block;
+                                position: absolute;
+                                top: 6.4rem;
+                                left: 50%;
+                                width: calc(100vw - 4.8rem);
+                                height: 46.4rem;
+                                background: url(../../assets/images/ir/banner2-ir.jpg);
+                                content: '';
+                                transform: translateX(-50%);
+                                background-repeat: no-repeat;
+                                border-radius: 2.4rem;
+                                z-index: -1;
+                                background-size: cover;
+                                @include mobile {
+                                    top: 3.2rem;
+                                    background-position: center;
+                                }
+                            }
+                            .board-list{
+                                position: absolute;
+                                top: 12.8rem;
+                                right: 4.2rem;
+                                @include mobile {
+                                }
+                            }
+                        }
+
+                        .t-display{
+                            margin-top: 4rem;
+                            tbody{
+                                tr{
+                                    td{
+                                        background: transparent;
+                                    }
+                                }
+                            }
+                        }
+                        .data-display{
+                            margin-top: 8rem;
+                            .data-body{
+                                margin-top: 1.6rem;
+                            }
+                        }
+                    }
+                }
+
+                & ~ .section{
+                    margin-top: 16rem;
+                    .section-wrap{
+                        flex-direction: column;
+                        .section-body{
+                            height: auto;
+                        }
+                    }
+                }
+
+            }
+
+            @include mobile{
+                .section{
+                    .section-wrap{
+                        .section-body{
+                            &.banner{
+                                &::after{
+                                    top: 3.2rem;
+                                    width: 100vw;
+                                    border-radius: 0;
+                                }
+                                .board-list{
+                                    top: 6.4rem;
+                                    right: 0;
+                                    left: 2.2rem;
+                                    .board-item{
+                                        border-radius: 0.8rem;
+                                    }
+                                }
+                            }                        
+                            .t-display{
+                                margin-top: 2.4rem;
+                            }
+                            .data-display{
+                                margin-top: 4.8rem;
+                                .data-head{
+                                    .data-subject{
+                                        @include font(small-2x, bold);
+                                    }
+                                }
+                                .data-body{
+                                    margin-top: 1.6rem;
+                                    .para.accent{
+                                        @include font(small-4x, medium);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    + .section{
+                        margin-top: 8rem;
+                        ~ .section{
+                            margin-top: 8rem;
+                        }
+                    }
+                }
+            }
+
+            // table col width
+            table{
+                &.col-w-1 {
+                    col {
+                        @include mobile {
+                            @each $index, $width in (1: auto, 2: 15.2%, 3: 15.2%, 4: 15.2%, 5: 15.2%, 6: 16.3%,) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                            @at-root .en & {
+                                @each $index, $width in (1: auto, 2: 14.06%, 3: 13.78%, 4: 13.78%, 5: 13.65%, 6: 15.56%,) {
+                                    &.col#{$index} {
+                                        width: $width;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.col-w-2 {
+                    col {
+                        @include mobile {
+                            @each $index, $width in (1: 29.56%, 2: 30%, 3: 20%, 4: auto) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                            @at-root .en & {
+                                @each $index, $width in (1: 26.86%, 2: auto, 3: 21.6%, 4: 22%) {
+                                    &.col#{$index} {
+                                        width: $width;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // IR 뉴스
+        &.ir-news{
+            .section{
+                .section-wrap{
+                    .section-head{
+                        .section-subject{
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+                    .section-body{
+                        margin-top: 4rem;
+                        .pagination{
+                            margin-top: 6.4rem;
+                        }
+                    }
+                }
+
+                @include mobile{
+                    .section-wrap{
+                        .section-head{
+                            .section-subject{
+                                flex-direction: column;
+                            }
+                        }
+                        .section-body{
+                            margin-top: 2.4rem;
+                            .pagination{
+                                margin-top: 4.8rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 전자공시(DART)
+        &.ir-dart{
+            .section{
+                .section-subject{
+                    display: flex;
+                    justify-content: space-between;
+                    .btn{
+                        padding: 0;
+                    }
+                    @include web {
+                        .section-name + .section-summary {
+                            margin-top: unset !important;
+                        }
+                    }
+                }
+                .section-body {
+                    iframe {
+                        height: 100%;
+                        min-height: 880px;
+                    }
+                }
+            }
+            @include mobile {
+                .section{
+                    .section-subject{
+                        flex-direction: column;
+                    }
+                    .section-body {
+                        iframe {
+                            height: 1335px;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 전자공고
+        &.elect-not{
+            .section{
+                .section-subject{
+                    display: flex;
+                    justify-content: space-between;
+                    .btn{
+                        padding: 0;
+                    }
+                }
+
+                .pagination{
+                    margin-top: 6.4rem;
+                }
+
+                .t-display {
+                    table {
+                        td {
+                            .link {
+                                display: block;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+
+                @include mobile{
+                    .section-subject{
+                        display: block;
+                        .section-name {
+                            + .submit-form {
+                                margin-top: 2.4rem;
+                            }
+                        }
+                    }
+        
+                    .pagination{
+                        margin-top: 3.2rem;
+                    }
+                }
+            }
+
+            // table col width
+            table{
+                &.col-w-1 {
+                    col {
+                        @each $index, $width in (1: 8%, 2: 71.17%, 3: auto) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                    
+                        @include mobile {
+                            @each $index, $width in (1: 0, 2: 61.06%, 3: 38.94%) {
+                                &.col#{$index} {
+                                    width: $width;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

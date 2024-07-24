@@ -1,0 +1,70 @@
+/* font-family:"SUIT" */
+@font-face {
+    font-family: "SUIT";
+    font-weight: 300;
+    font-style: normal;
+    src: url('../fonts/SUIT-Light.woff2') format('woff2'),
+        url('../fonts/SUIT-Light.otf') format('opentype'),
+        url('../fonts/SUIT-Light.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SUIT";
+    font-weight: 400;
+    font-style: normal;
+    src: url('../fonts/SUIT-Regular.woff2') format('woff2'),
+        url('../fonts/SUIT-Regular.otf') format('opentype'),
+        url('../fonts/SUIT-Regular.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SUIT";
+    font-weight: 500;
+    font-style: normal;
+    src: url('../fonts/SUIT-Medium.woff2') format('woff2'),
+        url('../fonts/SUIT-Medium.otf') format('opentype'),
+        url('../fonts/SUIT-Medium.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SUIT";
+    font-weight: 600;
+    font-style: normal;
+    src: url('../fonts/SUIT-SemiBold.woff2') format('woff2'),
+        url('../fonts/SUIT-SemiBold.otf') format('opentype'),
+        url('../fonts/SUIT-SemiBold.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SUIT";
+    font-weight: 700;
+    font-style: normal;
+    src: url('../fonts/SUIT-Bold.woff2') format('woff2'),
+        url('../fonts/SUIT-Bold.otf') format('opentype'),
+        url('../fonts/SUIT-Bold.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SUIT";
+    font-weight: 800;
+    font-style: normal;
+    src: url('../fonts/SUIT-ExtraBold.woff2') format('woff2'),
+        url('../fonts/SUIT-ExtraBold.otf') format('opentype'),
+        url('../fonts/SUIT-ExtraBold.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SUIT";
+    font-weight: 900;
+    font-style: normal;
+    src: url('../fonts/SUIT-Heavy.woff2') format('woff2'),
+        url('../fonts/SUIT-Heavy.otf') format('opentype'),
+        url('../fonts/SUIT-Heavy.ttf') format("truetype");
+    font-display: swap;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        Tab();
+    });
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<%-include('../_templates/_guide.header.ejs') %>
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head">
+				<h2 class="local-subject">
+					<span class="local-name">Tab</span>
+					<span class="local-desc">콘텐츠를 항목별로 구분하여 표시할 때 사용합니다.</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body">
+				<!-- section -->
+				<div class="section">
+					<div class="section-head">
+						<h4 class="section-subject"><span class="section-name">Tab display</span></h4>
+					</div>
+					<div class="section-body">
+						<div class="subsection">
+							<div class="subsection-head">design1</div>
+							<div class="subsection-body">
+<!-- highlight-js -->
+<pre class="highlight-js"><code class="html">&lt;!-- tab-display --&gt;
+&lt;div class="tab-display design1 case1 type1"&gt;
+	&lt;div class="swiper tab-wrap"&gt;
+		&lt;ul class="swiper-wrapper tab-list" role="tablist"&gt;
+			&lt;li id="tab1" class="swiper-slide tab-item" aria-controls="tab-panel1"&gt;&lt;button role="tab" class="tab-text"&gt;Tab 1&lt;/button&gt;&lt;/li&gt;
+			&lt;li id="tab2" class="swiper-slide tab-item" aria-controls="tab-panel2"&gt;&lt;button role="tab" class="tab-text"&gt;Tab 2&lt;/button&gt;&lt;/li&gt;
+			&lt;li id="tab3" class="swiper-slide tab-item" aria-controls="tab-panel3"&gt;&lt;button role="tab" class="tab-text"&gt;Tab 3&lt;/button&gt;&lt;/li&gt;
+			&lt;li id="tab4" class="swiper-slide tab-item" aria-controls="tab-panel4"&gt;&lt;button role="tab" class="tab-text"&gt;Tab 4&lt;/button&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- //tab-display --&gt;</code></pre>
+<!-- //highlight-js -->
+                                <div class="guide-tab-area">
+                                    <div class="tab-display design1 case1 type1">
+                                        <div class="swiper tab-wrap">
+                                            <ul class="swiper-wrapper tab-list" role="tablist">
+                                                <li id="tab1" class="swiper-slide tab-item" aria-controls="tab-panel1">
+                                                    <button role="tab" class="tab-text">Tab 1</button>
+                                                </li>
+                                                <li id="tab2" class="swiper-slide tab-item" aria-controls="tab-panel2">
+                                                    <button role="tab" class="tab-text">Tab 2</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //section -->
+				<!-- section -->
+				<div class="section">
+					<div class="section-head">
+						<h4 class="section-subject"><span class="section-name">Panel display</span></h4>
+					</div>
+					<div class="section-body">
+						<div class="subsection">
+							<div class="subsection-head">design1</div>
+							<div class="subsection-body">
+<!-- highlight-js -->
+<pre class="highlight-js"><code class="html">&lt;!-- panel-display --&gt;
+&lt;div class="panel-display design1 case1"&gt;
+	&lt;ul class="panel-list"&gt;
+		&lt;li id="tab-panel1" class="panel-item" role="tabpanel"&gt;&lt;div class="panel-wrap"&gt;Panel 1&lt;/li&gt;&lt;/div&gt;
+		&lt;li id="tab-panel2" class="panel-item" role="tabpanel"&gt;&lt;div class="panel-wrap"&gt;Panel 2&lt;/li&gt;&lt;/div&gt;
+		&lt;li id="tab-panel3" class="panel-item" role="tabpanel"&gt;&lt;div class="panel-wrap"&gt;Panel 3&lt;/li&gt;&lt;/div&gt;
+		&lt;li id="tab-panel4" class="panel-item" role="tabpanel"&gt;&lt;div class="panel-wrap"&gt;Panel 4&lt;/li&gt;&lt;/div&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- //panel-display --&gt;</code></pre>
+											<!-- //highlight-js -->
+                                <div class="guide-tab-panel-area">
+                                    <div class="panel-display design1 case1">
+                                        <div class="panel-list">
+                                            <div id="tab-panel1" class="panel-item" role="tabpanel">
+                                                <div class="panel-wrap">
+                                                    <span>Panel 1</span>
+                                                </div>
+                                            </div>
+                                            <div id="tab-panel2" class="panel-item" role="tabpanel">
+                                                <div class="panel-wrap">
+                                                    <span>Panel 2</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //section -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+</div>
+</body>
+</html>

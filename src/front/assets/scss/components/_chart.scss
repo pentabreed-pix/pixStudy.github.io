@@ -1,0 +1,691 @@
+.chart-display{
+    &.design1{
+        margin-bottom: 8rem;
+        @include mobile {
+            .chart-wrap {
+                flex-direction: column;
+                gap: 2.4rem !important;
+                .chart-aside{
+                    .chart-bar-color{
+                        display: flex;
+                        gap: 0.8rem 2.4rem;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                    }
+                    .chart-util{
+                        @include font(small-5x, bold);
+                    }
+                    .chart-util{
+                        @include font(small-5x, bold);
+                    }
+                }
+                .mo-only{
+                    @include scroll-x;
+                    img{
+                        width: 100%;
+                        min-width: 49.9rem;
+                    }
+                }
+            }
+        }
+        
+        &.case1{
+            .chart-list{
+                width: 100%;
+                // min-width: 50rem;
+                .chart-item{
+                    .chart-wrap{
+                        @include font(small-4x, medium);
+                        display: flex;
+                        color: color(neutral, 080);
+                        gap: 9.4rem;
+                        .chart-aside{
+                            .chart-bar-color{
+                                padding: 2.4rem;
+                                border: 0.1rem solid color(neutral, 030);
+                                border-radius: 8px;
+                                margin-bottom: 2.4rem;
+                            }
+                        }
+                        .chart-body{
+                            position: relative;
+                            .unit-list{
+                                display: flex;
+                                flex-direction: column;
+                                padding-bottom: 2.7rem;
+                                gap: 1.4rem;
+                                .unit-item{
+                                    display: flex;
+                                    position: relative;
+                                    color: color(neutral, 080);
+                                    align-items: center;
+                                    @include font(small-4x, bold);
+                                    &::after{
+                                        display: block;
+                                        position: absolute;
+                                        width: 89.5rem;
+                                        height: 0.1rem;
+                                        content: '';
+                                        background-color: color(neutral, 030);
+                                        margin-left: 7.6rem;
+                                    }
+                                    .num{
+                                        width: 100%;
+                                        text-align: right;
+                                    }
+                                }
+                            }
+
+                            .year-list{
+                                display: flex;
+                                position: absolute;
+                                bottom: 0rem;
+                                padding-left: 22.3rem;
+                                gap: 16.1rem;
+                                .year-item{
+                                    position: relative;
+                                    width: 12.4rem;
+                                    color: color(typo,020);
+                                    text-align: center;
+                                    @include font(small-3x, bold);
+                                    .graph-list{
+                                        display: flex;
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        margin-bottom: 4rem;
+                                        gap: 2.4rem;
+                                        align-items: baseline;
+                                        justify-content: center;
+                                        .graph-item {
+                                            position: relative;
+                                            width: 3.2rem;
+                                            border-radius: 0.4rem 0.4rem 0 0;
+                                            cursor: pointer;
+
+                                            &.color1 {
+                                                background: linear-gradient(180deg, #9735D0 0%, rgba(151, 53, 208, 0.40) 100%);
+                                                .graph-subject::before {
+                                                    background: linear-gradient(180deg, #9735D0 0%, rgba(151, 53, 208, 0.40) 100%);
+                                                }
+                                            }
+                                            &.color2 {
+                                                background: linear-gradient(180deg, #6D0CA6 0%, rgba(109, 12, 166, 0.40) 100%);
+                                                .graph-subject::before {
+                                                    background: linear-gradient(180deg, #6D0CA6 0%, rgba(109, 12, 166, 0.40) 100%);
+                                                }
+                                            }
+                                            &.color3 {
+                                                background: linear-gradient(180deg, #E4E4E7 0%, rgba(228, 228, 228, 0.40) 100%);
+                                                .graph-subject::before {
+                                                    background: linear-gradient(180deg, #E4E4E7 0%, rgba(228, 228, 228, 0.40) 100%);
+                                                }
+                                            }
+                                        
+                                            // graph-info 기본 스타일
+                                            .graph-info {
+                                                display: flex;
+                                                position: absolute;
+                                                top: 0;
+                                                left: 50%;
+                                                width: max-content;
+                                                padding: 0.8rem 1.6rem;
+                                                border: 0.1rem solid color(semantic, 010);
+                                                background: rgba(255, 255, 255, 0.85);
+                                                align-items: center;
+                                                transform: translateX(-50%);
+                                                border-radius: 0.8rem;
+                                                opacity: 0;
+                                                transition: all 0.5s ease;
+                                                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+                                                backdrop-filter: blur(2px);
+                                                z-index: 10;
+                                        
+                                                .graph-subject {
+                                                    position: relative;
+                                                    padding-left: 2.4rem;
+                                                    &::before {
+                                                        display: block;
+                                                        position: absolute;
+                                                        top: 50%;
+                                                        left: 0;
+                                                        width: 1.6rem;
+                                                        height: 1.6rem;
+                                                        content: '';
+                                                        transform: translateY(-50%);
+                                                        border-radius: 0.4rem;
+                                                    }
+                                                }
+                                            }
+                                        
+                                            // hover 효과
+                                            &:hover {
+                                                .graph-info {
+                                                    opacity: 1;
+                                                    z-index: 10;
+                                                }
+                                                &::after {
+                                                    display: inline-block;
+                                                    position: absolute;
+                                                    top: -1.5rem;
+                                                    left: 50%;
+                                                    color: #333; /* 텍스트 색상 */
+                                                    content: attr(data-percent); /* data-percent 속성값을 content로 사용 */
+                                                    transform: translateX(-50%);
+                                                    z-index: 10;
+                                                    @include font(small-6x, medium);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                @at-root
+                                .en & {
+                                    padding-left: 28.5rem;
+                                }
+                            }
+                        }
+                        .chart-body.mo-only{
+                            display: none;
+                        }
+                        @at-root
+                        .en &{
+                            gap: 3.9rem;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        &.case2{
+            .chart-list{
+                width: 100%;
+                // min-width: 50rem;
+                .chart-item{
+                    .chart-wrap{
+                        @include font(small-4x, medium);
+                        display: flex;
+                        color: color(neutral, 080);
+                        gap: 9.4rem;
+                        .chart-aside{
+                            .chart-bar-color{
+                                padding: 2.4rem;
+                                border: 0.1rem solid color(neutral, 030);
+                                border-radius: 8px;
+                                margin-bottom: 2.4rem;
+                            }
+                        }
+                        .chart-body{
+                            position: relative;
+                            .unit-list{
+                                display: flex;
+                                flex-direction: column;
+                                padding-bottom: 2.7rem;
+                                gap: 1.4rem;
+                                .unit-item{
+                                    display: flex;
+                                    position: relative;
+                                    color: color(neutral, 080);
+                                    align-items: center;
+                                    @include font(small-4x, bold);
+                                    &::after{
+                                        display: block;
+                                        position: absolute;
+                                        width: 89.5rem;
+                                        height: 0.1rem;
+                                        content: '';
+                                        background-color: color(neutral, 030);
+                                        margin-left: 7.6rem;
+                                    }
+                                    .num{
+                                        width: 100%;
+                                        text-align: right;
+                                    }
+                                }
+                            }
+
+                            .year-list{
+                                display: flex;
+                                position: absolute;
+                                bottom: 3.8rem;
+                                padding-left: 11.9rem;
+                                gap: 5.6rem;
+                                .year-item{
+                                    position: relative;
+                                    width: 12.4rem;
+                                    text-align: center;
+                                    @include font(small-3x, bold);
+                                    .year-head{
+                                        .year-subject{
+                                            position: absolute;
+                                            top: 1.1rem;
+                                            left: 50%;
+                                            transform: translateX(-50%);
+                                        }
+                                    }
+                                    .year-body{
+                                        .graph-list{
+                                            display: flex;
+                                            position: absolute;
+                                            bottom: 0;
+                                            left: 0;
+                                            margin-bottom: 4.1rem;
+                                            gap: 1.2rem;
+                                            align-items: baseline;
+                                            justify-content: center;
+                                            .graph-item {
+                                                position: relative;
+                                                width: 3.2rem;
+                                                border-radius: 0.4rem 0.4rem 0 0;
+                                                cursor: pointer;
+                                            
+                                                &.color1 {
+                                                    background: linear-gradient(180deg, #9735D0 0%, rgba(151, 53, 208, 0.40) 100%);
+                                                    .graph-subject::before {
+                                                        background: linear-gradient(180deg, #9735D0 0%, rgba(151, 53, 208, 0.40) 100%);
+                                                    }
+                                                }
+                                                &.color2 {
+                                                    background: linear-gradient(180deg, #6D0CA6 0%, rgba(109, 12, 166, 0.40) 100%);
+                                                    .graph-subject::before {
+                                                        background: linear-gradient(180deg, #6D0CA6 0%, rgba(109, 12, 166, 0.40) 100%);
+                                                    }
+                                                }
+                                                &.color3 {
+                                                    background: linear-gradient(180deg, #E4E4E7 0%, rgba(228, 228, 228, 0.40) 100%);
+                                                    .graph-subject::before {
+                                                        background: linear-gradient(180deg, #E4E4E7 0%, rgba(228, 228, 228, 0.40) 100%);
+                                                    }
+                                                }
+                                                &.mines{
+                                                    top: 0.7rem;
+                                                    background: linear-gradient(360deg, #E4E4E7 0%, rgba(228, 228, 228, 0.40) 100%);
+                                                    border-radius: 0 0 0.4rem 0.4rem;
+                                                    z-index: 9;
+                                                }
+                                            
+                                                // graph-info 기본 스타일
+                                                .graph-info {
+                                                    display: flex;
+                                                    position: absolute;
+                                                    top: 0;
+                                                    left: 50%;
+                                                    width: max-content;
+                                                    padding: 0.8rem 1.6rem;
+                                                    border: 0.1rem solid color(semantic, 010);
+                                                    background: rgba(255, 255, 255, 0.85);
+                                                    align-items: center;
+                                                    transform: translateX(-50%);
+                                                    border-radius: 0.8rem;
+                                                    opacity: 0;
+                                                    transition: all 0.5s ease;
+                                                    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+                                                    backdrop-filter: blur(2px);
+                                                    z-index: 10;
+                                            
+                                                    .graph-subject {
+                                                        position: relative;
+                                                        padding-left: 2.4rem;
+                                                        &::before {
+                                                            display: block;
+                                                            position: absolute;
+                                                            top: 50%;
+                                                            left: 0;
+                                                            width: 1.6rem;
+                                                            height: 1.6rem;
+                                                            content: '';
+                                                            transform: translateY(-50%);
+                                                            border-radius: 0.4rem;
+                                                        }
+                                                    }
+                                                }
+                                            
+                                                // hover 효과
+                                                &:hover {
+                                                    .graph-info {
+                                                        opacity: 1;
+                                                        z-index: 10;
+                                                    }
+                                                    &::after {
+                                                        display: inline-block;
+                                                        position: absolute;
+                                                        top: -1.5rem;
+                                                        left: 50%;
+                                                        color: #333; /* 텍스트 색상 */
+                                                        content: attr(data-percent); /* data-percent 속성값을 content로 사용 */
+                                                        transform: translateX(-50%);
+                                                        z-index: 10;
+                                                        @include font(small-6x, medium);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .chart-body.mo-only{
+                            display: none;
+                        }
+                        @at-root
+                        .en & {
+                            gap: 3.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.design2   {
+        margin-bottom: 8rem;
+        .chart-list{
+            display: flex;
+            gap: 6rem;
+            .chart-item{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                gap: 4rem;
+                .chart-diagram{
+                    text-align: center;
+                    img{
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        @include mobile{
+            .chart-list{
+                flex-direction: column;
+                gap: 6rem;
+                .chart-item{
+                    display: flex;
+                    width: 100%;
+                    flex-direction: column;
+                    gap: 4rem;
+                    .chart-diagram{
+                        display: flex;
+                        text-align: center;
+                        justify-content: center;
+                        img{
+                            display: inline-block;
+                        }
+
+                        .t-display{
+                            table{
+                                min-width: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    }
+
+    &.design3{
+        .chart-list{
+            display: flex;
+            gap: 8.6rem;
+            .chart-item{
+                width: 100%;
+                .chart-img{
+                    .chart-img-head{
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    .chart-img-body{
+                        padding: 3.2rem 5.5rem;
+                        background: color(system, 070);
+                        border-radius: 1.6rem;
+                        box-shadow: 0px 1.336px 5.342px 0px rgba(0, 0, 0, 0.10);
+                    }
+                }
+
+                .chart-compare-list{
+                    display: flex;
+                    gap: 2.4rem;
+                    flex-shrink: 1;
+                    .item{
+                        width: 100%;
+                        padding: 3.2rem;
+                        background: color(system, 070);
+                        border-radius: 1.6rem;
+                        box-shadow: 0px 1.336px 5.342px 0px rgba(0, 0, 0, 0.10);
+                        max-width: 25rem;
+                        .item-head{
+                            @include font(small-2x, bold);
+                            color: color(neutral, 100);
+                        }
+                        &.blue{
+                            .item-body{
+                                width: 6.4rem;
+                                width: 100%;
+                                height: 7.3rem;
+                                margin: 2.4rem 0 3.4rem;
+                                background: url(../../assets/images/ir/chart-down.png);
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            }
+                        }
+                        &.red{
+                            .item-body{
+                                width: 6.4rem;
+                                width: 100%;
+                                height: 7.3rem;
+                                margin: 2.4rem 0 3.4rem;
+                                background: url(../../assets/images/ir/chart-up.png);
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            }
+                        }
+                        .item-util{
+                            @include font(medium, bold);
+                            .exchange{
+                                @include font(small-4x, bold);
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+        @include mobile{
+            .chart-list{
+                flex-direction: column;
+                gap: 2.4rem;
+                .chart-item{
+                    .chart-img{
+                        .chart-img-head{
+                            width: 100%;
+                            flex-direction: column;
+                            gap: 1.2rem;
+                            +.chart-img-body {
+                                margin-top: 1.6rem;
+                            }
+                        }
+                        .chart-img-body{
+                            padding: 1.6rem;
+                            img{
+                                width: 100%;
+                            }
+                        }
+                    }
+                    .chart-compare-list{
+                        gap: 1.6rem;
+                        .item{
+                            padding: 2.9rem;
+                            max-width: 50%;
+                            .item-util{
+                                text-align: center;
+                                @include font(small-1x, bold);
+                                .exchange{
+                                    @include font(small-5x, bold);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // esg : 사회적가치성과
+    &.design4 {
+        display: flex;
+        position: relative;
+        min-height: 27.9rem;
+        justify-content: center;
+        .year-list {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 10.4rem;
+            .year-item {
+                position: relative;
+                width: 7.6rem;
+                text-align: center;
+                .year-wrap {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: end;
+                }
+                .year-value {
+                    @include font(small-1x,bold);
+                    color: color(typo,020);
+                    + .year-body {
+                        margin-top: 1.6rem;
+                    }
+                }
+                .year-body {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    .graph-item {
+                        width: 100%;
+                        background: linear-gradient(180deg, #F47725 0%, rgba(244, 119, 37, 0.40) 100%);
+                        border-radius: 0.4rem 0.4rem 0 0;
+                    }
+                    + .year-head {
+                        margin-top: 1.6rem;
+                    }
+                }
+                .year-head {
+                    .year-subject {
+                        @include font(small-3x,bold);
+                        color: color(typo,010);
+                    }
+                }
+                //상승
+                &.up {
+                    
+                }
+                //하락
+                &.down {
+                    top: -2.9rem;
+                    transform: rotate(-180deg);
+                    transform-origin: bottom center;
+                    .year-value {
+                        transform: rotate(180deg);
+                    }
+                    .year-head {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+        &.case1 {
+            align-items: flex-end;
+        }
+        &.case2 {
+            align-items: flex-start;
+        }
+        @include mobile {
+            padding-left: 3.2rem;
+            .chart-list {
+                .chart-item {
+                    .year-list {
+                        gap: 6.4rem;
+                        .year-item {
+                            .year-value {
+                                @include font(small-2x,bold);
+                                + .year-body {
+                                    margin-top: 1.2rem;
+                                }
+                            }
+                            .year-head {
+                                .year-subject {
+                                    @include font(small-4x,bold);
+                                }
+                            }
+                            //하락
+                            &.down {
+                                top: -2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include mobile2 {
+            justify-content: flex-start;
+            padding-left: 3.2rem;
+            .chart-list {
+                .chart-item {
+                    .year-list {
+                        justify-content: flex-start;
+                    }
+                }
+            }
+        }
+    }
+
+    &.scroll {
+        @include mobile {
+			width: calc(100% + 3.6rem);
+			max-width: unset;
+			overflow: auto;
+			padding-bottom: 1.6rem;
+			padding-right: 1.8rem;
+			padding-left: 1.8rem;
+			margin-left: -1.8rem;
+			&::-webkit-scrollbar {
+				height: 0.5rem;
+			}
+			&::-webkit-scrollbar-thumb {
+				background-color: #D5D4D9;
+				border-radius: 5rem;
+			}
+			&::-webkit-scrollbar-track {
+				margin-left: 1.8rem;
+				margin-right: 1.8rem;
+				border-radius: 5rem;
+			}
+        }
+    }
+    &.scroll-2 {
+        @include mobile {
+            width: calc(100% + 1.8rem);
+            max-width: unset;
+            overflow: auto;
+            padding-bottom: 1.6rem;
+            padding-right: 1.8rem;
+			&::-webkit-scrollbar {
+				height: 0.5rem;
+			}
+			&::-webkit-scrollbar-thumb {
+				background-color: #D5D4D9;
+				border-radius: 5rem;
+			}
+			&::-webkit-scrollbar-track {
+				margin-left: 1.8rem;
+				margin-right: 1.8rem;
+				border-radius: 5rem;
+			}
+        }
+    }
+}

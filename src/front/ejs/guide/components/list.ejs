@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        Accordion();
+		select();
+    });
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<%-include('../_templates/_guide.header.ejs') %>
+		<!-- page-body -->
+		<div class="page-body">
+			<div class="local">
+				<!-- local-head -->
+				<div class="local-head">
+					<h2 class="local-subject">
+						<span class="local-name">List</span>
+					</h2>
+				</div>
+				<!-- //local-head -->
+				<!-- local-body -->
+				<div class="local-body">
+					<!-- section -->
+					<div class="section list-guide">
+						<div class="section-head">
+							<h4 class="section-subject"><span class="section-name">list system</span></h4>
+							<p class="section-desc">성격에 맞는 클래스를 사용하여 data-list를 작성합니다.</p>
+						</div>
+						<div class="section-body">
+							<div class="subsection">
+								<div class="subsection-head">data list</div>
+								<div class="subsection-body">
+										<!-- highlight-js -->
+	<pre class="highlight-js"><code class="html">&lt;div class=&quot;data-display design1 case1 type1&quot;&gt;
+		&lt;div class=&quot;data-list&quot;&gt;
+			&lt;div class=&quot;data-item&quot;&gt;
+				&lt;div class=&quot;data-wrap&quot;&gt;
+					&lt;div class=&quot;data-head&quot;&gt; 
+						&lt;em class=&quot;data-subject&quot;&gt;&lt;/em&gt;
+						&lt;sapn class=&quot;data-summary&quot;&gt;&lt;/sapn&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;data-body&quot;&gt;...&lt;/div&gt;
+					&lt;div class=&quot;data-info&quot;&gt;...&lt;/div&gt;
+					&lt;div class=&quot;data-util&quot;&gt;...&lt;/div&gt;
+					&lt;div class=&quot;data-aside&quot;&gt;...&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;data-item&quot;&gt;
+				&lt;div class=&quot;data-wrap&quot;&gt;
+					&lt;div class=&quot;data-head&quot;&gt; 
+						&lt;em class=&quot;data-subject&quot;&gt;&lt;/em&gt;
+						&lt;sapn class=&quot;data-summary&quot;&gt;&lt;/sapn&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;data-body&quot;&gt;...&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+											<!-- //highlight-js -->
+								</div>
+							</div>
+							<div class="subsection">
+								<!-- data-display --> 
+								<div class="data-display design1 case1 type1">
+									<div class="data-list">
+										<div class="data-item">
+											<div class="data-wrap">
+												<div class="data-head">
+													<em class="data-subject">자기주식 매입내역 (주식매수청구권 행사분 제외)</em>
+												</div>
+												<div class="data-body">
+													<p class="para accent case4 color6">2023. 03. 14 ~ 2023. 09. 21</p>
+													<div class="bullet-display design1 case1 type1">
+														<ul class="data-list">
+															<li class="data-item">자기주식 보통주 22,000,000주 (보통주 발행주식수의 8.9%)</li>
+															<li class="data-item">자기주식 우선주 10,500주 (우선주 발행주식수의 9.2%) 매입</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display --> 
+								<div class="data-display design1 case1 type1">
+									<div class="data-list">
+										<div class="data-item">
+											<div class="data-wrap">
+												<div class="data-head">
+													<em class="data-subject">ICT제품 全 생애 주기에 걸쳐 고객의 Pain Point를 해소하는 ICT 유통 Platform</em>
+												</div>
+												<div class="data-body">
+													<p class="para">SK네트웍스는 국내 1위 Mobile Device 유통 사업자로서 휴대전화 단말기 도매 유통을 중심으로 연간 약 433만 대 규모의 Market을 보유하고 있으며, 그 외 노트북과 태블릿PC, ICT 액세서리 등 제조사 협업을 통해 ICT Device 상품을 폭넓게 유통하고 있습니다.</p>
+													<p class="para">또한 기업 IT 불용자산을 포함한 다양한 폐제품 및 사용 후 폐기물을 처리, 재활용하는 자원순환센터를 설립, 운영하면서 자원순환 사업 영역을 넓혀나가고 있습니다.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display --> 
+								<div class="data-display design1 case1 type4">
+									<div class="data-list">
+										<div class="data-item">
+											<div class="data-wrap">
+												<div class="data-head">
+													<em class="data-subject">대상회사: 총 8개 사(자손회사 포함)</em>
+												</div>
+												<div class="data-body">
+													<p class="para">- SK네트웍스, SK네트웍스서비스, SK매직, SK매직서비스, SK렌터카, SK렌터카서비스, 민팃, 카티니</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display --> 
+								<div class="data-display design1 case6 type4">
+									<div class="data-list">
+										<div class="data-item">
+											<div class="data-wrap">
+												<div class="data-head">
+													<em class="data-subject">인사위원회</em>
+												</div>
+												<div class="data-body">
+													<p class="para">SK네트웍스는 2019년부터 대표이사 KPI에 ESG항목을 포함하여 평가하고 있으며, 2021년부터 대표이사의 성과 평가 및 보상은 이사회 산하 인사위원회의 심의를 거쳐, 이사회의 승인을 받아 결정됩니다.</p>
+												</div>
+											</div>
+										</div>
+										<div class="data-item">
+											<div class="data-wrap">
+												<div class="data-head">
+													<em class="data-subject">ESG경영위원회</em>
+												</div>
+												<div class="data-body">
+													<p class="para">SK네트웍스는 2025년까지 자회사 임원을 포함한 전 임원 KPI에 ESG 항목을 20% 이상 반영하고, 2026년 이후 KPI 내 ESG 항목 반영 비율을 30% 이상으로 확대하고자 합니다.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection line">
+								<!-- data-display -->
+								<div class="data-display design2 case1 type1">
+									<ul class="data-list">
+										<li class="data-item">
+											<div class="item-wrap">
+												<div class="item-head">
+													<p class="item-date">2023년</p>
+												</div>
+												<div class="item-util">
+													<div class="btn-display design1 case3 align1">
+														<div class="btn-area">
+															<a class="btn design3 case2 type3 color5 ar-icon-download" href="javascript:void(0)"><span class="btn-text">연결 기준</span></a>
+															<a class="btn design3 case2 type3 color5 ar-icon-download" href="javascript:void(0)"><span class="btn-text">별도 기준</span></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="data-item">
+											<div class="item-wrap">
+												<div class="item-head">
+													<p class="item-date">2022년</p>
+												</div>
+												<div class="item-util">
+													<div class="btn-display design1 case3 align1">
+														<div class="btn-area">
+															<a class="btn design3 case2 type3 color5 ar-icon-download" href="javascript:void(0)"><span class="btn-text">연결 기준</span></a>
+															<a class="btn design3 case2 type3 color5 ar-icon-download" href="javascript:void(0)"><span class="btn-text">별도 기준</span></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="data-display design2 case6 type2">
+									<ul class="data-list">
+										<li class="data-item">
+											<div class="item-wrap">
+												<div class="item-head">
+													<em class="item-subject">ISMS</em>
+												</div>
+												<div class="item-util">
+													<div class="btn-display design1 case4 align1">
+														<div class="btn-area">
+															<a class="btn design3 case2 type3 color5 ar-icon-arrow-right-up2-2" href="javascript:void(0)"><span class="btn-text">바로가기</span></a>
+															<a class="btn design3 case2 type3 color5 ar-icon-download" href="javascript:void(0)"><span class="btn-text">다운로드</span></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="data-item">
+											<div class="item-wrap">
+												<div class="item-head">
+													<em class="item-subject">ISMS-P</em>
+												</div>
+												<div class="item-util">
+													<div class="btn-display design1 case4 align1">
+														<div class="btn-area">
+															<a class="btn design3 case2 type3 color5 ar-icon-arrow-right-up2-2" href="javascript:void(0)"><span class="btn-text">바로가기</span></a>
+															<a class="btn design3 case2 type3 color5 ar-icon-download" href="javascript:void(0)"><span class="btn-text">다운로드</span></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="data-display design2 case2 type1">
+									<ul class="data-list">
+										<li class="data-item">
+											<div class="item-wrap">
+												<div class="item-head">
+													<p class="item-date">2023년</p>
+												</div>
+												<div class="item-util">
+													<div class="btn-display design1 case3 align1">
+														<div class="btn-area">
+															<a class="btn design3 case2 type3 color5 al-icon-printer pc-only" href="javascript:void(0)"><span class="btn-text">인쇄</span></a>
+															<a class="btn design3 case2 type3 color5 al-icon-share" href="javascript:void(0)"><span class="btn-text">공유</span></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="data-display design2 case3 type1">
+									<ul class="data-list">
+										<li class="data-item">
+											<div class="item-wrap">
+												<div class="item-head">
+													<p class="item-subject">관련자료 다운로드</p>
+												</div>
+												<div class="item-util">
+													<div class="download-list">
+														<a href="javascript:void(0)" class="download-item">2023 사업보고서 1.pdf</a>
+														<a href="javascript:void(0)" class="download-item">2023 사업보고서 2.pdf</a>
+														<a href="javascript:void(0)" class="download-item">2023 사업보고서 3.pdf</a>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+                            <div class="subsection">
+								<!-- data-display -->
+								<div class="data-display design2 case4 type1">
+									<ul class="data-list">
+										<li class="data-item">
+											<div class="item-wrap">
+												<div class="item-head">
+													<p class="item-subject">경영실적 발표자료</p>
+												</div>
+												<div class="item-util">
+													<div class="submit-form design1 case1 align1">
+														<div class="form-list">
+															<div class="form-item">
+																<div class="form search design1 case1 type1">
+																	<label for="temp-search" class="blind">
+																		검색
+																	</label>
+																	<input id="temp-search" class="input-elem" type="text" placeholder="Default">
+																	<div class="input-icon">
+																		<button class="btn icon case3 remove">
+																			<span class="btn-text blind">삭제</span>
+																		</button>
+																		<button class="btn icon case3 search">
+																			<span class="btn-text blind">검색</span>
+																		</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="data-display design2 case5 type1">
+									<ul class="data-list">
+										<li class="data-item">
+											<div class="item-wrap">
+												<div class="item-head">
+													<p class="item-subject">2023</p>
+												</div>
+												<div class="item-util">
+													<div class="submit-form design1 case1 align1">
+														<div class="form-list">
+															<div class="form-item">
+																<div class="form select design1 case1 type1">
+																	<label for="temp" class="blind">Label</label>
+																	<select name="name" id="temp">
+																		<option value="option1">Option1</option>
+																		<option value="option2">Option2</option>
+																		<option value="option3">Option3</option>
+																		<option value="option4">Option4</option>
+																		<option value="option5">Option5</option>
+																	</select>
+																	<div class="arrow"><span class="blind">닫힘</span></div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="data-display design2 case5 type2">
+									<ul class="data-list">
+										<li class="data-item">
+											<div class="item-wrap">
+												<div class="item-head">
+													<p class="item-subject">2023</p>
+												</div>
+												<div class="item-util">
+													<div class="submit-form design1 case1 align1">
+														<div class="form-list">
+															<div class="form-item">
+																<div class="form select design1 case1 type1">
+																	<label for="temp" class="blind">Label</label>
+																	<select name="name" id="temp">
+																		<option value="option1">Option1</option>
+																		<option value="option2">Option2</option>
+																		<option value="option3">Option3</option>
+																		<option value="option4">Option4</option>
+																		<option value="option5">Option5</option>
+																	</select>
+																	<div class="arrow"><span class="blind">닫힘</span></div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+                            <div class="subsection">
+								<!-- data-display -->
+								<div class="data-display design3 case1 type1">
+									<ul class="data-list">
+										<li class="data-item">
+											<div class="data-wrap">
+												<div class="data-wrapper"></div>
+												<div class="data-head">
+													<p class="data-subject"><em class="num-tit">임직원들의 인권을 존중합니다.</em></p>
+												</div>
+												<div class="data-body">
+													<p class="para">회사는 모든 임직원이 가지는 기본적 인권을 확인하고 이를 보장하도록 적극 노력합니다. 만일 회사가 폭언 · 폭행 뿐만 아니라 성희롱, 직장 내 괴롭힘 등 비인격적인 행위를 확인할 경우, 사내 규정에 의해 조치합니다.</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="data-display design4 case1 type1">
+									<div class="data-list">
+										<div class="data-item">
+											<div class="data-wrap">
+												<div class="data-head"> 
+													<p class="data-subject">ESG경영위원회</p>
+												</div>
+												<div class="data-body">
+													<p class="para">환경, 사회적 가치 및 회사의 지배구조와 관련된 전략 및 주요사항 검토/분석을 통한 주요 의사결정 사항 사전 심의</p>
+												</div>
+											</div>
+										</div>
+										<div class="data-item">
+											<div class="data-wrap">
+												<div class="data-head"> 
+													<p class="data-subject">전사ESG추진위원회</p>
+													<p class="data-summary">참석자 : CEO 포함 주요 경영층 및 각 자회사 대표</p>
+												</div>
+												<div class="data-body">
+													<p class="para">ESG 전략 실행력 강화, BM 전략과 ESG 방향성 연계, ESG 경영 활동 점검 및 논의를 통한 ESG경영 내재화</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection line">
+								<div class="subsection-head">bullet list</div>
+								<div class="subsection-body">
+									<!-- highlight-js -->
+	<pre class="highlight-js"><code class="html">&lt;div class=&quot;bullet-display design1 case1 type1&quot;&gt;
+		&lt;ul class=&quot;data-list&quot;&gt;
+			&lt;li class=&quot;item&quot;&gt;...&lt;/li&gt;
+			&lt;li class=&quot;item&quot;&gt;...&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;</code></pre>
+										<!-- //highlight-js -->
+								</div>
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="bullet-display design1 case1 type1">
+									<ul class="data-list">
+										<li class="data-item">자기주식 보통주 22,000,000주 (보통주 발행주식수의 8.9%)</li>
+										<li class="data-item">자기주식 우선주 10,500주 (우선주 발행주식수의 9.2%) 매입</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="bullet-display design1 case1 type7">
+									<ul class="data-list">
+										<li class="data-item">자기주식 보통주 22,000,000주 (보통주 발행주식수의 8.9%)</li>
+										<li class="data-item">자기주식 우선주 10,500주 (우선주 발행주식수의 9.2%) 매입</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="bullet-display design1 case1 type5">
+									<ul class="data-list">
+										<li class="data-item">자기주식 보통주 22,000,000주 (보통주 발행주식수의 8.9%)</li>
+										<li class="data-item">자기주식 우선주 10,500주 (우선주 발행주식수의 9.2%) 매입</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="bullet-display design1 case1 type2">
+									<ul class="data-list">
+										<li class="data-item">자기주식 보통주 22,000,000주 (보통주 발행주식수의 8.9%)</li>
+										<li class="data-item">자기주식 우선주 10,500주 (우선주 발행주식수의 9.2%) 매입</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="bullet-display design1 case1 type4">
+									<ul class="data-list">
+										<li class="data-item">자기주식 보통주 22,000,000주 (보통주 발행주식수의 8.9%)</li>
+										<li class="data-item">자기주식 우선주 10,500주 (우선주 발행주식수의 9.2%) 매입</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="bullet-display design1 case1 type6">
+									<ul class="data-list">
+										<li class="data-item">자기주식 보통주 22,000,000주 (보통주 발행주식수의 8.9%)</li>
+										<li class="data-item">자기주식 우선주 10,500주 (우선주 발행주식수의 9.2%) 매입</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="bullet-display design1 case1 type3">
+									<ul class="data-list">
+										<li class="data-item">자기주식 보통주 22,000,000주 (보통주 발행주식수의 8.9%)</li>
+										<li class="data-item">자기주식 우선주 10,500주 (우선주 발행주식수의 9.2%) 매입</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection">
+								<!-- data-display -->
+								<div class="bullet-display design1 case2 type1">
+									<ul class="data-list">
+										<li class="data-item">자기주식 보통주 22,000,000주 (보통주 발행주식수의 8.9%)</li>
+										<li class="data-item">자기주식 우선주 10,500주 (우선주 발행주식수의 9.2%) 매입</li>
+									</ul>
+								</div>
+								<!-- //data-display -->
+							</div>
+							<div class="subsection line">
+								<div class="subsection-head">order list</div>
+								<div class="subsection-body">
+									<!-- data-display -->
+									<div class="order-list design1 case1 type1">
+										<div class="order-item">본 사이트에 제공되기 전에 이미 일반에 공개된 정보</div>
+										<div class="order-item">본 사이트의 행위에 의하지 아니하고 공개된 정보</div>
+									</div>
+									<!-- //data-display -->
+								</div>
+							</div>
+							<div class="subsection line">
+								<!-- data-display -->
+								<div class="subsection-head">special list</div>
+								<div class="subsection-body">
+
+								</div>
+								<!-- //data-display -->
+							</div>
+						</div>
+					</div>
+					<!-- //section -->
+				</div>
+				<!-- //local-body -->
+			</div>
+		</div>
+		<!-- //page-body -->
+		<%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,437 @@
+// career SCSS
+.career{
+    .content-body{
+        .section{
+            //bg
+            &.bg-color{
+                position: relative;
+                padding: 8rem 0;
+                &::after{
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    width: 100vw;
+                    height: 100%;
+                    content: '';
+                    background-color: color(secondary, 070);
+                    transform: translateX(-50%);
+                    z-index: -1;
+                    
+                }
+            }
+            
+            .t-display{
+                margin-top: 4rem;
+                + .para{
+                    margin-top: 2.4rem;
+                    + .btn-display{
+                        margin-top: 8rem;
+                    }
+                }
+            }
+
+            & ~ .section{
+                margin-top: 16rem;
+            }
+            @include mobile{
+                &.bg-color {
+                    padding: 4.8rem 0;
+                }
+                & ~ .section{
+                    margin-top: 8rem;
+
+                    .t-display{
+                        margin-top: 2.4rem;
+                        + .para{
+                            margin-top: 1.6rem;
+                            + .btn-display{
+                                margin-top: 4.8rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 기업문화 
+    &.corporate-culture {
+        .section {
+            &.corp-cul{
+                .section-subject{
+                    text-align: center;
+                }
+
+                .section-body{
+                    .board-list{
+                        &.design7{
+                            margin-top: 6.4rem;
+                            .board-item{
+                                max-height: 34.2rem;
+                            }
+                        }
+                    }
+                }
+
+                @include mobile{
+                    .section-body{
+                        .board-list{
+                            &.design7{
+                                flex-wrap: wrap;
+                                gap: 1.6rem;
+                                flex-direction: row;
+                                margin-top: 3.2rem;
+                                .board-item{
+                                    width: calc(100% / 2 - 0.8rem);
+                                    padding: 2.4rem 1.6rem;
+                                    margin-top: 0;
+                                    min-height: 24.4rem;
+                                    flex: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.corp-system{
+                .section-head{
+                    .section-name{
+                        margin-bottom: 2.4rem
+                    }
+                    .section-summary{
+                        .para{
+                            +.para {
+                                margin-top: 1.6rem;
+                            }
+                        }
+                    }
+                }
+                .section-body{
+                    .management{
+                        margin: 6.4rem 0 8rem;
+                        text-align: center;
+                    }
+                }
+
+                
+                @include mobile{
+                    .section-head {
+                        .section-name {
+                            margin-bottom: 1.6rem;
+                        }
+                        .section-summary{
+                            .para{
+                                +.para {
+                                    margin-top: 1.2rem;
+                                }
+                            }
+                        }
+                    }
+                    .section-body{
+                        .management{
+                            margin: 3.2rem 0 4.8rem;
+                            img{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 인재육성
+    &.talented-person {
+        .post-list{
+            width: 100%;
+            margin-top: 4rem;
+            @include mobile{
+                margin-top: 2.4rem;
+                .post-wrap{
+                    @include scroll-x;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        // table col width
+        table{
+            &.col-w-1 {
+                col {
+                    @include mobile {
+                        @each $index, $width in (1: 32.89%, 2: 34.61%, 3: 33.16%) {
+                            &.col#{$index} {
+                                width: $width;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 평가ㆍ보상
+    &.evaluation {
+        .section {
+            &.performance{
+                .section-body {
+                    display: flex;
+                    .board-list {
+                        width: 49.83%;
+                        .board-item {
+                            width: calc(100% / 2 - 1.2rem);
+                        }
+                    }
+                    .bullet-display{
+                        width: 39.92%;
+                        margin-top: 4rem;
+                        margin-left: 6.4rem;
+                        .data-item{
+                            + .data-item{
+                                margin-top: 0.8rem
+                            }
+                        }
+                    }
+        
+                    @include mobile{
+                        flex-direction: column;
+                        .board-list{
+                            width: 100%;
+                            .board-item {
+                                width: calc(100% / 2 - 0.4rem);
+                                .board-figure {
+                                    max-width: 16.5rem;
+                                }
+                            }
+                        }
+                        .bullet-display{
+                            width: 100%;
+                            margin-top: 3.2rem;
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+            &.compensation{
+                .section-body{
+                    .title{
+                        @include font(small-1x, bold);
+                        text-align: center;
+                        margin-top: 6.4rem;
+                    }
+                    .board-list{
+                        margin-top: 2.4rem;
+                        .board-item{
+                            padding: 4rem 2.35rem;
+                            .board-info{
+                                .board-txt{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    margin-top: 4rem;
+                                    >li{
+                                        flex: 1;
+                                        .para:first-child{
+                                            color: color(typo,010);
+                                            margin-bottom: 0.4rem;
+                                            @include font(small-3x,bold);
+                                            @include mobile {
+                                                margin-bottom: 0;
+                                                @include font(small-4x,bold);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @include mobile{
+                    .section-body{
+                        .title{
+                            @include font(small-2x, bold);
+                            margin-top: 3.2rem;
+                        }
+                        .board-list{
+                            gap: 1.6rem;
+                            .board-item{
+                                .board-info{
+                                    .board-txt{
+                                        display: inline-flex;
+                                        width: unset;
+                                        margin-top: 2.4rem;
+                                        flex-direction: column;
+                                        >li{
+                                            display: flex;
+                                            gap: 2.4rem;
+                                            .para:first-child{
+                                                width: 8.9rem;
+                                                text-align: right;
+                                                flex-shrink: 0;
+                                            }
+                                            .para{
+                                                text-align: left;
+                                            }
+                                        }
+                                    }
+                                }
+                                &:nth-child(2) {
+                                    .board-info{
+                                        .board-txt{
+                                            >li{
+                                                .para:first-child{
+                                                    width: 100%;
+                                                    text-align: center;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 채용정보
+    &.recruit {
+        .section {
+            &.rec-info{
+                .item-head{
+                    margin: 6.4rem 0 4rem;
+                }
+                .item-body{
+                    width: 100%;
+                    text-align: center;
+                    &.bg{
+                        position: relative;
+                        width: 100%;
+                        height: 24rem;
+                        margin: 0 auto;
+                        background: url(../../assets/images/career/rec-banner.jpg) center center;
+                        border-radius: 1.6rem;
+                        margin-bottom: 4rem;
+                        background-size: cover;
+                    }
+                }
+                .tab-display {
+                    .tab-list {
+                        .recruit-tab-item {
+                            width: 33.333%;
+                            &:not(.tab-item) {
+                                max-width: 60rem;
+                                flex-shrink: 1;
+                                .tab-text {
+
+                                    display: inline-block;
+                                    position: relative;
+                                    width: 100%;
+                                    padding: 2rem 1rem;
+                                    color: rgb(113, 113, 122);
+                                    font-weight: 700;
+                                    font-size: 1.8rem;
+                                    text-align: center;
+                                    transition: color 0.3s ease;
+                                    &::after {
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 0.1rem;
+                                        content: "";
+                                        background-color: rgb(228, 228, 231);
+                                        transition: 0.3s ease;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .panel-body{
+                    .board-list{
+                        .board-item{
+                            width: calc(100% / 2 - 1rem);
+                            padding: 2.4rem;
+                            border-radius: 1.6rem;
+                            .board-subject{
+                                @include font(small-1x, bold);
+                                margin: 0 2rem;
+                                color: color(primary, 080);
+                            }
+                            .data-list{
+                                margin-top: 1.6rem;
+                            }
+                        }
+
+                        &.design11{
+                            gap: unset;
+                            max-width: 100rem;
+                        }
+                    }
+
+                    .data-list{
+                        .data-item{
+                            .item-head{
+                                .para{
+                                    @include font(small-3x, medium);
+                                    color: color(neutral, 080);
+                                    margin-top: 2.4rem;
+
+                                    @include mobile{
+                                        @include font(small-4x, medium);
+                                        margin-top: 1.6rem;
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+
+                @include mobile{
+                    .item-head{
+                        margin: 3.2rem 0 0rem;
+                    }
+                    .item-body.bg{
+                        background: url(../../assets/images/career/rec-banner-m.jpg) center center;
+                        background-repeat: no-repeat;
+                        background-size: cover;  
+                    }
+                    .tab-display {
+                        .tab-list {
+                            .recruit-tab-item {
+                                width: auto;
+                                &:not(.tab-item) {
+                                    .tab-text {
+                                        padding: 2rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .panel-body{
+                        .board-list{
+                            flex-direction: column;
+                            .board-item{
+                                width: 100% !important;
+                                padding: 2.4rem;
+                                border-radius: 1.6rem;
+                                .board-subject{
+                                    @include font(small-2x, bold);
+                                }
+                                .data-list{
+                                    margin-top: 1.2rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

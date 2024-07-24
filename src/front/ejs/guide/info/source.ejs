@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<%-include('../_templates/_guide.header.ejs') %>
+				<!-- page-body -->
+				<div class="page-body">
+					<!-- local-head -->
+					<div class="local-head">
+						<h2 class="local-subject">
+							<span class="local-name">Source</span>
+							<span class="local-desc">프로젝트에 사용된 Library, Plugin을 정리합니다.</span>
+						</h2>
+					</div>
+					<!-- //local-head -->
+					<!-- local-body -->
+					<div class="local-body">
+						<!-- section -->
+						<div class="section source-guide">
+							<div class="section-head">
+								<h4 class="section-subject">
+									<span class="section-name">개발환경</span> 
+								</h4>
+							</div>
+							<div class="section-body">
+								<div class="data-table">
+									<table class="table">
+										<caption>이 표는 프로젝트의 개발환경 정보를 제공하며 구분, 내용으로 구성되어 있습니다.</caption>
+										<colgroup>
+											<col style="width: 18%;">
+											<col style="width: auto">
+										</colgroup>
+										<thead>
+											<tr class="blind">
+												<th scope="row">구분</th>
+												<th scope="row">내용</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row"><a href="https://gulpjs.com/" target="_blank" class="link">gulp</a></th>
+												<td>gulp는 자바스크립트 기반의 태스크 러너입니다. 프론트엔드 개발에서 반복적이고 자동화할 수 있는 작업들을 처리하기 위해 사용됩니다.</td>
+											</tr>
+											<tr>
+												<th scope="row"><a href="https://nodejs.org/en" target="_blank" class="link">Node.js</a></th>
+												<td>Node.js는 웹 브라우저 외부에서 자바스크립트 코드를 실행하는 런타임(특정 언어로 만든 프로그램들을 실행할 수 있는 환경)입니다.</td>
+											</tr>
+											<tr>
+												<th scope="row"><a href="https://www.npmjs.com/" target="_blank" class="link">npm</a></th>
+												<td>npm(Node Package Manager)은 Node.js 패키지를 관리하는 도구입니다.</td>
+											</tr>
+											<tr>
+												<th scope="row"><a href="https://ejs.co/" target="_blank" class="link">ejs</a></th>
+												<td>ejs(Embedded Javascript)는 자바스크립트가 내장되어 있는 html 파일입니다. ejs 라는 확장자를 가지며 문법과 설정에 따라 파일을 html 형식으로 변환시킵니다.</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- //section -->
+						<!-- section -->
+						<div class="section source-guide">
+							<div class="section-head">
+								<h4 class="section-subject">
+									<span class="section-name">Library</span> 
+								</h4>
+							</div>
+							<div class="section-body">
+								<div class="data-table">
+									<table class="table">
+										<caption>이 표는 프로젝트에 사용된 라이브러리 정보를 제공하며 구분, 내용으로 구성되어 있습니다.</caption>
+										<colgroup>
+											<col style="width: 18%;">
+											<col style="width: auto">
+										</colgroup>
+										<thead>
+											<tr class="blind">
+												<th scope="row">구분</th>
+												<th scope="row">내용</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row"><a href="hhttps://swiperjs.com/" target="_blank" class="link">Swiper.js</a></th>
+												<td>반응형 슬라이드쇼 및 스와이퍼 기능을 쉽게 구현할 수 있습니다.</td>
+											</tr>
+											<tr>
+												<th scope="row"><a href="https://gsap.com/" target="_blank" class="link">GSAP</a></th>
+												<td>웹 화면에 쉽게 사용할 수 있는 강력한 타임라인 기반의 애니메이션 자바스크립트 라이브러리입니다.</td>
+											</tr>
+											<tr>
+												<th scope="row"><a href="https://getbootstrap.com/" target="_blank" class="link">Bootstrap</a></th>
+												<td>프론트엔드 프레임워크입니다. 해당 프로젝트에서는 동작 컴포넌트가 사용되었습니다. (스크롤스파이, 팝업 등)</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- //section -->
+						<!-- section -->
+						<div class="section source-guide">
+							<div class="section-head">
+								<h4 class="section-subject">
+									<span class="section-name">Plugin</span> 
+								</h4>
+							</div>
+							<div class="section-body">
+								<div class="data-table">
+									<table class="table">
+										<caption>이 표는 프로젝트에 사용된 플러그인 정보를 제공하며 구분, 내용으로 구성되어 있습니다.</caption>
+										<colgroup>
+											<col style="width: 18%;">
+											<col style="width: auto">
+										</colgroup>
+										<thead>
+											<tr class="blind">
+												<th scope="row">구분</th>
+												<th scope="row">내용</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row"><a href="https://gsap.com/docs/v3/Plugins/ScrollTrigger/" target="_blank" class="link">ScrollTrigger</a></th>
+												<td>GSAP에서 제공하는 플러그인으로 스크롤 기반 애니메이션을 구현할 수 있습니다. (스크롤에 따른 요소의 애니메이션 제어)</td>
+											</tr>
+											<tr>
+												<th scope="row"><a href="https://gsap.com/scrolltoplugin/" target="_blank" class="link">Scrolltoplugin</a></th>
+												<td>GSAP에서 제공하는 플러그인으로 스크롤 기반 애니메이션을 구현할 수 있습니다. (페이지를 스크롤하여 특정 위치로 이동하는 기능 제공)</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- //section -->
+					</div>
+					<!-- local-body -->
+				</div>
+				<!-- //page-body -->
+				<%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+</div>
+</body>
+</html>

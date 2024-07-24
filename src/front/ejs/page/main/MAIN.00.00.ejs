@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_head.ejs', {
+	layoutTemplate: 'front',
+	pageStyle: 'main',
+	pageJavascript: ''
+}) %>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const intro = document.querySelector(".section.intro")
+        const ourEsg = intro.querySelector(".our-esg")
+        const company = document.querySelector(".section.company")
+        const subsidiary = company.querySelector(".subsidiary")
+        const network = company.querySelector(".network")
+        const media = document.querySelector(".section.media")
+        let press = media.querySelector(".press-media")
+        const sns = media.querySelector(".sns-media")
+        const investment = document.querySelector(".section.investment")
+
+        intro.classList.add("active1")
+        setTimeout(() => {
+            intro.classList.add("active2")
+        }, 1500);
+
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const _width = window.innerWidth
+                const intro = entry.target.closest(".intro")
+                if(_width >= 1024) {
+                    if(entry.intersectionRatio > 0.5) {
+                        intro.classList.add("active3")
+                    } else {
+                        intro.classList.remove("active3")
+                    }
+                } else {
+                    if(entry.intersectionRatio > 0.1) {
+                        intro.classList.add("active3")
+                    } else {
+                        intro.classList.remove("active3")
+                    }
+                }
+            })
+        }, {
+            threshold: [0.1, 0.5]
+        })
+
+        const io2 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const _width = window.innerWidth
+                const company = entry.target
+                if(_width >= 1024) {
+                    if(entry.intersectionRatio > 0.2) {
+                        intro.classList.add("active4")
+                        company.classList.add("active1")
+                    } else {
+                        intro.classList.remove("active4")
+                    }
+                } else {
+                    if(entry.intersectionRatio > 0.1) {
+                        intro.classList.add("active4")
+                        company.classList.add("active1")
+                    } else {
+                        intro.classList.remove("active4")
+                    }
+                }
+            })
+        }, {
+            threshold: [0.1, 0.2]
+        })
+
+        const io3 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const _width = window.innerWidth
+                if(_width >= 1024) {
+                    if(entry.intersectionRatio > 0.4) {
+                        company.classList.remove("active4")
+                        company.classList.add("active2")
+                    }
+                } else {
+                    if(entry.intersectionRatio > 0.2) {
+                        company.classList.add("active2")
+                    }
+                }
+                if(!entry.isIntersecting) {
+                    company.classList.remove("active1")
+                    company.classList.remove("active2")
+                }
+            })
+        }, {
+            threshold: [0.2, 0.4]
+        })
+
+        const io6 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.intersectionRatio > 0.1) {
+                    press.style.top = window.innerHeight - press.offsetHeight + "px"
+                    media.classList.add("active1")
+                } else {
+                    media.classList.remove("active1")
+                }
+            })
+        }, {
+            threshold: [0.1]
+        })
+
+        const io7 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.intersectionRatio > 0.1) {
+                    investment.classList.add("active1")
+                } else {
+                    investment.classList.remove("active1")
+                }
+            })
+        }, {
+            threshold: [0.1]
+        })
+
+        //현재 메인 문제 없을 시 추후 삭제
+        // const pressContent = media.querySelector(".content-inner")
+        // const sns = media.querySelector(".sns-media")
+        // gsap.to(press, {
+        //     scrollTrigger: {
+        //         trigger: press,
+        //         start: "bottom+=30% bottom",
+        //         end: "bottom+=100% bottom",
+        //         scrub: true,
+        //     },
+        //     opacity: 0,
+        //     scale: 0.8
+        // })
+        // gsap.to(sns, {
+        //     scrollTrigger: {
+        //         trigger: press,
+        //         start: "bottom+=30% bottom",
+        //         end: "bottom+=100% bottom",
+        //         scrub: true,
+        //     },
+        //     "marginTop": -pressContent.offsetHeight
+        // })
+
+        io.observe(ourEsg)
+        io2.observe(company)
+        io3.observe(network)
+        io6.observe(media)
+        io7.observe(investment)
+
+        // window.addEventListener('beforeunload', function() {
+        //     localStorage.setItem('scrollPosition', window.scrollY);
+        // });
+
+        // window.addEventListener('load', function() {
+        //     if (localStorage.getItem('scrollPosition') !== null) {
+        //         window.scrollTo(0, localStorage.getItem('scrollPosition'));
+        //     }
+        //     setTimeout(() => {
+        //     console.log(intro.classList.contains("active4"));
+
+        //     }, 100);
+        // });
+
+        // 현재 메인 문제 없을 시 추후 삭제
+        // document.addEventListener("keyup", (e) => {
+        //     if(e.key === 'Tab') {
+        //         setTimeout(() => {
+        //             const focusedElement = document.activeElement
+        //             if(focusedElement.closest(".press-media")) {
+        //                 window.scrollTo(0, media.offsetTop)
+        //             } else if(focusedElement.classList.contains("newest-link")) {
+        //                 window.scrollTo(0, sns.offsetTop)
+        //             }
+        //         }, 0);
+        //     }
+        // })
+
+        let _width = window.innerWidth
+        let pressSwiper = undefined;
+
+        function initPressSwiper() {
+            if(_width >= 1024 && pressSwiper == undefined) {
+                pressSwiper = new Swiper(".press-swiper", {
+                    slidesPerView: "auto",
+                    freeMode: true,
+                    scrollbar: {
+                        el: ".swiper-scrollbar",
+                    }
+                });
+            } else if(_width < 1024 && pressSwiper != undefined) {
+                pressSwiper.destroy();
+                pressSwiper = undefined;
+            }
+        }
+        initPressSwiper();
+        window.addEventListener("resize", () => {
+            _width = window.innerWidth;
+            initPressSwiper();
+            company.classList.remove("active3")
+            media.classList.remove("active1")
+            media.classList.remove("active2")
+            sns.style.marginTop = "0"
+        })
+
+        new Swiper(".section-content.esg .swiper", {
+            slidesPerView: "auto",
+            freeMode: true,
+        });
+
+        new Swiper(".section.media .sns-media .swiper", {
+            slidesPerView: "auto",
+            freeMode: true,
+        });
+    });
+</script>
+</head>
+<body>
+<div id="wrap" class="main">
+    <%-include('../_templates/_header.ejs', {
+        type: 'transparent',
+    })
+    %>
+    <!-- main -->
+    <div class="sk-main" id="main">
+        <div class="main-inner">
+            <section class="section intro">
+                <div class="section-wrap">
+                    <div class="section-content our-business">
+                        <div class="content-background">
+                            <video preload="auto" autoplay loop muted playsinline playsinline poster="../../assets/images/main/poster-main-intro1.png" src="../../assets/movies/bg-main-intro1.mp4"></video>
+                        </div>
+                        <div class="content-inner">
+                            <div class="section-head">
+                                <h2 class="section-name">
+                                    <span class="split-wrap">
+                                        <span class="split space">Democratization</span>
+                                    </span>
+                                    <span class="split-wrap action1">
+                                        <span class="split">of</span>
+                                    </span>
+                                    <span class="split-wrap action2">
+                                        <span class="split">AI</span>
+                                    </span>
+                                </h2>
+                            </div>
+                            <div class="section-body">
+                                <p class="para">
+                                    AI 민주화를 추진해 인류의 문명화를 구현함으로써<br>
+                                    SK네트웍스와 함께하는 다양한 이해관계자의 행복을<br>
+                                    지속적으로 만들어 나가겠습니다.
+                                </p>
+                            </div>
+                            <div class="section-util">
+                                <a class="btn design3 case1 type1 color3 ar-icon-arrow-right2-bg" href="#">
+                                    <span class="btn-text">Our Business</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-content our-esg">
+                        <div class="content-background">
+                            <div class="figure-bundle1">
+                                <span class="figure1"></span>
+                                <span class="figure2"></span>
+                                <span class="figure3"></span>
+                            </div>
+                            <div class="figure-bundle2">
+                                <span class="figure4"></span>
+                                <span class="figure5"></span>
+                                <span class="figure6"></span>
+                            </div>
+                        </div>
+                        <div class="content-inner">
+                            <div class="section-head">
+                                <h2 class="section-name">Responsibility for ESG</h2>
+                            </div>
+                            <div class="section-body">
+                                <p class="para">
+                                    AI Company로서의 비전을 현실화하고<br>
+                                    효율적인 ESG 경영을 실천하며 <br class="mo-only">다양한 이해관계자들과 함께 <br class="mo-only">
+                                    지속가능한 미래를 그려 나가겠습니다.
+                                </p>
+                            </div>
+                            <div class="section-util">
+                                <a class="btn design3 case1 type1 color3 ar-icon-arrow-right2-bg" href="#">
+                                    <span class="btn-text">Our ESG</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section company">
+                <div class="section-wrap">
+                    <div class="section-content subsidiary">
+                        <div class="content-background">
+                            <video preload="auto" autoplay loop muted playsinline playsinline poster="../../assets/images/main/poster-main-company1.png" src="../../assets/movies/bg-main-company1.mp4"></video>
+                        </div>
+                        <div class="content-inner">
+                            <div class="section-head">
+                                <div class="split-wrap1">
+                                    <span class="split pc-only">SK네트웍스는</span>
+                                    <span class="split mo-only">SK네트웍스는 AI를 통해</span>
+                                </div>
+                                <div class="split-wrap2">
+                                    <span class="split pc-only">AI를 통해 미래의 가치를 만들어 나가는</span>
+                                    <span class="split mo-only">미래의 가치를 만들어 나가는</span>
+                                </div>
+                                <div class="split-wrap3">
+                                    <span class="split">글로벌 AI Company입니다.</span>
+                                </div>
+                            </div>
+                            <div class="section-body">
+                                <video preload="auto" autoplay loop muted playsinline playsinline src="../../assets/movies/bg-main-company2.mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-content network">
+                        <div class="content-inner">
+                            <div class="section-head">
+                                <div class="section-subject">
+                                    <h2 class="section-name">AI 중심의<br class="mo-only"> 비즈니스 모델로의 변화</h2>
+                                </div>
+                                <p class="section-summary">
+                                    AI 기반의 비즈니스 모델 혁신과 미래 유망 기술 투자로 지속가능한 성장을 이뤄 가겠습니다.
+                                </p>
+                            </div>
+                            <div class="section-body">
+                                <ul class="board-list">
+                                    <li class="item global-investment">
+                                        <div class="board-head">
+                                            <h3 class="board-name">글로벌 투자</h3>
+                                        </div>
+                                        <div class="board-body">
+                                            <p class="para">글로벌 네트워크와 포트폴리오 관리 역량을<br> 바탕으로 미래 가능성에 투자합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="item infocom">
+                                        <div class="board-head">
+                                            <h3 class="board-name">정보통신</h3>
+                                        </div>
+                                        <div class="board-body">
+                                            <p class="para">ICT 디바이스를 통해<br>사람과 AI를 연결합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="item hotel">
+                                        <div class="board-head">
+                                            <h3 class="board-name">호텔앤리조트</h3>
+                                        </div>
+                                        <div class="board-body">
+                                            <p class="para">Beyond Entertainment,<br>Elevating Excitement</p>
+                                        </div>
+                                    </li>
+                                    <li class="item rental">
+                                        <div class="board-head">
+                                            <h3 class="board-name">웰니스 가전</h3>
+                                        </div>
+                                        <div class="board-body">
+                                            <p class="para">건강하고 편리한,<br>친환경적인 일상을 시작합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="item mobility">
+                                        <div class="board-head">
+                                            <h3 class="board-name">모빌리티</h3>
+                                        </div>
+                                        <div class="board-body">
+                                            <p class="para">AI를 통해 더 차별화된<br>Mobility Service로 혁신합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="item global-trading">
+                                        <div class="board-head">
+                                            <h3 class="board-name">글로벌 트레이딩</h3>
+                                        </div>
+                                        <div class="board-body">
+                                            <p class="para">화학제품 위주의 무역을 전개하며<br>비즈니스 파트너에게 가치를 전달합니다.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section media">
+                <div class="section-wrap">
+                    <div class="section-content press-media">
+                        <div class="content-inner">
+                            <div class="section-head">
+                                <div class="section-subject">
+                                    <h2 class="section-name">Press Media</h2>
+                                </div>
+                                <p class="section-summary">
+                                    내일을 향한 SK네트웍스의 최신소식을 통해<br class="mo-only"> 어떤 미래가 기다리고 있는지 만나보세요.
+                                </p>
+                            </div>
+                            <div class="section-body">
+                                <div class="swiper press-swiper">
+                                    <ul class="swiper-wrapper">
+                                        <li class="swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="swiper-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-body">
+                                                    <span class="swiper-caption">Press</span>
+                                                    <p class="para">SK네트웍스, 2023년 영업이익 2,373억원 달성 전년비 33.6% 증가 배당 증액·자사주 소각 통해 주주가치 제고 추진!</p>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="swiper-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-body">
+                                                    <span class="swiper-caption">Press</span>
+                                                    <p class="para">SK네트웍스, 2023년 영업이익 2,373억원 달성 전년비 33.6% 증가 배당 증액·자사주 소각 통해 주주가치 제고 추진!</p>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="swiper-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-body">
+                                                    <span class="swiper-caption">Press</span>
+                                                    <p class="para">SK네트웍스, 2023년 영업이익 2,373억원 달성 전년비 33.6% 증가 배당 증액·자사주 소각 통해 주주가치 제고 추진!</p>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="swiper-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-body">
+                                                    <span class="swiper-caption">Press</span>
+                                                    <p class="para">SK네트웍스, 2023년 영업이익 2,373억원 달성 전년비 33.6% 증가 배당 증액·자사주 소각 통해 주주가치 제고 추진!</p>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="swiper-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-body">
+                                                    <span class="swiper-caption">Press</span>
+                                                    <p class="para">SK네트웍스, 2023년 영업이익 2,373억원 달성 전년비 33.6% 증가 배당 증액·자사주 소각 통해 주주가치 제고 추진!</p>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="swiper-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-body">
+                                                    <span class="swiper-caption">Press</span>
+                                                    <p class="para">SK네트웍스, 2023년 영업이익 2,373억원 달성 전년비 33.6% 증가 배당 증액·자사주 소각 통해 주주가치 제고 추진!</p>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="swiper-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-body">
+                                                    <span class="swiper-caption">Press</span>
+                                                    <p class="para">SK네트웍스, 2023년 영업이익 2,373억원 달성 전년비 33.6% 증가 배당 증액·자사주 소각 통해 주주가치 제고 추진!</p>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="swiper-scrollbar"></div>
+                                </div>
+                            </div>
+                            <div class="section-util">
+                                <a class="btn design3 case1 type1 color1 ar-icon-arrow-right2-bg report" href="javascript:void(0)">
+                                    <span class="btn-text">보도자료 전체보기</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-content sns-media">
+                        <div class="content-inner">
+                            <div class="section-head">
+                                <h2 class="section-name">SNS Media</h2>
+                            </div>
+                            <div class="section-body">
+                                <div class="sns-newest">
+                                    <a href="" class="link">
+                                        <div class="post-head">
+                                            <div class="img-wrap">
+                                                <img src="https://place-hold.it/590x331" alt=" ">
+                                            </div>
+                                        </div>
+                                        <div class="post-body">
+                                            <span class="post-cate">Youtube</span>
+                                            <h3 class="post-name">[이 팀을 알렸다] 진.짜. 최고의 마케팅팀!<br> 워커힐을 완전 뒤집어 놓으셨다 ✊</h3>
+                                            <p class="para">천하의 장돌뱅희를 당황시키는 밈잘알 마케팅팀의 등장이라...숲 속에서 열리는 콘서트부터 아이돌과의 협업까지!! 워커힐 마케팅팀의 넘치는 아이디어를 지금 영상을 통해 만나보시오~!</p>
+                                            <span class="date">2024.02.01</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="sns-swiper swiper">
+                                    <ul class="post-list swiper-wrapper">
+                                        <li class="item swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="post-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="post-body">
+                                                    <span class="post-cate">Youtube</span>
+                                                    <h3 class="post-name">[이 팀을 알렸다] 진.짜. 최고의 마케팅팀!<br> 워커힐을 완전 뒤집어 놓으셨다 ✊</h3>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="item swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="post-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="post-body">
+                                                    <span class="post-cate">Youtube</span>
+                                                    <h3 class="post-name">[이 팀을 알렸다] 진.짜. 최고의 마케팅팀!<br> 워커힐을 완전 뒤집어 놓으셨다 ✊</h3>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="item swiper-slide">
+                                            <a href="" class="link">
+                                                <div class="post-head">
+                                                    <div class="img-wrap">
+                                                        <img src="https://place-hold.it/387x218" alt=" ">
+                                                    </div>
+                                                </div>
+                                                <div class="post-body">
+                                                    <span class="post-cate">Youtube</span>
+                                                    <h3 class="post-name">[이 팀을 알렸다] 진.짜. 최고의 마케팅팀!<br> 워커힐을 완전 뒤집어 놓으셨다 ✊</h3>
+                                                    <span class="date">2024.02.01</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="section-util">
+                                <a class="btn design3 case1 type1 color1 ar-icon-arrow-right2-bg" href="javascript:void(0)">
+                                    <span class="btn-text">소셜미디어 전체보기</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section investment">
+                <div class="section-wrap">
+                    <div class="content-inner">
+                        <div class="section-head">
+                            <div class="section-subject">
+                                <h2 class="section-name">Investment</h2>
+                            </div>
+                        </div>
+                        <div class="section-body">
+                            <div class="board-list">
+                                <div class="board-item sk-stock">
+                                    <iframe src="https://ir.gsifn.io/sknetworks/ir2_main_pc.html?koreng=1" width="100%" class="pc-only">
+                                    </iframe>
+                                    <iframe src="https://ir.gsifn.io/sknetworks/ir2_main_m.html?koreng=1" width="100%" class="mo-only"></iframe>
+                                </div>
+                                <div class="board-item stock-info">
+                                    <a href="javascript:void(0)" class="link">
+                                        <div class="board-head">
+                                            <h3 class="board-name">주식정보</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="board-item fina-info">
+                                    <a href="javascript:void(0)" class="link">
+                                        <div class="board-head">
+                                            <h3 class="board-name">재무정보</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="board-item ir">
+                                    <div class="board-head">
+                                        <img src="../../assets/images/logo/logo-w-k.svg" class="sk-logo" alt="SK 네트웍스 로고">
+                                    </div>
+                                    <div class="board-body">
+                                        <h3 class="board-name">IR자료실</h3>
+                                        <div class="board-util">
+                                            <a href="javascript:void(0)" class="ir-link">
+                                                <span class="text">경영 실적 발표</span>
+                                            </a>
+                                            <a href="javascript:void(0)" class="ir-link">
+                                                <span class="text">IR 뉴스</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <%-include('../_templates/_footer.ejs')%>
+</div>
+</body>
+</html>

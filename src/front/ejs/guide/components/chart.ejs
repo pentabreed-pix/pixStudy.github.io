@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<%-include('../_templates/_guide.header.ejs') %>
+				<!-- page-body -->
+				<div class="page-body">
+					<!-- local-head -->
+					<div class="local-head">
+						<h2 class="local-subject">
+							<span class="local-name">Chart</span>
+						</h2>
+					</div>
+					<!-- //local-head -->
+					<!-- local-body -->
+					<div class="local-body">
+                    <!-- section -->
+                        <div class="section post-guide">
+                            <div class="section-head">
+                                <h4 class="section-subject"><span class="section-name">Chart system</span></h4>
+                            </div>
+                            <div class="section-body">
+                                <div class="subsection">
+                                    <div class="subsection-info">
+<!-- highlight-js -->
+<pre class="highlight-js"><code class="html">&lt;div class=&quot;chart-display design1 case1&quot;&gt;
+    &lt;div class=&quot;chart-list&quot;&gt;
+        &lt;div class=&quot;chart-item&quot;&gt;
+            &lt;div class=&quot;chart-wrap&quot;&gt;
+                &lt;div class=&quot;chart-head&quot;&gt; ... &lt;/div&gt;
+                &lt;div class=&quot;chart-body&quot;&gt; ... &lt;/div&gt;
+                &lt;div class=&quot;chart-aside&quot;&gt; ... &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<!-- //highlight-js -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- //section -->
+						<!-- section -->
+						<div class="section button-guide">
+							<div class="section-head">
+								<h4 class="section-subject">
+									<span class="section-name">Design1</span>
+								</h4>
+                                <p class="section-desc">case1,2</p>
+							</div>
+							<div class="section-body">
+								<!-- chart -->
+                                <div class="chart-display design1 case1 scroll">
+                                    <div class="chart-list">
+                                        <div class="chart-item">
+                                            <div class="chart-wrap">
+                                                <div class="chart-aside">
+                                                    <div class="chart-bar-color">
+                                                        <div class="mark design1 case2 type2 al-square-color5"><span class="mark-text">자산총계</span></div>
+                                                        <div class="mark design1 case2 type2 al-square-color6"><span class="mark-text">자본총계</span></div>
+                                                        <div class="mark design1 case2 type2 al-square-color7"><span class="mark-text">부채총계</span></div>
+                                                    </div>
+                                                    <p class="chart-util">(단위 : 억원)</p>
+                                                </div>
+                                                <div class="chart-body pc-only">
+                                                    <ul class="unit-list">
+                                                        <li class="unit-item">
+                                                            <span class="num">100,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">80,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">60,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">40,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">20,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">0</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="year-list">
+                                                        <li class="year-item">
+                                                            <div class="year-wrap">
+                                                                <div class="year-head">
+                                                                    <p class="year-subject">2023<span class="blind">년</span></p>
+                                                                </div>
+                                                                <div class="year-body">
+                                                                    <div class="graph-list">
+                                                                        <div class="graph-item color1" style="height: 18.3rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">자산총계 : </span><span class="graph-data">&nbsp;91,104</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color2" style="height: 13.5rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">부채총계 : </span><span class="graph-data">&nbsp;69,545</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color3" style="height: 4.7rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">자본총계 : </span><span class="graph-data">&nbsp;21,558</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="year-item">
+                                                            <div class="year-wrap">
+                                                                <div class="year-head">
+                                                                    <p class="year-subject">2022<span class="blind">년</span></p>
+                                                                </div>
+                                                                <div class="year-body">
+                                                                    <div class="graph-list">
+                                                                        <div class="graph-item color1" style="height: 19.1rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">자산총계 : </span><span class="graph-data">&nbsp;94,993</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color2" style="height: 13.7rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">부채총계 : </span><span class="graph-data">&nbsp;70,485</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color3" style="height: 5.1rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">자본총계 : </span><span class="graph-data">&nbsp;24,507</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="chart-body-mobile mo-only">
+                                                    <img src="../../assets/images/ir/chart-display1-m.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chart-display design1 case2 scroll">
+                                    <div class="chart-list">
+                                        <div class="chart-item">
+                                            <div class="chart-wrap">
+                                                <div class="chart-aside">
+                                                    <div class="chart-bar-color">
+                                                        <div class="mark design1 case2 type2 al-square-color5"><span class="mark-text">매출액</span></div>
+                                                        <div class="mark design1 case2 type2 al-square-color6"><span class="mark-text">영업이익</span></div>
+                                                        <div class="mark design1 case2 type2 al-square-color7"><span class="mark-text">당기순이익</span></div>
+                                                    </div>
+                                                    <p class="chart-util">(단위 : 억원)</p>
+                                                </div>
+                                                <div class="chart-body pc-only">
+                                                    <ul class="unit-list">
+                                                        <li class="unit-item">
+                                                            <span class="num">100,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">80,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">60,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">40,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">20,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">0</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                        <li class="unit-item">
+                                                            <span class="num">-10,000</span>
+                                                            <span class="blind">(억원)</span>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="year-list">
+                                                        <li class="year-item">
+                                                            <div class="year-wrap">
+                                                                <div class="year-head">
+                                                                    <p class="year-subject">2023<span class="blind">년</span></p>
+                                                                </div>
+                                                                <div class="year-body">
+                                                                    <div class="graph-list">
+                                                                        <div class="graph-item color1" style="height: 18.1rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">매출액 : </span><span class="graph-data">&nbsp;91,339</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color2" style="height: 1.3rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">영업이익 : </span><span class="graph-data">&nbsp;2,373</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color3" style="height: 0.7rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">당기순이익 : </span><span class="graph-data">&nbsp;55</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="year-item">
+                                                            <div class="year-wrap">
+                                                                <div class="year-head">
+                                                                    <p class="year-subject">2022<span class="blind">년</span></p>
+                                                                </div>
+                                                                <div class="year-body">
+                                                                    <div class="graph-list">
+                                                                        <div class="graph-item color1" style="height: 19.5rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">매출액 : </span><span class="graph-data">&nbsp;96,664</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color2" style="height: 2rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">영업이익 : </span><span class="graph-data">&nbsp;1,542</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color3" style="height: 1rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">당기순이익 : </span><span class="graph-data">&nbsp;907</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="year-item">
+                                                            <div class="year-wrap">
+                                                                <div class="year-head">
+                                                                    <p class="year-subject">2021<span class="blind">년</span></p>
+                                                                </div>
+                                                                <div class="year-body">
+                                                                    <div class="graph-list">
+                                                                        <div class="graph-item color1" style="height: 21.9rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">매출액 : </span><span class="graph-data">&nbsp;110,181</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color2" style="height: 1.5rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">영업이익 : </span><span class="graph-data">&nbsp;1,220</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color3" style="height: 0.9rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">당기순이익 : </span><span class="graph-data">&nbsp;1,035</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="year-item">
+                                                            <div class="year-wrap">
+                                                                <div class="year-head">
+                                                                    <p class="year-subject">2020<span class="blind">년</span></p>
+                                                                </div>
+                                                                <div class="year-body">
+                                                                    <div class="graph-list">
+                                                                        <div class="graph-item color1" style="height: 21rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">매출액 : </span><span class="graph-data">&nbsp;106,259</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color2" style="height: 1.4rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">영업이익 : </span><span class="graph-data">&nbsp;1,239</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color3" style="height: 0.6rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">당기순이익 : </span><span class="graph-data">&nbsp;421</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="year-item">
+                                                            <div class="year-wrap">
+                                                                <div class="year-head">
+                                                                    <p class="year-subject">2019<span class="blind">년</span></p>
+                                                                </div>
+                                                                <div class="year-body">
+                                                                    <div class="graph-list">
+                                                                        <div class="graph-item color1" style="height: 22rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">매출액 : </span><span class="graph-data">&nbsp;130,542</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color2" style="height: 2rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">영업이익 : </span><span class="graph-data">&nbsp;1,094</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <div class="graph-item color3 mines" style="height: 0.7rem;">
+                                                                            <div class="graph-info">
+                                                                                <span class="graph-subject">당기순이익 : </span><span class="graph-data">&nbsp;-1,226</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="chart-body-mobile mo-only">
+                                                    <img src="../../assets/images/ir/chart-display2-m.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+								<!-- //chart -->
+							</div>
+						</div>
+						<!-- //section -->
+					</div>
+					<!-- local-body -->
+				</div>
+				<!-- //page-body -->
+				<%-include('../_templates/_guide.footer.ejs') %>
+	</div>
+</div>
+</body>
+</html>
