@@ -1,3 +1,3 @@
-# sknuser
+# PIX Study Central
 
-commit 메시지에 #deploy 적으면 자동 배포가 됩니다.
+PIX팀 스터디 깃 입니다.

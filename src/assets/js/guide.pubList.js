@@ -1,7 +1,7 @@
 function pubListUp() {
   var category = ["No", "Page ID", "Menu", "File Root", "Completion", "View"];
   var page = {
-    Main: [
+    Sliders: [
       {
         id_ko: "",
         id_en: "",
@@ -15,7 +15,7 @@ function pubListUp() {
         history: "",
       },
     ],
-    Sliders: [
+    Show: [
       {
         id_ko: "",
         id_en: "",
