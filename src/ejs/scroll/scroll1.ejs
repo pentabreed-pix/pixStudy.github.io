@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head blind">
+				<h2 class="local-subject">
+					<span class="local-name">scroll 1</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body scroll">
+				<!-- section -->
+				<section class="section">
+					<h2 class="section-head">Scroll - Basic 01</h2>
+					<p class="section-summary">Percentage Progress Bar</p>
+					<div class="section-body">
+						<div class="progress">
+							<div class="progress-bar">
+								<span class="bar"></span>
+							</div>
+							<p class="progress-data">0%</p>
+						</div>
+
+						강<br>
+						선<br>
+						율<br>
+						주<br>
+						은<br>
+						소<br>
+						홍<br>
+						수<br>
+						기<br>
+						최<br>
+						준<br>
+						현<br>
+						P<br>
+						I<br>
+						X<br>
+						만<br>
+						세<br>
+						!<br>
+					</div>
+				</section>
+				<!-- //section -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		var progressBar = $('.progress .bar');
+		var text = $('.progress .progress-data');
+
+		getPercent();
+
+		$(window).scroll(function() {
+			getPercent();
+		});
+
+		function getPercent() {
+			var scrollHeight = $('.section').height();
+			var scrollRealHeight = scrollHeight - $(window).height();
+			var scrollTop = $(window).scrollTop();
+			var scrollPercent = scrollTop / scrollRealHeight * 100; // 현재 스크롤 값 / 진정한 스크롤 할 높이 * 100
+			var scrollTextPercent = Math.round(scrollPercent);
+			render(scrollPercent, scrollTextPercent)
+		}
+
+		function render(scrollPercent, scrollTextPercent) {
+			progressBar.css({
+				width: scrollPercent + '%'
+			});
+
+			text.text(scrollTextPercent + '%')
+		}
+	});
+</script>
+</body>
+</html>

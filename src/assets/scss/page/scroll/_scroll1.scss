@@ -1,0 +1,59 @@
+.local-body {
+  &.scroll {
+    section {
+      padding: 0 1.8rem;
+      background: #eaf5ff;
+
+      .section-head {
+        padding: 10rem 0 2rem 0;
+        font-size: 70px;
+        text-align: center;
+      }
+
+      .section-summary {
+        max-width: 70%;
+        margin: 0 auto;
+        font-size: 30px;
+        text-align: center;
+      }
+
+      .section-body {
+        font-size: 170px;
+        font-weight: 700;
+
+        .progress {
+          position: fixed;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .progress-bar {
+            width: 70%;
+            height: 10rem;
+            border-radius: 1.2rem;
+            border: 1px solid #222;
+            overflow: hidden;
+
+            .bar {
+              display: block;
+              width: 0%;
+              height: 100%;
+              background-color: #222;
+            }
+          }
+          .progress-data {
+            margin-top: 2rem;
+            font-size: 4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
