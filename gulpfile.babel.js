@@ -11,9 +11,11 @@ const autoprefixer = require("gulp-autoprefixer");
 const rename = require("gulp-rename");
 const browserSync = require("browser-sync").create();
 const del = require("del");
+const ghPages = require("gh-pages");
+const path = require("path");
 
-const SRC_FOLDER = "./src/";
-const DIST_FOLDER = "./dist/";
+const SRC_FOLDER = "./src";
+const DIST_FOLDER = "./dist";
 
 const SRC_PATH = {
     ASSETS: {
@@ -26,7 +28,6 @@ const SRC_PATH = {
       DOC: "./src/assets/doc",
       GLTF: "./src/assets/gltf",
       MOVIES: "./src/assets/movies",
-      BOOTSTRAP: "./node_modules/bootstrap/dist",
     },
     EJS: "./src/ejs",
   },
@@ -50,10 +51,6 @@ const SRC_PATH = {
     indentWidth: 4,
     precision: 8,
   };
-
-gulp.task("clean", function () {
-  return del(["dist"]);
-});
 
 gulp.task("html", () => {
   return gulp
@@ -95,8 +92,7 @@ gulp.task("scss:compile", function () {
 gulp.task("js", () => {
   return gulp
     .src([
-      SRC_PATH.ASSETS.JS + "/**/*.js",
-      SRC_PATH.ASSETS.BOOTSTRAP + "/js/bootstrap.bundle.min.js"
+      SRC_PATH.ASSETS.JS + "/**/*.js"
     ])
     .pipe(babel())
     .pipe(uglify()) //자바스크립트 코드를 압축해 용량을 줄임
@@ -164,7 +160,6 @@ gulp.task("watch", function () {
   gulp.watch(SRC_PATH.EJS + "/**/*.ejs", gulp.series("ejs"));
   gulp.watch(SRC_PATH.ASSETS.SCSS + "/**/*.scss", gulp.series("scss:compile"));
   gulp.watch(SRC_PATH.ASSETS.JS + "/**/*.js", gulp.series("js"));
-  gulp.watch(SRC_PATH.ASSETS.BOOTSTRAP + "/**/*.js", gulp.series("js"));
   gulp.watch(SRC_PATH.ASSETS.AJAX + "/*.js", gulp.series("ajax"));
   gulp.watch(SRC_PATH.ASSETS.MODULES + "/**/*.js", gulp.series("modules"));
   gulp.watch(SRC_PATH.ASSETS.IMAGES + "/**/*.+(png|jpg|jpeg|gif|ico)", gulp.series("images"));
@@ -180,12 +175,37 @@ gulp.task("browserSync", function () {
     notify: false,
     port: 9000,
     server: {
-      baseDir: ["dist/"],
+      baseDir: ["dist"],
       open: true,
     },
   });
 });
 
-gulp.task("build", gulp.series("html", "ejs", "scss:compile", "js", "ajax", "modules", "images", "svg", "fonts", "doc", "gltf", "movies", gulp.parallel("browserSync", "watch")));
+gulp.task('clean', function () {
+  return del([DIST_FOLDER]);
+});
 
-gulp.task("default", gulp.series("clean", "build", gulp.parallel("browserSync", "watch")));
+gulp.task('cleanDeploy', function () {
+  return del([".publish"]);
+});
+
+gulp.task('gh', function (done) {
+  ghPages.publish(path.join(__dirname, DIST_FOLDER), {
+    branch: 'gh-pages'
+  }, function (err) {
+    done(err);
+  });
+});
+
+
+gulp.task('prepare', gulp.series('clean'));
+
+gulp.task('build', gulp.series('prepare', 'html', 'ejs', 'scss:compile', 'js', 'ajax', 'modules', 'images', 'svg', 'fonts', 'doc', 'gltf', 'movies', gulp.parallel('browserSync', 'watch')));
+
+gulp.task('watch', gulp.parallel('watch', 'browserSync'));
+
+gulp.task('default', gulp.series('clean', 'build', gulp.parallel('browserSync', 'watch')));
+
+gulp.task('dev', gulp.series('build', gulp.parallel('browserSync', 'watch')));
+
+gulp.task('deploy', gulp.series('build', 'gh', 'cleanDeploy'));
