@@ -643,235 +643,6 @@ sub {
 #guide-list .page-head .page-control .control-btn ~ .control-btn {
     margin-left: 1.5rem;
 }
-#guide-list .page-body {
-    position: relative;
-    min-height: calc(100vh - 12rem);
-    background-color: #fbfbfb;
-}
-#guide-list .page-body .local-head {
-    position: relative;
-    padding: 0 1.8rem;
-}
-#guide-list .page-body .local-head .local-subject {
-    padding: 10rem 0 2.5rem;
-    margin: 0 auto;
-    max-width: 120rem;
-    border-bottom: 0.1rem solid #b9b9b9;
-}
-#guide-list .page-body .local-head .local-subject .local-name {
-    display: block;
-    color: #000000;
-    letter-spacing: -0.05rem;
-    font-weight: 800;
-    font-size: 8rem;
-}
-#guide-list .page-body .local-head .local-subject .local-name + .local-desc {
-    padding-top: 1rem;
-}
-#guide-list .page-body .local-head .local-subject .local-desc {
-    display: block;
-    color: #1c1c1c;
-    font-weight: 400;
-    font-size: 1.8rem;
-}
-#guide-list .page-body .local-head.anchor-area + .local-body {
-    padding: 12rem 1.8rem 15rem;
-}
-@media (max-width: 1023px) {
-    #guide-list .page-body .local-head.anchor-area + .local-body {
-        padding: 9rem 1.8rem 15rem;
-    }
-}
-#guide-list .page-body .local-head + .local-body {
-    padding: 7rem 1.8rem 15rem;
-}
-@media (max-width: 1023px) {
-    #guide-list .page-body .local-head .local-subject {
-        padding: 5rem 0 2.5rem;
-    }
-    #guide-list .page-body .local-head .local-subject .local-name {
-        font-weight: 400;
-        font-size: 4.5rem;
-    }
-    #guide-list .page-body .local-head .local-subject .local-desc {
-        font-weight: 400;
-        font-size: 1.4rem;
-    }
-    #guide-list .page-body .local-head + .local-body {
-        padding-top: 3rem;
-    }
-}
-#guide-list .page-body .local-body .section {
-    margin: 0 auto;
-    max-width: 120rem;
-}
-#guide-list .page-body .local-body .section .section-head .section-subject .section-name {
-    color: #1c1c1c;
-    font-weight: 700;
-    font-size: 3.8rem;
-    letter-spacing: -0.05rem;
-}
-#guide-list .page-body .local-body .section .section-head .section-subject + .section-desc {
-    color: #1c1c1c;
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: 150%;
-    padding-top: 0.8rem;
-}
-#guide-list .page-body .local-body .section .section-head + .section-body {
-    padding-top: 6rem;
-    padding-left: 7rem;
-}
-@media (max-width: 1023px) {
-    #guide-list .page-body .local-body .section .section-head .section-subject .section-name {
-        font-size: 2.6rem;
-    }
-    #guide-list .page-body .local-body .section .section-head .section-subject + .section-desc {
-        font-size: 1.4rem;
-    }
-    #guide-list .page-body .local-body .section .section-head + .section-body {
-        padding-top: 2.5rem;
-        padding-left: 0;
-    }
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head {
-    color: #1c1c1c;
-    font-weight: 600;
-    font-size: 2.2rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-body {
-    margin-top: 1.8rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-body > .subcategory {
-    margin-top: 1.8rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-body .subcategory .subcategory-head {
-    color: #1c1c1c;
-    font-weight: 500;
-    font-size: 1.6rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-body .subcategory .subcategory-head + .subcategory-body {
-    margin-top: 1rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-body .subcategory ~ .subcategory {
-    margin-top: 1.8rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-body .subcontent-wrap .subcontent-head {
-    color: rgb(83, 137, 252);
-    font-weight: 500;
-    font-size: 1.6rem;
-    line-height: 150%;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-body .subcontent-wrap .subcontent-head + .subcontent-body {
-    margin-top: 0.6rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-body .subcontent-wrap ~ .subcontent-wrap {
-    margin-top: 2rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-body .highlight-js + .subcategory {
-    padding-top: 1.8rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection .subsection-head + .subsection-info {
-    margin-top: 1.8rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection ~ .subsection {
-    padding-top: 5rem;
-}
-#guide-list .page-body .local-body .section .section-body .subsection.line {
-    border-top: 0.1rem solid #cacaca;
-    margin-top: 5rem;
-}
-#guide-list .page-body .local-body .section .section-body .data-table .table {
-    width: 100%;
-    table-layout: fixed;
-    border-spacing: 0;
-    border-collapse: collapse;
-    border-right: hidden;
-    border-left: hidden;
-    border-top: hidden;
-}
-#guide-list .page-body .local-body .section .section-body .data-table tbody {
-    border-bottom: 1px solid #626262;
-}
-#guide-list .page-body .local-body .section .section-body .data-table tbody th, #guide-list .page-body .local-body .section .section-body .data-table tbody td {
-    padding: 1rem 1.5rem;
-    font-size: 1.6rem;
-}
-#guide-list .page-body .local-body .section .section-body .data-table tbody th {
-    text-align: left;
-    border-top: 1px solid #626262;
-    border-right: 1px solid #626262;
-    border-left: 1px solid #626262;
-    background-color: #e7e7e7;
-}
-#guide-list .page-body .local-body .section .section-body .data-table tbody td {
-    border-top: 1px solid #626262;
-    border-right: 1px solid #626262;
-    border-left: 1px solid #626262;
-}
-#guide-list .page-body .local-body .section .section-body .data-table + .para-list {
-    margin-top: 1.8rem;
-}
-@media (max-width: 1023px) {
-    #guide-list .page-body .local-body .section .section-body .data-table {
-        width: calc(100% + 3.6rem);
-        max-width: unset;
-        overflow: auto;
-        padding-bottom: 1.6rem;
-        padding-right: 1.8rem;
-        padding-left: 1.8rem;
-        margin-left: -1.8rem;
-    }
-    #guide-list .page-body .local-body .section .section-body .data-table::-webkit-scrollbar {
-        height: 0.5rem;
-    }
-    #guide-list .page-body .local-body .section .section-body .data-table::-webkit-scrollbar-thumb {
-        background-color: #D5D4D9;
-        border-radius: 5rem;
-    }
-    #guide-list .page-body .local-body .section .section-body .data-table::-webkit-scrollbar-track {
-        margin-left: 1.8rem;
-        margin-right: 1.8rem;
-        border-radius: 5rem;
-    }
-    #guide-list .page-body .local-body .section .section-body .data-table .table {
-        min-width: 80rem;
-    }
-    #guide-list .page-body .local-body .section .section-body .data-table tbody {
-        border-bottom: 1px solid #626262;
-    }
-    #guide-list .page-body .local-body .section .section-body .data-table tbody th, #guide-list .page-body .local-body .section .section-body .data-table tbody td {
-        font-size: 1.4rem;
-    }
-}
-#guide-list .page-body .local-body .section .section-body .link {
-    display: inline-block;
-}
-#guide-list .page-body .local-body .section .section-body .link:hover {
-    text-decoration: underline;
-}
-#guide-list .page-body .local-body .section .section-body .bold {
-    font-weight: 700;
-}
-@media (max-width: 1023px) {
-    #guide-list .page-body .local-body .section .section-body .subsection ~ .subsection {
-        padding-top: 3.5rem;
-    }
-    #guide-list .page-body .local-body .section .section-body .subsection .subsection-head {
-        font-size: 1.6rem;
-    }
-}
-#guide-list .page-body .local-body .section ~ .section {
-    padding-top: 12rem;
-}
-@media (max-width: 1023px) {
-    #guide-list .page-body .local-body .section ~ .section {
-        padding-top: 8rem;
-    }
-}
-#guide-list .page-body .local-body .section.hidden {
-    display: none;
-}
 #guide-list .page-side {
     display: none;
 }
@@ -3309,5 +3080,53 @@ button.swiper-pagination-bullet {
     transform-origin: center bottom;
     backface-visibility: hidden;
     overflow: hidden;
+}
+
+.local-body.scroll section {
+    padding: 0 1.8rem;
+    background: #eaf5ff;
+}
+.local-body.scroll section .section-head {
+    padding: 10rem 0 2rem 0;
+    font-size: 70px;
+    text-align: center;
+}
+.local-body.scroll section .section-summary {
+    max-width: 70%;
+    margin: 0 auto;
+    font-size: 30px;
+    text-align: center;
+}
+.local-body.scroll section .section-body {
+    font-size: 170px;
+    font-weight: 700;
+}
+.local-body.scroll section .section-body .progress {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.local-body.scroll section .section-body .progress .progress-bar {
+    width: 70%;
+    height: 10rem;
+    border-radius: 1.2rem;
+    border: 1px solid #222;
+    overflow: hidden;
+}
+.local-body.scroll section .section-body .progress .progress-bar .bar {
+    display: block;
+    width: 0%;
+    height: 100%;
+    background-color: #222;
+}
+.local-body.scroll section .section-body .progress .progress-data {
+    margin-top: 2rem;
+    font-size: 4rem;
 }
 /*# sourceMappingURL=style.css.map */
