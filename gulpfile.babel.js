@@ -11,7 +11,7 @@ const autoprefixer = require("gulp-autoprefixer");
 const rename = require("gulp-rename");
 const browserSync = require("browser-sync").create();
 const del = require("del");
-const ghPages = require("gh-pages");
+const ghPages = require("gulp-gh-pages");
 const path = require("path");
 
 const SRC_FOLDER = "./src";
@@ -156,7 +156,7 @@ gulp.task("movies", () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task("watch", function () {
+gulp.task("watchFiles", function () {
   gulp.watch(SRC_PATH.EJS + "/**/*.ejs", gulp.series("ejs"));
   gulp.watch(SRC_PATH.ASSETS.SCSS + "/**/*.scss", gulp.series("scss:compile"));
   gulp.watch(SRC_PATH.ASSETS.JS + "/**/*.js", gulp.series("js"));
@@ -181,31 +181,61 @@ gulp.task("browserSync", function () {
   });
 });
 
-gulp.task('clean', function () {
+function clean() {
   return del([DIST_FOLDER]);
+}
+
+// 'gh' 작업 정의
+gulp.task('gh', function () {
+  return gulp.src(DIST_FOLDER + '/**/*')
+    .pipe(ghPages());
 });
 
+// 'cleanDeploy' 작업 정의
 gulp.task('cleanDeploy', function () {
   return del([".publish"]);
 });
 
-gulp.task('gh', function (done) {
-  ghPages.publish(path.join(__dirname, DIST_FOLDER), {
-    branch: 'gh-pages'
-  }, function (err) {
-    done(err);
-  });
-});
+// Prepare task
+const prepare = gulp.series(clean);
 
+// Build task
+const build = gulp.series(
+  prepare,
+  gulp.parallel("html", "ejs", "scss:compile", "js", "ajax", "modules", "images", "svg", "fonts", "doc", "gltf", "movies")
+);
 
-gulp.task('prepare', gulp.series('clean'));
+// Watch task
+function watchFiles() {
+  gulp.watch(SRC_PATH.EJS + "/**/*.ejs", gulp.series("ejs"));
+  gulp.watch(SRC_PATH.ASSETS.SCSS + "/**/*.scss", gulp.series("scss:compile"));
+  gulp.watch(SRC_PATH.ASSETS.JS + "/**/*.js", gulp.series("js"));
+  gulp.watch(SRC_PATH.ASSETS.AJAX + "/*.js", gulp.series("ajax"));
+  gulp.watch(SRC_PATH.ASSETS.MODULES + "/**/*.js", gulp.series("modules"));
+  gulp.watch(SRC_PATH.ASSETS.IMAGES + "/**/*.+(png|jpg|jpeg|gif|ico)", gulp.series("images"));
+  gulp.watch(SRC_PATH.ASSETS.IMAGES + "/**/*.svg", gulp.series("svg"));
+  gulp.watch(SRC_PATH.ASSETS.FONTS + "/**/*.+(eot|otf|svg|ttf|woff|woff2)", gulp.series("fonts"));
+  gulp.watch(SRC_PATH.ASSETS.DOC + "/**/*", gulp.series("doc"));
+  gulp.watch(SRC_PATH.ASSETS.GLTF + "/**/*", gulp.series("gltf"));
+  gulp.watch(SRC_PATH.ASSETS.MOVIES + "/*", gulp.series("movies"));
+}
 
-gulp.task('build', gulp.series('prepare', 'html', 'ejs', 'scss:compile', 'js', 'ajax', 'modules', 'images', 'svg', 'fonts', 'doc', 'gltf', 'movies', gulp.parallel('browserSync', 'watch')));
+// Default task
+const defaultTask = gulp.series(clean, build, gulp.parallel("browserSync", watchFiles));
 
-gulp.task('watch', gulp.parallel('watch', 'browserSync'));
+// Dev task
+const dev = gulp.series(build, gulp.parallel("browserSync", watchFiles));
 
-gulp.task('default', gulp.series('clean', 'build', gulp.parallel('browserSync', 'watch')));
+// Deploy task
+const deploy = gulp.series('gh', 'cleanDeploy');
 
-gulp.task('dev', gulp.series('build', gulp.parallel('browserSync', 'watch')));
-
-gulp.task('deploy', gulp.series('build', 'gh', 'cleanDeploy'));
+// Export tasks using CommonJS
+module.exports = {
+  clean,
+  prepare,
+  build,
+  watch: watchFiles,
+  default: defaultTask,
+  dev,
+  deploy
+};
