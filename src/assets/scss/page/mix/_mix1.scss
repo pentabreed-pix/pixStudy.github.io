@@ -1,0 +1,35 @@
+.local-body {
+  &.scroll {
+    section {
+      .section-wrap {
+        width: 100%;
+        .section-head {
+          display: none;
+        }
+        .section-body {
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .data-list {
+            &.logo {
+              position: relative;
+              width: 100%;
+              max-width: 139.2rem;
+              height: 0;
+              padding-bottom: 30px;
+              .data-item {
+                position: absolute;
+                width: 100%;
+                height: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
