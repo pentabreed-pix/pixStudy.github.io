@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>
+
+<script>
+	const lenis = new Lenis()
+
+	lenis.on('scroll', (e) => {
+		//console.log(e)
+	})
+
+	function raf(time) {
+		lenis.raf(time)
+		requestAnimationFrame(raf)
+	}
+
+	requestAnimationFrame(raf)
+
+
+
+	$(document).ready(function(){
+		sectionAnimations_Case01('[data-section-animation="case-1"]');
+	});
+
+	function sectionAnimations_Case01() {
+
+		let landingSlides = $('.post-08 .video-list .video-item');
+		let landingSlidesLength = 5
+		let story = $('.story-01');
+		let storyHeight = story.innerHeight();
+		let storyInner = $('.section-wrap');
+		let storyInnerHeight = storyInner.innerHeight();
+		let windowInnerHeight = $(window).innerHeight();
+		let storyTotalHeight = (windowInnerHeight * landingSlidesLength) + storyInnerHeight;
+		// let tab = $('.tab-display')
+		// let sectionBg = $('.section-wrap .bg1')
+
+		// function setCurrentSlide(index) {
+		// 	landingSlides.removeClass('active previous next');
+		// 	landingSlides.eq(index).addClass('active');
+		// 	if (index > 0) {
+		// 			landingSlides.eq(index - 1).addClass('previous');
+		// 	}
+		// 	if (index < landingSlides.length - 1) {
+		// 			landingSlides.eq(index + 1).addClass('next');
+		// 	}
+
+		// 	let postItems = $('.story1 .post-list .post-item');
+		// 	postItems.removeClass('active previous next');
+		// 	postItems.eq(index).addClass('active');
+		// 	if (index > 0) {
+		// 			postItems.eq(index - 1).addClass('previous');
+		// 	}
+		// 	if (index < postItems.length - 1) {
+		// 			postItems.eq(index + 1).addClass('next');
+		// 	}
+		// }
+
+		let scrollTimeline = gsap.timeline({
+			scrollTrigger: {
+				trigger: story,
+				start: 'top top',
+				markers: true,
+				scrub: 1,
+
+				end: () => {
+					if (window.innerWidth >= 1024) {
+						return 6 * (windowInnerHeight / 1);
+					} else {
+						return 6 * (windowInnerHeight * 2.5);
+					}
+				},
+				pin: '.story-01 .section-wrap',
+			}
+		});
+
+		let scrollTimeline0 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story,
+					//markers: true,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+									return (0.1 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (0 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+									return (0.5 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+					onEnter: () => {
+						$('.story-01 .post-list .post-08').addClass('active');
+        	},
+					onEnterBack: () => {
+            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
+            $('.story-01 .post-list .post-08').removeClass('active');
+        	},
+					onLeaveBack: () => {
+            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
+            $('.story-01 .post-list .post-08').removeClass('active');
+        	},
+				}
+		});
+
+		let scrollTimeline1 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story,
+					//markers: true,
+					scrub: 1,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+									return (0.5 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (0 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+									return (2 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+				}
+		});
+
+		scrollTimeline1
+			.add('action0')
+			.to('.story-01 .post-08 .bg', {
+				height: '100%',
+				ease: 'power1.out',
+				duration: 1,
+			}, 'action0')
+			.add(function() {
+        // 애니메이션 완료 후 (onComplete)
+				$('.story-01 .post-01').css('display', 'block');
+				$('.story-01 .post-02').css('display', 'block');
+				$('.story-01 .post-03').css('display', 'block');
+				$('.story-01 .post-04').css('display', 'block');
+
+			}, 'action0+=0.5')
+			.add(function() {
+					// 스크롤 반대방향으로 들어왔을 때 (onReverseComplete)
+
+
+					$('.story-01 .post-01').css('display', 'none');
+					$('.story-01 .post-02').css('display', 'none');
+					$('.story-01 .post-03').css('display', 'none');
+					$('.story-01 .post-04').css('display', 'none');
+			}, 'action0+=0.5')
+
+			.add('action1')
+			.to('.story-01 .post-08 .bg', {
+				height: '90%',
+				ease: 'power1.out',
+				duration: 1,
+			}, 'action1')
+			.add('action2')
+			.to('.story-01 .post-08 .bg', {
+				height: '10%',
+				ease: 'power1.out',
+				duration: 1,
+			}, 'action2')
+			.to('.story-01 .post-08 .video-01', {
+				height: '90%',
+				ease: 'power1.out',
+				duration: 1,
+			}, 'action2')
+			.to('.story-01 .post-08 .bg', {
+				height: '0%',
+				ease: 'power1.out',
+				duration: 1,
+			}, 'action2')
+			.to('.story-01 .post-08 .video-01', {
+				height: '80%',
+				ease: 'power1.out',
+				duration: 1,
+			}, 'action2')
+			.to('.story-01 .post-08 .video-02', {
+				height: '95%',
+				ease: 'power1.out',
+				duration: 1,
+			}, 'action2');
+
+			let scrollTimeline2 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story,
+					//markers: true,
+					scrub: 1,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+									return (2.5 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+									return (3 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (2 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+				}
+			});
+			scrollTimeline2
+				.add('action3')
+				.to('.story-01 .post-08 .video-01', {
+					height: '10%',
+					ease: 'power1.out',
+					duration: 1,
+				}, 'action3')
+				.to('.story-01 .post-08 .video-02', {
+					height: '90%',
+					ease: 'power1.out',
+					duration: 1,
+				}, 'action3')
+				.add('action4')
+				.to('.story-01 .post-08 .video-01', {
+					height: '0%',
+					ease: 'power1.out',
+					duration: 1,
+				}, 'action4')
+				.to('.story-01 .post-08 .video-02', {
+					height: '80%',
+					ease: 'power1.out',
+					duration: 1,
+				}, 'action4')
+
+				let scrollTimeline3 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story,
+					//markers: true,
+					scrub: 1,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+									return (3.5* (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+									return (4 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (2 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+				}
+			});
+			scrollTimeline3
+				.add('action5')
+				.to('.story-01 .post-08 .video-02', {
+					height: '20%',
+					ease: 'power1.out',
+					duration: 1,
+				}, 'action5')
+				.add('action6')
+				.to('.story-01 .post-08 .video-02', {
+					height: '0%',
+					ease: 'power1.out',
+					duration: 1,
+				}, 'action6')
+				.to('.story-01 .post-08 .video-03', {
+					height: '95%',
+					ease: 'power1.out',
+					duration: 1,
+				}, 'action6')
+
+				let scrollTimeline4 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story,
+					//markers: true,
+					//scrub: 1,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+									return (4.5* (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+									return (5 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (2 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+					onEnter: () => {
+						//console.log('onEnter')
+						$('.story-01 .post-list .post-08').addClass('active2');
+						$('.story-01 .section-body').addClass('active2');
+						gsap.to('.story-01 .post-08 .video-03', {
+							height: '100%',
+							ease: 'power1.out',
+							duration: 1,
+						})
+        	},
+					onEnterBack: () => {
+            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
+						//console.log('onEnterBack')
+						//$('.story-01 .post-list .post-08').removeClass('active2');
+        	},
+					onLeaveBack: () => {
+            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
+						//console.log('onLeaveBack')
+            $('.story-01 .post-list .post-08').removeClass('active2');
+						$('.story-01 .section-body').removeClass('active2');
+						// $('.story-01 .section-body').removeClass('active3');
+						// $('.story-01 .post-list .post-08').removeClass('active3');
+        	},
+					onLeave: () => {
+						//console.log('떠났어?')
+
+						// $('.story-01 .post-list .post-08').addClass('active3');
+        	},
+				}
+			});
+
+			let scrollTimeline5 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story,
+					markers: true,
+					//scrub: 1,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+									return (5.5* (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+									return (6 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+									//return (2 * (windowInnerHeight * 2.5)) + 'px top';
+							}
+					},
+					onEnter: () => {
+						console.log('onEnter')
+						$('.story-01 .section-body').addClass('active3');
+						$('.story-01 .post-list .post-05').addClass('active3');
+						$('.story-01 .post-list .post-06').addClass('active3');
+						$('.story-01 .post-list .post-07').addClass('active3');
+						$('.story-01 .post-list .post-08').addClass('active3');
+        	},
+					onEnterBack: () => {
+            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
+						console.log('onEnterBack')
+						//$('.story-01 .post-list .post-08').removeClass('active2');
+        	},
+					onLeaveBack: () => {
+            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
+						console.log('onLeaveBack')
+            $('.story-01 .post-list .post-08').addClass('active2');
+						$('.story-01 .section-body').removeClass('active3');
+						$('.story-01 .post-list .post-05').removeClass('active3');
+						$('.story-01 .post-list .post-06').removeClass('active3');
+						$('.story-01 .post-list .post-07').removeClass('active3');
+						$('.story-01 .post-list .post-08').removeClass('active3');
+        	},
+					onLeave: () => {
+						console.log('떠났어?')
+						// $('.story-01 .section-body').addClass('active3');
+						// $('.story-01 .post-list .post-08').addClass('active3');
+        	},
+				}
+			});
+
+
+
+
+
+
+
+
+
+
+
+
+		// 	landingSlides.each(function(i, landingSlide) {
+		// 		ScrollTrigger.create({
+		// 				trigger: story,
+		// 				markers: true,
+		// 				start: () => {
+		// 						if (window.innerWidth >= 1024) {
+		// 								return (i * (windowInnerHeight/2)) + 'px top'
+		// 						} else {
+		// 								if(i==0) {
+		// 										return (i * (windowInnerHeight/2)) + 'px top'
+		// 								} else {
+		// 										return (i * (windowInnerHeight*2.5)) + 'px top'
+		// 								}
+		// 						}
+		// 				},
+		// 				end: () => {
+		// 						if (window.innerWidth >= 1024) {
+		// 								return '+=' + (windowInnerHeight / 2)
+		// 						} else {
+		// 								if(i==0) {
+		// 										return '+=' + (windowInnerHeight / 2)
+		// 								} else {
+		// 										return '+=' + windowInnerHeight * 2.5
+		// 								}
+		// 						}
+		// 				},
+		// 		});
+		// });
+
+
+
+		// landingSlides.each(function(i, landingSlide) {
+		// 	ScrollTrigger.create({
+		// 			trigger: story,
+		// 			start: () => {
+		// 					if (window.innerWidth >= 1024) {
+		// 							return (i * (storyInnerHeight/2)) + 'px top'
+		// 					} else {
+		// 							if(i==0) {
+		// 									return (i * (storyInnerHeight/2)) + 'px top'
+		// 							} else {
+		// 									return (i * (storyInnerHeight*2.5)) + 'px top'
+		// 							}
+		// 					}
+		// 			},
+		// 			end: () => {
+		// 					if (window.innerWidth >= 1024) {
+		// 							return '+=' + (storyInnerHeight / 2)
+		// 					} else {
+		// 							if(i==0) {
+		// 									return '+=' + (storyInnerHeight / 2)
+		// 							} else {
+		// 									return '+=' + storyInnerHeight * 2.5
+		// 							}
+		// 					}
+		// 			},
+		// 			// pin: '.section-body',
+		// 			onEnter: () => setCurrentSlide(i),
+		// 			onLeave: () => setCurrentSlide(i),
+		// 			onEnterBack: () => setCurrentSlide(i),
+		// 			onLeaveBack: () => setCurrentSlide(i),
+		// 	});
+		// });
+
+		// let resizeTimeout;
+		// window.addEventListener('resize', function() {
+		// 	clearTimeout(resizeTimeout);
+		// 	resizeTimeout = setTimeout(function() {
+		// 			ScrollTrigger.refresh();
+		// 	}, 500);
+		// });
+
+		// GSAP 타임라인을 사용한 애니메이션
+		gsap.timeline()
+			.to($('.story-01 .post-list'), {
+				opacity: 1,
+				scale: 1,
+				duration: 1
+			})
+
+		// .to($('.story-01 .post-list'), {
+		// 	rotation: 45,
+		// 	duration: 0.5,
+		// });
+
+
+		// gsap.to($('.story-01 .post-list'), {
+		// 	opacity: 1,
+		// 	scale: 1,
+		// 	duration: 1.2,
+		// 	onComplete: function() {
+		// 		gsap.to($('.story-01 .post-list .post-08'), {
+		// 			width: '100%',
+		// 			height: '100%',
+		// 			duration: 0.7,
+		// 		});
+		// 	}
+		// });
+
+
+		// setTimeout(function() {
+		// 	$('.story-01 .post-list').addClass('active');
+		// }, 500);
+
+}
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head blind">
+				<h2 class="local-subject">
+					<span class="local-name">SEBANG</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body">
+				<!-- section -->
+				<section class="section story-01" data-section-animation="case-1">
+					<div class="section-wrap">
+						<!-- <div class="section-head">MIX - Basic 01</div> -->
+						<div class="section-body">
+							<div class="post-list">
+								<div class="post-inner">
+								<div class="post-item post-01">
+									<div class="post-wrap">
+										<img src="../assets/images/main/story-01-thumnail-a.jpg" alt=" ">
+									</div>
+								</div>
+								<div class="post-item post-02">
+									<div class="post-wrap">
+										<img src="../assets/images/main/story-01-thumnail-b.jpg" alt=" ">
+									</div>
+								</div>
+								<div class="post-item post-03">
+									<div class="post-wrap">
+										<img src="../assets/images/main/story-01-thumnail-c.jpg" alt=" ">
+									</div>
+								</div>
+								<div class="post-item post-04">
+									<div class="post-wrap">
+										<img src="../assets/images/main/story-01-thumnail-d.png" alt=" ">
+									</div>
+								</div>
+
+								<div class="post-item post-05">
+									<div class="post-wrap">
+										<div class="post-body">
+											<div class="video-list">
+												<div class="video-item">
+													<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="post-item post-06">
+									<div class="post-wrap">
+										<div class="post-body">
+											<div class="video-list">
+												<div class="video-item">
+													<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="post-item post-07">
+									<div class="post-wrap">
+										<div class="post-body">
+											<div class="video-list">
+												<div class="video-item">
+													<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-03.mp4" type="video/mp4"></video>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="post-item post-08">
+									<div class="post-wrap">
+											<div class="post-body">
+												<div class="video-list">
+													<div class="video-item video-01">
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video>
+													</div>
+													<div class="video-item video-02">
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
+													</div>
+													<div class="video-item video-03">
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-03.mp4" type="video/mp4"></video>
+													</div>
+												</div>
+												<div class="bg"><video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-bg.mp4" type="video/mp4"></video></div>
+												<div class="data-display">
+													<ul class="data-list sub">
+														<li class="data-item">글로벌 물류 파트너</li>
+														<li class="data-item">연축전지 NO.1</li>
+														<li class="data-item">토탈 디지털 솔루션</li>
+													</ul>
+													<ul class="data-list subject">
+														<li class="data-item">물류 Logistics for Leading Global</li>
+														<li class="data-item">제조 Battery for Better Life</li>
+														<li class="data-item">IT Solution for Digital Tranform</li>
+													</ul>
+												</div>
+											</div>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //section -->
+				<section style="width:100%; height:2000px; background-color: brown;"></section>
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+	</div>
+</div>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
