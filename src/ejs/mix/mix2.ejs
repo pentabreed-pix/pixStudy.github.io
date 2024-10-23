@@ -9,10 +9,6 @@
 <script>
 	const lenis = new Lenis()
 
-	lenis.on('scroll', (e) => {
-		//console.log(e)
-	})
-
 	function raf(time) {
 		lenis.raf(time)
 		requestAnimationFrame(raf)
@@ -27,51 +23,21 @@
 	});
 
 	function sectionAnimations_Case01() {
-
-		let landingSlides = $('.post-08 .video-list .video-item');
-		let landingSlidesLength = 5
-		let story = $('.story-01');
-		let storyHeight = story.innerHeight();
-		let storyInner = $('.section-wrap');
-		let storyInnerHeight = storyInner.innerHeight();
+		let story_01 = $('.story-01');
 		let windowInnerHeight = $(window).innerHeight();
-		let storyTotalHeight = (windowInnerHeight * landingSlidesLength) + storyInnerHeight;
-		// let tab = $('.tab-display')
-		// let sectionBg = $('.section-wrap .bg1')
-
-		// function setCurrentSlide(index) {
-		// 	landingSlides.removeClass('active previous next');
-		// 	landingSlides.eq(index).addClass('active');
-		// 	if (index > 0) {
-		// 			landingSlides.eq(index - 1).addClass('previous');
-		// 	}
-		// 	if (index < landingSlides.length - 1) {
-		// 			landingSlides.eq(index + 1).addClass('next');
-		// 	}
-
-		// 	let postItems = $('.story1 .post-list .post-item');
-		// 	postItems.removeClass('active previous next');
-		// 	postItems.eq(index).addClass('active');
-		// 	if (index > 0) {
-		// 			postItems.eq(index - 1).addClass('previous');
-		// 	}
-		// 	if (index < postItems.length - 1) {
-		// 			postItems.eq(index + 1).addClass('next');
-		// 	}
-		// }
 
 		let scrollTimeline = gsap.timeline({
 			scrollTrigger: {
-				trigger: story,
+				trigger: story_01,
 				start: 'top top',
-				markers: true,
+				//markers: true,
 				scrub: 1,
 
 				end: () => {
 					if (window.innerWidth >= 1024) {
 						return 6 * (windowInnerHeight / 1);
 					} else {
-						return 6 * (windowInnerHeight * 2.5);
+						return 6 * (windowInnerHeight * 1);
 					}
 				},
 				pin: '.story-01 .section-wrap',
@@ -80,31 +46,29 @@
 
 		let scrollTimeline0 = gsap.timeline({
 				scrollTrigger: {
-					trigger: story,
+					trigger: story_01,
 					//markers: true,
 					start: () => {
 							if (window.innerWidth >= 1024) {
-									return (0.1 * (windowInnerHeight / 1)) + 'px top';
+								return (0.1 * (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (0 * (windowInnerHeight * 2.5)) + 'px top';
+								return (0.1 * (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 					end: () => {
 							if (window.innerWidth >= 1024) {
-									return (0.5 * (windowInnerHeight / 1)) + 'px top';
+								return (0.5 * (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+								return (0.5 * (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 					onEnter: () => {
 						$('.story-01 .post-list .post-08').addClass('active');
         	},
 					onEnterBack: () => {
-            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
             $('.story-01 .post-list .post-08').removeClass('active');
         	},
 					onLeaveBack: () => {
-            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
             $('.story-01 .post-list .post-08').removeClass('active');
         	},
 				}
@@ -112,21 +76,21 @@
 
 		let scrollTimeline1 = gsap.timeline({
 				scrollTrigger: {
-					trigger: story,
+					trigger: story_01,
 					//markers: true,
 					scrub: 1,
 					start: () => {
 							if (window.innerWidth >= 1024) {
-									return (0.5 * (windowInnerHeight / 1)) + 'px top';
+								return (0.5 * (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (0 * (windowInnerHeight * 2.5)) + 'px top';
+								return (0.5 * (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 					end: () => {
 							if (window.innerWidth >= 1024) {
-									return (2 * (windowInnerHeight / 1)) + 'px top';
+								return (2 * (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+								return (2 * (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 				}
@@ -140,7 +104,6 @@
 				duration: 1,
 			}, 'action0')
 			.add(function() {
-        // 애니메이션 완료 후 (onComplete)
 				$('.story-01 .post-01').css('display', 'block');
 				$('.story-01 .post-02').css('display', 'block');
 				$('.story-01 .post-03').css('display', 'block');
@@ -148,9 +111,6 @@
 
 			}, 'action0+=0.5')
 			.add(function() {
-					// 스크롤 반대방향으로 들어왔을 때 (onReverseComplete)
-
-
 					$('.story-01 .post-01').css('display', 'none');
 					$('.story-01 .post-02').css('display', 'none');
 					$('.story-01 .post-03').css('display', 'none');
@@ -192,21 +152,20 @@
 
 			let scrollTimeline2 = gsap.timeline({
 				scrollTrigger: {
-					trigger: story,
-					//markers: true,
+					trigger: story_01,
 					scrub: 1,
 					start: () => {
 							if (window.innerWidth >= 1024) {
-									return (2.5 * (windowInnerHeight / 1)) + 'px top';
+								return (2.5 * (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+								return (2.5 * (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 					end: () => {
 							if (window.innerWidth >= 1024) {
-									return (3 * (windowInnerHeight / 1)) + 'px top';
+								return (3 * (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (2 * (windowInnerHeight * 2.5)) + 'px top';
+								return (3 * (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 				}
@@ -237,21 +196,21 @@
 
 				let scrollTimeline3 = gsap.timeline({
 				scrollTrigger: {
-					trigger: story,
+					trigger: story_01,
 					//markers: true,
 					scrub: 1,
 					start: () => {
 							if (window.innerWidth >= 1024) {
-									return (3.5* (windowInnerHeight / 1)) + 'px top';
+								return (3.5* (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+								return (3.5* (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 					end: () => {
 							if (window.innerWidth >= 1024) {
-									return (4 * (windowInnerHeight / 1)) + 'px top';
+								return (4 * (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (2 * (windowInnerHeight * 2.5)) + 'px top';
+								return (4 * (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 				}
@@ -277,25 +236,24 @@
 
 				let scrollTimeline4 = gsap.timeline({
 				scrollTrigger: {
-					trigger: story,
+					trigger: story_01,
 					//markers: true,
 					//scrub: 1,
 					start: () => {
 							if (window.innerWidth >= 1024) {
-									return (4.5* (windowInnerHeight / 1)) + 'px top';
+								return (4.5* (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+								return (4.5* (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 					end: () => {
 							if (window.innerWidth >= 1024) {
-									return (5 * (windowInnerHeight / 1)) + 'px top';
+								return (5 * (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (2 * (windowInnerHeight * 2.5)) + 'px top';
+								return (5 * (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 					onEnter: () => {
-						//console.log('onEnter')
 						$('.story-01 .post-list .post-08').addClass('active2');
 						$('.story-01 .section-body').addClass('active2');
 						gsap.to('.story-01 .post-08 .video-03', {
@@ -304,192 +262,57 @@
 							duration: 1,
 						})
         	},
-					onEnterBack: () => {
-            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
-						//console.log('onEnterBack')
-						//$('.story-01 .post-list .post-08').removeClass('active2');
-        	},
 					onLeaveBack: () => {
-            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
-						//console.log('onLeaveBack')
             $('.story-01 .post-list .post-08').removeClass('active2');
 						$('.story-01 .section-body').removeClass('active2');
-						// $('.story-01 .section-body').removeClass('active3');
-						// $('.story-01 .post-list .post-08').removeClass('active3');
-        	},
-					onLeave: () => {
-						//console.log('떠났어?')
-
-						// $('.story-01 .post-list .post-08').addClass('active3');
         	},
 				}
 			});
 
 			let scrollTimeline5 = gsap.timeline({
 				scrollTrigger: {
-					trigger: story,
-					markers: true,
+					trigger: story_01,
+					//markers: true,
 					//scrub: 1,
 					start: () => {
 							if (window.innerWidth >= 1024) {
-									return (5.5* (windowInnerHeight / 1)) + 'px top';
+								return (5.5* (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (1 * (windowInnerHeight * 2.5)) + 'px top';
+								return (5.5* (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 					end: () => {
 							if (window.innerWidth >= 1024) {
-									return (6 * (windowInnerHeight / 1)) + 'px top';
+								return (6 * (windowInnerHeight / 1)) + 'px top';
 							} else {
-									//return (2 * (windowInnerHeight * 2.5)) + 'px top';
+								return (6 * (windowInnerHeight / 1)) + 'px top';
 							}
 					},
 					onEnter: () => {
-						console.log('onEnter')
 						$('.story-01 .section-body').addClass('active3');
 						$('.story-01 .post-list .post-05').addClass('active3');
 						$('.story-01 .post-list .post-06').addClass('active3');
 						$('.story-01 .post-list .post-07').addClass('active3');
 						$('.story-01 .post-list .post-08').addClass('active3');
-        	},
-					onEnterBack: () => {
-            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
-						console.log('onEnterBack')
-						//$('.story-01 .post-list .post-08').removeClass('active2');
-        	},
+},
 					onLeaveBack: () => {
-            // 스크롤을 위로 올려서 다시 들어왔을 때 애니메이션
-						console.log('onLeaveBack')
             $('.story-01 .post-list .post-08').addClass('active2');
 						$('.story-01 .section-body').removeClass('active3');
 						$('.story-01 .post-list .post-05').removeClass('active3');
 						$('.story-01 .post-list .post-06').removeClass('active3');
 						$('.story-01 .post-list .post-07').removeClass('active3');
 						$('.story-01 .post-list .post-08').removeClass('active3');
-        	},
-					onLeave: () => {
-						console.log('떠났어?')
-						// $('.story-01 .section-body').addClass('active3');
-						// $('.story-01 .post-list .post-08').addClass('active3');
-        	},
+					},
 				}
 			});
 
-
-
-
-
-
-
-
-
-
-
-
-		// 	landingSlides.each(function(i, landingSlide) {
-		// 		ScrollTrigger.create({
-		// 				trigger: story,
-		// 				markers: true,
-		// 				start: () => {
-		// 						if (window.innerWidth >= 1024) {
-		// 								return (i * (windowInnerHeight/2)) + 'px top'
-		// 						} else {
-		// 								if(i==0) {
-		// 										return (i * (windowInnerHeight/2)) + 'px top'
-		// 								} else {
-		// 										return (i * (windowInnerHeight*2.5)) + 'px top'
-		// 								}
-		// 						}
-		// 				},
-		// 				end: () => {
-		// 						if (window.innerWidth >= 1024) {
-		// 								return '+=' + (windowInnerHeight / 2)
-		// 						} else {
-		// 								if(i==0) {
-		// 										return '+=' + (windowInnerHeight / 2)
-		// 								} else {
-		// 										return '+=' + windowInnerHeight * 2.5
-		// 								}
-		// 						}
-		// 				},
-		// 		});
-		// });
-
-
-
-		// landingSlides.each(function(i, landingSlide) {
-		// 	ScrollTrigger.create({
-		// 			trigger: story,
-		// 			start: () => {
-		// 					if (window.innerWidth >= 1024) {
-		// 							return (i * (storyInnerHeight/2)) + 'px top'
-		// 					} else {
-		// 							if(i==0) {
-		// 									return (i * (storyInnerHeight/2)) + 'px top'
-		// 							} else {
-		// 									return (i * (storyInnerHeight*2.5)) + 'px top'
-		// 							}
-		// 					}
-		// 			},
-		// 			end: () => {
-		// 					if (window.innerWidth >= 1024) {
-		// 							return '+=' + (storyInnerHeight / 2)
-		// 					} else {
-		// 							if(i==0) {
-		// 									return '+=' + (storyInnerHeight / 2)
-		// 							} else {
-		// 									return '+=' + storyInnerHeight * 2.5
-		// 							}
-		// 					}
-		// 			},
-		// 			// pin: '.section-body',
-		// 			onEnter: () => setCurrentSlide(i),
-		// 			onLeave: () => setCurrentSlide(i),
-		// 			onEnterBack: () => setCurrentSlide(i),
-		// 			onLeaveBack: () => setCurrentSlide(i),
-		// 	});
-		// });
-
-		// let resizeTimeout;
-		// window.addEventListener('resize', function() {
-		// 	clearTimeout(resizeTimeout);
-		// 	resizeTimeout = setTimeout(function() {
-		// 			ScrollTrigger.refresh();
-		// 	}, 500);
-		// });
-
 		// GSAP 타임라인을 사용한 애니메이션
 		gsap.timeline()
-			.to($('.story-01 .post-list'), {
-				opacity: 1,
-				scale: 1,
-				duration: 1
-			})
-
-		// .to($('.story-01 .post-list'), {
-		// 	rotation: 45,
-		// 	duration: 0.5,
-		// });
-
-
-		// gsap.to($('.story-01 .post-list'), {
-		// 	opacity: 1,
-		// 	scale: 1,
-		// 	duration: 1.2,
-		// 	onComplete: function() {
-		// 		gsap.to($('.story-01 .post-list .post-08'), {
-		// 			width: '100%',
-		// 			height: '100%',
-		// 			duration: 0.7,
-		// 		});
-		// 	}
-		// });
-
-
-		// setTimeout(function() {
-		// 	$('.story-01 .post-list').addClass('active');
-		// }, 500);
-
+		.to($('.story-01 .post-list'), {
+			opacity: 1,
+			scale: 1,
+			duration: 1
+		})
 }
 </script>
 </head>
@@ -510,7 +333,6 @@
 				<!-- section -->
 				<section class="section story-01" data-section-animation="case-1">
 					<div class="section-wrap">
-						<!-- <div class="section-head">MIX - Basic 01</div> -->
 						<div class="section-body">
 							<div class="post-list">
 								<div class="post-inner">

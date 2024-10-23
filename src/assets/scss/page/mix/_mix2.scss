@@ -2,54 +2,29 @@
   section {
     &.story-01 {
       .section-wrap {
-
-        .section-head {
-          display: none;
-        }
         .section-body {
+          display: flex;
+          align-items: center;
           width: 100%;
           height: 100vh;
           overflow: hidden;
-          display: flex;
-            align-items: center;
 
           &.active2 {
-            //display: flex;
-           // align-items: center;
             .post-list {
-              // max-width: 139rem;
-              // margin: 0 auto;
-              // height: 18rem;
-              // gap: 3.6rem;
-              // padding-right: calc(32rem + 3.6rem);
-
               .post-inner {
                 position: relative;
-                // top: 50%;
-                // left: 50%;
-                // transform: translate(-50%,-50%);
-                // width: calc(100% - 26.6rem - 26.6rem);
                 height: 100%;
                 display: flex;
                 align-items: center;
                 gap: 3.6rem;
                 padding-right: calc(32rem + 3.6rem);
               }
-
-
             }
-            // position: absolute;
-            // top: 50%;
-            // left: 50%;
-            // transform: translate(-50%,-50%) !important;
-
           }
 
           .post-list {
             position: relative;
-            // width: 100%;
             height: 100%;
-            padding: 0 26.6rem;
             opacity: 0;
             transform: scale(1.3);
             transition: all 1s ease-out;
@@ -57,14 +32,7 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-              margin: 0 auto;
-              //height: 18rem;
-              //padding-right: calc(32rem + 3.6rem);
-
-
-
-
-
+            margin: 0 auto;
 
             .post-item {
               &.post-01,
