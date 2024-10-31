@@ -4,183 +4,71 @@
 <%-include('../_templates/_guide.head.ejs', {
 	pageJavascript: ''
 }) %>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-	Accordion();
-})
-</script>
 </head>
 <body>
 <div id="wrap">
 	<div id="guide-list">
-		<%-include('../_templates/_guide.header.ejs') %>
 		<!-- page-body -->
 		<div class="page-body">
 			<!-- local-head -->
-			<div class="local-head">
+			<div class="local-head blind">
 				<h2 class="local-subject">
-					<span class="local-name">Accoridion</span>
+					<span class="local-name">scroll 1</span>
 				</h2>
 			</div>
 			<!-- //local-head -->
 			<!-- local-body -->
-			<div class="local-body">
+			<div class="local-body scroll">
 				<!-- section -->
-				<div class="section accordion-guide">
-					<div class="section-head">
-						<h4 class="section-subject"><span class="section-name">accordion display</span></h4>
-						<p class="section-desc">아코디언의 <span class="accent case4">열림 > 닫힘</span> 기능은 accordion-display 에 collapse 클래스를 추가 하면 됩니다. <span class="accent case4">닫힘 > 열림</span> 기능은 collapse 클래스를 제거합니다.<br> 접근성을 위해 <span class="accent case4">aria-label</span> 을 사용하여 현재 아코디언의 상태(열림, 닫힘)를 정의하고,<br> 아코디언 head의 <span class="accent case4">aria-controls</span>과 아코디언 body의 id를 같은 값으로 연결하여 어떤 요소에 대한 컨트롤인지 참조합니다.</p>
-					</div>
-					<div class="section-body">
-						<div class="subsection">
-							<div class="subsection-head">열림 → 닫힘</div>
-							<div class="subsection-body">
-<!-- highlight-js -->
-<pre class="highlight-js"><code class="html">&lt;div class=&quot;accordion-display collapse design1 case1 type1&quot;&gt;
-	&lt;div class=&quot;accordion-list&quot;&gt;
-		&lt;div class=&quot;accordion-item&quot;&gt;
-			&lt;div class=&quot;accordion-head&quot;&gt;
-				&lt;button type=&quot;button&quot; class=&quot;btn&quot; aria-label=&quot;열림&quot; aria-controls=&quot;accordionCont1&quot;&gt;
-					&lt;span class=&quot;btn-text&quot;&gt;Accordion Component&lt;/span&gt;
-				&lt;/button&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;accordion-body&quot; id=&quot;accordionCont1&quot;&gt;
-				&lt;div class=&quot;accordion-inner&quot;&gt;
-					...
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;accordion-item&quot;&gt;
-			&lt;div class=&quot;accordion-head&quot;&gt;
-				&lt;button type=&quot;button&quot; class=&quot;btn&quot; aria-label=&quot;열림&quot; aria-controls=&quot;accordionCont2&quot;&gt;
-					&lt;span class=&quot;btn-text&quot;&gt;Accordion Component&lt;/span&gt;
-				&lt;/button&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;accordion-body&quot; id=&quot;accordionCont2&quot;&gt;
-				&lt;div class=&quot;accordion-inner&quot;&gt;
-					...
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<!-- //highlight-js -->
-                                <div class="guide-accordion-area">
-									<!-- accordion-display -->
-                                    <div class="accordion-display collapse design1 case1 type1">
-										<div class="accordion-list">
-											<div class="accordion-item">
-												<div class="accordion-wrap">
-													<div class="accordion-head">
-														<button type="button" class="btn" aria-label="열림" aria-controls="accordionCont1"><span class="btn-text">accordionCont1 (열림상태)</span></button>
-													</div>
-													<div class="accordion-body" id="accordionCont1">
-														accordionCont1 body. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br> Dignissimos, suscipit neque error doloribus quia impedit exercitationem sapiente voluptates nemo totam.
-													</div>
-												</div>
-											</div>
-											<div class="accordion-item">
-												<div class="accordion-wrap">
-													<div class="accordion-head">
-														<button type="button" class="btn" aria-label="열림" aria-controls="accordionCont2"><span class="btn-text">accordionCont2 (열림상태)</span></button>
-													</div>
-													<div class="accordion-body" id="accordionCont2">
-														accordionCont2 body. Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br> Dignissimos, suscipit neque error doloribus quia impedit exercitationem sapiente voluptates nemo totam.
-													</div>
-												</div>
-											</div>
-										</div>
-                                    </div>
-									<!-- //accordion-display -->
-                                </div>
+				<section class="section story-01">
+					<div class="section-wrap">
+						<div class="section-head">MIX - Basic 01</div>
+						<div class="section-body">
+							<div class="data-list logo">
+								<div class="data-item bg">
+									<svg width="auto" height="auto" viewBox="0 0 1392 708" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g opacity="0.16">
+											<mask id="mask0_3111_6469" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1392" height="708">
+												<path d="M1229.08 0H24C10.7452 0 0 10.7452 0 24V527.958C0 545.993 7.16426 563.289 19.9167 576.042L131.958 688.083C144.711 700.836 162.007 708 180.041 708H1367.25C1380.5 708 1391.25 697.255 1391.25 684V284.25C1391.25 270.995 1380.5 260.25 1367.25 260.25H538.905C532.561 260.25 526.475 262.761 521.978 267.235L487.824 301.213C483.296 305.717 480.75 311.841 480.75 318.228V369.25V425.25C480.75 438.505 491.495 449.25 504.75 449.25H715.985C722.394 449.25 728.536 446.687 733.044 442.131L766.456 408.369C770.964 403.813 777.106 401.25 783.515 401.25H1179C1192.25 401.25 1203 411.995 1203 425.25V449.25V495C1203 508.255 1192.25 519 1179 519H269.816C263.451 519 257.346 516.471 252.846 511.971L195.279 454.404C190.779 449.904 188.25 443.799 188.25 437.434V213C188.25 199.745 198.995 189 212.25 189H1368C1381.25 189 1392 178.255 1392 165V162.439C1392 156.06 1389.46 149.943 1384.94 145.44L1246.02 7.00025C1241.53 2.51723 1235.43 0 1229.08 0Z" fill="#6B727E"/>
+											</mask>
+											<g mask="url(#mask0_3111_6469)">
+												<rect x="-3" width="1397" height="759" fill="#6B727E"/>
+											</g>
+										</g>
+									</svg>
+								</div>
+								<div class="data-item val">
+									<svg width="auto" height="auto" viewBox="0 0 1392 708" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<g opacity="0.16">
+											<mask id="mask0_3111_6469" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1392" height="708">
+												<path d="M1229.08 0H24C10.7452 0 0 10.7452 0 24V527.958C0 545.993 7.16426 563.289 19.9167 576.042L131.958 688.083C144.711 700.836 162.007 708 180.041 708H1367.25C1380.5 708 1391.25 697.255 1391.25 684V284.25C1391.25 270.995 1380.5 260.25 1367.25 260.25H538.905C532.561 260.25 526.475 262.761 521.978 267.235L487.824 301.213C483.296 305.717 480.75 311.841 480.75 318.228V369.25V425.25C480.75 438.505 491.495 449.25 504.75 449.25H715.985C722.394 449.25 728.536 446.687 733.044 442.131L766.456 408.369C770.964 403.813 777.106 401.25 783.515 401.25H1179C1192.25 401.25 1203 411.995 1203 425.25V449.25V495C1203 508.255 1192.25 519 1179 519H269.816C263.451 519 257.346 516.471 252.846 511.971L195.279 454.404C190.779 449.904 188.25 443.799 188.25 437.434V213C188.25 199.745 198.995 189 212.25 189H1368C1381.25 189 1392 178.255 1392 165V162.439C1392 156.06 1389.46 149.943 1384.94 145.44L1246.02 7.00025C1241.53 2.51723 1235.43 0 1229.08 0Z" fill="#6B727E"/>
+											</mask>
+											<g mask="url(#mask0_3111_6469)">
+												<rect x="-3" width="1397" height="759" fill="#6B727E"/>
+											</g>
+										</g>
+									</svg>
+								</div>
 							</div>
-						</div>
-						<div class="subsection">
-							<div class="subsection-head">닫힘 → 열림</div>
-							<div class="subsection-body">
-<!-- highlight-js -->
-<pre class="highlight-js"><code class="html">&lt;div class=&quot;accordion-display design1 case1 type1&quot;&gt;
-	&lt;div class=&quot;accordion-list&quot;&gt;
-		&lt;div class=&quot;accordion-item&quot;&gt;
-			&lt;div class=&quot;accordion-head&quot;&gt;
-				&lt;button type=&quot;button&quot; class=&quot;btn&quot; aria-label=&quot;닫힘&quot; aria-controls=&quot;accordionCont3&quot;&gt;
-					&lt;span class=&quot;btn-text&quot;&gt;Accordion Component&lt;/span&gt;
-				&lt;/button&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;accordion-body&quot; id=&quot;accordionCont3&quot;&gt;
-				&lt;div class=&quot;accordion-inner&quot;&gt;
-					...
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;div class=&quot;accordion-item&quot;&gt;
-			&lt;div class=&quot;accordion-head&quot;&gt;
-				&lt;button type=&quot;button&quot; class=&quot;btn&quot; aria-label=&quot;닫힘&quot; aria-controls=&quot;accordionCont4&quot;&gt;
-					&lt;span class=&quot;btn-text&quot;&gt;Accordion Component&lt;/span&gt;
-				&lt;/button&gt;
-			&lt;/div&gt;
-			&lt;div class=&quot;accordion-body&quot; id=&quot;accordionCont4&quot;&gt;
-				&lt;div class=&quot;accordion-inner&quot;&gt;
-					...
-				&lt;/div&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<!-- //highlight-js -->
-                                <div class="guide-accordion-area">
-									<!-- accordion-display -->
-                                    <div class="accordion-display design1 case1 type1">
-										<div class="accordion-list">
-											<div class="accordion-item">
-												<div class="accordion-head">
-													<button type="button" class="btn" aria-label="닫힘" aria-controls="accordionCont3"><span class="btn-text">accordionCont3 (닫힘상태)</span></button>
-												</div>
-												<div class="accordion-body" id="accordionCont3">
-													accordionCont3 body. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, suscipit neque error doloribus quia impedit exercitationem sapiente voluptates nemo totam.
-												</div>
-											</div>
-											<div class="accordion-item">
-												<div class="accordion-head">
-													<button type="button" class="btn" aria-label="닫힘" aria-controls="accordionCont4"><span class="btn-text">accordionCont4 (닫힘상태)</span></button>
-												</div>
-												<div class="accordion-body" id="accordionCont4">
-													accordionCont4 body. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, suscipit neque error doloribus quia impedit exercitationem sapiente voluptates nemo totam.
-												</div>
-											</div>
-										</div>
-                                    </div>
-									<!-- //accordion-display -->
-                                </div>
+							<div class="data-list line">
+								<div class="data-item"></div>
+								<div class="data-item"></div>
+								<div class="data-item"></div>
+								<div class="data-item"></div>
+								<div class="data-item"></div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<!-- //section -->
-				<!-- section -->
-				<div class="section accordion-guide">
-					<div class="section-head">
-						<h4 class="section-subject"><span class="section-name">common.js</span></h4>
-					</div>
-					<div class="section-body">
-						<div class="subsection">
-							<div class="subsection-body">
-<!-- highlight-js -->
-<pre class="highlight-js"><code class="javascript">document.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; {
-	Accordion();
-});</code></pre>
-<!-- //highlight-js -->
-                            </div>
-						</div>
-					</div>
-				</div>
+				</section>
 				<!-- //section -->
 			</div>
 			<!-- //local-body -->
 		</div>
 		<!-- //page-body -->
-		<%-include('../_templates/_guide.footer.ejs') %>
 	</div>
 </div>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>
+
+<script>
+	const lenis = new Lenis()
+
+	function raf(time) {
+		lenis.raf(time)
+		requestAnimationFrame(raf)
+	}
+
+	requestAnimationFrame(raf)
+
+
+	$(document).ready(function(){
+		sectionAnimations_Case01('[data-section-animation="case-1"]');
+	});
+
+	let resizeTimeout;
+	window.addEventListener('resize', () => {
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(() => {
+			ScrollTrigger.refresh();
+		}, 500);
+	});
+</script>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head blind">
+				<h2 class="local-subject">
+					<span class="local-name">SEBANG</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body mix2">
+				<!-- section -->
+				<section class="section story-01" data-section-animation="case-1">
+					<div class="section-wrap">
+						<div class="section-body">
+							<div class="post-display">
+								<ul class="post-list">
+									<li class="post-item post-01">
+										<div class="post-wrap">
+											<img src="../assets/images/main/story-01-thumnail-a.jpg" alt=" ">
+										</div>
+									</li>
+									<li class="post-item post-02">
+										<div class="post-wrap">
+											<img src="../assets/images/main/story-01-thumnail-b.jpg" alt=" ">
+										</div>
+									</li>
+									<li class="post-item post-03">
+										<div class="post-wrap">
+											<img src="../assets/images/main/story-01-thumnail-c.jpg" alt=" ">
+										</div>
+									</li>
+									<li class="post-item post-04">
+										<div class="post-wrap">
+											<img src="../assets/images/main/story-01-thumnail-d.png" alt=" ">
+										</div>
+									</li>
+									<li class="post-item post-05">
+										<div class="post-wrap">
+											<div class="post-body">
+												<div class="video-list">
+													<div class="video-item">
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="post-item post-06">
+										<div class="post-wrap">
+											<div class="post-body">
+												<div class="video-list">
+													<div class="video-item">
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="post-item post-07">
+										<div class="post-wrap">
+											<div class="post-body">
+												<div class="video-list">
+													<div class="video-item">
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-03.mp4" type="video/mp4"></video>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="post-item post-08">
+										<div class="post-wrap">
+												<div class="post-body">
+													<div class="video-list">
+														<div class="video-item video-01">
+															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video>
+														</div>
+														<div class="video-item video-02">
+															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-bg.mp4" type="video/mp4"></video>
+														</div>
+														<div class="video-item video-03">
+															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-bg.mp4" type="video/mp4"></video>
+														</div>
+													</div>
+													<div class="bg"><video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-bg.mp4" type="video/mp4"></video></div>
+												</div>
+										</div>
+									</li>
+									<li class="post-item post-09">
+										<div class="post-wrap">
+												<div class="post-body">
+													<div class="data-display">
+														<div class="data-inner title">
+															<div class="data-list sub">
+																<div class="data-wrap">
+																	<div class="data-item"><span class="data-name">글로벌 물류 파트너</span></div>
+																	<div class="data-item"><span class="data-name">연축전지 NO.1</span></div>
+																	<div class="data-item"><span class="data-name">토탈 디지털 솔루션</span></div>
+																</div>
+															</div>
+															<div class="data-list subject">
+																<div class="data-wrap">
+																	<div class="data-item"><span class="data-name"><em>물류</em> Logistics for Leading Global</span></div>
+																	<div class="data-item"><span class="data-name"><em>제조</em> Battery for Better Life</span></div>
+																	<div class="data-item"><span class="data-name"><em>IT</em> Solution for Digital Tranform</span></div>
+																</div>
+															</div>
+														</div>
+														<div class="data-inner navi">
+															<div class="navi-list">
+																<div class="navi-item current">
+																	<ul class="slide-list tens">
+																		<li class="slide-item">0</li>
+																		<li class="slide-item">1</li>
+																		<li class="slide-item">2</li>
+																	</ul>
+																	<ul class="slide-list units">
+																		<li class="slide-item">0</li>
+																		<li class="slide-item">1</li>
+																		<li class="slide-item">2</li>
+																	</ul>
+																</div>
+																<div class="navi-item">
+																	<ul class="bar-list">
+																		<li class="bar-item">01</li>
+																		<li class="bar-item">02</li>
+																		<li class="bar-item">03</li>
+																	</ul>
+																</div>
+																<div class="navi-item">
+																	<div class="slide-list total">
+																		<div class="slide-item">03</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //section -->
+				<section style="width:100%; height:2000px; background-color: brown;"></section>
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+	</div>
+</div>
+<script type="text/javascript">
+	function sectionAnimations_Case01() {
+
+		let story_01 = $('.story-01');
+		let windowInnerHeight = $(window).innerHeight();
+
+		// 화면에 노출
+		gsap.to($('.story-01 .post-display'), {
+			opacity: 1,
+			scale: 1,
+			duration: 1
+		});
+
+		let scrollTimeline = ScrollTrigger.create({
+			trigger: story_01,
+			start: 'top top',
+			//markers: true,
+			end: () => {
+					if (window.innerWidth >= 1024) {
+							return 7.5 * (windowInnerHeight / 1);
+					} else {
+							return 7.5 * (windowInnerHeight * 1);
+					}
+			},
+			pin: '.story-01 .section-wrap',
+		});
+
+		// 1. 화면이 커진다
+		let action_01 = ScrollTrigger.create({
+			trigger: story_01,
+			//markers: true,
+			start: () => {
+					if (window.innerWidth >= 1024) {
+						return (0.1 * (windowInnerHeight / 1)) + 'px top';
+					} else {
+						return (0.1 * (windowInnerHeight / 1)) + 'px top';
+					}
+			},
+			end: () => {
+					if (window.innerWidth >= 1024) {
+						return (0.3 * (windowInnerHeight / 1)) + 'px top';
+					} else {
+						return (0.3 * (windowInnerHeight / 1)) + 'px top';
+					}
+			},
+			onEnter: () => {
+				$('.story-01').addClass('action-01');
+			},
+			onEnterBack: () => {
+				$('.story-01').removeClass('action-01');
+				$('.story-01').removeClass('action-02');
+			},
+			onLeave: () => {
+				$('.story-01').addClass('action-01');
+				$('.story-01').addClass('action-02');
+			},
+			onLeaveBack: () => {
+				$('.story-01').removeClass('action-01');
+				$('.story-01').removeClass('action-02');
+			},
+		});
+
+		// 2.
+		let action_02 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story_01,
+					//markers: true,
+					//toggleActions: 'play none none reverse',
+					scrub: true,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+								return (0.7 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (0.7 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+								return (1 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (1 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+				}
+		});
+		action_02
+		.add('action-02')
+		.to('.story-01 .post-08 .bg', {
+			height: '85%',
+		}, 'action-02')
+		.to('.story-01 .post-08 .data-display', {
+			clipPath: 'inset(85% 0 0 0)',
+		}, 'action-02')
+		//
+		let action_03 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story_01,
+					//markers: true,
+					//toggleActions: 'play none none reverse',
+					scrub: true,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+								return (1.5 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (1.5 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+								return (1.7 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (1.7 * (windowInnerHeight / 1)) + 'px top';
+							}
+					}
+				}
+		});
+		action_03
+		.add('action_03')
+		.to('.story-01 .post-08 .bg', {
+			height: '10%',
+		}, 'action_03')
+		.to('.story-01 .post-08 .video-01', {
+			height: '90%',
+		}, 'action_03')
+		.to('.story-01 .post-09', {
+			clipPath: 'inset(10% 0 0 0)',
+		}, 'action_03')
+
+		//
+		let action_04 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story_01,
+					//markers: true,
+					//toggleActions: 'play none none reverse',
+					scrub: true,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+								return (2.2 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (2.2 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+					end: () => {
+						if (window.innerWidth >= 1024) {
+							return (2.5 * (windowInnerHeight / 1)) + 'px top';
+						} else {
+							return (2.5 * (windowInnerHeight / 1)) + 'px top';
+						}
+					},
+				}
+		});
+		action_04
+		.add('action_04')
+		.to('.story-01 .post-08 .bg', {
+			height: '0',
+		}, 'action_04')
+		.to('.story-01 .post-08 .video-01', {
+			height: '80%',
+		}, 'action_04')
+		.to('.story-01 .post-08 .video-02', {
+			height: '98%',
+		}, 'action_04')
+		.to('.story-01 .post-09 ', {
+			clipPath: 'inset(0 0 0 0)',
+		}, 'action_04')
+
+		let action_05 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story_01,
+					//markers: true,
+					//toggleActions: 'play none none reverse',
+					scrub: true,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+								return (3 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (3 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+								return (3.2 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (3.2 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+				}
+		});
+		action_05
+		.add('action_05')
+		.to('.story-01 .post-08 .video-01', {
+			height: '10%',
+		}, 'action_05')
+		.to('.story-01 .post-08 .video-02', {
+			height: '90%',
+		}, 'action_05')
+		.to('.story-01 .post-09 .data-list.sub .data-wrap', {
+			top: '-100%',
+		}, 'action_05')
+		.to('.story-01 .post-09 .data-list.subject .data-wrap', {
+			top: '-100%',
+		}, 'action_05')
+
+		let action_06 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story_01,
+					//markers: true,
+					//toggleActions: 'play none none reverse',
+					scrub: true,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+								return (3.5 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (3.5 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+								return (3.8 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (3.8 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+				}
+		});
+		action_06
+		.add('action_05')
+		.to('.story-01 .post-08 .video-01', {
+			height: '0%',
+		}, 'action_05')
+		.to('.story-01 .post-08 .video-02', {
+			height: '80%',
+		}, 'action_05')
+
+		let action_07 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story_01,
+					//markers: true,
+					//toggleActions: 'play none none reverse',
+					scrub: true,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+								return (4.3 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (4.3 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+								return (4.5 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (4.5 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+				}
+		});
+		action_07
+		.add('action_05')
+		.to('.story-01 .post-08 .video-02', {
+			height: '25%',
+		}, 'action_05')
+		.to('.story-01 .post-09 .data-list.sub .data-wrap', {
+			top: '-200%',
+		}, 'action_05')
+		.to('.story-01 .post-09 .data-list.subject .data-wrap', {
+			top: '-200%',
+		}, 'action_05')
+
+		let action_08 = gsap.timeline({
+				scrollTrigger: {
+					trigger: story_01,
+					//markers: true,
+					//toggleActions: 'play none none reverse',
+					scrub: true,
+					start: () => {
+							if (window.innerWidth >= 1024) {
+								return (5 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (5 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+					end: () => {
+							if (window.innerWidth >= 1024) {
+								return (5.5 * (windowInnerHeight / 1)) + 'px top';
+							} else {
+								return (5.5 * (windowInnerHeight / 1)) + 'px top';
+							}
+					},
+				}
+		});
+		action_08
+		.add('action_08')
+		.to('.story-01 .post-08 .video-02', {
+			height: '0%',
+		}, 'action_08')
+		.to('.story-01 .post-08 .video-03', {
+			height: '95%',
+		}, 'action_08')
+
+		//
+		let action_09 = ScrollTrigger.create({
+			trigger: story_01,
+			//markers: true,
+			//toggleActions: 'play none none reverse',
+			start: () => {
+					if (window.innerWidth >= 1024) {
+						return (5.7 * (windowInnerHeight / 1)) + 'px top';
+					} else {
+						return (5.7 * (windowInnerHeight / 1)) + 'px top';
+					}
+			},
+			end: () => {
+					if (window.innerWidth >= 1024) {
+						return (6 * (windowInnerHeight / 1)) + 'px top';
+					} else {
+						return (6 * (windowInnerHeight / 1)) + 'px top';
+					}
+			},
+			onEnter: () => {
+				//console.log('들어왔슈')
+				$('.story-01').addClass('action-09');
+			},
+			onEnterBack: () => {
+				//console.log('나갔다가 들어왔유');
+				$('.story-01').removeClass('action-09');
+			},
+			onLeave: () => {
+				$('.story-01').addClass('action-09');
+			},
+			onLeaveBack: () => {
+				//console.log('나갔다가 들어왔유22');
+				$('.story-01').removeClass('action-09');
+			},
+		});
+
+		let action_10 = ScrollTrigger.create({
+			trigger: story_01,
+			//markers: true,
+			//toggleActions: 'play none none reverse',
+			start: () => {
+					if (window.innerWidth >= 1024) {
+						return (6.5 * (windowInnerHeight / 1)) + 'px top';
+					} else {
+						return (6.5 * (windowInnerHeight / 1)) + 'px top';
+					}
+			},
+			end: () => {
+					if (window.innerWidth >= 1024) {
+						return (7 * (windowInnerHeight / 1)) + 'px top';
+					} else {
+						return (7 * (windowInnerHeight / 1)) + 'px top';
+					}
+			},
+			onEnter: () => {
+				//console.log('들어왔슈')
+				$('.story-01').addClass('action-10');
+			},
+			onEnterBack: () => {
+				//console.log('나갔다가 들어왔유');
+				$('.story-01').removeClass('action-10');
+			},
+			onLeave: () => {
+				$('.story-01').addClass('action-10');
+			},
+			onLeaveBack: () => {
+				//console.log('나갔다가 들어왔유22');
+				$('.story-01').removeClass('action-10');
+			},
+		});
+	}
+</script>
+</body>
+</html>
