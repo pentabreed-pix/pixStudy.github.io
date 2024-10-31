@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+</head>
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head blind">
+				<h2 class="local-subject">
+					<span class="local-name">accordion 1</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body accordion">
+				<!-- section -->
+				<section class="section design1">
+					<h2 class="section-head">Accordion - design 1 : 닫힘 -> 열림</h2>
+					<div class="section-body">
+						<div class="accordion-display design1">
+							<div class="accordion-list">
+								<div class="accordion-item">
+									<div class="accordion-head">
+										<button type="button" class="btn">Accordion Item 1</button>
+									</div>
+									<div class="accordion-body">
+										<p class="para">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi placeat perferendis, quis veritatis, deserunt doloremque laborum corporis qui possimus in aspernatur? At facere soluta natus facilis accusantium itaque reprehenderit saepe in omnis inventore, doloribus maiores error consectetur laboriosam ad commodi, quod optio recusandae aut repellat totam odio. Animi, officia quia?
+										</p>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<div class="accordion-head">
+										<button type="button" class="btn">Accordion Item 2</button>
+									</div>
+									<div class="accordion-body">
+										<p class="para">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi placeat perferendis, quis veritatis, deserunt doloremque laborum corporis qui possimus in aspernatur? At facere soluta natus facilis accusantium itaque reprehenderit saepe in omnis inventore, doloribus maiores error consectetur laboriosam ad commodi, quod optio recusandae aut repellat totam odio. Animi, officia quia?
+										</p>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<div class="accordion-head">
+										<button type="button" class="btn">Accordion Item 3</button>
+									</div>
+									<div class="accordion-body">
+										<p class="para">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi placeat perferendis, quis veritatis, deserunt doloremque laborum corporis qui possimus in aspernatur? At facere soluta natus facilis accusantium itaque reprehenderit saepe in omnis inventore, doloribus maiores error consectetur laboriosam ad commodi, quod optio recusandae aut repellat totam odio. Animi, officia quia?
+										</p>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<div class="accordion-head">
+										<button type="button" class="btn">Accordion Item 4</button>
+									</div>
+									<div class="accordion-body">
+										<p class="para">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi placeat perferendis, quis veritatis, deserunt doloremque laborum corporis qui possimus in aspernatur? At facere soluta natus facilis accusantium itaque reprehenderit saepe in omnis inventore, doloribus maiores error consectetur laboriosam ad commodi, quod optio recusandae aut repellat totam odio. Animi, officia quia?
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //section -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+	</div>
+</div>
+<script>
+	// const accordionItems = document.querySelectorAll(".accordion-item");
+
+	// accordionItems.forEach((item) => {
+	// 	const header = item.querySelector(".accordion-item-header");
+	// 	const body = item.querySelector(".accordion-item-body");
+
+	// 	// Initial setup to trigger first click
+	// 	body.classList.add("collapsed");
+	// 	if (body.classList.contains("collapsed")) {
+	// 		body.style.height = "0";
+	// 	} else {
+	// 		body.style.height = body.scrollHeight + "px";
+	// 	}
+
+	// 	header.addEventListener("click", () => {
+	// 		accordionItems.forEach((accItem) => {
+	// 			const accBody = accItem.querySelector(".accordion-item-body");
+	// 			if (accItem !== item && !accBody.classList.contains("collapsed")) {
+	// 				accBody.classList.add("collapsed");
+	// 				accBody.style.height = "0";
+	// 			}
+	// 		});
+
+	// 		body.classList.toggle("collapsed");
+	// 		if (body.classList.contains("collapsed")) {
+	// 			body.style.height = "0";
+	// 		} else {
+	// 			body.style.height = body.scrollHeight + "px";
+	// 		}
+	// 	});
+	// });
+</script>
+</body>
+</html>

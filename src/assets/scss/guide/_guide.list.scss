@@ -308,7 +308,7 @@
                         .section-body {
                             .data-display {
                                 .data-head {
-                                    padding: 1.1rem 0;
+                                    padding: 1.1rem 0 1.1rem 0.6rem;
                                     background-color: #14121f;
                                     border-top-left-radius: 1.2rem;
                                     border-top-right-radius: 1.2rem;
@@ -321,7 +321,6 @@
                                         display: flex;
                                         width: 100%;
                                         color: #ffffff;
-                                        max-width: 111rem;
                                         @include mobile {
                                             display: none;
                                         }
@@ -338,20 +337,16 @@
                                             }
 
                                             &:nth-child(1) {
-                                                width: 7.75%;
+                                                width: 8%;
                                             }
                                             &:nth-child(2) {
-                                                width: 18.47%;
+                                                width: 15%;
                                             }
                                             &:nth-child(3) {
-                                                width: 29.55%;
+                                                width: 55%;
                                             }
                                             &:nth-child(4) {
-                                                flex: 1;
-                                            }
-                                            &:nth-child(5),
-                                            &:nth-child(6) {
-                                                width: 7.21%;
+                                                width: 22%;
                                             }
                                         }
                                     }
@@ -389,7 +384,6 @@
                                                     display: flex;
                                                     width: 100%;
                                                     padding: 1.3rem 0;
-                                                    max-width: 119rem;
                                                     @include mobile {
                                                         position: relative;
                                                         padding: 1.5rem;
@@ -451,11 +445,8 @@
                                                                 line-height: 1.4rem;
                                                             }
                                                         }
-                                                        &.no,
-                                                        &.status,
-                                                        &.view,
-                                                        &.btn {
-                                                            width: 6.76%;
+                                                        &.no {
+                                                            width: 8%;
                                                             @include mobile {
                                                                 width: 100%;
                                                             }
@@ -464,20 +455,32 @@
                                                         &.menu {
                                                             align-self: center;
                                                         }
-                                                        &.id {
-                                                            width: 17.31%;
-                                                            @include mobile {
-                                                                width: 100%;
-                                                            }
-                                                        }
                                                         &.menu {
-                                                            width: 27.7%;
+                                                            width: 15%;
                                                             text-align: left;
                                                             padding-left: 2rem;
                                                             @include mobile {
                                                                 width: 100%;
                                                                 padding: 0;
                                                                 padding-right: 15rem;
+                                                            }
+                                                        }
+                                                        &.desc {
+                                                            width: 55%;
+                                                            text-align: left;
+                                                            padding-left: 2rem;
+                                                            @include mobile {
+                                                                width: 100%;
+                                                                padding: 0;
+                                                                padding-right: 15rem;
+                                                            }
+                                                        }
+                                                        &.status,
+                                                        &.view,
+                                                        &.btn {
+                                                            width: 7.333%;
+                                                            @include mobile {
+                                                                width: 100%;
                                                             }
                                                         }
                                                         &.root {
@@ -621,29 +624,6 @@
                                                         }
                                                         &.name {
                                                             position: relative;
-                                                            &.ko::before {
-                                                                content: 'ko';
-                                                            }
-                                                            &.en::before {
-                                                                content: 'en';
-                                                            }
-                                                            &::before {
-                                                                display: inline-block;
-                                                                position: absolute;
-                                                                top: 50%;
-                                                                left: -5rem;
-                                                                width: 3.5rem;
-                                                                padding: .1rem 0;
-                                                                // padding: auto;
-                                                                color: #fff;
-                                                                text-align: center;
-                                                                background-color: #14121f;
-                                                                border-radius: .6rem;
-                                                                transform: translateY(-50%);
-                                                                @include mobile {
-                                                                    right: 4rem;
-                                                                }
-                                                            }
                                                             +.name {
                                                                 margin-top: 1.2rem;
                                                             }

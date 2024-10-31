@@ -1,0 +1,21 @@
+.accordion-display.design1 {
+    .accordion-list {
+        max-width: 1200px;
+        margin: 20px auto;
+        .accordion-item {
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            .accordion-head {
+                .btn {
+
+                }
+            }
+            .accordion-body {
+                .para {
+
+                }
+            }
+        }
+    }
+}
