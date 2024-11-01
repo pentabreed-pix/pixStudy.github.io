@@ -34,12 +34,11 @@
 			if (siteNaviWrapper instanceof Element) {
 				lenisNav = new Lenis({
 					wrapper: siteNaviWrapper,
-					content: siteNaviWrapper
+					content: siteNaviWrapper.querySelector('.gnb-list')
 				});
 			} else {
 				// console.error(".site-navi.active 요소를 찾을 수 없슴다!");
 			}
-
 			function raf(time) {
 				(lenisBody && lenisBody.raf(time)) || (lenisNav && lenisNav.raf(time));
 				requestAnimationFrame(raf);
