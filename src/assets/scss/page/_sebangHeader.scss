@@ -11,7 +11,7 @@
         right: 0;
         padding: 0 4rem;
         z-index: 51;
-        transition: transform 0.2s cubic-bezier(.5,0,0,1), background-color 0.2s ease;
+        transition: transform 0.3s cubic-bezier(.5,0,0,1), background-color 0.3s ease;
         
         .header-inner {
             display: flex;
@@ -63,11 +63,12 @@
                 pointer-events: none;
                 background-color: transparent;
                 transition: 0.2s ease-in-out;
+                // transition: height 0.2s ease-in-out, background-color 0.2s ease;
                 z-index: -1;
             }
 
             &:hover::after,
-            &.focus-bg::after {
+            &.focus-in::after {
                 background-color: #F9F9F9;
                 height: 39.2rem;
                 @include mobile {

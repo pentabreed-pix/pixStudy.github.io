@@ -13,24 +13,23 @@
 			header();
 		});
 
-		let lenisBody, lenisNav;
+		let lenisBody, lenisNav; // lenisBody(body안에서 lenis 동작), lenisNav(site-navi안에서 lenis 동작 : 햄버거 버튼 활성화)
 
-		//모바일 site-navi 안에서 스크롤 되도록
+		// lenis
 		function initializeLenis() {
-			const bodyWrapper = document.documentElement; // 항상 존재하는 루트 엘리먼트
+			const bodyWrapper = document.querySelector('body'); // body
 			const siteNaviWrapper = document.querySelector('.site-navi'); // site-navi 확인
 
-			// bodyWrapper를 사용하여 Lenis 초기화
-			if (bodyWrapper instanceof Element) {
+			// bodyWrapper를 사용하여 lenisBody 초기화
+			if (bodyWrapper instanceof Element) { // bodyWrapper가 '유효한 DOM 요소일 경우'에만 실행
 				lenisBody = new Lenis({
 					wrapper: bodyWrapper,
-					content: bodyWrapper
+					content: bodyWrapper.querySelector('#wrap') // wrapper, content가 서로 달라야 함
 				});
 			} else {
 				// console.error("bodyWrapper 요소를 찾을 수 없슴다!");
 			}
-
-			// 활성화된 site-navi가 존재하는 경우에만 LenisNav 초기화
+			// 활성화된 site-navi가 존재하는 경우에만 lenisNav 초기화
 			if (siteNaviWrapper instanceof Element) {
 				lenisNav = new Lenis({
 					wrapper: siteNaviWrapper,
@@ -46,176 +45,145 @@
 			requestAnimationFrame(raf);
 		}
 
+		// header
 		function header() {
 			const _BODY = document.querySelector("body");
 			const _HEADER = document.querySelector("header");
-			const siteNavigation = document.getElementById('siteNavigation');
+			const siteNavigation = document.querySelector('.site-navi'); //#siteNavigation
 			const gnbItems = document.querySelectorAll('.gnb-item');
 			const lnbLists = document.querySelectorAll('.lnb-list');
-			const navToggleBtn = document.querySelector('.goto-site-navi');
+			const navToggleBtn = document.querySelector('.goto-site-navi'); //햄버거 버튼
 			let isMobile = window.innerWidth < 1024;
-			let isTabPressed = false;
-			let isFocusActive = false; // Focus 상태 여부 체크
+			let isTabPressed = false; //tab키 이동 체크
+			let isFocusActive = false; //Focus 상태 체크
 
-			document.addEventListener('keydown', function(e) {
-				if (e.key === 'Tab') {
-					isTabPressed = true; // Tab 키가 눌렸을 때만 포커스 이벤트를 허용
-				}
-			});
-
-			document.addEventListener('mousedown', function() {
-				isTabPressed = false; // 마우스로 클릭하면 focus 관련 이벤트 비활성화
-			});
-
-			function toggleLnbLists(action) {
+			//PC
+			const toggleLnbLists = (action) => {
 				lnbLists.forEach(lnbList => lnbList.classList[action]('active'));
+				//action이 'add'일 경우: lnbList.classList.add('active')가 호출, action이 'remove'일 경우: lnbList.classList.remove('active')가 호출
 			}
-
-			function updateFocusState(state) {
-				isFocusActive = state;
-				toggleLnbLists(state ? 'add' : 'remove');
-				siteNavigation.classList[state ? 'add' : 'remove']('focus-bg');
-			}
-
-			// PC: site-navi에 hover 시 모든 lnb-list 표시 (focus 상태가 아닐 때만)
-			siteNavigation.addEventListener('mouseenter', function() {
-				if (!isMobile && !isFocusActive) {
-					toggleLnbLists('add'); // 모든 lnbList에 active 추가
+			const updateFocusState = (state) => {
+				isFocusActive = state; //포커스 상태를 나타내는 변수 업데이트
+				toggleLnbLists(state ? 'add' : 'remove'); //'add' 또는 'remove'에 따라 lnb-list 활성화 상태 조정!
+				siteNavigation.classList[state ? 'add' : 'remove']('focus-in'); //'focus-in' 클래스를 상태에 따라 추가 또는 제거
+			};
+			const handleMouseEnter = () => { //mouseenter
+				if (!isMobile && !isFocusActive) { //PC일때, focus가 활성화되지 않은 경우
+					toggleLnbLists('add'); //모든 lnb-list에 active 추가
 				}
-			});
-
-			siteNavigation.addEventListener('mouseleave', function() {
-				if (!isMobile && !isFocusActive) {
-					toggleLnbLists('remove'); // 모든 lnbList에서 active 제거
+			};
+			const handleMouseLeave = () => { //mouseleave
+				if (!isMobile && !isFocusActive) { //PC일때, focus가 활성화되지 않은 경우
+					toggleLnbLists('remove'); //모든 lnb-list에 active 제거
 				}
-			});
-
-			// PC: site-navi에 focusin/focusout 시 처리
-			siteNavigation.addEventListener('focusin', function() {
-				if (!isMobile && isTabPressed) {
-					updateFocusState(true); // Focus 상태로 전환
+			};
+			const handleFocusIn = () => { //focusin
+				if (!isMobile && isTabPressed) { //PC일때, tab키로 이동이 true일 때
+					updateFocusState(true); //isFocusActive가 true, toggleLnbLists의 state가 add를 인자로 받아 lnb-list에 active붙임, siteNavigation에 focus-in붙임
 				}
-			});
-
-			siteNavigation.addEventListener('focusout', function() {
-				setTimeout(() => {
-					if (!siteNavigation.contains(document.activeElement)) {
-						updateFocusState(false); // Focus 상태 해제
+			};
+			const handleFocusOut = () => { //focusout
+				setTimeout(() => { //콜백을 0ms 지연시켜. document.activeElement를 최신화할 시간을 확보! 정확한 activeElement를 확인하기 위해.
+					if (!siteNavigation.contains(document.activeElement)) { //document.activeElement : 현재 포커스를 받고 있는 활성 요소 반환. 활성요소가 site-navi내에 있지 않을 때! 즉 site-navi의 외부로 focus가 이동했을 때!
+						updateFocusState(false);
 					}
 				}, 0);
+			};
+
+			document.addEventListener('keydown', (e) => { //tab키 이동 시 
+				if (e.key === 'Tab') isTabPressed = true;
+			});
+			document.addEventListener('mousedown', () => { //마우스 클릭 시
+				isTabPressed = false;
 			});
 
+			//PC : 마우스,포커스 이벤트
+			siteNavigation.addEventListener('mouseenter', handleMouseEnter);
+			siteNavigation.addEventListener('mouseleave', handleMouseLeave);
+			siteNavigation.addEventListener('focusin', handleFocusIn);
+			siteNavigation.addEventListener('focusout', handleFocusOut);
 
-			// 모바일: gnb-name 클릭 시 해당 lnb-list 열기/닫기 (부드러운 dropdown 적용)
+			//모바일 : 햄버거 메뉴 열기/닫기
+			navToggleBtn.addEventListener('click', (e) => {
+				e.preventDefault();
+				const isActive = siteNavigation.classList.toggle('active'); //siteNavigation의 active 활성 상태
+				navToggleBtn.classList.toggle('active', isActive);
+				_HEADER.classList.toggle('open', isActive);
+				_BODY.classList.toggle('goto-site-navi', isActive);
+				if (isActive) {
+					lenisBody.stop(); //lenisBody 일시 중지
+				} else {
+					setTimeout(() => {
+						_BODY.classList.remove("goto-site-navi"); // 모바일 site-navi 스크롤이 사라지기 전에 body 스크롤이 등장해서 추가하게 됨.
+					}, 200);
+					lenisBody.start(); //lenisBody 다시 활성화
+				}
+			})
+
+			//모바일 : gnb-name 클릭해서 lnb-list 열고닫기
 			gnbItems.forEach((gnbItem) => {
 				const lnbList = gnbItem.querySelector('.lnb-list');
 				const gnbName = gnbItem.querySelector('.gnb-name');
-
-				gnbName.addEventListener('click', function(e) {
-					if (!isMobile) {
-						return; // PC에서는 동작 안 되게
-					}
-					if (isMobile) { // 모바일에서만 동작
-						e.preventDefault();
-
-						// 다른 lnb-list 닫기
-						gnbItems.forEach((item) => {
-							const otherLnbList = item.querySelector('.lnb-list');
-
-							if(otherLnbList !== lnbList) {
-								otherLnbList.style.height = '0px';
-								otherLnbList.classList.remove('active');
-							}
+				gnbName.addEventListener('click', (e) => {
+					if (!isMobile) return; //pc에서는 동작 안 됨
+					e.preventDefault();
+					const isActive = lnbList.classList.toggle('active');
+					if (isActive) { //lnbList에 active 있음
+						lnbList.style.height = '0px'; //시작 시 높이 0임
+						requestAnimationFrame(() => { //requestAnimationFrame : 브라우저의 애니메이션을 최적화하기 위해 사용하는 JavaScript의 기본 메서드, 애니메이션을 부드럽게 만들어줌
+							lnbList.style.height = `${lnbList.scrollHeight}px`; //선택된 lnb-list 높이로 설정
 						})
-
-						// 현재 클릭된 lnb-list 만 열고 닫기
-						if(lnbList.classList.contains('active')) {
-							lnbList.style.height = `${lnbList.scrollHeight}px`;
-							requestAnimationFrame(() => {
-								lnbList.style.height = '0px';
-							})
-
-							lnbList.addEventListener('transitionend', function onTransitionEnd() {
-								lnbList.classList.remove('active');
-								lnbList.style.height = '';
-								lnbList.removeEventListener('transitionend', onTransitionEnd);
-							})
-						} else {
-							lnbList.classList.add('active');
-							lnbList.style.height = '0px';
-							requestAnimationFrame(() => {
-								lnbList.style.height = `${lnbList.scrollHeight}px`;
-							})
-						}
+					} else {
+						lnbList.style.height = `${lnbList.scrollHeight}px`; //현재 높이 설정
+						requestAnimationFrame(() => {
+							lnbList.style.height = '0px'; //높이 0으로
+						})
+						lnbList.addEventListener('transitionend', function onTransitionEnd() { //css전환(transtion)이 끝났을 때
+							lnbList.style.height = ''; // 애니메이션 후 height 속성을 초기화
+							lnbList.removeEventListener('transitionend', onTransitionEnd); //더 이상 필요 없는 이벤트 리스너를 제거
+						})
 					}
-				});
-			});
+					//다른 lnb-list들 닫기
+					gnbItems.forEach((item) => {
+						const otherLnbList = item.querySelector('.lnb-list');
+						if(otherLnbList !== lnbList) { //otherLnbList : 현재 클릭한 lnb-list 아님, lnbList : 현재 클릭한 lnb-list
+							otherLnbList.classList.remove('active');
+							otherLnbList.style.height = '0px';
+						}
+					})
+				})
+			})
 
-			// 모바일 햄버거 메뉴 열기/닫기
-			navToggleBtn.addEventListener('click', function(e) {
-				e.preventDefault();
-				siteNavigation.classList.toggle('active');
-
-				if (siteNavigation.classList.contains('active')) {
-					navToggleBtn.classList.add('active');
-					_BODY.classList.add("goto-site-navi");
-					_HEADER.classList.add("open");
-
-					// setTimeout(() => {
-					// 	_BODY.classList.add("goto-site-navi"); // 모바일 site-navi안의 스크롤 사라지는 것과 시간차 있어서 추가
-					// }, 200);
-
-					lenisBody.stop(); // Lenis 일시 중지
-				} else {
-					navToggleBtn.classList.remove('active');
-					_BODY.classList.remove("goto-site-navi");
-					_HEADER.classList.remove("open");
-
-					// setTimeout(() => {
-					// 	_BODY.classList.remove("goto-site-navi"); // 모바일 site-navi안의 스크롤 사라지는 것과 시간차 있어서 추가
-					// }, 200);
-
-					lenisBody.start(); // Lenis 다시 활성화
-				}
-			});
-
-			// 화면 크기 변경 시 모바일 메뉴 및 모든 lnb-list 닫기
-			window.addEventListener('resize', function() {
+			//resize : 모바일 메뉴 및 모든 lnb-list 닫기
+			window.addEventListener('resize', () => {
 				const newIsMobile = window.innerWidth < 1024;
-
-				if (newIsMobile !== isMobile) {
-					isMobile = newIsMobile;
-
-					// PC에서 모바일로 전환될 때 모든 gnb-item 초기화
+				if (newIsMobile !== isMobile) { //isMobile : 이전 화면 상태 기억
+					isMobile = newIsMobile; //모바일, PC 사이즈 전환이 실제로 발생할 때만 코드가 실행되도록. newIsMobile !== isMobile 이 구문이 없으면 resize될 때마다 동일 코드가 실행됨.
 					if (isMobile) {
+						// 모바일 전환 시 모든 lnb-list 닫기
 						gnbItems.forEach(gnbItem => {
-							const lnbList = gnbItem.querySelector('.lnb-list');
-							lnbList.style.height = '0px'; // 모든 lnb-list 닫기
+							gnbItem.querySelector('.lnb-list').style.height = '0px';
 						});
 					} else {
-						// PC로 전환 시 모바일 메뉴 닫기 및 모든 gnb-item 초기화
-						siteNavigation.classList.remove('active'); // PC로 전환 시 모바일 메뉴 닫기
-						navToggleBtn.classList.remove('active'); 
-						siteNavigation.classList.remove('focus-bg');
+						// PC 전환 시 모바일 메뉴 닫기 및 모든 초기화
+						siteNavigation.classList.remove('active', 'focus-in');
+						navToggleBtn.classList.remove('active');
 						_HEADER.classList.remove("open");
-
 						gnbItems.forEach(gnbItem => {
 							const lnbList = gnbItem.querySelector('.lnb-list');
-							lnbList.classList.remove('active'); // 모든 gnb-item의 active 제거
-							lnbList.style.height = ''; // lnb-list 높이 초기화
+							lnbList.classList.remove('active');
+							lnbList.style.height = '';
 						});
 					}
 				}
 			});
 
+			//scroll : 헤더 up, down 숨기기
 			window.addEventListener('scroll', function() {
 				onScroll();
 			})
-
-			// 스크롤 시 헤더 숨기기 초기화
 			let lastScrollTop = 0;
 			const delta = 15;
-
 			function onScroll() {
 				const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 				if (Math.abs(lastScrollTop - scrollTop) <= delta) return;
