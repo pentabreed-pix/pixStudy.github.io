@@ -97,7 +97,7 @@
 				isTabPressed = false;
 			});
 
-			//PC : 마우스,포커스 이벤트
+			//PC : 마우스, 포커스 기능
 			siteNavigation.addEventListener('mouseenter', handleMouseEnter);
 			siteNavigation.addEventListener('mouseleave', handleMouseLeave);
 			siteNavigation.addEventListener('focusin', handleFocusIn);
@@ -178,7 +178,7 @@
 				}
 			});
 
-			//scroll : 헤더 up, down 숨기기
+			//scroll : 헤더 숨기기 기능
 			window.addEventListener('scroll', function() {
 				onScroll();
 			})
@@ -197,7 +197,7 @@
 
 <body class="sebang-header-test" id="body">
 	<div id="wrap">
-		<header id="header" class="light">
+		<header id="header" class="light"> <!-- transparent 클래스 투명 헤더 -->
 			<div class="header-inner">
 				<h1 class="site-subject" id="siteSubject">
 					<a class="site-name" href="/" title="SEBANG">
@@ -217,33 +217,39 @@
 							<a href="#" class="gnb-name" title="SEBANG 메뉴">SEBANG</a>
 							<ul class="lnb-list">
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="그룹소개 페이지 이동">그룹소개</a>
+									<a href="#" class="lnb-name" title="페이지 이동">그룹소개</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="경영방침 페이지 이동">경영방침</a>
+									<a href="#" class="lnb-name" title="페이지 이동">연혁</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="연혁 페이지 이동">연혁</a>
+									<a href="#" class="lnb-name" title="페이지 이동">창업자의 정도의 길</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="CI 페이지 이동">CI</a>
+									<a href="#" class="lnb-name" title="페이지 이동">CI</a>
 								</li>
 							</ul>
 						</li> 
 						<li class="gnb-item">
-							<a href="#" class="gnb-name" title="BUSINESS 메뉴">BUSINESS</a>
+							<a href="#" class="gnb-name" title="BUSINESS 메뉴">Bussiness</a>
 							<ul class="lnb-list">
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="사업소개 페이지 이동">사업소개</a>
+									<a href="#" class="lnb-name" title="페이지 이동">사업영역</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="물류 페이지 이동">물류</a>
+									<a href="#" class="lnb-name" title="페이지 이동">물류</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="제조 페이지 이동">제조</a>
+									<a href="#" class="lnb-name" title="페이지 이동">제조</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="IT 페이지 이동">IT</a>
+									<a href="#" class="lnb-name" title="페이지 이동">IT</a>
+								</li>
+								<li class="lnb-item">
+									<a href="#" class="lnb-name" title="페이지 이동">리사이클링</a>
+								</li>
+								<li class="lnb-item">
+									<a href="#" class="lnb-name" title="페이지 이동">CSR</a>
 								</li>
 							</ul>
 						</li> 
@@ -251,55 +257,56 @@
 							<a href="#" class="gnb-name" title="ESG 메뉴">ESG</a>
 							<ul class="lnb-list">
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="윤리경영 페이지 이동">윤리경영</a>
+									<a href="#" class="lnb-name" title="페이지 이동">세방 ESG</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="컴플라이언스 페이지 이동">컴플라이언스</a>
+									<a href="#" class="lnb-name" title="페이지 이동">Environment</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="지속가능경영보고서 페이지 이동">지속가능경영보고서</a>
+									<a href="#" class="lnb-name" title="페이지 이동">Social</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="사회공헌 페이지 이동">사회공헌</a>
-								</li>
-							</ul>
-						</li> 
-						<li class="gnb-item">
-							<a href="#" class="gnb-name" title="NEWSROOM 메뉴">NEWSROOM</a>
-							<ul class="lnb-list">
-								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="NEWS 페이지 이동">NEWS</a>
+									<a href="#" class="lnb-name" title="페이지 이동">Governance</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="MEDIA 페이지 이동">MEDIA</a>
+									<a href="#" class="lnb-name" title="페이지 이동">사회공헌</a>
+								</li>
+								<li class="lnb-item">
+									<a href="#" class="lnb-name" title="페이지 이동">사이버신문고</a>
 								</li>
 							</ul>
 						</li> 
 						<li class="gnb-item">
-							<a href="#" class="gnb-name" title="MAGAZINE 메뉴">MAGAZINE</a>
+							<a href="#" class="gnb-name" title="NEWSROOM 메뉴">Media Center</a>
 							<ul class="lnb-list">
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="세방컬쳐 페이지 이동">세방컬쳐</a>
+									<a href="#" class="lnb-name" title="NEWS 페이지 이동">뉴스룸</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="세방피플 페이지 이동">세방피플</a>
+									<a href="#" class="lnb-name" title="MEDIA 페이지 이동">SNS</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="세방이의순재단 페이지 이동">세방이의순재단</a>
+									<a href="#" class="lnb-name" title="MEDIA 페이지 이동">홍보영상</a>
+								</li>
+								<li class="lnb-item">
+									<a href="#" class="lnb-name" title="MEDIA 페이지 이동">카드뉴스</a>
 								</li>
 							</ul>
-						</li> 
+						</li>  
 						<li class="gnb-item">
-							<a href="#" class="gnb-name" title="RECRUIT 메뉴">RECRUIT</a>
+							<a href="#" class="gnb-name" title="RECRUIT 메뉴">Recruit</a>
 							<ul class="lnb-list">
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="세방컬쳐 페이지 이동">세방컬쳐</a>
+									<a href="#" class="lnb-name" title="페이지 이동">채용절차</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="세방피플 페이지 이동">세방피플</a>
+									<a href="#" class="lnb-name" title="페이지 이동">직무소개</a>
 								</li>
 								<li class="lnb-item">
-									<a href="#" class="lnb-name" title="세방이의순재단 페이지 이동">세방이의순재단</a>
+									<a href="#" class="lnb-name" title="페이지 이동">인사제도</a>
+								</li>
+								<li class="lnb-item">
+									<a href="#" class="lnb-name" title="페이지 이동">입사지원</a>
 								</li>
 							</ul>
 						</li> 

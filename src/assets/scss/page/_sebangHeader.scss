@@ -62,15 +62,15 @@
                 height: 0;
                 pointer-events: none;
                 background-color: transparent;
-                transition: 0.2s ease-in-out;
+                transition: 0.3s ease-in-out 0.05s;
                 // transition: height 0.2s ease-in-out, background-color 0.2s ease;
                 z-index: -1;
             }
 
             &:hover::after,
             &.focus-in::after {
-                background-color: #F9F9F9;
-                height: 39.2rem;
+                background-color: #FFF;
+                height: 41rem;
                 @include mobile {
                     content: none; /* 모바일에서는 after 배경 비활성화 */
                 }
@@ -111,6 +111,21 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                // gap: 2rem;
+                gap: 1px;
+                // transition: 0.3s cubic-bezier(.78,.42,.69,.54);
+                &:hover {
+                    // gap: 8rem;
+                    .gnb-item {
+                        .gnb-name {
+                            min-width: 20rem;
+                            @include mobile {
+                                min-width: unset;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
 
                 @include mobile {
                     position: relative;
@@ -132,18 +147,27 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                transition: height 0.2s ease-in-out;
+                transition: 0.3s ease-in-out;
 
                 .gnb-name {
-                    text-align: center;
+                    // min-width: 12rem;
+                    min-width: 14rem;
+                    height: 7.2rem;
                     font-size: 1.6rem;
                     font-weight: 700;
                     letter-spacing: 0.032rem;
-                    padding: 2.3rem 4rem;
-                    height: 7.2rem;
+                    text-align: center;
+                    padding: 2.3rem 0;
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    transition: 0.3s cubic-bezier(.78,.42,.69,.54);
+                }
+
+                &:not(:first-child) {
+                    .lnb-list {
+                        border-left: 1px solid #EEE;
+                    }
                 }
 
                 .lnb-list {
@@ -151,10 +175,11 @@
                     width: 100%;
                     overflow: hidden;
                     visibility: hidden;
-                    transition: height 0.2s ease; /* height가 부드럽게 변화하도록 트랜지션 적용 */
+                    transition: height 0.3s ease-in-out 0.05s, opacity 0.3s ease; /* height가 부드럽게 변화하도록 트랜지션 적용 */
                     position: absolute;
                     top: 100%;
                     left: 0;
+                    padding-top: 3.6rem;
 
                     z-index: 1;
                     display: flex;
@@ -170,16 +195,14 @@
                         text-align: center;
                         display: block;
                         opacity: 1;
-                        transition: 0.2s ease-in-out;
+                        transition: 0.3s ease-in-out;
                     }
                     
                     &.active {
-                        height: auto;
-                        min-height: 39.2rem;
-                        padding-top: 6rem;
+                        // height: auto;
+                        height: 41rem;
                         opacity: 1;
                         visibility: visible;
-                        transition: height 0.2s ease, opacity 0.2s ease;
                         @include mobile {
                             min-height: unset;
                             padding-top: unset;
@@ -191,6 +214,7 @@
                         top: 0;
                         opacity: 1;
                         visibility: visible;
+                        padding-top: unset;
                         .lnb-item:last-child {
                             padding-bottom: 3rem;
                         }
@@ -206,13 +230,13 @@
                     left: 0;
                     transition: 0.2s ease;
                 }
-                &:hover {
-                    @include web {
-                        &::after {
-                            background-color: #1E41A8;
-                        }
-                    }
-                }
+                // &:hover {
+                //     @include web {
+                //         &::after {
+                //             background-color: #1E41A8;
+                //         }
+                //     }
+                // }
                 @include mobile {
                     width: 100%;
                 }
