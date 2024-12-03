@@ -196,7 +196,10 @@
 		gsap.to($('.story-01 .post-display'), {
 			opacity: 1,
 			scale: 1,
-			duration: 1
+			duration: 1,
+			onComplete: function() {
+				$('.story-01').addClass('action-01');
+			}
 		});
 
 		let scrollTimeline = ScrollTrigger.create({
@@ -232,18 +235,18 @@
 					}
 			},
 			onEnter: () => {
-				$('.story-01').addClass('action-01');
+				//$('.story-01').addClass('action-01');
 			},
 			onEnterBack: () => {
-				$('.story-01').removeClass('action-01');
+				//$('.story-01').removeClass('action-01');
 				$('.story-01').removeClass('action-02');
 			},
 			onLeave: () => {
-				$('.story-01').addClass('action-01');
+				//$('.story-01').addClass('action-01');
 				$('.story-01').addClass('action-02');
 			},
 			onLeaveBack: () => {
-				$('.story-01').removeClass('action-01');
+				//$('.story-01').removeClass('action-01');
 				$('.story-01').removeClass('action-02');
 			},
 		});
