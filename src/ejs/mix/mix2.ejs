@@ -26,7 +26,7 @@
 		clearTimeout(resizeTimeout);
 		resizeTimeout = setTimeout(() => {
 			ScrollTrigger.refresh();
-		}, 500);
+		}, 1000);
 	});
 </script>
 </head>
@@ -112,21 +112,21 @@
 													
 													
 													<div class="video-item video-00" style="background-color: red;">
-														<!-- <video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-bg.mp4" type="video/mp4"></video> -->
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-bg.mp4" type="video/mp4"></video>
 													</div>
 													
 													<div class="video-item video-01" style="background-color: orange;">
-														<!-- <video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video> -->
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video>
 													</div>
 													<div class="video-item video-02" style="background-color: yellow;">
-														<!-- <video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video> -->
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
 													</div>
 													<div class="video-item video-03" style="background-color: green;">
-														<!-- <video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-03.mp4" type="video/mp4"></video> -->
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-03.mp4" type="video/mp4"></video>
 													</div>
 													
 													<div class="video-item video-04" style="background-color: blue;">
-														<!-- <video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video> -->
+														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
 													</div>
 												</div>
 												<div class="data-list">
@@ -236,9 +236,9 @@
 			//markers: true,
 			end: () => {
 					if (window.innerWidth >= 1024) {
-							return 14 * (windowInnerHeight / 1);
+							return 14.5 * (windowInnerHeight / 1);
 					} else {
-							return 14 * (windowInnerHeight / 1);
+							return 14.5 * (windowInnerHeight / 1);
 					}
 			},
 			pin: '.story-01 .section-wrap',
@@ -603,7 +603,7 @@
 		
 		let action_11 = ScrollTrigger.create({
 			trigger: story_01,
-			markers: true,
+			//markers: true,
 			//toggleActions: 'play none none reverse',
 			start: () => {
 					if (window.innerWidth >= 1024) {
@@ -642,7 +642,7 @@
 
 		let action_12 = ScrollTrigger.create({
 			trigger: story_01,
-			//markers: true,
+			markers: true,
 			//toggleActions: 'play none none reverse',
 			start: () => {
 					if (window.innerWidth >= 1024) {
@@ -653,26 +653,29 @@
 			},
 			end: () => {
 					if (window.innerWidth >= 1024) {
-						return (13 * (windowInnerHeight / 1)) + 'px top';
+						return (13.5 * (windowInnerHeight / 1)) + 'px top';
 					} else {
-						return (13 * (windowInnerHeight / 1)) + 'px top';
+						return (13.5 * (windowInnerHeight / 1)) + 'px top';
 					}
 			},
 			onEnter: () => {
-				//console.log('들어왔슈')
+				console.log('들어왔슈')
 				$('.story-01').addClass('action-10');
 				$('.post-08 .video-list .video-item').css('transition', 'all .5s ease-out');
 			},
 			onEnterBack: () => {
-				//console.log('나갔다가 들어왔유');
-				$('.story-01').removeClass('action-10');
+				console.log('나갔다가 들어왔유');
+				//$('.story-01').removeClass('action-10');
+				$('.story-01').removeClass('action-11');
 			},
 			onLeave: () => {
 				$('.story-01').addClass('action-10');
+				$('.story-01').addClass('action-11');
 			},
 			onLeaveBack: () => {
-				//console.log('나갔다가 들어왔유22');
+				console.log('나갔다가 들어왔유22');
 				$('.story-01').removeClass('action-10');
+				//$('.story-01').removeClass('action-11');
 			},
 		});
 	}
