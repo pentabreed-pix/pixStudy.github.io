@@ -106,27 +106,30 @@
 									<li class="post-item post-08">
 										<div class="post-wrap">
 											<div class="post-body">
-												<div class="video-list">
-													
-													
-													
-													
-													<div class="video-item video-00" style="background-color: red;">
-														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-bg.mp4" type="video/mp4"></video>
-													</div>
-													
-													<div class="video-item video-01" style="background-color: orange;">
-														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video>
-													</div>
-													<div class="video-item video-02" style="background-color: yellow;">
-														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
-													</div>
-													<div class="video-item video-03" style="background-color: green;">
-														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-03.mp4" type="video/mp4"></video>
-													</div>
-													
-													<div class="video-item video-04" style="background-color: blue;">
-														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
+												<div class="video-list swiper">
+													<div class="swiper-wrapper">
+														<div class="swiper-slide video-item video-00" style="background-color: red;">
+															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-bg.mp4" type="video/mp4"></video>
+														</div>
+														
+														<div class="swiper-slide video-item video-01" style="background-color: orange;">
+															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video>
+														</div>
+														<div class="swiper-slide video-item video-02" style="background-color: yellow;">
+															<video autoplay="" muted="" plays
+							
+							
+															오늘의 세상을 움직이는 일
+															
+															세방그룹inline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
+														</div>
+														<div class="swiper-slide video-item video-03" style="background-color: green;">
+															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-03.mp4" type="video/mp4"></video>
+														</div>
+														
+														<div class="swiper-slide video-item video-04" style="background-color: blue;">
+															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
+														</div>
 													</div>
 												</div>
 												<div class="data-list">
@@ -600,52 +603,64 @@
 			opacity: '0',			
 		}, 'action_10')
 
-		
-		let action_11 = ScrollTrigger.create({
-			trigger: story_01,
-			//markers: true,
-			//toggleActions: 'play none none reverse',
-			start: () => {
-					if (window.innerWidth >= 1024) {
-						return (11 * (windowInnerHeight / 1)) + 'px top';
-					} else {
-						return (11 * (windowInnerHeight / 1)) + 'px top';
-					}
-			},
-			end: () => {
-					if (window.innerWidth >= 1024) {
-						return (11.5 * (windowInnerHeight / 1)) + 'px top';
-					} else {
-						return (11.5 * (windowInnerHeight / 1)) + 'px top';
-					}
-			},
-			onEnter: () => {
-				//console.log('들어왔슈'):
-				$('.story-01').addClass('action-09');
-				$('.post-08 .video-list .video-item').css('transition', 'none');
-			},
-			onEnterBack: () => {
-				//console.log('나갔다가 들어왔유');
-				$('.post-08 .video-list .video-item').css('transition', 'none');
-			},
-			onLeave: () => {
-				//console.log('떠났슈');
-				$('.story-01').addClass('action-09');
-				$('.post-08 .video-list .video-item').css('transition', 'all .5s ease-out');
-			},
-			onLeaveBack: () => {
-				//console.log('나갔다가 들어왔유22');
-				$('.story-01').removeClass('action-09');
-				$('.post-08 .video-list .video-item').css('transition', 'none');
-			},
+			
+
+		const mySwiper = new Swiper(".swiper", {
+			slidesPerView: "auto",
+			freeMode: true,
+			spaceBetween: 9,
 		});
 
-		let action_12 = ScrollTrigger.create({
+		let action_11 = ScrollTrigger.create({
 			trigger: story_01,
 			markers: true,
 			//toggleActions: 'play none none reverse',
 			start: () => {
 					if (window.innerWidth >= 1024) {
+						return (11 * (windowInnerHeight / 1)) + 'px top';
+					} else {
+						return (11 * (windowInnerHeight / 1)) + 'px top';
+					}
+			},
+			end: () => {
+					if (window.innerWidth >= 1024) {
+						return (11.5 * (windowInnerHeight / 1)) + 'px top';
+					} else {
+						return (11.5 * (windowInnerHeight / 1)) + 'px top';
+					}
+			},
+			onEnter: () => {
+				console.log('들어왔슈')
+				$('.story-01').addClass('action-09');
+				$('.post-08 .video-list .video-item').css('transition', 'none');
+
+				//슬라이더 이동 비활성화
+				mySwiper.disable();				
+			},
+			onEnterBack: () => {
+				console.log('나갔다가 들어왔유');
+				$('.post-08 .video-list .video-item').css('transition', 'none');
+			},
+			onLeave: () => {
+				console.log('떠났슈');
+				$('.story-01').addClass('action-09');
+				$('.post-08 .video-list .video-item').css('transition', 'all .5s ease-out');
+			},
+			onLeaveBack: () => {
+				console.log('나갔다가 들어왔유22');
+				$('.story-01').removeClass('action-09');
+				$('.post-08 .video-list .video-item').css('transition', 'none');				
+			},
+		});	
+
+		
+
+		let action_12 = ScrollTrigger.create({
+			trigger: story_01,
+			//markers: true,
+			//toggleActions: 'play none none reverse',
+			start: () => {
+					if (window.innerWidth >= 1024) {
 						return (12.5 * (windowInnerHeight / 1)) + 'px top';
 					} else {
 						return (12.5 * (windowInnerHeight / 1)) + 'px top';
@@ -659,13 +674,14 @@
 					}
 			},
 			onEnter: () => {
-				console.log('들어왔슈')
+				//console.log('들어왔슈')
 				$('.story-01').addClass('action-10');
 				$('.post-08 .video-list .video-item').css('transition', 'all .5s ease-out');
+
+				mySwiper.enable();	
 			},
 			onEnterBack: () => {
-				console.log('나갔다가 들어왔유');
-				//$('.story-01').removeClass('action-10');
+				//console.log('나갔다가 들어왔유');
 				$('.story-01').removeClass('action-11');
 			},
 			onLeave: () => {
@@ -673,9 +689,12 @@
 				$('.story-01').addClass('action-11');
 			},
 			onLeaveBack: () => {
-				console.log('나갔다가 들어왔유22');
+				//console.log('나갔다가 들어왔유22');
 				$('.story-01').removeClass('action-10');
-				//$('.story-01').removeClass('action-11');
+
+				mySwiper.disable();	
+				mySwiper.setTranslate(0);
+				mySwiper.update();
 			},
 		});
 	}
