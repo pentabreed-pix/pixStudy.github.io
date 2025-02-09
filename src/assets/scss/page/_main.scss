@@ -1,0 +1,283 @@
+.hs {
+    .intro {
+        position: fixed;
+        width: 100%;
+        height: 100dvh;
+        background-color: #06038D;
+        animation: IntroAct3-3 .3s 3.4s forwards;
+        pointer-events: none;
+
+        .inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12.5rem;
+            height: 13.1rem;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            animation: IntroAct2-2 0s 1.5s forwards;
+
+            >svg {
+                transform: translateY(11rem) rotate(-15deg) scale(0.54);
+                animation: IntroAct1 1.5s forwards cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                    IntroAct2-1 1.2s 1.5s forwards cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                    IntroAct3-1 .7s 2.7s forwards cubic-bezier(0.25, 0.1, 0.25, 1),
+                    IntroAct3-2 1s 2.7s forwards cubic-bezier(0.25, 0.1, 0.25, 1);
+
+            }
+
+            @keyframes IntroAct1 {
+                0% {
+                    transform: translateY(11rem) rotate(-15deg) scale(0.54);
+                }
+
+                100% {
+                    transform: rotate(0deg) scale(1);
+                }
+            }
+
+            @keyframes IntroAct2-1 {
+                0% {
+                    transform: rotate(0deg) scale(1);
+                }
+
+                100% {
+                    transform: rotate(180deg) scale(1);
+                }
+            }
+
+            @keyframes IntroAct2-2 {
+                100% {
+                    overflow: visible;
+                }
+            }
+
+            @keyframes IntroAct3-1 {
+                0% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0;
+                }
+            }
+
+            @keyframes IntroAct3-2 {
+                0% {
+                    transform: rotate(180deg) scale(1);
+                }
+
+                100% {
+                    transform: rotate(180deg) scale(60);
+                }
+            }
+
+            @keyframes IntroAct3-3 {
+                0% {
+                    background-color: #06038D;
+                }
+
+                100% {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    .contents {
+        .content {
+
+            &.kv {
+                position: relative;
+                height: 100dvh;
+                overflow: hidden;
+
+                .swiper {
+                    height: 100%;
+
+                    .swiper-slide {
+                        position: relative;
+
+                        .inner {
+                            width: 12rem;
+                            height: 13.1rem;
+                        }
+
+                        .masked-bg {
+                            height: 100%;
+                            mask-image: url('../images/mainHs/symbol.svg');
+                            -webkit-mask-image: url('../images/mainHs/symbol.svg');
+                            mask-repeat: no-repeat;
+                            -webkit-mask-repeat: no-repeat;
+                            mask-position: center;
+                            -webkit-mask-position: center;
+                            animation: kvAct1-1 1s 2.7s forwards cubic-bezier(0.25, 0.1, 0.25, 1);
+                            opacity: 0;
+                            overflow: hidden;
+
+                            @keyframes kvAct1-1 {
+                                0% {
+                                    mask-size: 6.5%;
+                                    opacity: 0;
+                                }
+
+                                100% {
+                                    mask-size: 400%;
+                                    opacity: 1;
+                                }
+                            }
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                object-position: center 75%;
+                                transform: scale(1.404);
+                                animation: kvAct1-2 1.4s 2.7s forwards ease-out;
+                            }
+
+                            @keyframes kvAct1-2 {
+                                0% {
+                                    transform: scale(1.404);
+                                }
+
+                                100% {
+                                    transform: scale(1);
+                                }
+                            }
+                        }
+
+                        .slide-body {
+                            position: absolute;
+                            bottom: 22.41%;
+                            left: 50%;
+                            width: 75%;
+                            margin: 0 auto;
+                            transform: translateX(-50%);
+                            opacity: 0;
+                            animation: kvAct1-3 1.4s 2.7s forwards ease-out,
+                                kvAct1-4 1.4s 3.1s forwards ease-out;
+
+                            @keyframes kvAct1-3 {
+                                0% {
+                                    transform: translate(-50%, 5rem);
+                                }
+
+                                100% {
+                                    transform: translate(-50%, 0);
+                                }
+                            }
+
+                            @keyframes kvAct1-4 {
+                                0% {
+                                    opacity: 0;
+                                }
+
+                                100% {
+                                    opacity: 1;
+                                }
+                            }
+
+                            .slide-title {
+                                font-size: 3.33vw;
+                                font-weight: 700;
+                                color: #fff;
+
+                                +.slide-text {
+                                    padding-top: 1.67%;
+                                }
+                            }
+
+                            .slide-text {
+                                font-size: 1.04vw;
+                                font-weight: 500;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: -22.92%;
+                    bottom: -45.7%;
+                    width: 100vw;
+                    height: 52.71vw;
+                    background: url("../images/mainHs/main-graphic1.png") no-repeat;
+                    background-position: right bottom;
+                    background-size: cover;
+                    z-index: 1;
+                    animation: kvAct1-5 1.4s 2.7s forwards ease-out;
+                    pointer-events: none;
+                }
+
+                @keyframes kvAct1-5 {
+                    0% {
+                        right: -22.92%;
+                        bottom: -45.7%;
+                    }
+
+                    100% {
+                        right: 0;
+                        bottom: 0;
+                    }
+                }
+            }
+
+            &.con4 {
+                background-color: #fff;
+                padding-bottom: 12.8rem;
+
+                .svg-wrap {
+                    position: relative;
+                    display: inline-block;
+
+                    .slogan {
+                        transform: translateY(-6.8rem);
+                    }
+
+                    .star {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        transform: rotate(0) scale(5.75);
+                    }
+                }
+
+                &.act {
+                    .svg-wrap {
+                        .slogan {
+                            transform: translateY(0);
+                            transition: 1.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+                            path {
+                                transform: translate(0) !important;
+                                transition: 1.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+                            }
+                        }
+
+                        .star {
+                            left: 100%;
+                            bottom: 3.2rem;
+                            transform: rotate(360deg) scale(1);
+                            transition: 1.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+                        }
+                    }
+                }
+            }
+
+            +.content {
+                margin-top: 20rem;
+            }
+        }
+    }
+
+
+    // 옮길 때 해당 css는 제외
+    .limit-w {
+        max-width: 144rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
