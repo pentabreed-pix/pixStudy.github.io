@@ -112,6 +112,21 @@ function pubListUp() {
         history: "",
         // history: "- 24-03-21 ko/pc table 클래스 추가" + "<br>" + "- 24-03-20 ko/mo 폰트 사이즈 수정",
       }
+    ],
+    VW: [
+      {
+        id_ko: "",
+        id_en: "",
+        menu: "VW",
+        root_ko: "/vw/vw1.html",
+        root_en: "",
+        status_ko: "미정",
+        status_en: "미정",
+        worker_ko: "주은소",
+        worker_en: "미정",
+        history: "",
+        // history: "- 24-03-21 ko/pc table 클래스 추가" + "<br>" + "- 24-03-20 ko/mo 폰트 사이즈 수정",
+      }
     ]
   };
 

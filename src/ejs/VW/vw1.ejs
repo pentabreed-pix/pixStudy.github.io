@@ -1,0 +1,2709 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<%-include('../_templates/_guide.head.ejs', {
+	pageJavascript: ''
+}) %>
+
+<script src="/src/assets/js/wwc-content.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.4.0/smooth-scrollbar.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.7.4/smooth-scrollbar.js"></script>
+
+<script src="https://unpkg.com/smooth-scrollbar@latest/dist/smooth-scrollbar.js"></script>
+
+
+
+
+</head>
+
+<style>
+
+.section.bottom, .section.top {
+	height: 100vh;
+	width: 100%;
+}
+	[data-scrollbar],[scrollbar],scrollbar {
+    display: block;
+    position: relative
+}
+
+[data-scrollbar] .scroll-content,[scrollbar] .scroll-content,scrollbar .scroll-content {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0)
+}
+
+[data-scrollbar].sticky .scrollbar-track,[scrollbar].sticky .scrollbar-track,scrollbar.sticky .scrollbar-track {
+    background: rgba(222,222,222,.75)
+}
+
+[data-scrollbar] .scrollbar-track,[scrollbar] .scrollbar-track,scrollbar .scrollbar-track {
+    position: absolute;
+    opacity: 0;
+    z-index: 9999999;
+    transition: opacity .5s ease-out,background .5s ease-out;
+    background: 0 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+[data-scrollbar] .scrollbar-track.show,[data-scrollbar] .scrollbar-track:hover,[scrollbar] .scrollbar-track.show,[scrollbar] .scrollbar-track:hover,scrollbar .scrollbar-track.show,scrollbar .scrollbar-track:hover {
+    opacity: 1
+}
+
+[data-scrollbar] .scrollbar-track:hover,[scrollbar] .scrollbar-track:hover,scrollbar .scrollbar-track:hover {
+    background: rgba(100,100,100,.5)
+}
+
+[data-scrollbar] .scrollbar-track-x,[scrollbar] .scrollbar-track-x,scrollbar .scrollbar-track-x {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px
+}
+
+[data-scrollbar] .scrollbar-track-y,[scrollbar] .scrollbar-track-y,scrollbar .scrollbar-track-y {
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 100%
+}
+
+[data-scrollbar] .scrollbar-thumb,[scrollbar] .scrollbar-thumb,scrollbar .scrollbar-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: rgba(0,0,0,.5);
+    border-radius: 4px
+}
+
+[data-scrollbar] .overscroll-glow,[scrollbar] .overscroll-glow,scrollbar .overscroll-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+body {
+    overscroll-behavior: contain;
+    overscroll-behavior-y: none
+}
+
+.wrapper {
+    padding: 0!important;
+    margin: 0!important;
+    min-width: 100%
+}
+
+html.wwc-loading {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed
+}
+
+html.wwc-first-content-loading #wwcMain {
+    opacity: 0
+}
+
+#wwcMain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 2
+}
+#wwcMain {
+    overflow-y: auto; /* 스크롤 가능하게 설정 */
+    height: 100vh; /* 화면 높이에 맞게 설정 */
+    position: relative;
+}
+
+.wwc-container-valign-center {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    min-width: 1280px
+}
+
+.wwc-main {
+    position: relative;
+    background: #060a14;
+}
+
+.wwc-main:after {
+    background: url(../img/top-dimmed.png) 50% 0 no-repeat;
+    -webkit-background-size: 100% 280px;
+    background-size: 100% 280px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 280px;
+    pointer-events: none;
+    content: '';
+    z-index: 10
+}
+
+/* .wwc-content {
+    opacity: 0;
+    overflow: hidden;
+    padding-top: 100vh
+} */
+
+.wwc-content video::-webkit-media-controls {
+    display: none
+}
+
+.wwc-content video::-webkit-media-controls-start-playback-button {
+    display: none!important
+}
+
+.wwc-content.active {
+    display: block;
+    opacity: 1;
+    visibility: visible
+}
+
+.wwc-vline {
+    border: 0;
+    height: 80px;
+    border-left: 1px solid rgba(255,255,255,.3);
+    margin: 50px 0;
+    display: block
+}
+
+.wwc-grid {
+    width: 100vw;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: calc(10vw - 12px);
+    padding-right: calc(10vw - 12px);
+    max-width: 1920px;
+    min-width: 1280px;
+    margin: 0 auto
+}
+
+.wwc-grid:after,.wwc-grid:before {
+    content: " ";
+    display: table
+}
+
+.wwc-grid:after {
+    clear: both
+}
+
+.wwc-grid .wwc-col-1 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 8.33333%
+}
+
+.wwc-grid .wwc-col-offset-1 {
+    margin-left: 8.33333%
+}
+
+.wwc-grid .wwc-col-2 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 16.66667%
+}
+
+.wwc-grid .wwc-col-offset-2 {
+    margin-left: 16.66667%
+}
+
+.wwc-grid .wwc-col-3 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 25%
+}
+
+.wwc-grid .wwc-col-offset-3 {
+    margin-left: 25%
+}
+
+.wwc-grid .wwc-col-4 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 33.33333%
+}
+
+.wwc-grid .wwc-col-offset-4 {
+    margin-left: 33.33333%
+}
+
+.wwc-grid .wwc-col-5 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 41.66667%
+}
+
+.wwc-grid .wwc-col-offset-5 {
+    margin-left: 41.66667%
+}
+
+.wwc-grid .wwc-col-6 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 50%
+}
+
+.wwc-grid .wwc-col-offset-6 {
+    margin-left: 50%
+}
+
+.wwc-grid .wwc-col-7 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 58.33333%
+}
+
+.wwc-grid .wwc-col-offset-7 {
+    margin-left: 58.33333%
+}
+
+.wwc-grid .wwc-col-8 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 66.66667%
+}
+
+.wwc-grid .wwc-col-offset-8 {
+    margin-left: 66.66667%
+}
+
+.wwc-grid .wwc-col-9 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 75%
+}
+
+.wwc-grid .wwc-col-offset-9 {
+    margin-left: 75%
+}
+
+.wwc-grid .wwc-col-10 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 83.33333%
+}
+
+.wwc-grid .wwc-col-offset-10 {
+    margin-left: 83.33333%
+}
+
+.wwc-grid .wwc-col-11 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 91.66667%
+}
+
+.wwc-grid .wwc-col-offset-11 {
+    margin-left: 91.66667%
+}
+
+.wwc-grid .wwc-col-12 {
+    padding: 0 12px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 100%
+}
+
+.wwc-grid .wwc-col-offset-12 {
+    margin-left: 100%
+}
+
+
+
+@media screen and (min-width: 1920px) {
+    .wwc-grid {
+        padding-left:180px;
+        padding-right: 180px
+    }
+}
+
+.wwc-main {
+    color: #fff
+}
+
+.wwc-title-blue-sm {
+    color: #0965bc;
+    font-size: 18px;
+    letter-spacing: .1em;
+    font-family: Montserrat,"Noto Sans KR",sans-serif;
+    font-weight: 600
+}
+
+.wwc-descriptions p {
+    font-size: 18px;
+    line-height: 2;
+    font-weight: 300;
+    color: #b4b4b4;
+    letter-spacing: -.025em
+}
+
+.wwc-show-when-1440 {
+    display: none
+}
+
+@media screen and (max-width: 1440px) {
+    .wwc-hide-when-1440 {
+        display:none
+    }
+
+    .wwc-show-when-1440 {
+        display: block
+    }
+}
+
+.wwc-btn-simple {
+    border: 1px solid rgba(255,255,255,.7);
+    color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 38px;
+    height: 40px;
+    min-width: 40px;
+    text-align: center;
+    display: inline-block;
+    font-family: Montserrat,"Noto Sans KR",sans-serif;
+    font-weight: 600;
+    -webkit-transition: all 250ms ease-out;
+    -moz-transition: all 250ms ease-out;
+    -ms-transition: all 250ms ease-out;
+    -o-transition: all 250ms ease-out;
+    transition: all 250ms ease-out
+}
+
+.wwc-btn-simple.active,.wwc-btn-simple:hover {
+    background: #fff;
+    color: #111;
+    border-color: #fff
+}
+
+.wwc-btn-simple.active svg path,.wwc-btn-simple:hover svg path {
+    fill: #111
+}
+
+.wwc-btn.g_btn.btn2 {
+    min-width: 56px;
+    height: 56px;
+    line-height: 56px;
+    font-family: Montserrat,"Noto Sans KR",sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.wwc-btn.g_btn.btn2 span.copy {
+    display: inline-block;
+    text-align: center;
+    background: 0 0!important
+}
+
+.wwc-btn.g_btn.btn2 span.copy:after,.wwc-btn.g_btn.btn2 span.copy:before {
+    content: none!important
+}
+
+.wwc-btn.g_btn.btn2.on span.bg,.wwc-btn.g_btn.btn2:hover span.bg {
+    background: #fff
+}
+
+.wwc-btn.g_btn.btn2.on span.copy,.wwc-btn.g_btn.btn2:hover span.copy {
+    color: #000
+}
+
+.wwc-btn.g_btn.btn2.g_btn_sm {
+    height: 40px;
+    line-height: 40px;
+    min-width: 40px
+}
+
+
+
+
+@keyframes wwc-scroll {
+    0% {
+        top: -20%
+    }
+
+    0%,50% {
+        opacity: 1
+    }
+
+    100%,80% {
+        top: 100%
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+.wwc-section {
+    z-index: 2;
+    position: relative;
+    min-width: 1280px
+}
+
+.wwc-section.wwc-section-fullscreen {
+    width: 100vw;
+    height: 100vh;
+    min-height: 1080px;
+    max-height: 1080px
+}
+
+.wwc-section-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 1080px;
+    height: 1080px;
+    z-index: -1;
+    overflow: hidden
+}
+
+.wwc-section-bg .wwc-section-bg-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1080px
+}
+
+.wwc-section-bg-back {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background: 50% 50% no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: calc(100vw + 2vw);
+    height: calc(100vh + 2vh);
+    min-height: 1080px;
+    min-width: 1920px;
+    overflow: hidden
+}
+
+.wwc-section-bg-back .wwc-section-bg-video {
+    width: 100%;
+    height: 100%;
+    position: absolute
+}
+
+.wwc-section-bg-back .wwc-section-bg-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute
+}
+
+.wwc-section-bg-back .wwc-section-bg-video:after {
+    background: 50% 50% no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: ''
+}
+
+.wwc-section-bg-front {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: calc(100vw + 10vw);
+    height: calc(100vh + 10vh);
+    min-height: 1080px;
+    min-width: 1920px
+}
+
+.wwc-section-bg-front img {
+    display: block
+}
+
+.wwc-section-bg-front .wwc-bg {
+    background: 50% 50% no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: all 1s cubic-bezier(.23,1,.32,1);
+    -moz-transition: all 1s cubic-bezier(.23,1,.32,1);
+    -ms-transition: all 1s cubic-bezier(.23,1,.32,1);
+    -o-transition: all 1s cubic-bezier(.23,1,.32,1);
+    transition: all 1s cubic-bezier(.23,1,.32,1);
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    -o-transform: translateY(100px);
+    transform: translateY(100px)
+}
+
+.wwc-section-bg-front .wwc-bg.wwc-back-bg {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none
+}
+
+.wwc-section-bg-front .wwc-back {
+    background: 50% 50% no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+
+.wwc-section-bg-front.active .wwc-bg {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0)
+}
+
+.wwc-section-bg-front.active .wwc-bg.wwc-section-bg-front1 {
+    -webkit-transition-delay: .2s;
+    -moz-transition-delay: .2s;
+    -ms-transition-delay: .2s;
+    -o-transition-delay: .2s;
+    transition-delay: .2s
+}
+
+.wwc-section-bg-front.active .wwc-bg.wwc-section-bg-front2 {
+    -webkit-transition-delay: .4s;
+    -moz-transition-delay: .4s;
+    -ms-transition-delay: .4s;
+    -o-transition-delay: .4s;
+    transition-delay: .4s
+}
+
+.wwc-section-bg-front.active .wwc-bg.wwc-section-bg-front3 {
+    -webkit-transition-delay: .6s;
+    -moz-transition-delay: .6s;
+    -ms-transition-delay: .6s;
+    -o-transition-delay: .6s;
+    transition-delay: .6s
+}
+
+.wwc-section .wwc-cha {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    top: auto;
+    right: auto;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+.wwc-section .wwc-cha img {
+    width: 1920px;
+    display: block
+}
+
+.wwc-detail-wrapper {
+    -webkit-transform: translateY(440px);
+    -moz-transform: translateY(440px);
+    -ms-transform: translateY(440px);
+    -o-transform: translateY(440px);
+    transform: translateY(440px);
+    position: relative;
+    white-space: nowrap
+}
+
+.wwc-detail-block .wwc-detail-block-title {
+    margin-bottom: 44px;
+    word-break: keep-all;
+}
+
+.wwc-detail-block .wwc-detail-block-title h3 {
+    font-size: 56px;
+    line-height: 78px;
+    letter-spacing: -.05em;
+    font-weight: 400
+}
+
+.wwc-detail-block .wwc-detail-block-description p {
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 36px;
+    letter-spacing: -.025em
+}
+
+.wwc-content-detail-section {
+    z-index: 2;
+    background: 50% 50% no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 1080px;
+    position: relative
+}
+
+.wwc-intro {
+    position: relative;
+    z-index: 2;
+    padding-top: 5vh
+}
+
+.wwc-intro .wwc-intro-header {
+    z-index: 4;
+    position: relative;
+    padding-top: 30vh;
+    padding-bottom: 10vh
+}
+
+.wwc-intro:before {
+    background: url(../img/content/bg-top-grad.png) 50% 0 repeat-x;
+    height: 2730px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -200px;
+    content: ''
+}
+
+.wwc-intro-video-area {
+    position: relative;
+    height: 200vh;
+    overflow: hidden;
+    top: -30vh;
+    margin-bottom: -30vh
+}
+
+.wwc-intro-video-area .wwc-intro-video-area-inner {
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    position: absolute;
+    top: 100vh;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    -webkit-transform: scale(.4);
+    -moz-transform: scale(.4);
+    -ms-transform: scale(.4);
+    -o-transform: scale(.4);
+    transform: scale(.4);
+    -webkit-transition: -webkit-transform .8s ease;
+    -moz-transition: -moz-transform .8s ease;
+    -ms-transition: -ms-transform .8s ease;
+    -o-transition: -o-transform .8s ease;
+    transition: transform .8s ease
+}
+
+.wwc-intro-video-area .wwc-intro-video-area-inner video {
+    display: block;
+    position: relative;
+    left: 50%;
+    -webkit-transition: -webkit-transform .8s ease;
+    -moz-transition: -moz-transform .8s ease;
+    -ms-transition: -ms-transform .8s ease;
+    -o-transition: -o-transform .8s ease;
+    transition: transform .8s ease;
+    -webkit-transform: translate(-50%,80%);
+    -moz-transform: translate(-50%,80%);
+    -ms-transform: translate(-50%,80%);
+    -o-transform: translate(-50%,80%);
+    transform: translate(-50%,80%)
+}
+
+.wwc-intro-video-area .wwc-intro-video-area-inner.active {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1)
+}
+
+.wwc-intro-video-area .wwc-intro-video-area-inner.active video {
+    -webkit-transform: translate(-50%,0);
+    -moz-transform: translate(-50%,0);
+    -ms-transform: translate(-50%,0);
+    -o-transform: translate(-50%,0);
+    transform: translate(-50%,0)
+}
+
+.wwc-intro-video-area.sticky-video .wwc-intro-video-area-inner {
+    top: 0;
+    -webkit-transform: scaleY(1);
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    transform: scaleY(1)
+}
+
+.wwc-section-history {
+    position: relative
+}
+
+.wwc-history {
+    background: url(../img/content/history-desc-bg.jpg) 50% 50% no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    min-width: 1280px
+}
+
+.wwc-history-block {
+    min-width: 1280px;
+    height: 100vh;
+    position: relative
+}
+
+.wwc-history-block .wwc-history-txt {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center
+}
+
+.wwc-history-block .wwc-history-txt .wwc-history-txt-inner {
+    height: 460px;
+    white-space: nowrap
+}
+
+.wwc-history-block .wwc-history-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    bottom: 0;
+    height: 100vh
+}
+
+.wwc-history-block .wwc-history-bg .wwc-history-bg-inner {
+    background: 50% 50% no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%
+}
+
+.wwc-history-block .wwc-title-blue-sm {
+    margin-bottom: 48px
+}
+
+.wwc-history-block .wwc-vline {
+    display: none!important;
+}
+
+.wwc-history-block .wwc-history-info {
+    line-height: 1;
+    max-width: 72%;
+    white-space: normal;
+}
+
+.wwc-history-block .wwc-history-info .wwc-date {
+    font-family: Montserrat,"Noto Sans KR",sans-serif;
+    font-weight: 300;
+    margin-bottom: 20px
+}
+
+.wwc-history-block .wwc-history-info .wwc-date .wwc-year {
+    font-size: 96px;
+    margin-bottom: 36px;
+    display: block;
+    font-weight: 300
+}
+
+.wwc-history-block .wwc-history-info .wwc-date .wwc-month {
+    font-size: 24px;
+    color: #0965bc;
+    display: block;
+    font-weight: 400
+}
+
+.wwc-history-block .wwc-history-info .wwc-history-title {
+    font-size: 24px;
+    font-weight: 200;
+    margin-bottom: 34px;
+    line-height: 1.6666666666667
+}
+
+.wwc-history-block .wwc-history-info .wwc-history-descriptions p {
+    font-weight: 200
+}
+
+.wwc-history-viewer {
+    background: url(../img/content/history-desc-bg.jpg) 50% 50% no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none
+}
+
+.wwc-history-bgs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden
+}
+
+.wwc-history-bgs .wwc-history-bg-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    -webkit-transition: -webkit-transform .8s ease;
+    -moz-transition: -moz-transform .8s ease;
+    -ms-transition: -ms-transform .8s ease;
+    -o-transition: -o-transform .8s ease;
+    transition: transform .8s ease
+}
+
+.wwc-history-bgs .wwc-history-bg-item .wwc-history-bg-inner {
+    -webkit-transition: -webkit-transform .8s ease,opacity .8s;
+    -moz-transition: -moz-transform .8s ease,opacity .8s;
+    -ms-transition: -ms-transform .8s ease,opacity .8s;
+    -o-transition: -o-transform .8s ease,opacity .8s;
+    transition: transform .8s ease,opacity .8s;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2)
+}
+
+.wwc-history-bgs .wwc-history-bg-item[data-status=prev] {
+    z-index: 2;
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%)
+}
+
+.wwc-history-bgs .wwc-history-bg-item[data-status=prev] .wwc-history-bg-inner {
+    opacity: .5;
+    -webkit-transform: translateY(60%) scale(1.2);
+    -moz-transform: translateY(60%) scale(1.2);
+    -ms-transform: translateY(60%) scale(1.2);
+    -o-transform: translateY(60%) scale(1.2);
+    transform: translateY(60%) scale(1.2)
+}
+
+.wwc-history-bgs .wwc-history-bg-item[data-status=active] {
+    z-index: 4;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0)
+}
+
+.wwc-history-bgs .wwc-history-bg-item[data-status=active] .wwc-history-bg-inner {
+    -webkit-transform: translateY(0) scale(1);
+    -moz-transform: translateY(0) scale(1);
+    -ms-transform: translateY(0) scale(1);
+    -o-transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1)
+}
+
+.wwc-history-bgs .wwc-history-bg-item[data-status=next] {
+    z-index: 3;
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%)
+}
+
+.wwc-history-bgs .wwc-history-bg-item[data-status=next] .wwc-history-bg-inner {
+    -webkit-transform: translateY(-40%) scale(1.4);
+    -moz-transform: translateY(-40%) scale(1.4);
+    -ms-transform: translateY(-40%) scale(1.4);
+    -o-transform: translateY(-40%) scale(1.4);
+    transform: translateY(-40%) scale(1.4)
+}
+
+.wwc-history-progress {
+    height: 460px;
+    position: absolute;
+    left: 80px;
+    top: 50%;
+    width: 2px;
+    background: rgba(255,255,255,.12);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+.wwc-history-progress .wwc-history-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    background-color: #fff;
+    height: 0
+}
+
+.wwc-goto-website {
+    background: #030409;
+    padding: 200px 0 170px 0
+}
+
+.wwc-goto-website .wwc-title {
+    font-size: 18px;
+    font-family: Montserrat,"Noto Sans KR",sans-serif;
+    font-weight: 600;
+    color: #0965bc;
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 1;
+    letter-spacing: .1em
+}
+
+.wwc-website-list {
+    text-align: center;
+    font-size: 0
+}
+
+.wwc-website-list a {
+    display: inline-block;
+    opacity: .25;
+    -webkit-transition: opacity 250ms ease-out;
+    -moz-transition: opacity 250ms ease-out;
+    -ms-transition: opacity 250ms ease-out;
+    -o-transition: opacity 250ms ease-out;
+    transition: opacity 250ms ease-out;
+    margin-bottom: 30px;
+}
+
+.wwc-website-list a .wwc-flag {
+    display: block;
+    position: relative;
+    margin: 0 20px 15px
+}
+
+.wwc-website-list a .wwc-flag img {
+    display: block;
+    width: 64px;
+    height: 64px
+}
+
+.wwc-website-list a .wwc-flag img.wwc-on {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.wwc-website-list a .wwc-label {
+    font-size: 14px;
+    font-family: Montserrat,"Noto Sans KR",sans-serif;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: .1em;
+    display: block
+}
+
+.wwc-website-list a.active,.wwc-website-list a:hover {
+    opacity: 1
+}
+
+.wwc-website-list a.active .wwc-flag img.wwc-on,.wwc-website-list a:hover .wwc-flag img.wwc-on {
+    opacity: 1
+}
+
+.wwc-website-list a.active .wwc-flag img.wwc-off,.wwc-website-list a:hover .wwc-flag img.wwc-off {
+    opacity: 0
+}
+
+.wwc-website-list a.active .wwc-label,.wwc-website-list a:hover .wwc-label {
+    font-weight: 500
+}
+
+.wwc-next {
+    background: #080808;
+    overflow: hidden;
+    padding: 240px 0 65px;
+    position: relative;
+    height: 780px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer
+}
+
+.wwc-next .wwc-next-header {
+    position: relative;
+    margin-bottom: 170px
+}
+
+.wwc-next .wwc-next-header .wwc-title {
+    font-size: 88px;
+    letter-spacing: -.05em;
+    font-weight: 200;
+    margin-bottom: 80px;
+    transform: translateX(-4px)
+}
+
+.wwc-next .wwc-next-header .wwc-title small {
+    display: block;
+    margin-bottom: 50px;
+    transform: translateX(4px)
+}
+
+.wwc-next .wwc-next-header .wwc-btn-next {
+    width: 64px;
+    height: 64px;
+    display: block;
+    text-indent: -999em;
+    overflow: hidden;
+    position: relative;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px
+}
+
+.wwc-next .wwc-next-header .wwc-btn-next:before {
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(255,255,255,.7);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    opacity: .7;
+    -webkit-transition: opacity .3s;
+    -moz-transition: opacity .3s;
+    -ms-transition: opacity .3s;
+    -o-transition: opacity .3s;
+    transition: opacity .3s
+}
+
+.wwc-next .wwc-next-header .wwc-btn-next span {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    display: block
+}
+
+.wwc-next .wwc-next-header .wwc-btn-next span:after {
+    background: url(../img/icon-next.svg) 50% 50% no-repeat;
+    width: 30px;
+    height: 30px;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%)
+}
+
+.wwc-next .wwc-next-header .wwc-btn-next span:before {
+    background: #003569;
+    position: absolute;
+    top: 50%;
+    right: 140px;
+    width: 300px;
+    height: 80px;
+    -webkit-transform: skewX(-45deg) translateY(-50%);
+    -moz-transform: skewX(-45deg) translateY(-50%);
+    -ms-transform: skewX(-45deg) translateY(-50%);
+    -o-transform: skewX(-45deg) translateY(-50%);
+    transform: skewX(-45deg) translateY(-50%);
+    content: '';
+    -webkit-transition: all .6s cubic-bezier(.23,1,.32,1);
+    -moz-transition: all .6s cubic-bezier(.23,1,.32,1);
+    -ms-transition: all .6s cubic-bezier(.23,1,.32,1);
+    -o-transition: all .6s cubic-bezier(.23,1,.32,1);
+    transition: all .6s cubic-bezier(.23,1,.32,1)
+}
+
+.wwc-next .wwc-next-header .wwc-btn-next.active:before,.wwc-next .wwc-next-header .wwc-btn-next:hover:before {
+    opacity: 0;
+    -webkit-transition-delay: .3s;
+    -moz-transition-delay: .3s;
+    -ms-transition-delay: .3s;
+    -o-transition-delay: .3s;
+    transition-delay: .3s
+}
+
+.wwc-next .wwc-next-header .wwc-btn-next.active span:before,.wwc-next .wwc-next-header .wwc-btn-next:hover span:before {
+    right: -80px
+}
+
+.wwc-next:hover .wwc-btn-next:before {
+    opacity: 0;
+    -webkit-transition-delay: .3s;
+    -moz-transition-delay: .3s;
+    -ms-transition-delay: .3s;
+    -o-transition-delay: .3s;
+    transition-delay: .3s
+}
+
+.wwc-next:hover .wwc-btn-next span:before {
+    right: -80px
+}
+
+.wwc-next .wwc-content-list ul {
+    font-size: 0;
+    position: relative;
+    display: inline-block
+}
+
+.wwc-next .wwc-content-list ul li {
+    display: inline-block;
+    margin-right: 30px;
+    margin: 5px 30px 5px 0;
+}
+
+.wwc-next .wwc-content-list ul li:last-child {
+    margin-right: 0
+}
+
+.wwc-next .wwc-content-list ul:after,.wwc-next .wwc-content-list ul:before {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background: rgba(255,255,255,.1);
+    width: 100vw;
+    top: 50%;
+    margin: 0 70px
+}
+
+.wwc-next .wwc-content-list ul:before {
+    right: 100%
+}
+
+.wwc-next .wwc-content-list ul:after {
+    left: 100%
+}
+
+.wwc-next .wwc-content-list a {
+    font-size: 18px;
+    letter-spacing: -.05em;
+    font-weight: 400;
+    color: #767676;
+    transition: color .3s ease;
+    position: relative
+}
+
+.wwc-next .wwc-content-list a:after {
+    border-top: 1px solid #0965bc;
+    position: absolute;
+    left: 0;
+    width: 0;
+    content: '';
+    bottom: -1px;
+    transition: all .3s ease
+}
+
+.wwc-next .wwc-content-list a.active {
+    color: #0965bc
+}
+
+.wwc-next .wwc-content-list a:hover {
+    color: #0965bc
+}
+
+.wwc-next .wwc-content-list a:hover:after {
+    width: 100%
+}
+
+.wwc-next-bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 780px;
+    width: 100%;
+    min-width: 1280px
+}
+
+.wwc-next-bg .wwc-next-bg-inner {
+    position: relative;
+    background: 50% 50% no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    opacity: .125;
+    width: 100vw;
+    min-width: 1280px;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    transition: none !important;
+}
+
+.wwc-next-bg.wwc-loading-bg {
+    transform: none!important;
+    transition: none!important;
+    height: 100%!important
+}
+
+.wwc-next-bg.wwc-loading-bg .wwc-next-bg-inner {
+    opacity: 1;
+    transition: none!important
+}
+
+.wwc-active-next {
+    overflow: hidden!important;
+    width: 100%;
+    min-width: 1280px;
+    height: 100%
+}
+
+.wwc-active-next .wwc-next {
+    overflow: visible;
+    -webkit-transition: height .4s ease;
+    -moz-transition: height .4s ease;
+    -ms-transition: height .4s ease;
+    -o-transition: height .4s ease;
+    transition: height .4s ease
+}
+
+.wwc-active-next .wwc-next .wwc-next-content {
+    opacity: 0;
+    -webkit-transition: opacity 1.2s cubic-bezier(.23,1,.32,1);
+    -moz-transition: opacity 1.2s cubic-bezier(.23,1,.32,1);
+    -ms-transition: opacity 1.2s cubic-bezier(.23,1,.32,1);
+    -o-transition: opacity 1.2s cubic-bezier(.23,1,.32,1);
+    transition: opacity 1.2s cubic-bezier(.23,1,.32,1)
+}
+
+.wwc-active-next #top_btn {
+    opacity: 0;
+    -webkit-transition: opacity 1.2s cubic-bezier(.23,1,.32,1);
+    -moz-transition: opacity 1.2s cubic-bezier(.23,1,.32,1);
+    -ms-transition: opacity 1.2s cubic-bezier(.23,1,.32,1);
+    -o-transition: opacity 1.2s cubic-bezier(.23,1,.32,1);
+    transition: opacity 1.2s cubic-bezier(.23,1,.32,1)
+}
+
+.wwc-active-next .wwc-next-bg,.wwc-active-next .wwc-next-bg-inner {
+    opacity: 1;
+    height: 100vh;
+    -webkit-transition: all 1.2s cubic-bezier(.23,1,.32,1);
+    -moz-transition: all 1.2s cubic-bezier(.23,1,.32,1);
+    -ms-transition: all 1.2s cubic-bezier(.23,1,.32,1);
+    -o-transition: all 1.2s cubic-bezier(.23,1,.32,1);
+    transition: all 1.2s cubic-bezier(.23,1,.32,1)
+}
+
+.wwc-loading-next body {
+    overflow: hidden
+}
+
+.wwc-loading-next .wwc-next-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+
+.wwc-loading-next .wwc-next-bg .wwc-next-bg-inner {
+    opacity: 1;
+    z-index: 60
+}
+
+.wwc-next-bg.wwc-loading-bg {
+    width: 100vw;
+    min-width: 1280px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    z-index: 99
+}
+
+.wwc-lineage-section-1 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage/bg1.jpg)
+}
+
+.wwc-lineage-section-1 .wwc-cha {
+    margin-left: 100px;
+    margin-top: 40px
+}
+
+.wwc-lineage-section-1 .wwc-cha img {
+    display: block;
+    width: 1920px
+}
+
+.wwc-lineage-section-1 .wwc-detail-wrapper {
+    -webkit-transform: translateY(260px);
+    -moz-transform: translateY(260px);
+    -ms-transform: translateY(260px);
+    -o-transform: translateY(260px);
+    transform: translateY(260px)
+}
+
+.wwc-lineage-section-2 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage/bg2.jpg)
+}
+
+.wwc-lineage-section-2 .wwc-detail-wrapper {
+    -webkit-transform: translateY(260px);
+    -moz-transform: translateY(260px);
+    -ms-transform: translateY(260px);
+    -o-transform: translateY(260px);
+    transform: translateY(260px)
+}
+
+.wwc-lineage-section-3 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage/bg3.jpg)
+}
+
+.wwc-lineage-section-3 .wwc-detail-wrapper {
+    -webkit-transform: translateY(260px);
+    -moz-transform: translateY(260px);
+    -ms-transform: translateY(260px);
+    -o-transform: translateY(260px);
+    transform: translateY(260px)
+}
+
+.wwc-lineage-section-3 .wwc-section-bg-back1 .wwc-back {
+    background-image: url(../img/content/lineage/bg3.jpg)
+}
+
+.wwc-lineage-section-3 .wwc-section-bg-front1 .wwc-back {
+    background-image: url(../img/content/lineage/obj3-2.png)
+}
+
+.wwc-lineage-section-4 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage/bg4.jpg)
+}
+
+.wwc-lineage-section-4 .wwc-detail-wrapper {
+    -webkit-transform: translateY(260px);
+    -moz-transform: translateY(260px);
+    -ms-transform: translateY(260px);
+    -o-transform: translateY(260px);
+    transform: translateY(260px)
+}
+
+@media screen and (min-width: 1920px) {
+    .wwc-lineage-section-1 .wwc-cha {
+        left:100%;
+        margin-left: -900px
+    }
+}
+
+.wwc-lineage2-section-1 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage2/bg1.jpg)
+}
+
+.wwc-lineage2-section-1 .wwc-cha img {
+    width: 1920px;
+    display: block;
+    transition: transform 2s cubic-bezier(.165,.84,.44,1);
+    transform: translateY(330px)
+}
+
+.wwc-lineage2-section-2 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage2/bg2.jpg)
+}
+
+.wwc-lineage2-section-3 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage2/bg3.jpg)
+}
+
+.wwc-lineage2-section-3 .wwc-section-bg-back1 .wwc-back {
+    background-image: url(../img/content/lineage2/bg3.jpg)
+}
+
+.wwc-lineage2-section-3 .wwc-section-bg-front1 .wwc-back {
+    background-image: url(../img/content/lineage2/obj3-3.png)
+}
+
+.wwc-lineage2-section-3 .wwc-section-bg-front2 .wwc-back {
+    background-image: url(../img/content/lineage2/obj3-2.png)
+}
+
+.wwc-lineage2-section-3 .wwc-section-bg-front3 .wwc-back {
+    background-image: url(../img/content/lineage2/obj3-1.png)
+}
+
+.wwc-aion-section-1 .wwc-section-bg-back {
+    background-image: url(../img/content/aion/bg1.jpg)
+}
+
+.wwc-aion-section-1 .wwc-section-bg-back1 .wwc-back {
+    background-image: url(../img/content/aion/bg1.jpg)
+}
+
+.wwc-aion-section-1 .wwc-section-bg-front1 .wwc-back {
+    background-image: url(../img/content/aion/obj1-3.png)
+}
+
+.wwc-aion-section-1 .wwc-section-bg-front2 .wwc-back {
+    background-image: url(../img/content/aion/obj1-2.png)
+}
+
+.wwc-aion-section-1 .wwc-section-bg-front3 .wwc-back {
+    background-image: url(../img/content/aion/obj1-1.png)
+}
+
+.wwc-aion-section-1 .wwc-detail-wrapper {
+    -webkit-transform: translateY(480px);
+    -moz-transform: translateY(480px);
+    -ms-transform: translateY(480px);
+    -o-transform: translateY(480px);
+    transform: translateY(480px)
+}
+
+.wwc-aion-section-2 .wwc-section-bg-back {
+    background-image: url(../img/content/aion/bg2.jpg)
+}
+
+.wwc-aion-section-2 .wwc-detail-wrapper {
+    -webkit-transform: translateY(480px);
+    -moz-transform: translateY(480px);
+    -ms-transform: translateY(480px);
+    -o-transform: translateY(480px);
+    transform: translateY(480px)
+}
+
+.wwc-aion-section-3 .wwc-section-bg-back {
+    background-image: url(../img/content/aion/bg3.jpg)
+}
+
+.wwc-aion-section-3 .wwc-cha {
+    bottom: auto;
+    top: 0
+}
+
+.wwc-aion-section-3 .wwc-detail-wrapper {
+    -webkit-transform: translateY(480px);
+    -moz-transform: translateY(480px);
+    -ms-transform: translateY(480px);
+    -o-transform: translateY(480px);
+    transform: translateY(480px)
+}
+
+.wwc-bladeandsoul-section-1 .wwc-section-bg-back {
+    background-image: url(../img/content/bladeandsoul/bg1.jpg)
+}
+
+.wwc-bladeandsoul-section-1 .wwc-cha img {
+    width: 1920px;
+    display: block
+}
+
+.wwc-bladeandsoul-section-2 .wwc-section-bg-back {
+    background-image: url(../img/content/bladeandsoul/bg2.jpg)
+}
+
+.wwc-bladeandsoul-section-2 .wwc-section-bg-video:after {
+    background-image: url(../img/content/bladeandsoul/v2-over.png)
+}
+
+.wwc-bladeandsoul-section-3 .wwc-section-bg-back {
+    background-image: url(../img/content/bladeandsoul/bg3.jpg)
+}
+
+@media screen and (min-width: 1920px) {
+    .wwc-bladeandsoul-section-1 .wwc-cha {
+        left:100%;
+        margin-left: -900px
+    }
+}
+
+.wwc-guildwars2-section-1 .wwc-section-bg-back {
+    background-image: url(../img/content/guildwars2/bg1.jpg)
+}
+
+.wwc-guildwars2-section-1 .wwc-detail-wrapper {
+    -webkit-transform: translateY(480px);
+    -moz-transform: translateY(480px);
+    -ms-transform: translateY(480px);
+    -o-transform: translateY(480px);
+    transform: translateY(480px)
+}
+
+.wwc-guildwars2-section-2 .wwc-section-bg-back {
+    background-image: url(../img/content/guildwars2/bg2.jpg)
+}
+
+.wwc-guildwars2-section-2 .wwc-detail-wrapper {
+    -webkit-transform: translateY(430px);
+    -moz-transform: translateY(430px);
+    -ms-transform: translateY(430px);
+    -o-transform: translateY(430px);
+    transform: translateY(430px)
+}
+
+.wwc-guildwars2-section-3 .wwc-section-bg-back {
+    background-image: url(../img/content/guildwars2/bg3.jpg)
+}
+
+.wwc-guildwars2-section-3 .wwc-section-bg-back1 .wwc-back {
+    background-image: url(../img/content/guildwars2/bg3.jpg)
+}
+
+.wwc-guildwars2-section-3 .wwc-section-bg-front1 .wwc-back {
+    background-image: url(../img/content/guildwars2/obj3-2.png)
+}
+
+.wwc-guildwars2-section-3 .wwc-detail-wrapper {
+    -webkit-transform: translateY(480px);
+    -moz-transform: translateY(480px);
+    -ms-transform: translateY(480px);
+    -o-transform: translateY(480px);
+    transform: translateY(480px)
+}
+
+.wwc-guildwars2-section-3 .wwc-cha img {
+    width: 1920px;
+    display: block;
+    -webkit-transform: translateY(100px);
+    -moz-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    -o-transform: translateY(100px);
+    transform: translateY(100px)
+}
+
+@media screen and (max-width: 1440px) {
+    .wwc-guildwars2-section-1 .wwc-detail-wrapper {
+        -webkit-transform:translateY(360px);
+        -moz-transform: translateY(360px);
+        -ms-transform: translateY(360px);
+        -o-transform: translateY(360px);
+        transform: translateY(360px)
+    }
+
+    .wwc-guildwars2-section-3 .wwc-detail-wrapper {
+        -webkit-transform: translateY(480px);
+        -moz-transform: translateY(480px);
+        -ms-transform: translateY(480px);
+        -o-transform: translateY(480px);
+        transform: translateY(480px)
+    }
+}
+
+.wwc-lineagem-section-1 .wwc-section-bg-back {
+    background-image: url(../img/content/lineagem/bg1.jpg)
+}
+
+.wwc-lineagem-section-1 .wwc-detail-wrapper {
+    -webkit-transform: translateY(450px);
+    -moz-transform: translateY(450px);
+    -ms-transform: translateY(450px);
+    -o-transform: translateY(450px);
+    transform: translateY(450px)
+}
+
+.wwc-lineagem-section-2 .wwc-section-bg-back {
+    background-image: url(../img/content/lineagem/bg2.jpg)
+}
+
+.wwc-lineagem-section-2 .wwc-cha img {
+    width: 1920px;
+    display: block
+}
+
+.wwc-lineagem-section-2 .wwc-detail-wrapper {
+    -webkit-transform: translateY(480px);
+    -moz-transform: translateY(480px);
+    -ms-transform: translateY(480px);
+    -o-transform: translateY(480px);
+    transform: translateY(480px)
+}
+
+.wwc-lineagem-section-3 .wwc-section-bg-back {
+    background-image: url(../img/content/lineagem/bg3.jpg)
+}
+
+.wwc-lineagem-section-3 .wwc-detail-wrapper {
+    -webkit-transform: translateY(450px);
+    -moz-transform: translateY(450px);
+    -ms-transform: translateY(450px);
+    -o-transform: translateY(450px);
+    transform: translateY(450px)
+}
+
+.wwc-lineage2m-section-1 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage2m/bg1.jpg)
+}
+
+.wwc-lineage2m-section-1 .wwc-detail-wrapper {
+    -webkit-transform: translateY(450px);
+    -moz-transform: translateY(450px);
+    -ms-transform: translateY(450px);
+    -o-transform: translateY(450px);
+    transform: translateY(450px)
+}
+
+.wwc-lineage2m-section-2 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage2m/bg2.jpg)
+}
+
+.wwc-lineage2m-section-2 .wwc-cha img {
+    width: 1920px;
+    display: block
+}
+
+.wwc-lineage2m-section-2 .wwc-detail-wrapper {
+    -webkit-transform: translateY(480px);
+    -moz-transform: translateY(480px);
+    -ms-transform: translateY(480px);
+    -o-transform: translateY(480px);
+    transform: translateY(480px)
+}
+
+.wwc-lineage2m-section-3 .wwc-section-bg-back {
+    background-image: url(../img/content/lineage2m/bg3.jpg)
+}
+
+.wwc-lineage2m-section-3 .wwc-detail-wrapper {
+    -webkit-transform: translateY(530px);
+    -moz-transform: translateY(530px);
+    -ms-transform: translateY(530px);
+    -o-transform: translateY(530px);
+    transform: translateY(530px)
+}
+
+.wwc-lineage2m-section-3 .wwc-section-bg-video:after {
+    background-image: url(../img/content/lineage2m/v3-over.png)
+}
+
+.wwc-guildwars2-section-3 .wwc-cha {
+    left: 40%;
+    top: 2%;
+}
+
+.wwc-section-top .wwc-logo.tricksterm:before {
+    display: none;
+}
+
+.wwc-tricksterm-section-1 .wwc-section-bg-back {
+    background-image: url(../img/content/tricksterm/bg1.png)
+}
+
+.wwc-tricksterm-section-1 .wwc-cha {
+    margin-left: 100px;
+    margin-top: 40px
+}
+
+.wwc-tricksterm-section-1 .wwc-cha img {
+    display: block;
+    width: 1920px
+}
+
+.wwc-tricksterm-section-1 .wwc-detail-wrapper {
+    -webkit-transform: translateY(260px);
+    -moz-transform: translateY(260px);
+    -ms-transform: translateY(260px);
+    -o-transform: translateY(260px);
+    transform: translateY(260px)
+}
+
+.wwc-tricksterm-section-2 .wwc-section-bg-back {
+    background-image: url(../img/content/tricksterm/bg2.jpg)
+}
+
+.wwc-tricksterm-section-2 .wwc-detail-wrapper {
+    -webkit-transform: translateY(260px);
+    -moz-transform: translateY(260px);
+    -ms-transform: translateY(260px);
+    -o-transform: translateY(260px);
+    transform: translateY(260px)
+}
+
+.wwc-tricksterm-section-2 .wwc-section-bg-video:after {
+    background-image: url(../img/content/bladeandsoul/v2-over.png)
+}
+
+.wwc-tricksterm-section-3 .wwc-section-bg-back {
+    background-image: url(../img/content/tricksterm/bg3.png)
+}
+
+.wwc-tricksterm-section-3 .wwc-detail-wrapper {
+    -webkit-transform: translateY(260px);
+    -moz-transform: translateY(260px);
+    -ms-transform: translateY(260px);
+    -o-transform: translateY(260px);
+    transform: translateY(260px)
+}
+
+.wwc-tricksterm-section-3 .wwc-section-bg-back1 .wwc-back {
+    background-image: url(../img/content/tricksterm/bg3.jpg)
+}
+
+.wwc-tricksterm-section-3 .wwc-section-bg-front1 .wwc-back {
+    background-image: url(../img/content/tricksterm/obj3-2.png)
+}
+
+.wwc-tricksterm-section-3 .wwc-section-bg-back .wwc-section-bg-video:after {
+    background-image: url(../img/content/bladeandsoul/v2-over.png)
+}
+
+.wwc-bladeandsoul2-section-3 {
+    overflow: hidden;
+}
+
+.wwc-bladeandsoul2-section-3 .wwc-cha {
+    /* top: 50%; */
+    bottom: auto;
+    width: 100%;
+    /* margin-top: -10%; */
+}
+
+.wwc-bladeandsoul2-section-3 .wwc-cha img {
+    position: absolute;
+    left: 50%;
+    min-width: 100%;
+    width: auto;
+    min-height: 100%;
+    transform: translateX(-50%);
+}
+
+@media screen and (min-width: 1920px) {
+    .wwc-tricksterm-section-1 .wwc-cha {
+        left:100%;
+        margin-left: -900px
+    }
+}
+
+body.wwc-start .scroll_line {
+    opacity: 1;
+}
+
+.g_btn.wwc-btn span.line_l {
+    border-color: rgba(255,255,255,.7)
+}
+
+#wwcContent [data-page-id="throneandliberty"] .wwc-detail-block .wwc-detail-block-description p br {
+    display: block;
+}
+
+/* .wwc-intro-header .wwc-detail-block-description p br{
+	display: block !important;
+} */
+/* BATTLE CRUSH */
+.wwc-next-bg-inner.battlecrush {
+    background: 50% 0% no-repeat;
+    height: 1080px !important;
+}
+
+.wwc-battlecrush-section-2 .wwc-section-bg-back {
+    background-image: url(../img/content/battlecrush/bg2.jpg)
+}
+
+.wwc-battlecrush-section-2 .wwc-section-bg-back1 .wwc-back {
+    background-image: url(../img/content/battlecrush/bg2.jpg)
+}
+
+.wwc-battlecrush-section-2 .wwc-section-bg-front1 .wwc-back {
+    background-image: url(../img/content/battlecrush/obj2-2.png)
+}
+
+.wwc-battlecrush-section-2 .wwc-section-bg-front2 .wwc-back {
+    background-image: url(../img/content/battlecrush/obj2-1.png)
+}
+
+.wwc-battlecrush-section-3 .wwc-section-bg-back {
+    background-image: url(../img/content/battlecrush/v3.jpg);
+}
+
+.wwc-hoyeon-section-1 .wwc-section-bg:after, .wwc-hoyeon-section-2 .wwc-section-bg:after, .wwc-hoyeon-section-3 .wwc-section-bg:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    background: rgba(0, 0, 0, 0.3);
+    content: '';
+}
+
+</style>
+
+<body>
+<div id="wrap">
+	<div id="guide-list">
+		<!-- page-body -->
+		<div class="page-body">
+			<!-- local-head -->
+			<div class="local-head blind">
+				<h2 class="local-subject">
+					<span class="local-name">scroll 1</span>
+				</h2>
+			</div>
+			<!-- //local-head -->
+			<!-- local-body -->
+			<div class="local-body">
+				<!-- section -->
+				<!-- <div class="wrap subNavi_whatWeCreate_bladeandsoul wrapper">
+
+					<main id="wwcMain" data-scrollbar="" tabindex="1" class="">
+						<div class="scroll-content">
+				
+						<div class="wwc-main">
+							<div id="wwcContent">
+								<div class="wwc-content active" data-page-id="bladeandsoul">
+								
+									<section class="wwc-section wwc-section-history wwc-bladeandsoul-history">
+				
+										<div class="wwc-history">
+											<div class="wwc-history-block" data-index="0">
+												<div class="wwc-history-txt">
+													<div class="wwc-grid">
+														<div class="wwc-col-6">
+															<div class="wwc-history-txt-inner">
+																<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																<hr class="wwc-vline">
+																<div class="wwc-history-info">
+																	<div class="wwc-date">
+																		<span class="wwc-year">2012</span>
+																		<span class="wwc-month">JUN</span>
+																	</div>
+				
+																	<h3 class="wwc-history-title">블레이드 &amp; 소울, 정식 출시</h3>
+																	<div class="wwc-descriptions wwc-history-descriptions">
+																		<p></p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class="wwc-history-progress"><span class="wwc-history-progress-bar"></span></div></div>
+											</div>
+											<div class="wwc-history-block" data-index="1">
+												<div class="wwc-history-txt">
+													<div class="wwc-grid">
+														<div class="wwc-col-6">
+															<div class="wwc-history-txt-inner">
+																<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																<hr class="wwc-vline">
+																<div class="wwc-history-info">
+																	<div class="wwc-date">
+																		<span class="wwc-year">2012</span>
+																		<span class="wwc-month">NOV</span>
+																	</div>
+				
+																	<h3 class="wwc-history-title">2012 대한민국 게임대상 수상</h3>
+																	<div class="wwc-descriptions wwc-history-descriptions">
+																		<p>
+																			대상 수상<br> 기술·창작상 게임그래픽 부문 수상<br> 기술·창작상 게임캐릭터 부문 수상<br> 기술·창작상 게임사운드 부문 수상
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class="wwc-history-progress"><span class="wwc-history-progress-bar"></span></div></div>
+											</div>
+											<div class="wwc-history-block" data-index="2">
+												<div class="wwc-history-txt">
+													<div class="wwc-grid">
+														<div class="wwc-col-6">
+															<div class="wwc-history-txt-inner">
+																<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																<hr class="wwc-vline">
+																<div class="wwc-history-info">
+																	<div class="wwc-date">
+																		<span class="wwc-year">2013</span>
+																		<span class="wwc-month">APR</span>
+																	</div>
+				
+																	<h3 class="wwc-history-title">WGGC 2013<br>'중국 10대 온라인 게임 기대작'으로 선정</h3>
+																	<div class="wwc-descriptions wwc-history-descriptions">
+																		<p>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class="wwc-history-progress"><span class="wwc-history-progress-bar"></span></div></div>
+											</div>
+											<div class="wwc-history-block" data-index="3">
+												<div class="wwc-history-txt">
+													<div class="wwc-grid">
+														<div class="wwc-col-6">
+															<div class="wwc-history-txt-inner">
+																<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																<hr class="wwc-vline">
+																<div class="wwc-history-info">
+																	<div class="wwc-date">
+																		<span class="wwc-year">2013</span>
+																		<span class="wwc-month">NOV</span>
+																	</div>
+				
+																	<h3 class="wwc-history-title">첫 해외 시장 출시</h3>
+																	<div class="wwc-descriptions wwc-history-descriptions">
+																		<p>
+																			중국
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class="wwc-history-progress"><span class="wwc-history-progress-bar"></span></div></div>
+											</div>
+											<div class="wwc-history-block" data-index="4">
+												<div class="wwc-history-txt">
+													<div class="wwc-grid">
+														<div class="wwc-col-6">
+															<div class="wwc-history-txt-inner">
+																<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																<hr class="wwc-vline">
+																<div class="wwc-history-info">
+																	<div class="wwc-date">
+																		<span class="wwc-year">2015</span>
+																		<span class="wwc-month">MAY</span>
+																	</div>
+				
+																	<h3 class="wwc-history-title">블레이드 &amp; 소울 토너먼트 첫 개최</h3>
+																	<div class="wwc-descriptions wwc-history-descriptions">
+																		<p>
+																			블레이드 &amp; 소울 토너먼트 2015 KOREA
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class="wwc-history-progress"><span class="wwc-history-progress-bar"></span></div></div>
+											</div>
+											<div class="wwc-history-block" data-index="5">
+												<div class="wwc-history-txt">
+													<div class="wwc-grid">
+														<div class="wwc-col-6">
+															<div class="wwc-history-txt-inner">
+																<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																<hr class="wwc-vline">
+																<div class="wwc-history-info">
+																	<div class="wwc-date">
+																		<span class="wwc-year">2015</span>
+																		<span class="wwc-month">SEP</span>
+																	</div>
+				
+																	<h3 class="wwc-history-title">2015 G-Rank KOREA 수상</h3>
+																	<div class="wwc-descriptions wwc-history-descriptions">
+																		<p>
+																			본상 PC(온라인) 작품성 부문 수상<br> 특별상 마케팅 부문 수상
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class="wwc-history-progress"><span class="wwc-history-progress-bar"></span></div></div>
+											</div>
+											<div class="wwc-history-block" data-index="6">
+												<div class="wwc-history-txt">
+													<div class="wwc-grid">
+														<div class="wwc-col-6">
+															<div class="wwc-history-txt-inner">
+																<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																<hr class="wwc-vline">
+																<div class="wwc-history-info">
+																	<div class="wwc-date">
+																		<span class="wwc-year">2015</span>
+																		<span class="wwc-month">NOV</span>
+																	</div>
+				
+																	<h3 class="wwc-history-title">뮤지컬 '묵화마녀 진서연' 개막</h3>
+																	<div class="wwc-descriptions wwc-history-descriptions">
+																		<p>
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class="wwc-history-progress"><span class="wwc-history-progress-bar"></span></div></div>
+											</div>
+											<div class="wwc-history-block" data-index="7">
+												<div class="wwc-history-txt">
+													<div class="wwc-grid">
+														<div class="wwc-col-6">
+															<div class="wwc-history-txt-inner">
+																<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																<hr class="wwc-vline">
+																<div class="wwc-history-info">
+																	<div class="wwc-date">
+																		<span class="wwc-year">2015</span>
+																		<span class="wwc-month">NOV</span>
+																	</div>
+				
+																	<h3 class="wwc-history-title">블레이드 &amp; 소울 토너먼트<br>월드 챔피언십 첫 개최</h3>
+																	<div class="wwc-descriptions wwc-history-descriptions">
+																		<p>
+																			블레이드 &amp; 소울 토너먼트 2015 월드 챔피언십
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class="wwc-history-progress"><span class="wwc-history-progress-bar"></span></div></div>
+											</div>
+										</div>
+				
+										<div class="wwc-history-viewer">
+											<div class="wwc-history-block">
+												<div class="wwc-history-txt">
+													<div class="wwc-grid">
+														<div class="wwc-col-6">
+															<div class="wwc-history-txt-inner">
+																<div class="wwc-anim-group active">
+																	<div class="wwc-anim-obj wwc-anim-obj-delay-1">
+																		<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																	</div>
+																	<div class="wwc-anim-obj wwc-anim-height wwc-anim-obj-delay-3">
+																		<hr class="wwc-vline">
+																	</div>
+																	<div class="wwc-history-info">
+																		<div class="wwc-date">
+																			<div class="wwc-anim-obj wwc-anim-obj-delay-4">
+																				<span class="wwc-year"></span>
+																			</div>
+																			<div class="wwc-anim-obj wwc-anim-obj-delay-5">
+																				<span class="wwc-month" ></span>
+																			</div>
+																		</div>
+				
+																		<div class="wwc-anim-obj wwc-anim-obj-delay-6">
+																			<h3 class="wwc-history-title" ></h3>
+																		</div>
+																		<div class="wwc-anim-obj wwc-anim-obj-delay-7">
+																			<div class="wwc-descriptions wwc-history-descriptions">
+																				<p></p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<div class="wwc-history-progress"><span class="wwc-history-progress-bar"></span></div></div>
+												<div class="wwc-history-bg">
+													<div class="wwc-history-bgs">
+														<div class="wwc-history-bg-item" data-status="active" data-index="0">
+															<div class="wwc-history-bg-inner"
+																style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/1.jpg);">
+															</div>
+														</div>
+														<div class="wwc-history-bg-item" data-index="1">
+															<div class="wwc-history-bg-inner"
+																style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/2.jpg);">
+															</div>
+														</div>
+														<div class="wwc-history-bg-item" data-index="2">
+															<div class="wwc-history-bg-inner"
+																style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/3.jpg);">
+															</div>
+														</div>
+														<div class="wwc-history-bg-item" data-index="3">
+															<div class="wwc-history-bg-inner"
+																style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/4.jpg);">
+															</div>
+														</div>
+														<div class="wwc-history-bg-item" data-index="4">
+															<div class="wwc-history-bg-inner"
+																style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/5.jpg);">
+															</div>
+														</div>
+														<div class="wwc-history-bg-item" data-index="5">
+															<div class="wwc-history-bg-inner"
+																style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/6.jpg);">
+															</div>
+														</div>
+														<div class="wwc-history-bg-item" data-index="6">
+															<div class="wwc-history-bg-inner"
+																style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/7.jpg);">
+															</div>
+														</div>
+														<div class="wwc-history-bg-item" data-index="7">
+															<div class="wwc-history-bg-inner"
+																style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/8.jpg);">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+				
+									</section>
+				
+								</div>
+							</div>
+						</div>
+				
+					</div>
+					</main>
+				</div> -->
+				<main id="wwcMain" data-scrollbar="" tabindex="1" class="">
+					<div class="scroll-content">
+			
+					<div class="wwc-main">
+						<div id="wwcContent">
+							<div class="wwc-content" data-page-id="bladeandsoul">		
+
+								<section class="wwc-section wwc-section-fullscreen wwc-bladeandsoul-section-3">
+
+									<div class="wwc-section-bg">
+										<div class="wwc-section-bg-inner" style="transform: translateY(1694.61px);">
+											<div class="wwc-section-bg-back">
+											</div>
+										</div>
+									</div>
+			
+			
+									<div class="wwc-grid">
+										<div class="wwc-col-6 wwc-col-offset-1">
+											<div class="wwc-detail-wrapper">
+												<div class="wwc-detail-block">
+			
+													<div class="wwc-anim-group active">
+														<div class="wwc-detail-block-title">
+															<h3><span class="wwc-anim-obj wwc-anim-obj-delay-5">게임에서 문화 콘텐츠로</span>
+																<span class="wwc-anim-obj wwc-anim-obj-delay-6">블소 IP의 무한한 확장</span></h3>
+														</div>
+														<div class="wwc-detail-block-description">
+															<p class="wwc-anim-obj wwc-anim-obj-delay-8">블레이드 &amp; 소울만의 독창적 스토리와 매력적인 캐릭터는<br> 다양한 문화 콘텐츠로의 확장을 돕는 원동력이 됐다.<br> 웹툰과 웹소설 형태의 서사 콘텐츠를 담은 사이트 '서고'와<br> 진서연을 주인공으로 한 뮤지컬 '묵화마녀 진서연',<br> 공식 e스포츠인 블소 토너먼트 월드 챔피언십까지<br> 블레이드 &amp; 소울의 문화적 실험은 계속되고 있다.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+			
+										</div>
+									</div>
+			
+								</section>
+								<section class="wwc-section wwc-section-history wwc-bladeandsoul-history">
+			
+									<div class="wwc-history" style="opacity: 0; visibility: hidden;">
+										<div class="wwc-history-block" data-index="0">
+											<div class="wwc-history-txt">
+												<div class="wwc-grid">
+													<div class="wwc-col-6 wwc-col-offset-1">
+														<div class="wwc-history-txt-inner">
+															<h2 class="wwc-title-blue-sm">HISTORY</h2>
+															<hr class="wwc-vline">
+															<div class="wwc-history-info">
+																<div class="wwc-date">
+																	<span class="wwc-year">2012</span>
+																	<span class="wwc-month">JUN</span>
+																</div>
+			
+																<h3 class="wwc-history-title">블레이드 &amp; 소울, 정식 출시</h3>
+																<div class="wwc-descriptions wwc-history-descriptions">
+																	<p></p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="wwc-history-progress"><span class="wwc-history-progress-bar" style="height: 62.5%;"></span></div></div>
+										</div>
+										<div class="wwc-history-block" data-index="1">
+											<div class="wwc-history-txt">
+												<div class="wwc-grid">
+													<div class="wwc-col-6 wwc-col-offset-1">
+														<div class="wwc-history-txt-inner">
+															<h2 class="wwc-title-blue-sm">HISTORY</h2>
+															<hr class="wwc-vline">
+															<div class="wwc-history-info">
+																<div class="wwc-date">
+																	<span class="wwc-year">2012</span>
+																	<span class="wwc-month">NOV</span>
+																</div>
+			
+																<h3 class="wwc-history-title">2012 대한민국 게임대상 수상</h3>
+																<div class="wwc-descriptions wwc-history-descriptions">
+																	<p>
+																		대상 수상<br> 기술·창작상 게임그래픽 부문 수상<br> 기술·창작상 게임캐릭터 부문 수상<br> 기술·창작상 게임사운드 부문 수상
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="wwc-history-progress"><span class="wwc-history-progress-bar" style="height: 62.5%;"></span></div></div>
+										</div>
+										<div class="wwc-history-block" data-index="2">
+											<div class="wwc-history-txt">
+												<div class="wwc-grid">
+													<div class="wwc-col-6 wwc-col-offset-1">
+														<div class="wwc-history-txt-inner">
+															<h2 class="wwc-title-blue-sm">HISTORY</h2>
+															<hr class="wwc-vline">
+															<div class="wwc-history-info">
+																<div class="wwc-date">
+																	<span class="wwc-year">2013</span>
+																	<span class="wwc-month">APR</span>
+																</div>
+			
+																<h3 class="wwc-history-title">WGGC 2013<br>'중국 10대 온라인 게임 기대작'으로 선정</h3>
+																<div class="wwc-descriptions wwc-history-descriptions">
+																	<p>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="wwc-history-progress"><span class="wwc-history-progress-bar" style="height: 62.5%;"></span></div></div>
+										</div>
+										<div class="wwc-history-block" data-index="3">
+											<div class="wwc-history-txt">
+												<div class="wwc-grid">
+													<div class="wwc-col-6 wwc-col-offset-1">
+														<div class="wwc-history-txt-inner">
+															<h2 class="wwc-title-blue-sm">HISTORY</h2>
+															<hr class="wwc-vline">
+															<div class="wwc-history-info">
+																<div class="wwc-date">
+																	<span class="wwc-year">2013</span>
+																	<span class="wwc-month">NOV</span>
+																</div>
+			
+																<h3 class="wwc-history-title">첫 해외 시장 출시</h3>
+																<div class="wwc-descriptions wwc-history-descriptions">
+																	<p>
+																		중국
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="wwc-history-progress"><span class="wwc-history-progress-bar" style="height: 62.5%;"></span></div></div>
+										</div>
+										<div class="wwc-history-block active" data-index="4">
+											<div class="wwc-history-txt">
+												<div class="wwc-grid">
+													<div class="wwc-col-6 wwc-col-offset-1">
+														<div class="wwc-history-txt-inner">
+															<h2 class="wwc-title-blue-sm">HISTORY</h2>
+															<hr class="wwc-vline">
+															<div class="wwc-history-info">
+																<div class="wwc-date">
+																	<span class="wwc-year">2015</span>
+																	<span class="wwc-month">MAY</span>
+																</div>
+			
+																<h3 class="wwc-history-title">블레이드 &amp; 소울 토너먼트 첫 개최</h3>
+																<div class="wwc-descriptions wwc-history-descriptions">
+																	<p>
+																		블레이드 &amp; 소울 토너먼트 2015 KOREA
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="wwc-history-progress"><span class="wwc-history-progress-bar" style="height: 62.5%;"></span></div></div>
+										</div>
+										<div class="wwc-history-block" data-index="5">
+											<div class="wwc-history-txt">
+												<div class="wwc-grid">
+													<div class="wwc-col-6 wwc-col-offset-1">
+														<div class="wwc-history-txt-inner">
+															<h2 class="wwc-title-blue-sm">HISTORY</h2>
+															<hr class="wwc-vline">
+															<div class="wwc-history-info">
+																<div class="wwc-date">
+																	<span class="wwc-year">2015</span>
+																	<span class="wwc-month">SEP</span>
+																</div>
+			
+																<h3 class="wwc-history-title">2015 G-Rank KOREA 수상</h3>
+																<div class="wwc-descriptions wwc-history-descriptions">
+																	<p>
+																		본상 PC(온라인) 작품성 부문 수상<br> 특별상 마케팅 부문 수상
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="wwc-history-progress"><span class="wwc-history-progress-bar" style="height: 62.5%;"></span></div></div>
+										</div>
+										<div class="wwc-history-block" data-index="6">
+											<div class="wwc-history-txt">
+												<div class="wwc-grid">
+													<div class="wwc-col-6 wwc-col-offset-1">
+														<div class="wwc-history-txt-inner">
+															<h2 class="wwc-title-blue-sm">HISTORY</h2>
+															<hr class="wwc-vline">
+															<div class="wwc-history-info">
+																<div class="wwc-date">
+																	<span class="wwc-year">2015</span>
+																	<span class="wwc-month">NOV</span>
+																</div>
+			
+																<h3 class="wwc-history-title">뮤지컬 '묵화마녀 진서연' 개막</h3>
+																<div class="wwc-descriptions wwc-history-descriptions">
+																	<p>
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="wwc-history-progress"><span class="wwc-history-progress-bar" style="height: 62.5%;"></span></div></div>
+										</div>
+										<div class="wwc-history-block" data-index="7">
+											<div class="wwc-history-txt">
+												<div class="wwc-grid">
+													<div class="wwc-col-6 wwc-col-offset-1">
+														<div class="wwc-history-txt-inner">
+															<h2 class="wwc-title-blue-sm">HISTORY</h2>
+															<hr class="wwc-vline">
+															<div class="wwc-history-info">
+																<div class="wwc-date">
+																	<span class="wwc-year">2015</span>
+																	<span class="wwc-month">NOV</span>
+																</div>
+			
+																<h3 class="wwc-history-title">블레이드 &amp; 소울 토너먼트<br>월드 챔피언십 첫 개최</h3>
+																<div class="wwc-descriptions wwc-history-descriptions">
+																	<p>
+																		블레이드 &amp; 소울 토너먼트 2015 월드 챔피언십
+																	</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="wwc-history-progress"><span class="wwc-history-progress-bar" style="height: 62.5%;"></span></div></div>
+										</div>
+									</div>
+			
+									<div class="wwc-history-viewer">
+										<div class="wwc-history-block">
+											<div class="wwc-history-txt">
+												<div class="wwc-grid">
+													<div class="wwc-col-6 wwc-col-offset-1">
+														<div class="wwc-history-txt-inner">
+															<div class="wwc-anim-group active">
+																<div class="wwc-anim-obj wwc-anim-obj-delay-1">
+																	<h2 class="wwc-title-blue-sm">HISTORY</h2>
+																</div>
+																<div class="wwc-anim-obj wwc-anim-height wwc-anim-obj-delay-3">
+																	<hr class="wwc-vline">
+																</div>
+																<div class="wwc-history-info">
+																	<div class="wwc-date">
+																		<div class="wwc-anim-obj wwc-anim-obj-delay-4">
+																			<span class="wwc-year">2015</span>
+																		</div>
+																		<div class="wwc-anim-obj wwc-anim-obj-delay-5">
+																			<span class="wwc-month" style="transform: translate(0px, 0px); opacity: 1;">MAY</span>
+																		</div>
+																	</div>
+			
+																	<div class="wwc-anim-obj wwc-anim-obj-delay-6">
+																		<h3 class="wwc-history-title" style="transform: translate(0px, 0px); opacity: 1;">블레이드 &amp; 소울 토너먼트 첫 개최</h3>
+																	</div>
+																	<div class="wwc-anim-obj wwc-anim-obj-delay-7">
+																		<div class="wwc-descriptions wwc-history-descriptions">
+																			<p style="transform: translate(0px, 0px); opacity: 1;">
+																		블레이드 &amp; 소울 토너먼트 2015 KOREA
+																	</p>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											<div class="wwc-history-progress"><span class="wwc-history-progress-bar" style="height: 62.5%;"></span></div></div>
+											<div class="wwc-history-bg">
+												<div class="wwc-history-bgs">
+													<div class="wwc-history-bg-item" data-index="0">
+														<div class="wwc-history-bg-inner"
+															style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/1.jpg);">
+														</div>
+													</div>
+													<div class="wwc-history-bg-item" data-index="1">
+														<div class="wwc-history-bg-inner"
+															style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/2.jpg);">
+														</div>
+													</div>
+													<div class="wwc-history-bg-item" data-index="2">
+														<div class="wwc-history-bg-inner"
+															style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/3.jpg);">
+														</div>
+													</div>
+													<div class="wwc-history-bg-item" data-index="3">
+														<div class="wwc-history-bg-inner"
+															style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/4.jpg);">
+														</div>
+													</div>
+													<div class="wwc-history-bg-item"data-index="4">
+														<div class="wwc-history-bg-inner"
+															style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/5.jpg);">
+														</div>
+													</div>
+													<div class="wwc-history-bg-item" data-index="5">
+														<div class="wwc-history-bg-inner"
+															style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/6.jpg);">
+														</div>
+													</div>
+													<div class="wwc-history-bg-item" data-index="6">
+														<div class="wwc-history-bg-inner"
+															style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/7.jpg);">
+														</div>
+													</div>
+													<div class="wwc-history-bg-item" data-index="7">
+														<div class="wwc-history-bg-inner"
+															style="background-image: url(https://kr.ncsoft.com/_resource/whatWeCreate/img/content/bladeandsoul/history/8.jpg);">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+			
+								</section>
+							</div>
+						</div>
+					</div>
+			
+				</div>
+					<div class="scrollbar-track scrollbar-track-x" style="display: none;">
+						<div class="scrollbar-thumb scrollbar-thumb-x" style="width: 1920px; transform: translate3d(0px, 0px, 0px);"></div>
+					</div>
+					<div class="scrollbar-track scrollbar-track-y" style="display: block;">
+						<div class="scrollbar-thumb scrollbar-thumb-y" style="height: 68.541px; transform: translate3d(0px, 653.086px, 0px);"></div>
+					</div>
+					<canvas class="overscroll-glow" style="display: none; pointer-events: none;"></canvas>
+				</main>
+				<!-- //section -->
+			</div>
+			<!-- //local-body -->
+		</div>
+		<!-- //page-body -->
+	</div>
+</div>
+
+<script>
+
+$(function(){
+    var $scrollArea = $('#wwcMain');  // 스크롤 감지 대상
+    var $wwcHistoryBlocks = $('.wwc-history-block');
+    var lastActiveIndex = -1;
+    var isAutoScrolling = false; // ✅ 자동 스크롤 방지 변수
+
+    function checkHistory() {
+        if (isAutoScrolling) return;  // ✅ 자동 스크롤 중이면 이벤트 실행 안 함
+
+        console.log("📌 checkHistory() 실행됨!");
+
+        var scrollTop = $scrollArea.scrollTop();
+        var windowHeight = $(window).height();
+        var triggerPoint = windowHeight * 0.7; // ✅ 블록이 70% 이상 덮였을 때만 변경
+
+        var closestIndex = -1;
+        var minDistance = Infinity;
+
+        $wwcHistoryBlocks.each(function(index) {
+            var blockTop = $(this).offset().top - scrollTop;
+            var blockHeight = $(this).outerHeight();
+            var blockBottom = blockTop + blockHeight;
+
+            // ✅ 블록이 70% 이상 덮였을 때만 다음 블록으로 변경
+            if (blockBottom < triggerPoint && blockBottom > -windowHeight * 0.3) {
+                if (Math.abs(blockBottom - triggerPoint) < minDistance) {
+                    minDistance = Math.abs(blockBottom - triggerPoint);
+                    closestIndex = index;
+                }
+            }
+        });
+
+        if (closestIndex !== lastActiveIndex && closestIndex !== -1) {
+            console.log(`✅ 새로운 활성화 블록: index ${closestIndex}`);
+
+            $wwcHistoryBlocks.removeClass('active');
+            $wwcHistoryBlocks.eq(closestIndex).addClass('active');
+
+            setHistory($wwcHistoryBlocks.eq(closestIndex));
+            lastActiveIndex = closestIndex;
+        }
+    }
+
+    // ✅ 자연스럽게 스크롤 이동 (부드러운 애니메이션 적용)
+    function smoothScrollTo(targetPosition, duration = 800) {
+        isAutoScrolling = true;
+        let start = $scrollArea.scrollTop();
+        let startTime = null;
+
+        function animationStep(timestamp) {
+            if (!startTime) startTime = timestamp;
+            let progress = timestamp - startTime;
+            let easeInOut = progress / duration;
+
+            let newPosition = start + (targetPosition - start) * easeInOut;
+            $scrollArea.scrollTop(newPosition);
+
+            if (progress < duration) {
+                requestAnimationFrame(animationStep);
+            } else {
+                isAutoScrolling = false;
+            }
+        }
+
+        requestAnimationFrame(animationStep);
+    }
+
+    window.setHistory = function(history) {
+        if (!history || history.length === 0) {
+            console.error("setHistory 오류: history 요소가 존재하지 않음");
+            return;
+        }
+
+        var $history = $(history);
+        var index = $history.attr('data-index');
+
+        console.log("✅ setHistory 실행됨! 현재 index:", index);
+
+        var year = $('.wwc-year', $history).text();
+        var month = $('.wwc-month', $history).text();
+        var title = $('.wwc-history-title', $history).text();
+        var descriptions = $('.wwc-history-descriptions p', $history).text();
+
+        $('.wwc-year', $('.wwc-history-viewer')).text(year);
+        $('.wwc-month', $('.wwc-history-viewer')).text(month);
+        $('.wwc-history-title', $('.wwc-history-viewer')).text(title);
+        $('.wwc-history-descriptions p', $('.wwc-history-viewer')).text(descriptions);
+
+        // ✅ 배경 업데이트
+        $('.wwc-history-bg-item').attr('data-status', 'next');
+        $('.wwc-history-bg-item[data-index="' + index + '"]').attr('data-status', 'active')
+            .prevAll().attr('data-status', 'prev');
+
+        // ✅ 블록 변경 시 자동 스크롤 방지
+        setTimeout(() => {
+            isAutoScrolling = false;
+        }, 500);
+    };
+
+    $scrollArea.on('scroll', function() {
+        checkHistory();
+    });
+
+    checkHistory();
+});
+
+</script>
+	
+
+
+</body>
