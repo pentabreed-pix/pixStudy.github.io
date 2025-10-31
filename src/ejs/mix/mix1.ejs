@@ -1,74 +1,213 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<%-include('../_templates/_guide.head.ejs', {
-	pageJavascript: ''
-}) %>
-</head>
-<body>
-<div id="wrap">
-	<div id="guide-list">
-		<!-- page-body -->
-		<div class="page-body">
-			<!-- local-head -->
-			<div class="local-head blind">
-				<h2 class="local-subject">
-					<span class="local-name">scroll 1</span>
-				</h2>
+	<head>
+		<%-include('../_templates/_guide.head.ejs', {
+			pageJavascript: ''
+		}) %>
+		<!-- Swiper JS -->
+		<script src="../../assets/js/common-ui.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet">
+		
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="skip">
+				<span class="blind">skip navigation</span>
+				<ul>
+						<li><a href="#pageNavi">메뉴 바로가기</a></li>
+						<li><a href="#main">본문 바로가기</a></li>
+						<li><a href="#footer">하단 정보(링크) 바로가기</a></li>
+				</ul>
 			</div>
-			<!-- //local-head -->
-			<!-- local-body -->
-			<div class="local-body scroll">
-				<!-- section -->
-				<section class="section story-01">
-					<div class="section-wrap">
-						<div class="section-head">MIX - Basic 01</div>
-						<div class="section-body">
-							<div class="data-list logo">
-								<div class="data-item bg">
-									<svg width="auto" height="auto" viewBox="0 0 1392 708" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<g opacity="0.16">
-											<mask id="mask0_3111_6469" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1392" height="708">
-												<path d="M1229.08 0H24C10.7452 0 0 10.7452 0 24V527.958C0 545.993 7.16426 563.289 19.9167 576.042L131.958 688.083C144.711 700.836 162.007 708 180.041 708H1367.25C1380.5 708 1391.25 697.255 1391.25 684V284.25C1391.25 270.995 1380.5 260.25 1367.25 260.25H538.905C532.561 260.25 526.475 262.761 521.978 267.235L487.824 301.213C483.296 305.717 480.75 311.841 480.75 318.228V369.25V425.25C480.75 438.505 491.495 449.25 504.75 449.25H715.985C722.394 449.25 728.536 446.687 733.044 442.131L766.456 408.369C770.964 403.813 777.106 401.25 783.515 401.25H1179C1192.25 401.25 1203 411.995 1203 425.25V449.25V495C1203 508.255 1192.25 519 1179 519H269.816C263.451 519 257.346 516.471 252.846 511.971L195.279 454.404C190.779 449.904 188.25 443.799 188.25 437.434V213C188.25 199.745 198.995 189 212.25 189H1368C1381.25 189 1392 178.255 1392 165V162.439C1392 156.06 1389.46 149.943 1384.94 145.44L1246.02 7.00025C1241.53 2.51723 1235.43 0 1229.08 0Z" fill="#6B727E"/>
-											</mask>
-											<g mask="url(#mask0_3111_6469)">
-												<rect x="-3" width="1397" height="759" fill="#6B727E"/>
-											</g>
-										</g>
-									</svg>
+
+			<!-- page-head -->
+			<div class="page-head">
+				<div class="page-head-wrap">
+					<h1 class="page-head-subject">
+						<a href="#" class="page-head-name">Greencar</a>
+					</h1>
+					<div class="page-head-nav">
+						<ul class="gnb-list">
+							<li class="gnb-item">
+								<a href="#" class="gnb-name">그린카</a>
+								<div class="lnb">
+									<div class="lnb-display">
+										<em class="lnb-subject">그린카</em>
+										<ul class="lnb-list">
+											<li class="lnb-item"><a href="#" class="lnb-name">회사소개</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">CEO 메시지</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">연혁</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">CI / BI</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">ESG</a></li>
+										</ul>
+									</div>
 								</div>
-								<div class="data-item val">
-									<svg width="auto" height="auto" viewBox="0 0 1392 708" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<g opacity="0.16">
-											<mask id="mask0_3111_6469" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1392" height="708">
-												<path d="M1229.08 0H24C10.7452 0 0 10.7452 0 24V527.958C0 545.993 7.16426 563.289 19.9167 576.042L131.958 688.083C144.711 700.836 162.007 708 180.041 708H1367.25C1380.5 708 1391.25 697.255 1391.25 684V284.25C1391.25 270.995 1380.5 260.25 1367.25 260.25H538.905C532.561 260.25 526.475 262.761 521.978 267.235L487.824 301.213C483.296 305.717 480.75 311.841 480.75 318.228V369.25V425.25C480.75 438.505 491.495 449.25 504.75 449.25H715.985C722.394 449.25 728.536 446.687 733.044 442.131L766.456 408.369C770.964 403.813 777.106 401.25 783.515 401.25H1179C1192.25 401.25 1203 411.995 1203 425.25V449.25V495C1203 508.255 1192.25 519 1179 519H269.816C263.451 519 257.346 516.471 252.846 511.971L195.279 454.404C190.779 449.904 188.25 443.799 188.25 437.434V213C188.25 199.745 198.995 189 212.25 189H1368C1381.25 189 1392 178.255 1392 165V162.439C1392 156.06 1389.46 149.943 1384.94 145.44L1246.02 7.00025C1241.53 2.51723 1235.43 0 1229.08 0Z" fill="#6B727E"/>
-											</mask>
-											<g mask="url(#mask0_3111_6469)">
-												<rect x="-3" width="1397" height="759" fill="#6B727E"/>
-											</g>
-										</g>
-									</svg>
+							</li>
+							<li class="gnb-item">
+								<a href="#" class="gnb-name">서비스</a>
+								<div class="lnb">
+									<div class="lnb-display">
+										<em class="lnb-subject">서비스</em>
+										<ul class="lnb-list">
+											<li class="lnb-item"><a href="#" class="lnb-name">G car</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">무버스</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">세차클링</a></li>
+										</ul>
+									</div>
 								</div>
-							</div>
-							<div class="data-list line">
-								<div class="data-item"></div>
-								<div class="data-item"></div>
-								<div class="data-item"></div>
-								<div class="data-item"></div>
-								<div class="data-item"></div>
-							</div>
+							</li>
+							<li class="gnb-item">
+								<a href="#" class="gnb-name">채용</a>
+								<div class="lnb">
+									<div class="lnb-display">
+										<em class="lnb-subject">채용</em>
+										<ul class="lnb-list">
+											<li class="lnb-item"><a href="#" class="lnb-name">지원하기</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">그린카 이야기</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">직무소개</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">합류여정</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">그린카다움</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li class="gnb-item">
+								<a href="#" class="gnb-name">뉴스</a>
+								<div class="lnb">
+									<div class="lnb-display">
+										<em class="lnb-subject">뉴스</em>
+										<ul class="lnb-list">
+											<li class="lnb-item"><a href="#" class="lnb-name">보도자료</a></li>
+											<li class="lnb-item"><a href="#" class="lnb-name">공지사항</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="page-head-aside">
+						<div class="page-control">
+							<button class="btn icon goto-page-navi">
+								<span class="btn-text blind">전체메뉴</span>
+							</button>
 						</div>
 					</div>
-				</section>
-				<!-- //section -->
 			</div>
-			<!-- //local-body -->
-		</div>
-		<!-- //page-body -->
-	</div>
-</div>
-<script type="text/javascript">
+			</div>
+			<!--// page-head -->
 
-</script>
-</body>
+			<!-- page-body -->
+			<div class="page-body">
+				<main id="main" class="page main">
+
+				</main>
+			</div>
+			<!--// page-body -->
+
+			<!-- page-footer -->
+			<footer class="page-footer">
+				<div class="page-footer-wrap">
+					<div class="page-footer-info">
+						<h2 class="page-footer-subject">
+							<em class="page-footer-name blind">Greencar</em>
+						</h2>
+
+						<nav class="page-footer-nav">
+							<ul class="data-list">
+								<li class="data-item">
+									<a href="#" class="data-name">회사소개</a>
+								</li>
+								<li class="data-item">
+									<a href="#" class="data-name">인재채용</a>
+								</li>
+								<li class="data-item">
+									<a href="#" class="data-name">위임이용약관</a>
+								</li>
+								<li class="data-item">
+										<a href="#" class="data-name"><strong>개인정보처리방침</strong></a>
+								</li>
+								<li class="data-item">
+									<a href="#" class="data-name">자동차대여약관</a>
+								</li>
+							</ul>
+							<ul class="data-list">
+								<li class="data-item">
+									<a href="#" class="data-name">위치기반 서비스 이용약관</a>
+								</li>
+								<li class="data-item">
+									<a href="#" class="data-name">위치정보 사업자 이용약관</a>
+								</li>
+								<li class="data-item">
+									<a href="#" class="data-name">영업정보처리기기 운영관리방침</a>
+								</li>
+								<li class="data-item">
+									<a href="#" class="data-name">제휴 개인정보 처리방침</a>
+								</li>
+							</ul>
+						</nav>
+
+						<address class="page-footer-info">
+							<ul class="data-list">
+								<li class="data-item">
+									<span class="data-name">(주) 그린카</span>
+								</li>
+								<li class="data-item">
+									<span class="data-name">(주) 서울특별시 강남구 테헤란로 70길 16, 6층(대치동)그린카</span>
+								</li>
+								<li class="data-item">
+									<span class="data-name">TEL 1899-1313</span>
+								</li>
+								<li class="data-item">
+									<span class="data-name">FAX 02-6499-2832</span>
+								</li>
+								<li class="data-item">
+									<span class="data-name">사업자등록번호 220-87-91595</span>
+								</li>
+								<li class="data-item">
+									<span class="data-name">통신판매업신고번호 제2011-서울강남-01456호</span>
+								</li>
+								<li class="data-item">
+									<span class="data-name">대표자: 강현빈</span>
+								</li>
+							</ul>
+						</address>
+					</div>
+					<div class="page-footer-aside">
+						<div class="dropdown-container">
+							<select id="select-beast" placeholder="Select a person..." autocomplete="off">
+								<option value="">Select a person...</option>
+								<option value="4">Thomas Edison</option>
+								<option value="1">Nikola</option>
+								<option value="3">Nikola Tesla</option>
+								<option value="5">Arnold Schwarzenegger</option>
+							</select>
+							<select id="select-beast2" placeholder="Select a person..." autocomplete="off">
+								<option value="">Select a person...</option>
+								<option value="4">Thomas Edison</option>
+								<option value="1">Nikola</option>
+								<option value="3">Nikola Tesla</option>
+								<option value="5">Arnold Schwarzenegger</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!--// page-footer -->
+		</div>
+		<script>
+			document.querySelectorAll('.dropdown-container select').forEach(select => {
+				new TomSelect(select, {
+					create: true,
+					sortField: {
+						field: "text",
+						direction: "asc"
+					},
+					controlInput: null,   // ✅ 커서 없앰(입력창 비활성화)
+  				searchField: []       // (선택) 클라이언트 검색도 비활성화
+				});
+			});
+		</script>
+	</body>
 </html>
