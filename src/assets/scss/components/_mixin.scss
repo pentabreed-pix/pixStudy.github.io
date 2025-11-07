@@ -1,16 +1,58 @@
-// IR
+@import 'components/variables';
+
+
+// Breakpoint 변수 정의
+$mobile-max: 1023px;
+//$tablet-min: 1024px;
+$tablet-max: 1199px;
+$laptop-max: 1440px;
+$desktop-max: 2560px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile-max}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$tablet-max}) {
+        @content;
+    }
+}
+
+@mixin web {
+    @media (max-width: #{$laptop-max}) {
+        @content;
+    }
+}
+// transition
+$transition1: 0.1s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition2: 0.2s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition3: 0.3s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition4: 0.4s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition5: 0.5s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition6: 0.6 cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition7: 0.7s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition8: 0.8s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition9: 0.9s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition10: 1s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition11: 1.1s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+$transition12: 1.2s cubic-bezier(0.29, 0.87, 0.57, 0.99);
+//$transition5: 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+// blind
 @mixin blind {
     display: block;
     position: absolute;
-    overflow: hidden;
-    visibility: hidden;
-    margin: -1px;
-    padding: 0;
     width: 1px;
     height: 1px;
-    line-height: 1px;
-    font-size: 1px;
+    padding: 0;
+    margin: -1px;
     border: 0;
+    font-size: 1px;
+    line-height: 1px;
+    overflow: hidden;
+    visibility: hidden;
     clip: rect(0 0 0 0);
     clip: rect(0, 0, 0, 0);
     pointer-events: none;
@@ -19,78 +61,76 @@
 // ellipsis
 @mixin ellipsis($line: 1) {
     @if $line ==1 {
-        text-overflow: ellipsis;
-        overflow: hidden;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
     }
 
     @else {
-        text-overflow: ellipsis;
         display: -webkit-box;
         overflow: hidden;
+        text-overflow: ellipsis;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: $line;
     }
 }
 
-// 반응형
-@mixin mobile2 {
-    @media (max-width:#{$mobile-large - 1}) {
-        @content;
-    }
-}
-
-@mixin mobile {
-    @media (max-width:#{$tablet - 1}) {
-        @content;
-    }
-}
-
-@mixin web2 {
-    @media (max-width:#{$web-small - 1}) {
-        @content;
-    }
-}
-
-@mixin web {
-    @media (min-width:#{$tablet}) {
-        @content;
-    }
-}
-
 // scroll
 @mixin scroll-x {
-    width: calc(100% + 3.6rem);
     max-width: unset;
     overflow: auto;
-    padding-bottom: 1.6rem;
-    padding-right: 1.8rem;
-    padding-left: 1.8rem;
-    margin-left: -1.8rem;
+
+    @include tablet {
+        width: calc(100% + 3.6rem);
+        padding-bottom: 1.2rem;
+        padding-right: 3.6rem;
+        margin-right: -3.6rem;
+    }
+
+    @include mobile {
+        width: calc(100% + 2.4rem);
+        padding-bottom: 1.2rem;
+        padding-right: 2.4rem;
+        margin-right: -2.4rem;
+    }
     &::-webkit-scrollbar {
-        height: 0.5rem;
+        height: 0.4rem;
     }
     &::-webkit-scrollbar-thumb {
         background-color: #D5D4D9;
         border-radius: 5rem;
     }
     &::-webkit-scrollbar-track {
-        margin-left: 1.8rem;
-        margin-right: 1.8rem;
         border-radius: 5rem;
+
+        @include tablet {
+            margin-right: 3.6rem;
+        }
+        @include mobile {
+            margin-right: 2.4rem;
+        }
     }
 }
 @mixin scroll-y {
-    // width: calc(100% - 1.8rem);
-    // padding-right: 1.8rem;
     overflow-x: hidden;
     overflow-y: auto;
+
     &::-webkit-scrollbar {
-        width: 0.5rem;
+        width: 0.4rem;
     }
+
     &::-webkit-scrollbar-thumb {
-        // height: calc(100% - 20px);
         background-color: #D5D4D9;
         border-radius: 5rem;
     }
 }
+
+// font info
+@mixin fontInfo($weight, $size, $color: custom-color(neutral,200)) {
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+
+

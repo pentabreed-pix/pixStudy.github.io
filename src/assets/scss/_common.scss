@@ -96,7 +96,7 @@ body {
                     flex-direction: column;
                     justify-content: center;
                     z-index: 99999;
-    
+
                     &:focus-within,
                     &:focus,
                     &:active {
@@ -118,13 +118,13 @@ body {
             width: 1.6rem;
             height: 1.6rem;
             content:'';
-            background-image: icon(arrow-down2, color(system,070));
+            // background-image: icon(arrow-down2, color(system,070));
             background-repeat: no-repeat;
             background-size: 1rem;
             background-position: center;
         }
     }
-    
+
     .no-result-wrap {
         padding: 16rem 0;
         text-align: center;

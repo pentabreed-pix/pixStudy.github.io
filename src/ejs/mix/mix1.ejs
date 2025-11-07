@@ -5,209 +5,499 @@
 			pageJavascript: ''
 		}) %>
 		<!-- Swiper JS -->
+		<script src="../../assets/js/lenis.min.js"></script>
 		<script src="../../assets/js/common-ui.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
 		<link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet">
-		
+		<style>
+			* {margin:0; padding:0;}
+
+			.section-wrap {position: relative;}
+			.section {font-size: 60px;}
+			.section-01,
+			.section-02 {width:100%; height: 100vh; position: sticky; top: 0;}
+
+			.section-03 {width:100%; height: 300vh; position: sticky; top: 0; padding:0 20px; box-sizing: border-box;}
+			.section-03 p {
+					font-size: 60px;
+					position: sticky;
+					top:0;
+					text-align: center;
+					width: 100%;
+					height: 100vh;
+					background-color: rgb(172, 36, 149);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+			}
+
+			.section-01 {background-color: red;}
+			.section-02 {background-color: orange;}
+			.section-03 {background-color: yellow;}
+			.section-04 {background-color: orange; height: auto;}
+	</style>
+
 	</head>
-	<body>
+	<body class="gcar">
 		<div id="wrap">
 			<div class="skip">
-				<span class="blind">skip navigation</span>
-				<ul>
-						<li><a href="#pageNavi">메뉴 바로가기</a></li>
-						<li><a href="#main">본문 바로가기</a></li>
-						<li><a href="#footer">하단 정보(링크) 바로가기</a></li>
-				</ul>
+					<span class="blind">skip navigation</span>
+					<ul>
+							<li><a href="#pageNavi">메뉴 바로가기</a></li>
+							<li><a href="#main">본문 바로가기</a></li>
+							<li><a href="#footer">하단 정보(링크) 바로가기</a></li>
+					</ul>
 			</div>
-
 			<!-- page-head -->
-			<div class="page-head">
-				<div class="page-head-wrap">
-					<h1 class="page-head-subject">
-						<a href="#" class="page-head-name">Greencar</a>
-					</h1>
-					<div class="page-head-nav">
-						<ul class="gnb-list">
-							<li class="gnb-item">
-								<a href="#" class="gnb-name">그린카</a>
-								<div class="lnb">
-									<div class="lnb-display">
-										<em class="lnb-subject">그린카</em>
-										<ul class="lnb-list">
-											<li class="lnb-item"><a href="#" class="lnb-name">회사소개</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">CEO 메시지</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">연혁</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">CI / BI</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">ESG</a></li>
-										</ul>
+			<div class="page-head transparent">
+					<div class="page-head-wrap">
+							<h1 class="page-head-subject">
+									<a href="#" class="page-head-name">GCAR</a>
+							</h1>
+							<div class="page-head-nav">
+									<ul class="gnb-list">
+											<li class="gnb-item has-2depth">
+													<a href="#" class="gnb-name" id="pageNavi">G car</a>
+													<div class="lnb">
+															<ul class="lnb-list">
+																	<li class="lnb-item"><a href="#" class="lnb-name">G car</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">G car Zone</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">G car Jeju</a></li>
+															</ul>
+													</div>
+											</li>
+											<li class="gnb-item has-2depth">
+													<a href="#" class="gnb-name">서비스</a>
+													<div class="lnb">
+															<ul class="lnb-list">
+																	<li class="lnb-item"><a href="#" class="lnb-name">G car 패스</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">G car 편도</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">G car 오다</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">G car M</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">KTX 묶음예약</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">G car Biz</a></li>
+															</ul>
+													</div>
+											</li>
+											<li class="gnb-item">
+													<a href="#" class="gnb-name">매거진</a>
+											</li>
+											<li class="gnb-item has-2depth">
+													<a href="#" class="gnb-name">혜택</a>
+													<div class="lnb">
+															<ul class="lnb-list">
+																	<li class="lnb-item"><a href="#" class="lnb-name">이벤트</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">쿠폰</a></li>
+															</ul>
+													</div>
+											</li>
+											<li class="gnb-item has-2depth">
+													<a href="#" class="gnb-name">파트너십</a>
+													<div class="lnb">
+															<ul class="lnb-list">
+																	<li class="lnb-item"><a href="#" class="lnb-name">도입문의</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">제휴문의</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">G car Zone 신청</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">공공 지원</a></li>
+															</ul>
+													</div>
+											</li>
+											<li class="gnb-item has-2depth">
+													<a href="#" class="gnb-name">고객센터</a>
+													<div class="lnb">
+															<ul class="lnb-list">
+																	<li class="lnb-item"><a href="#" class="lnb-name">혜택</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">자주묻는 질문</a></li>
+																	<li class="lnb-item"><a href="#" class="lnb-name">공지사항</a></li>
+															</ul>
+													</div>
+											</li>
+									</ul>
+							</div>
+							<div class="page-head-aside">
+									<div class="page-control">
+											<button class="goto-page-navi">
+													<span class="btn-text blind">전체메뉴</span>
+													<div></div>
+													<div></div>
+											</button>
 									</div>
-								</div>
-							</li>
-							<li class="gnb-item">
-								<a href="#" class="gnb-name">서비스</a>
-								<div class="lnb">
-									<div class="lnb-display">
-										<em class="lnb-subject">서비스</em>
-										<ul class="lnb-list">
-											<li class="lnb-item"><a href="#" class="lnb-name">G car</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">무버스</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">세차클링</a></li>
-										</ul>
+							</div>
+							<div class="page-head-sitemap">
+									<div class="page-head-sitemap-inner">
+											<div class="page-head-sitemap-wrap">
+													<div class="page-head-sitemap-util">
+															<em class="page-head-sitemap-subject"><em class="accent">G car</em>의 비즈니스를<br> 소개합니다.</em>
+															<div class="nav-list">
+																	<div class="nav-item"><a href="#" class="nav-link">(주)그린카</a></div>
+																	<div class="nav-item"><a href="#" class="nav-link">무버스</a></div>
+																	<div class="nav-item"><a href="#" class="nav-link">세차클링</a></div>
+															</div>
+															<div class="sns-list">
+																	<div class="sns-item insta"><a href="#" class="sns-link">인스타</a></div>
+																	<div class="sns-item blog"><a href="#" class="sns-link">네이버블로그</a></div>
+																	<div class="sns-item youtube"><a href="#" class="sns-link">유튜브</a></div>
+																	<div class="sns-item facebook"><a href="#" class="sns-link">페이스북</a></div>
+															</div>
+													</div>
+													<ul class="gnb-list">
+															<li class="gnb-item has-2depth">
+																	<a href="#" class="gnb-name">G car</a>
+																	<div class="lnb">
+																			<ul class="lnb-list">
+																					<li class="lnb-item"><a href="#" class="lnb-name">G car</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">G car Zone</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">G car Jeju</a></li>
+																			</ul>
+																	</div>
+															</li>
+															<li class="gnb-item has-2depth">
+																	<a href="#" class="gnb-name">서비스</a>
+																	<div class="lnb">
+																			<ul class="lnb-list">
+																					<li class="lnb-item"><a href="#" class="lnb-name">G car 패스</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">G car 편도</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">G car 오다</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">G car M</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">KTX 묶음예약</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">G car Biz</a></li>
+																			</ul>
+																	</div>
+															</li>
+															<li class="gnb-item">
+																	<a href="#" class="gnb-name">매거진</a>
+															</li>
+															<li class="gnb-item has-2depth">
+																	<a href="#" class="gnb-name">혜택</a>
+																	<div class="lnb">
+																			<ul class="lnb-list">
+																					<li class="lnb-item"><a href="#" class="lnb-name">이벤트</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">쿠폰</a></li>
+																			</ul>
+																	</div>
+															</li>
+															<li class="gnb-item has-2depth">
+																	<a href="#" class="gnb-name">파트너십</a>
+																	<div class="lnb">
+																			<ul class="lnb-list">
+																					<li class="lnb-item"><a href="#" class="lnb-name">도입문의</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">제휴문의</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">G car Zone 신청</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">공공 지원</a></li>
+																			</ul>
+																	</div>
+															</li>
+															<li class="gnb-item has-2depth">
+																	<a href="#" class="gnb-name">고객센터</a>
+																	<div class="lnb">
+																			<ul class="lnb-list">
+																					<li class="lnb-item"><a href="#" class="lnb-name">혜택</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">자주묻는 질문</a></li>
+																					<li class="lnb-item"><a href="#" class="lnb-name">공지사항</a></li>
+																			</ul>
+																	</div>
+															</li>
+													</ul>
+											</div>
 									</div>
-								</div>
-							</li>
-							<li class="gnb-item">
-								<a href="#" class="gnb-name">채용</a>
-								<div class="lnb">
-									<div class="lnb-display">
-										<em class="lnb-subject">채용</em>
-										<ul class="lnb-list">
-											<li class="lnb-item"><a href="#" class="lnb-name">지원하기</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">그린카 이야기</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">직무소개</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">합류여정</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">그린카다움</a></li>
-										</ul>
-									</div>
-								</div>
-							</li>
-							<li class="gnb-item">
-								<a href="#" class="gnb-name">뉴스</a>
-								<div class="lnb">
-									<div class="lnb-display">
-										<em class="lnb-subject">뉴스</em>
-										<ul class="lnb-list">
-											<li class="lnb-item"><a href="#" class="lnb-name">보도자료</a></li>
-											<li class="lnb-item"><a href="#" class="lnb-name">공지사항</a></li>
-										</ul>
-									</div>
-								</div>
-							</li>
-						</ul>
+							</div>
 					</div>
-					<div class="page-head-aside">
-						<div class="page-control">
-							<button class="btn icon goto-page-navi">
-								<span class="btn-text blind">전체메뉴</span>
-							</button>
-						</div>
-					</div>
-			</div>
 			</div>
 			<!--// page-head -->
 
 			<!-- page-body -->
 			<div class="page-body">
-				<main id="main" class="page main">
-
+        <main id="main" class="page main">
+					<div class="section-wrap">
+						<div class="section section-01">section-01</div>
+						<div class="section section-02">section-02</div>
+						<div class="section section-03">
+								<p>section-03<br>hahaha</p>
+						</div>
+					</div>
+					<div class="section section-04 auto-scroll">
+							section-04<br>
+							뽠온갸가 보록데잴미에게 잴가베의 입죠머박는다 즛퍄두뒤글이고 솨뎀도헤덩는데, 반렿 오탄까 낙종간이.
+							뜨드힌이를 져업말린 으죰을 쳠강엄긴다 요니입깈이던 돡니하는 절인은 룬휴타운아 러럼습니다.
+							으깅 녀리에서 으넌 버나가, 판바으 미릭쳰는 벼오온. 아햐안윔을 옥얻옷이 밍자에 아안사혐은 뎡르후톤반을 노머핳쇼에 손샌묜뺜은 운대깅재주으에.
+							보허누가 엥저는 알비고애룀 칠측도래눈이 뇨위골밍래겊다 나안옹다 아찬눌올 디으고며에 소수넌입다웅으뿐 변익미곤이 엡란에요.
+							보가슴으며 스로뭐다 거덩고 익므세면 줘와 디은로에서.
+					</div>
 				</main>
 			</div>
 			<!--// page-body -->
 
 			<!-- page-footer -->
-			<footer class="page-footer">
-				<div class="page-footer-wrap">
-					<div class="page-footer-info">
-						<h2 class="page-footer-subject">
-							<em class="page-footer-name blind">Greencar</em>
-						</h2>
-
-						<nav class="page-footer-nav">
-							<ul class="data-list">
-								<li class="data-item">
-									<a href="#" class="data-name">회사소개</a>
-								</li>
-								<li class="data-item">
-									<a href="#" class="data-name">인재채용</a>
-								</li>
-								<li class="data-item">
-									<a href="#" class="data-name">위임이용약관</a>
-								</li>
-								<li class="data-item">
-										<a href="#" class="data-name"><strong>개인정보처리방침</strong></a>
-								</li>
-								<li class="data-item">
-									<a href="#" class="data-name">자동차대여약관</a>
-								</li>
-							</ul>
-							<ul class="data-list">
-								<li class="data-item">
-									<a href="#" class="data-name">위치기반 서비스 이용약관</a>
-								</li>
-								<li class="data-item">
-									<a href="#" class="data-name">위치정보 사업자 이용약관</a>
-								</li>
-								<li class="data-item">
-									<a href="#" class="data-name">영업정보처리기기 운영관리방침</a>
-								</li>
-								<li class="data-item">
-									<a href="#" class="data-name">제휴 개인정보 처리방침</a>
-								</li>
-							</ul>
-						</nav>
-
-						<address class="page-footer-info">
-							<ul class="data-list">
-								<li class="data-item">
-									<span class="data-name">(주) 그린카</span>
-								</li>
-								<li class="data-item">
-									<span class="data-name">(주) 서울특별시 강남구 테헤란로 70길 16, 6층(대치동)그린카</span>
-								</li>
-								<li class="data-item">
-									<span class="data-name">TEL 1899-1313</span>
-								</li>
-								<li class="data-item">
-									<span class="data-name">FAX 02-6499-2832</span>
-								</li>
-								<li class="data-item">
-									<span class="data-name">사업자등록번호 220-87-91595</span>
-								</li>
-								<li class="data-item">
-									<span class="data-name">통신판매업신고번호 제2011-서울강남-01456호</span>
-								</li>
-								<li class="data-item">
-									<span class="data-name">대표자: 강현빈</span>
-								</li>
-							</ul>
-						</address>
-					</div>
-					<div class="page-footer-aside">
-						<div class="dropdown-container">
-							<select id="select-beast" placeholder="Select a person..." autocomplete="off">
-								<option value="">Select a person...</option>
-								<option value="4">Thomas Edison</option>
-								<option value="1">Nikola</option>
-								<option value="3">Nikola Tesla</option>
-								<option value="5">Arnold Schwarzenegger</option>
-							</select>
-							<select id="select-beast2" placeholder="Select a person..." autocomplete="off">
-								<option value="">Select a person...</option>
-								<option value="4">Thomas Edison</option>
-								<option value="1">Nikola</option>
-								<option value="3">Nikola Tesla</option>
-								<option value="5">Arnold Schwarzenegger</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</footer>
-			<!--// page-footer -->
+			<footer class="page-footer" id="footer">
+        <div class="page-footer-wrap">
+            <div class="page-footer-body">
+                <h2 class="page-footer-subject">
+                    <em class="page-footer-name blind">롯데렌터카 GCAR</em>
+                </h2>
+                <nav class="page-footer-nav">
+                    <ul class="data-list">
+                        <li class="data-item">
+                            <a href="#" class="data-name">회원이용약관</a>
+                        </li>
+                        <li class="data-item">
+                            <a href="#" class="data-name"><strong>개인정보처리방침</strong></a>
+                        </li>
+                        <li class="data-item">
+                            <a href="#" class="data-name">자동차대여약관</a>
+                        </li>
+                        <li class="data-item">
+                            <a href="#" class="data-name"><strong>위치기반 서비스 이용약관</strong></a>
+                        </li>
+                        <li class="data-item">
+                            <a href="#" class="data-name"><strong>위치정보 사업자 이용약관</strong></a>
+                        </li>
+                        <li class="data-item">
+                            <a href="#" class="data-name">영상정보처리기기 운영관리방침</a>
+                        </li>
+                        <li class="data-item">
+                            <a href="#" class="data-name"><strong>채용 개인정보 처리방침</strong></a>
+                        </li>
+                    </ul>
+                </nav>
+                <address class="page-footer-info">
+                    <ul class="data-list">
+                        <li class="data-item">
+                            <span class="data-name">(주) 그린카</span>
+                        </li>
+                        <li class="data-item">
+                            <span class="data-name">(주) 서울특별시 강남구 테헤란로 70길 16, 6층(대치동)그린카</span>
+                        </li>
+                        <li class="data-item">
+                            <span class="data-name">TEL 1899-1313</span>
+                        </li>
+                        <li class="data-item">
+                            <span class="data-name">FAX 02-6499-2832</span>
+                        </li>
+                        <li class="data-item">
+                            <span class="data-name">사업자등록번호 220-87-91595</span>
+                        </li>
+                        <li class="data-item">
+                            <span class="data-name">통신판매업신고번호 제2011-서울강남-01456호</span>
+                        </li>
+                        <li class="data-item">
+                            <span class="data-name">대표자: 강현빈</span>
+                        </li>
+                    </ul>
+                </address>
+            </div>
+            <div class="page-footer-aside">
+                <div class="form select family-site">
+                    <select id="familySite" class="form-elem" autocomplete="off">
+                        <option value="">FAMILY SITE</option>
+                        <option value="1">롯데렌터카G car</option>
+                        <option value="2">그린카</option>
+                        <option value="3">롯데렌탈</option>
+                        <option value="4">롯데렌터카</option>
+                        <option value="5">롯데오토리스</option>
+                        <option value="6">롯데오토케어</option>
+                        <option value="7">롯데오토옥션</option>
+                    </select>
+                </div>
+                <div class="sns-list">
+                    <div class="sns-item insta"><a href="#" class="sns-link">인스타</a></div>
+                    <div class="sns-item blog"><a href="#" class="sns-link">네이버블로그</a></div>
+                    <div class="sns-item youtube"><a href="#" class="sns-link">유튜브</a></div>
+                    <div class="sns-item facebook"><a href="#" class="sns-link">페이스북</a></div>
+                </div>
+                <div class="page-footer-util">
+                    <div class="data-list">
+                        <div class="data-item">
+                            <img src="/images/common/page-foot-logo-ismsp.svg" alt="정보보호 및 개인정보보호 관리체계 인증">
+                        </div>
+                        <div class="data-item">
+                            <img src="/images/common/page-foot-logo-incheon.svg" alt="인천광역시">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--// page-footer -->
 		</div>
 		<script>
-			document.querySelectorAll('.dropdown-container select').forEach(select => {
-				new TomSelect(select, {
-					create: true,
-					sortField: {
-						field: "text",
-						direction: "asc"
-					},
-					controlInput: null,   // ✅ 커서 없앰(입력창 비활성화)
-  				searchField: []       // (선택) 클라이언트 검색도 비활성화
-				});
+			window.addEventListener('load', () => {
+					frontCommon.Html.reset();
+					mainAnimation();
+
+					function mainAnimation() {
+						const CONFIG = {
+								SECTION_03_EXIT_THRESHOLD: 0.2,
+								DEBUG: true,
+						};
+
+						const log = (...args) => CONFIG.DEBUG && console.log(...args);
+						const snapSections = document.querySelectorAll('.section-01, .section-02, .section-03');
+						const section03 = snapSections[2];
+
+						// 섹션 위치 계산
+						const getSectionPositions = () => {
+								let cumulativeHeight = 0;
+								const positions = [];
+
+								snapSections.forEach((section, i) => {
+										positions.push(cumulativeHeight);
+										cumulativeHeight += section.offsetHeight;
+										log(`📏 Section-${i + 1} position: ${positions[i]}px, height: ${section.offsetHeight}px`);
+								});
+
+								return positions;
+						};
+
+						let sectionPositions = getSectionPositions();
+
+						let isSnapping = false;
+						let currentSectionIndex = 0;
+						let wheelCooldown = false;
+
+						// 현재 섹션 인덱스 계산
+						const getCurrentSectionIndex = () => {
+								const scrollY = lenis.scroll;
+								for (let i = sectionPositions.length - 1; i >= 0; i--) {
+										if (scrollY >= sectionPositions[i] - 10) {
+												return i;
+										}
+								}
+								return 0;
+						};
+
+						// 스냅 실행
+						const snapTo = (targetIndex) => {
+								if (isSnapping) return;
+
+								isSnapping = true;
+								wheelCooldown = true;
+
+								const targetTop = sectionPositions[targetIndex];
+								log(`🎯 Snapping to Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
+
+								// ✅ 2. 스냅 중 Lenis 스크롤 비활성화 (중단 방지)
+								lenis.stop();
+
+								lenis.scrollTo(targetTop, {
+										duration: 1.2,
+										easing: (t) => 1 - Math.pow(1 - t, 3),
+										force: true,
+										lock: true,
+										onComplete: () => {
+												isSnapping = false;
+												currentSectionIndex = targetIndex;
+												lenis.start(); // ✅ 스냅 완료 후 Lenis 재활성화
+												log(`✅ Snap complete - now at Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
+
+												// 쿨다운 해제
+												setTimeout(() => {
+														wheelCooldown = false;
+														log('🔓 Wheel unlocked');
+												}, 600); // 쿨다운 시간 증가
+										}
+								});
+						};
+
+						// 스냅 처리 로직
+						const handleSnap = (currentIndex, direction) => {
+								const scrollY = lenis.scroll;
+								log(`📍 Current: Section-${currentIndex + 1}, Direction: ${direction > 0 ? 'DOWN ⬇' : 'UP ⬆'}, ScrollY: ${Math.round(scrollY)}`);
+
+								if (direction > 0) {
+										// 아래로 스크롤 ⬇
+										if (currentIndex === 0) {
+												snapTo(1);
+										} else if (currentIndex === 1) {
+												snapTo(2);
+										} else if (currentIndex === 2) {
+												// Section-03 내부는 자유 스크롤
+												const section03Bottom = sectionPositions[2] + section03.offsetHeight;
+
+												if (scrollY >= section03Bottom - window.innerHeight) {
+														log('🔓 Entering Section-04 - Free scroll enabled');
+												}
+										}
+								} else {
+										// 위로 스크롤 ⬆
+										const section03Top = sectionPositions[2];
+										const section03Bottom = section03Top + section03.offsetHeight;
+
+										// Section-04에서 Section-03으로 자유 스크롤
+										if (scrollY > section03Bottom) {
+												log('📍 In Section-04, scrolling up - Free scroll');
+												return;
+										}
+
+										if (currentIndex === 1) {
+												snapTo(0);
+										} else if (currentIndex === 2) {
+												const sectionTop = sectionPositions[2];
+												const sectionHeight = section03.offsetHeight;
+												const progress = scrollY - sectionTop;
+												const threshold = sectionHeight * CONFIG.SECTION_03_EXIT_THRESHOLD;
+
+												if (progress < threshold) {
+														log('🎯 Section-03 top 20% → Snap to Section-02');
+														snapTo(1);
+												} else {
+														log('📍 Section-03 middle/bottom - Free scroll');
+												}
+										}
+								}
+						};
+
+						// ✅ 3. 휠 이벤트 직접 감지 (세게 스크롤해도 감지)
+						window.addEventListener('wheel', (e) => {
+								// ✅ 스냅 중이거나 쿨다운 중이면 완전히 무시
+								if (isSnapping || wheelCooldown) {
+										e.preventDefault();
+										e.stopPropagation();
+										e.stopImmediatePropagation();
+										log('🚫 Wheel blocked - snap in progress');
+										return false;
+								}
+
+								const scrollY = lenis.scroll;
+								const sectionIndex = getCurrentSectionIndex();
+								const direction = e.deltaY > 0 ? 1 : -1;
+
+								log(`🖱 Wheel: deltaY=${e.deltaY.toFixed(1)}, direction=${direction > 0 ? 'DOWN' : 'UP'}, section=${sectionIndex + 1}`);
+
+								// Section-04 영역에서는 자유 스크롤
+								const section03Bottom = sectionPositions[2] + snapSections[2].offsetHeight;
+								if (scrollY > section03Bottom && direction > 0) {
+										return;
+								}
+
+								// ✅ 임계값 없이 바로 처리 (세게 스크롤해도 감지)
+								if (Math.abs(e.deltaY) > 1) {
+										e.preventDefault(); // 기본 스크롤 방지
+										handleSnap(sectionIndex, direction);
+								}
+						}, { passive: false, capture: true });
+
+						// 초기 섹션 설정
+						currentSectionIndex = getCurrentSectionIndex();
+						log(`🚀 Initial Section: ${currentSectionIndex + 1}`);
+
+						// 리사이즈 대응
+						let resizeTimer;
+						window.addEventListener('resize', () => {
+								clearTimeout(resizeTimer);
+								resizeTimer = setTimeout(() => {
+										sectionPositions = getSectionPositions();
+										const index = getCurrentSectionIndex();
+										if (index >= 0) {
+												lenis.scrollTo(sectionPositions[index], { immediate: true });
+												currentSectionIndex = index;
+										}
+								}, 150);
+						});
+
+						log('✅ Lenis Sticky Snap Scroll Activated');
+					}
 			});
-		</script>
+	</script>
 	</body>
 </html>
