@@ -6,498 +6,847 @@
 		}) %>
 		<!-- Swiper JS -->
 		<script src="../../assets/js/lenis.min.js"></script>
-		<script src="../../assets/js/common-ui.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
-		<link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet">
+		<!-- GSAP & ScrollTrigger -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 		<style>
 			* {margin:0; padding:0;}
 
-			.section-wrap {position: relative;}
+			.section-area {position: relative;}
 			.section {font-size: 60px;}
-			.section-01,
-			.section-02 {width:100%; height: 100vh; position: sticky; top: 0;}
-
-			.section-03 {width:100%; height: 300vh; position: sticky; top: 0; padding:0 20px; box-sizing: border-box;}
-			.section-03 p {
-					font-size: 60px;
+			.section-01{width:100%; height: 100vh; position: sticky; top: 0;}
+			.section-02 {width:100%; height: 250vh; position: sticky; top: 0;}
+			.section-02 .section-wrap {
+				position: sticky;
+				top:0;
+				text-align: center;
+				width: 100%;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.section-02 .section-wrap .sub-section {
+				width: 33.333%;
+				height: 100%;				
+				opacity: 0;
+				transition: all .2s linear;
+			}
+			@media (max-width: 1023px) {
+				.section-02 {
+					height: auto;
+        			position: relative;
+				}
+				.section-02 .section-wrap {
+					position: relative;					
+					display: block;
+					height: 300vh;
+				}
+				.section-02 .section-wrap .sub-section {
 					position: sticky;
-					top:0;
-					text-align: center;
+					top: 0;
+					display: block;
 					width: 100%;
 					height: 100vh;
-					background-color: rgb(172, 36, 149);
-					display: flex;
-					align-items: center;
-					justify-content: center;
+				}
+			}
+			.section-02 .section-wrap .sub-section:nth-child(1) {				
+				background-color: rgb(99, 194, 223);
+			}
+			.section-02 .section-wrap .sub-section:nth-child(2) {				
+				background-color: rgb(14, 181, 231);
+			}
+			.section-02 .section-wrap .sub-section:nth-child(3) {		
+				background-color: rgb(0, 124, 161);
+			}
+			.section-02.active-01 .section-wrap .sub-section:nth-child(1) {
+				opacity: 1;
+			}
+			.section-02.active-01.active-02 .section-wrap .sub-section:nth-child(2) {
+				opacity: 1;
+			}
+			.section-02.active-01.active-02.active-03 .section-wrap .sub-section:nth-child(3) {
+				opacity: 1;
+			}
+			.section-03 {width:100%; height: 250vh; position: sticky; top: 0; padding:0 20px; box-sizing: border-box;}
+			.section-03 .section-wrap {
+				position: sticky;
+				top:0;
+				text-align: center;
+				width: 100%;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.section-03 .section-wrap .sub-section {
+				width: 100%;
+				height: 100%;			
+				transition: all .2s linear;
+			}
+
+			.section-03.active-01 .section-wrap .sub-section {
+				background-color: blue;
+			}
+			.section-03.active-01.active-02 .section-wrap .sub-section {
+				background-color: rgb(69, 0, 148);
+			}
+			.section-03.active-01.active-02.active-03 .section-wrap .sub-section {
+				background-color: rgb(116, 3, 97);
 			}
 
 			.section-01 {background-color: red;}
 			.section-02 {background-color: orange;}
 			.section-03 {background-color: yellow;}
-			.section-04 {background-color: orange; height: auto;}
+			.section-04 {background-color: rgb(16, 88, 1); height: auto;}
 	</style>
 
 	</head>
 	<body class="gcar">
 		<div id="wrap">
-			<div class="skip">
-					<span class="blind">skip navigation</span>
-					<ul>
-							<li><a href="#pageNavi">메뉴 바로가기</a></li>
-							<li><a href="#main">본문 바로가기</a></li>
-							<li><a href="#footer">하단 정보(링크) 바로가기</a></li>
-					</ul>
-			</div>
-			<!-- page-head -->
-			<div class="page-head transparent">
-					<div class="page-head-wrap">
-							<h1 class="page-head-subject">
-									<a href="#" class="page-head-name">GCAR</a>
-							</h1>
-							<div class="page-head-nav">
-									<ul class="gnb-list">
-											<li class="gnb-item has-2depth">
-													<a href="#" class="gnb-name" id="pageNavi">G car</a>
-													<div class="lnb">
-															<ul class="lnb-list">
-																	<li class="lnb-item"><a href="#" class="lnb-name">G car</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">G car Zone</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">G car Jeju</a></li>
-															</ul>
-													</div>
-											</li>
-											<li class="gnb-item has-2depth">
-													<a href="#" class="gnb-name">서비스</a>
-													<div class="lnb">
-															<ul class="lnb-list">
-																	<li class="lnb-item"><a href="#" class="lnb-name">G car 패스</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">G car 편도</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">G car 오다</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">G car M</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">KTX 묶음예약</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">G car Biz</a></li>
-															</ul>
-													</div>
-											</li>
-											<li class="gnb-item">
-													<a href="#" class="gnb-name">매거진</a>
-											</li>
-											<li class="gnb-item has-2depth">
-													<a href="#" class="gnb-name">혜택</a>
-													<div class="lnb">
-															<ul class="lnb-list">
-																	<li class="lnb-item"><a href="#" class="lnb-name">이벤트</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">쿠폰</a></li>
-															</ul>
-													</div>
-											</li>
-											<li class="gnb-item has-2depth">
-													<a href="#" class="gnb-name">파트너십</a>
-													<div class="lnb">
-															<ul class="lnb-list">
-																	<li class="lnb-item"><a href="#" class="lnb-name">도입문의</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">제휴문의</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">G car Zone 신청</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">공공 지원</a></li>
-															</ul>
-													</div>
-											</li>
-											<li class="gnb-item has-2depth">
-													<a href="#" class="gnb-name">고객센터</a>
-													<div class="lnb">
-															<ul class="lnb-list">
-																	<li class="lnb-item"><a href="#" class="lnb-name">혜택</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">자주묻는 질문</a></li>
-																	<li class="lnb-item"><a href="#" class="lnb-name">공지사항</a></li>
-															</ul>
-													</div>
-											</li>
-									</ul>
-							</div>
-							<div class="page-head-aside">
-									<div class="page-control">
-											<button class="goto-page-navi">
-													<span class="btn-text blind">전체메뉴</span>
-													<div></div>
-													<div></div>
-											</button>
-									</div>
-							</div>
-							<div class="page-head-sitemap">
-									<div class="page-head-sitemap-inner">
-											<div class="page-head-sitemap-wrap">
-													<div class="page-head-sitemap-util">
-															<em class="page-head-sitemap-subject"><em class="accent">G car</em>의 비즈니스를<br> 소개합니다.</em>
-															<div class="nav-list">
-																	<div class="nav-item"><a href="#" class="nav-link">(주)그린카</a></div>
-																	<div class="nav-item"><a href="#" class="nav-link">무버스</a></div>
-																	<div class="nav-item"><a href="#" class="nav-link">세차클링</a></div>
-															</div>
-															<div class="sns-list">
-																	<div class="sns-item insta"><a href="#" class="sns-link">인스타</a></div>
-																	<div class="sns-item blog"><a href="#" class="sns-link">네이버블로그</a></div>
-																	<div class="sns-item youtube"><a href="#" class="sns-link">유튜브</a></div>
-																	<div class="sns-item facebook"><a href="#" class="sns-link">페이스북</a></div>
-															</div>
-													</div>
-													<ul class="gnb-list">
-															<li class="gnb-item has-2depth">
-																	<a href="#" class="gnb-name">G car</a>
-																	<div class="lnb">
-																			<ul class="lnb-list">
-																					<li class="lnb-item"><a href="#" class="lnb-name">G car</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">G car Zone</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">G car Jeju</a></li>
-																			</ul>
-																	</div>
-															</li>
-															<li class="gnb-item has-2depth">
-																	<a href="#" class="gnb-name">서비스</a>
-																	<div class="lnb">
-																			<ul class="lnb-list">
-																					<li class="lnb-item"><a href="#" class="lnb-name">G car 패스</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">G car 편도</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">G car 오다</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">G car M</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">KTX 묶음예약</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">G car Biz</a></li>
-																			</ul>
-																	</div>
-															</li>
-															<li class="gnb-item">
-																	<a href="#" class="gnb-name">매거진</a>
-															</li>
-															<li class="gnb-item has-2depth">
-																	<a href="#" class="gnb-name">혜택</a>
-																	<div class="lnb">
-																			<ul class="lnb-list">
-																					<li class="lnb-item"><a href="#" class="lnb-name">이벤트</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">쿠폰</a></li>
-																			</ul>
-																	</div>
-															</li>
-															<li class="gnb-item has-2depth">
-																	<a href="#" class="gnb-name">파트너십</a>
-																	<div class="lnb">
-																			<ul class="lnb-list">
-																					<li class="lnb-item"><a href="#" class="lnb-name">도입문의</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">제휴문의</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">G car Zone 신청</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">공공 지원</a></li>
-																			</ul>
-																	</div>
-															</li>
-															<li class="gnb-item has-2depth">
-																	<a href="#" class="gnb-name">고객센터</a>
-																	<div class="lnb">
-																			<ul class="lnb-list">
-																					<li class="lnb-item"><a href="#" class="lnb-name">혜택</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">자주묻는 질문</a></li>
-																					<li class="lnb-item"><a href="#" class="lnb-name">공지사항</a></li>
-																			</ul>
-																	</div>
-															</li>
-													</ul>
-											</div>
-									</div>
-							</div>
-					</div>
-			</div>
-			<!--// page-head -->
-
 			<!-- page-body -->
 			<div class="page-body">
-        <main id="main" class="page main">
-					<div class="section-wrap">
+        		<main id="main" class="page main">
+					<div class="section-area">
 						<div class="section section-01">section-01</div>
-						<div class="section section-02">section-02</div>
+						<div class="section section-02">
+							<div class="section-wrap">
+								<div class="sub-section">
+									<article>section-02-01<br>hahaha1</article>
+								</div>
+								<div class="sub-section">
+									<article>section-02-02<br>hahaha2</article>
+								</div>
+								<div class="sub-section">
+									<article>section-02-03<br>hahaha3</article>
+								</div>
+							</div>	
+						</div>
 						<div class="section section-03">
-								<p>section-03<br>hahaha</p>
+							<div class="section-wrap">
+								<div class="sub-section bg">
+									<div class="bg">section-03-01<br>hahaha1</div>
+								</div>
+								<div class="sub-section">
+									<article>section-03-01<br>hahaha1</article>
+									<article>section-03-02<br>hahaha2</article>
+									<article>section-03-03<br>hahaha3</article>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="section section-04 auto-scroll">
-							section-04<br>
-							뽠온갸가 보록데잴미에게 잴가베의 입죠머박는다 즛퍄두뒤글이고 솨뎀도헤덩는데, 반렿 오탄까 낙종간이.
-							뜨드힌이를 져업말린 으죰을 쳠강엄긴다 요니입깈이던 돡니하는 절인은 룬휴타운아 러럼습니다.
-							으깅 녀리에서 으넌 버나가, 판바으 미릭쳰는 벼오온. 아햐안윔을 옥얻옷이 밍자에 아안사혐은 뎡르후톤반을 노머핳쇼에 손샌묜뺜은 운대깅재주으에.
-							보허누가 엥저는 알비고애룀 칠측도래눈이 뇨위골밍래겊다 나안옹다 아찬눌올 디으고며에 소수넌입다웅으뿐 변익미곤이 엡란에요.
-							보가슴으며 스로뭐다 거덩고 익므세면 줘와 디은로에서.
+						section-04<br>
+						뽠온갸가 보록데잴미에게 잴가베의 입죠머박는다 즛퍄두뒤글이고 솨뎀도헤덩는데, 반렿 오탄까 낙종간이.
+						뜨드힌이를 져업말린 으죰을 쳠강엄긴다 요니입깈이던 돡니하는 절인은 룬휴타운아 러럼습니다.
+						으깅 녀리에서 으넌 버나가, 판바으 미릭쳰는 벼오온. 아햐안윔을 옥얻옷이 밍자에 아안사혐은 뎡르후톤반을 노머핳쇼에 손샌묜뺜은 운대깅재주으에.
+						보허누가 엥저는 알비고애룀 칠측도래눈이 뇨위골밍래겊다 나안옹다 아찬눌올 디으고며에 소수넌입다웅으뿐 변익미곤이 엡란에요.
+						보가슴으며 스로뭐다 거덩고 익므세면 줘와 디은로에서.
 					</div>
 				</main>
 			</div>
 			<!--// page-body -->
-
-			<!-- page-footer -->
-			<footer class="page-footer" id="footer">
-        <div class="page-footer-wrap">
-            <div class="page-footer-body">
-                <h2 class="page-footer-subject">
-                    <em class="page-footer-name blind">롯데렌터카 GCAR</em>
-                </h2>
-                <nav class="page-footer-nav">
-                    <ul class="data-list">
-                        <li class="data-item">
-                            <a href="#" class="data-name">회원이용약관</a>
-                        </li>
-                        <li class="data-item">
-                            <a href="#" class="data-name"><strong>개인정보처리방침</strong></a>
-                        </li>
-                        <li class="data-item">
-                            <a href="#" class="data-name">자동차대여약관</a>
-                        </li>
-                        <li class="data-item">
-                            <a href="#" class="data-name"><strong>위치기반 서비스 이용약관</strong></a>
-                        </li>
-                        <li class="data-item">
-                            <a href="#" class="data-name"><strong>위치정보 사업자 이용약관</strong></a>
-                        </li>
-                        <li class="data-item">
-                            <a href="#" class="data-name">영상정보처리기기 운영관리방침</a>
-                        </li>
-                        <li class="data-item">
-                            <a href="#" class="data-name"><strong>채용 개인정보 처리방침</strong></a>
-                        </li>
-                    </ul>
-                </nav>
-                <address class="page-footer-info">
-                    <ul class="data-list">
-                        <li class="data-item">
-                            <span class="data-name">(주) 그린카</span>
-                        </li>
-                        <li class="data-item">
-                            <span class="data-name">(주) 서울특별시 강남구 테헤란로 70길 16, 6층(대치동)그린카</span>
-                        </li>
-                        <li class="data-item">
-                            <span class="data-name">TEL 1899-1313</span>
-                        </li>
-                        <li class="data-item">
-                            <span class="data-name">FAX 02-6499-2832</span>
-                        </li>
-                        <li class="data-item">
-                            <span class="data-name">사업자등록번호 220-87-91595</span>
-                        </li>
-                        <li class="data-item">
-                            <span class="data-name">통신판매업신고번호 제2011-서울강남-01456호</span>
-                        </li>
-                        <li class="data-item">
-                            <span class="data-name">대표자: 강현빈</span>
-                        </li>
-                    </ul>
-                </address>
-            </div>
-            <div class="page-footer-aside">
-                <div class="form select family-site">
-                    <select id="familySite" class="form-elem" autocomplete="off">
-                        <option value="">FAMILY SITE</option>
-                        <option value="1">롯데렌터카G car</option>
-                        <option value="2">그린카</option>
-                        <option value="3">롯데렌탈</option>
-                        <option value="4">롯데렌터카</option>
-                        <option value="5">롯데오토리스</option>
-                        <option value="6">롯데오토케어</option>
-                        <option value="7">롯데오토옥션</option>
-                    </select>
-                </div>
-                <div class="sns-list">
-                    <div class="sns-item insta"><a href="#" class="sns-link">인스타</a></div>
-                    <div class="sns-item blog"><a href="#" class="sns-link">네이버블로그</a></div>
-                    <div class="sns-item youtube"><a href="#" class="sns-link">유튜브</a></div>
-                    <div class="sns-item facebook"><a href="#" class="sns-link">페이스북</a></div>
-                </div>
-                <div class="page-footer-util">
-                    <div class="data-list">
-                        <div class="data-item">
-                            <img src="/images/common/page-foot-logo-ismsp.svg" alt="정보보호 및 개인정보보호 관리체계 인증">
-                        </div>
-                        <div class="data-item">
-                            <img src="/images/common/page-foot-logo-incheon.svg" alt="인천광역시">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--// page-footer -->
 		</div>
 		<script>
 			window.addEventListener('load', () => {
-					frontCommon.Html.reset();
-					mainAnimation();
+				// ✅ 브라우저 스크롤 복원 비활성화
+				if ('scrollRestoration' in history) {
+					history.scrollRestoration = 'manual';
+				}
 
-					function mainAnimation() {
-						const CONFIG = {
-								SECTION_03_EXIT_THRESHOLD: 0.2,
-								DEBUG: true,
-						};
+				let lenis = null;
+				let rafId = null;
+				let isRunning = false;
+				const lenisController = initLenis();
 
-						const log = (...args) => CONFIG.DEBUG && console.log(...args);
-						const snapSections = document.querySelectorAll('.section-01, .section-02, .section-03');
-						const section03 = snapSections[2];
+				function initLenis() {
 
-						// 섹션 위치 계산
-						const getSectionPositions = () => {
-								let cumulativeHeight = 0;
-								const positions = [];
+					function raf(time) {
+						if (lenis && isRunning) {
+							lenis.raf(time);
+							rafId = requestAnimationFrame(raf);
+						}
+					}
 
-								snapSections.forEach((section, i) => {
-										positions.push(cumulativeHeight);
-										cumulativeHeight += section.offsetHeight;
-										log(`📏 Section-${i + 1} position: ${positions[i]}px, height: ${section.offsetHeight}px`);
-								});
+					function createLenis() {
+						if (lenis) return;
 
-								return positions;
-						};
-
-						let sectionPositions = getSectionPositions();
-
-						let isSnapping = false;
-						let currentSectionIndex = 0;
-						let wheelCooldown = false;
-
-						// 현재 섹션 인덱스 계산
-						const getCurrentSectionIndex = () => {
-								const scrollY = lenis.scroll;
-								for (let i = sectionPositions.length - 1; i >= 0; i--) {
-										if (scrollY >= sectionPositions[i] - 10) {
-												return i;
-										}
-								}
-								return 0;
-						};
-
-						// 스냅 실행
-						const snapTo = (targetIndex) => {
-								if (isSnapping) return;
-
-								isSnapping = true;
-								wheelCooldown = true;
-
-								const targetTop = sectionPositions[targetIndex];
-								log(`🎯 Snapping to Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
-
-								// ✅ 2. 스냅 중 Lenis 스크롤 비활성화 (중단 방지)
-								lenis.stop();
-
-								lenis.scrollTo(targetTop, {
-										duration: 1.2,
-										easing: (t) => 1 - Math.pow(1 - t, 3),
-										force: true,
-										lock: true,
-										onComplete: () => {
-												isSnapping = false;
-												currentSectionIndex = targetIndex;
-												lenis.start(); // ✅ 스냅 완료 후 Lenis 재활성화
-												log(`✅ Snap complete - now at Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
-
-												// 쿨다운 해제
-												setTimeout(() => {
-														wheelCooldown = false;
-														log('🔓 Wheel unlocked');
-												}, 600); // 쿨다운 시간 증가
-										}
-								});
-						};
-
-						// 스냅 처리 로직
-						const handleSnap = (currentIndex, direction) => {
-								const scrollY = lenis.scroll;
-								log(`📍 Current: Section-${currentIndex + 1}, Direction: ${direction > 0 ? 'DOWN ⬇' : 'UP ⬆'}, ScrollY: ${Math.round(scrollY)}`);
-
-								if (direction > 0) {
-										// 아래로 스크롤 ⬇
-										if (currentIndex === 0) {
-												snapTo(1);
-										} else if (currentIndex === 1) {
-												snapTo(2);
-										} else if (currentIndex === 2) {
-												// Section-03 내부는 자유 스크롤
-												const section03Bottom = sectionPositions[2] + section03.offsetHeight;
-
-												if (scrollY >= section03Bottom - window.innerHeight) {
-														log('🔓 Entering Section-04 - Free scroll enabled');
-												}
-										}
-								} else {
-										// 위로 스크롤 ⬆
-										const section03Top = sectionPositions[2];
-										const section03Bottom = section03Top + section03.offsetHeight;
-
-										// Section-04에서 Section-03으로 자유 스크롤
-										if (scrollY > section03Bottom) {
-												log('📍 In Section-04, scrolling up - Free scroll');
-												return;
-										}
-
-										if (currentIndex === 1) {
-												snapTo(0);
-										} else if (currentIndex === 2) {
-												const sectionTop = sectionPositions[2];
-												const sectionHeight = section03.offsetHeight;
-												const progress = scrollY - sectionTop;
-												const threshold = sectionHeight * CONFIG.SECTION_03_EXIT_THRESHOLD;
-
-												if (progress < threshold) {
-														log('🎯 Section-03 top 20% → Snap to Section-02');
-														snapTo(1);
-												} else {
-														log('📍 Section-03 middle/bottom - Free scroll');
-												}
-										}
-								}
-						};
-
-						// ✅ 3. 휠 이벤트 직접 감지 (세게 스크롤해도 감지)
-						window.addEventListener('wheel', (e) => {
-								// ✅ 스냅 중이거나 쿨다운 중이면 완전히 무시
-								if (isSnapping || wheelCooldown) {
-										e.preventDefault();
-										e.stopPropagation();
-										e.stopImmediatePropagation();
-										log('🚫 Wheel blocked - snap in progress');
-										return false;
-								}
-
-								const scrollY = lenis.scroll;
-								const sectionIndex = getCurrentSectionIndex();
-								const direction = e.deltaY > 0 ? 1 : -1;
-
-								log(`🖱 Wheel: deltaY=${e.deltaY.toFixed(1)}, direction=${direction > 0 ? 'DOWN' : 'UP'}, section=${sectionIndex + 1}`);
-
-								// Section-04 영역에서는 자유 스크롤
-								const section03Bottom = sectionPositions[2] + snapSections[2].offsetHeight;
-								if (scrollY > section03Bottom && direction > 0) {
-										return;
-								}
-
-								// ✅ 임계값 없이 바로 처리 (세게 스크롤해도 감지)
-								if (Math.abs(e.deltaY) > 1) {
-										e.preventDefault(); // 기본 스크롤 방지
-										handleSnap(sectionIndex, direction);
-								}
-						}, { passive: false, capture: true });
-
-						// 초기 섹션 설정
-						currentSectionIndex = getCurrentSectionIndex();
-						log(`🚀 Initial Section: ${currentSectionIndex + 1}`);
-
-						// 리사이즈 대응
-						let resizeTimer;
-						window.addEventListener('resize', () => {
-								clearTimeout(resizeTimer);
-								resizeTimer = setTimeout(() => {
-										sectionPositions = getSectionPositions();
-										const index = getCurrentSectionIndex();
-										if (index >= 0) {
-												lenis.scrollTo(sectionPositions[index], { immediate: true });
-												currentSectionIndex = index;
-										}
-								}, 150);
+						lenis = new Lenis({
+							duration: 1.1,
+							easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+							smoothWheel: true,
+							smoothTouch: false,
 						});
 
-						log('✅ Lenis Sticky Snap Scroll Activated');
+						isRunning = true;
+						rafId = requestAnimationFrame(raf);
 					}
+
+					function destroyLenis() {
+						isRunning = false;
+
+						if (rafId) {
+							cancelAnimationFrame(rafId);
+							rafId = null;
+						}
+
+						if (lenis) {
+							lenis.destroy();
+							lenis = null;
+						}
+					}
+
+					// 초기 생성
+					createLenis();
+
+					return {
+						create: createLenis,
+						destroy: destroyLenis,
+						getInstance: () => lenis  // ✅ lenis 인스턴스 접근 메서드 추가
+					};
+				}
+
+				// ✅ requestAnimationFrame으로 브라우저 렌더링 후 실행
+				requestAnimationFrame(() => {
+					requestAnimationFrame(() => {
+						const lenisInstance = lenisController.getInstance();
+						if (lenisInstance) {
+							console.log('스크롤 0으로 이동');
+							lenisInstance.scrollTo(0, { immediate: true });
+						}
+						window.scrollTo(0, 0);
+					});
+				});
+
+				const BREAKPOINT = 1024;
+				let currentMode = null;
+				let cleanupFn = null;
+
+				let isInitialLoadLocked = true; // ✅ 초기 로드 잠금 상태
+
+				// ✅ 초기 로드 애니메이션 (2초 동안 스크롤 잠금)
+				function initLoadAnimation() {
+					console.log('🔒 Initial load - Scroll locked for 2 seconds');
+					
+					// ✅ lenisController를 통해 인스턴스 접근
+					const lenisInstance = lenisController.getInstance();
+					if (lenisInstance) {
+						lenisInstance.stop();
+					}
+					
+					// 2초 후 잠금 해제
+					setTimeout(() => {
+						isInitialLoadLocked = false;
+						const lenisInstance = lenisController.getInstance();
+						if (lenisInstance) {
+							lenisInstance.start();
+						}
+						console.log('🔓 Initial load complete - Scroll unlocked');
+					}, 2000);
+				}
+
+				// PC 애니메이션
+				function mainPcAnimation() {
+					const CONFIG = {
+						SECTION_02_EXIT_THRESHOLD: 0.25,
+						SECTION_03_EXIT_THRESHOLD: 0.25,
+						SECTION_02_SNAP_THRESHOLD: 0.7,
+						SNAP_DURATION: 1.2,
+						COOLDOWN_DURATION: 200,
+						DEBUG: true,
+					};
+
+					// ✅ 이벤트 리스너 옵션 상수화
+					const WHEEL_OPTIONS = { passive: false, capture: true };
+
+					const log = (...args) => CONFIG.DEBUG && console.log(...args);
+					
+					// ✅ ScrollTrigger 인스턴스들을 배열로 관리
+					const scrollTriggers = [];
+					
+					// DOM 요소
+					const sectionWrap = document.querySelector('.section-wrap');
+					const snapSections = document.querySelectorAll('.section-01, .section-02, .section-03');
+					const section02 = snapSections[1];
+					const section03 = snapSections[2];
+
+					// 상태 변수
+					let sectionPositions = [];
+					let isSnapping = false;
+					let currentSectionIndex = 0;
+					let wheelCooldown = false;
+					let resizeTimer = null;
+
+					// ✅ lenisController를 통해 lenis 인스턴스 가져오기
+					const lenisInstance = lenisController.getInstance();
+
+					// ✅ GSAP ScrollTrigger 설정 - Lenis와 연동
+					gsap.registerPlugin(ScrollTrigger);
+					
+					// Lenis 스크롤과 ScrollTrigger 동기화
+					lenisInstance.on('scroll', ScrollTrigger.update);
+					
+					gsap.ticker.add((time) => {
+						lenisInstance.raf(time * 1000);
+					});
+					
+					gsap.ticker.lagSmoothing(0);
+
+					// Section-02: active-01 (초기 진입)
+					scrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (-0.5 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (0 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section02.classList.add('active-01');
+								log('✨ Section-02: active-01 added');
+							},
+							onLeaveBack: () => {
+								section02.classList.remove('active-01', 'active-02', 'active-03');
+								log('🗑️ Section-02: all active classes removed');
+							},
+							//markers: CONFIG.DEBUG ? { startColor: "purple", endColor: "fuchsia", fontSize: "12px" } : false
+						})
+					);
+
+					// Section-02: active-02
+					scrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (0.3 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (0.4 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section02.classList.add('active-02');
+								log('✨ Section-02: active-02 added');
+							},
+							onLeaveBack: () => {
+								section02.classList.remove('active-02', 'active-03');
+								log('🗑️ Section-02: active-02, active-03 removed');
+							},
+							//markers: CONFIG.DEBUG ? { startColor: "purple", endColor: "fuchsia", fontSize: "12px" } : false
+						})
+					);
+
+					// Section-02: active-03
+					scrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (0.8 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (0.9 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section02.classList.add('active-03');
+								log('✨ Section-02: active-03 added');
+							},
+							onLeaveBack: () => {
+								section02.classList.remove('active-03');
+								log('🗑️ Section-02: active-03 removed');
+							},
+							//markers: CONFIG.DEBUG ? { startColor: "purple", endColor: "fuchsia", fontSize: "12px" } : false
+						})
+					);
+
+					// Section-03: active-01 (초기 진입)
+					scrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (2 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (2.5 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section03.classList.add('active-01');
+								log('✨ Section-03: active-01 added');
+							},
+							onLeaveBack: () => {
+								section03.classList.remove('active-01', 'active-02', 'active-03');
+								log('🗑️ Section-03: all active classes removed');
+							},
+							//markers: CONFIG.DEBUG ? { startColor: "purple", endColor: "fuchsia", fontSize: "12px" } : false
+						})
+					);
+
+					// Section-03: active-02
+					scrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (2.8 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (2.9 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section03.classList.add('active-02');
+								log('✨ Section-03: active-02 added');
+							},
+							onLeaveBack: () => {
+								section03.classList.remove('active-02', 'active-03');
+								log('🗑️ Section-03: active-02, active-03 removed');
+							},
+							//markers: CONFIG.DEBUG ? { startColor: "purple", endColor: "fuchsia", fontSize: "12px" } : false
+						})
+					);
+
+					// Section-03: active-03
+					scrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (3.4 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (3.5 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section03.classList.add('active-03');
+								log('✨ Section-03: active-03 added');
+							},
+							onLeaveBack: () => {
+								section03.classList.remove('active-03');
+								log('🗑️ Section-03: active-03 removed');
+							},
+							//markers: CONFIG.DEBUG ? { startColor: "purple", endColor: "fuchsia", fontSize: "12px" } : false
+						})
+					);
+
+					// 섹션 위치 계산
+					const getSectionPositions = () => {
+						let cumulativeHeight = 0;
+						const positions = [];
+
+						snapSections.forEach((section, i) => {
+							positions.push(cumulativeHeight);
+							cumulativeHeight += section.offsetHeight;
+							log(`📏 Section-${i + 1} position: ${positions[i]}px, height: ${section.offsetHeight}px`);
+						});
+
+						return positions;
+					};
+
+					// 현재 섹션 인덱스 계산
+					const getCurrentSectionIndex = () => {
+						const scrollY = lenisInstance.scroll;
+						for (let i = sectionPositions.length - 1; i >= 0; i--) {
+							if (scrollY >= sectionPositions[i] - 10) return i;
+						}
+						return 0;
+					};
+
+					// 스냅 실행
+					const snapTo = (targetIndex, toBottom = false) => {
+						if (isSnapping) return;
+
+						isSnapping = true;
+						wheelCooldown = true;
+
+						let targetTop = sectionPositions[targetIndex];
+						
+						if (toBottom && targetIndex === 1) {
+							targetTop = sectionPositions[1] + section02.offsetHeight - window.innerHeight;
+							log(`🎯 Snapping to Section-02 BOTTOM (${targetTop}px)`);
+						} else {
+							log(`🎯 Snapping to Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
+						}
+
+						lenisInstance.stop();
+
+						lenisInstance.scrollTo(targetTop, {
+							duration: CONFIG.SNAP_DURATION,
+							easing: (t) => 1 - Math.pow(1 - t, 3),
+							force: true,
+							lock: true,
+							onComplete: () => {
+								isSnapping = false;
+								currentSectionIndex = targetIndex;
+								lenisInstance.start();
+								log(`✅ Snap complete - now at Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
+
+								setTimeout(() => {
+									wheelCooldown = false;
+									log('🔓 Wheel unlocked');
+								}, CONFIG.COOLDOWN_DURATION);
+							}
+						});
+					};
+
+					// 아래 방향 스냅 처리
+					const handleDownScroll = (currentIndex, scrollY) => {
+						if (currentIndex === 0) {
+							snapTo(1);
+						} else if (currentIndex === 1) {
+							const scrollProgress = scrollY - sectionPositions[1];
+							// ✅ 실제 스크롤 가능한 범위: section 높이 - 뷰포트 높이
+							const maxScrollDistance = section02.offsetHeight - window.innerHeight;
+							const progressRatio = scrollProgress / maxScrollDistance;
+							
+							log(`📊 Section-02 progress: ${Math.round(progressRatio * 100)}%`);
+
+							if (progressRatio >= CONFIG.SECTION_02_SNAP_THRESHOLD) {
+								log('🎯 Section-02 → Snap to Section-03');
+								snapTo(2);
+							}
+						} else if (currentIndex === 2) {
+							const section03Bottom = sectionPositions[2] + section03.offsetHeight;
+							if (scrollY >= section03Bottom - window.innerHeight) {
+								log('🔓 Entering Section-04 - Free scroll enabled');
+							}
+						}
+					};
+
+					// 위 방향 스냅 처리
+					const handleUpScroll = (currentIndex, scrollY) => {
+						const section03Bottom = sectionPositions[2] + section03.offsetHeight;
+
+						if (scrollY > section03Bottom) {
+							log('📍 In Section-04, scrolling up - Free scroll');
+							return;
+						}
+
+						if (currentIndex === 0) return;
+
+						if (currentIndex === 1) {
+							const progress = scrollY - sectionPositions[1];
+							// ✅ 실제 스크롤 가능한 범위 기준으로 계산
+							const maxScrollDistance = section02.offsetHeight - window.innerHeight;
+							const progressRatio = progress / maxScrollDistance;
+							const threshold = maxScrollDistance * CONFIG.SECTION_02_EXIT_THRESHOLD;
+
+							// ✅ 콘솔로 현재 진행률 확인
+							log(`📊 Section-02 progress (UP): ${Math.round(progressRatio * 100)}% (${Math.round(progress)}px / ${Math.round(maxScrollDistance)}px)`);
+
+							if (progress < threshold) {
+								log('🎯 Section-02 top 25% → Snap to Section-01');
+								snapTo(0);
+							}
+						} else if (currentIndex === 2) {
+							const progress = scrollY - sectionPositions[2];
+							// ✅ 실제 스크롤 가능한 범위 기준으로 계산
+							const maxScrollDistance = section03.offsetHeight - window.innerHeight;
+							const progressRatio = progress / maxScrollDistance;
+							const threshold = maxScrollDistance * CONFIG.SECTION_03_EXIT_THRESHOLD;
+
+							// ✅ 콘솔로 현재 진행률 확인
+							log(`📊 Section-03 progress (UP): ${Math.round(progressRatio * 100)}% (${Math.round(progress)}px / ${Math.round(maxScrollDistance)}px)`);
+
+							if (progress < threshold) {
+								log('🎯 Section-03 top 30% → Snap to Section-02 BOTTOM');
+								snapTo(1, true);
+							}
+						}
+					};
+
+					// 스냅 처리 로직
+					const handleSnap = (currentIndex, direction) => {
+						const scrollY = lenisInstance.scroll;
+						log(`📍 Current: Section-${currentIndex + 1}, Direction: ${direction > 0 ? 'DOWN ⬇' : 'UP ⬆'}, ScrollY: ${Math.round(scrollY)}`);
+
+						if (direction > 0) {
+							handleDownScroll(currentIndex, scrollY);
+						} else {
+							handleUpScroll(currentIndex, scrollY);
+						}
+					};
+
+					// 휠 이벤트 감지
+					const handleWheel = (e) => {
+						// ✅ 초기 로드 잠금 상태면 휠 차단
+						if (isInitialLoadLocked) {
+							e.preventDefault();
+							e.stopPropagation();
+							e.stopImmediatePropagation();
+							log('🚫 Wheel blocked - initial load locked');
+							return false;
+						}
+
+						if (isSnapping || wheelCooldown) {
+							e.preventDefault();
+							e.stopPropagation();
+							e.stopImmediatePropagation();
+							log('🚫 Wheel blocked - snap in progress');
+							return false;
+						}
+
+						const scrollY = lenisInstance.scroll;
+						const sectionIndex = getCurrentSectionIndex();
+						const direction = e.deltaY > 0 ? 1 : -1;
+
+						log(`🖱 Wheel: deltaY=${e.deltaY.toFixed(1)}, direction=${direction > 0 ? 'DOWN' : 'UP'}, section=${sectionIndex + 1}`);
+
+						const section03Bottom = sectionPositions[2] + section03.offsetHeight;
+						if (scrollY > section03Bottom && direction > 0) return;
+
+						if (Math.abs(e.deltaY) > 1) {
+							e.preventDefault();
+							handleSnap(sectionIndex, direction);
+						}
+					};
+
+					// 리사이즈 처리 (PC 내부 리사이즈만 처리)
+					const handleResizeInternal = () => {
+						sectionPositions = getSectionPositions();
+						const index = getCurrentSectionIndex();
+						if (index >= 0) {
+							lenisInstance.scrollTo(sectionPositions[index], { immediate: true });
+							currentSectionIndex = index;
+						}
+						// ✅ ScrollTrigger 리프레시
+						ScrollTrigger.refresh();
+					};
+
+					// 리사이즈 이벤트 핸들러 (쓰로틀링)
+					const handleResizeThrottled = () => {
+						clearTimeout(resizeTimer);
+						resizeTimer = setTimeout(handleResizeInternal, 150);
+					};
+
+					// 초기화
+					sectionPositions = getSectionPositions();
+					currentSectionIndex = getCurrentSectionIndex();
+					log(`🚀 Initial Section: ${currentSectionIndex + 1}`);
+
+					// ✅ 이벤트 리스너 등록 (옵션 상수 사용)
+					window.addEventListener('wheel', handleWheel, WHEEL_OPTIONS);
+					window.addEventListener('resize', handleResizeThrottled);
+
+					log('✅ PC Lenis Sticky Snap Scroll Activated');
+
+					// ✅ cleanup 함수 반환 (동일한 옵션으로 제거)
+					return () => {
+						window.removeEventListener('wheel', handleWheel, WHEEL_OPTIONS);
+						window.removeEventListener('resize', handleResizeThrottled);
+						if (resizeTimer) {
+							clearTimeout(resizeTimer);
+							resizeTimer = null;
+						}
+						// ✅ PC 전용 ScrollTrigger만 제거
+						scrollTriggers.forEach(trigger => trigger.kill());
+						scrollTriggers.length = 0; // 배열 비우기
+						// ✅ 스냅 관련 상태 초기화
+						isSnapping = false;
+						wheelCooldown = false;
+						// ✅ Active 클래스 모두 제거
+						section02.classList.remove('active-01', 'active-02', 'active-03');
+						section03.classList.remove('active-01', 'active-02', 'active-03');
+						log('🧹 PC Animation Cleaned Up');
+					};
+				}
+
+				// 모바일 애니메이션
+				function mainMoAnimation() {
+					console.log('📱 Mobile Animation Initialized - Free Scroll Mode');
+					
+					// ✅ 모바일 전용 ScrollTrigger 배열 관리
+					const mobileScrollTriggers = [];
+					
+					const lenisInstance = lenisController.getInstance();
+					gsap.registerPlugin(ScrollTrigger);
+					
+					lenisInstance.on('scroll', ScrollTrigger.update);
+					gsap.ticker.add((time) => {
+						lenisInstance.raf(time * 1000);
+					});
+					gsap.ticker.lagSmoothing(0);
+
+					// 🎨 모바일 전용 애니메이션 여기에 작성					
+					const sectionWrap = document.querySelector('.section-wrap');
+					const snapSections = document.querySelectorAll('.section-01, .section-02, .section-03');
+					const section02 = snapSections[1];
+					const section03 = snapSections[2];
+
+					mobileScrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (-0.5 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (0 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section02.classList.add('active-01');
+								console.log('✨ Section-02: active-01 added');
+							},
+							onLeaveBack: () => {
+								section02.classList.remove('active-01', 'active-02', 'active-03');
+								console.log('🗑️ Section-02: all active classes removed');
+							},
+							//markers:true
+						})
+					);
+
+					mobileScrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (0.5 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (0.6 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section02.classList.add('active-02');
+							},
+							onLeaveBack: () => {
+								section02.classList.remove('active-02', 'active-03');
+							},
+							//markers:true
+						})
+					);
+
+					mobileScrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (1.5 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (1.6 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section02.classList.add('active-03');
+							},
+							onLeaveBack: () => {
+								section02.classList.remove('active-03');
+							},
+							//markers:true
+						})
+					);
+
+					// Section-03: active-01 (초기 진입)
+					mobileScrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (3 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (3.1 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section03.classList.add('active-01');
+								log('✨ Section-03: active-01 added');
+							},
+							onLeaveBack: () => {
+								section03.classList.remove('active-01', 'active-02', 'active-03');
+								log('🗑️ Section-03: all active classes removed');
+							},
+							//markers:true
+						})
+					);
+
+					// Section-03: active-02
+					mobileScrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (3.5 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (3.6 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section03.classList.add('active-02');
+								log('✨ Section-03: active-02 added');
+							},
+							onLeaveBack: () => {
+								section03.classList.remove('active-02', 'active-03');
+								log('🗑️ Section-03: active-02, active-03 removed');
+							},
+							//markers:true
+						})
+					);
+
+					// Section-03: active-03
+					mobileScrollTriggers.push(
+						ScrollTrigger.create({
+							trigger: sectionWrap,
+							start: () => {
+								return (5 * window.innerHeight) + 'px top';
+							},
+							end: () => {
+								return (5.5 * window.innerHeight) + 'px top';
+							},
+							onEnter: () => {
+								section03.classList.add('active-03');
+								log('✨ Section-03: active-03 added');
+							},
+							onLeaveBack: () => {
+								section03.classList.remove('active-03');
+								log('🗑️ Section-03: active-03 removed');
+							},
+							markers:true
+						})
+					);
+					
+					// ✅ cleanup 함수 반환
+					return () => {
+						// ✅ 모바일 전용 ScrollTrigger만 제거
+						mobileScrollTriggers.forEach(trigger => trigger.kill());
+						mobileScrollTriggers.length = 0;
+						console.log('🧹 Mobile Animation Cleaned Up');
+					};
+				}
+
+				// 현재 모드 확인
+				function getCurrentMode() {
+					return window.innerWidth >= BREAKPOINT ? 'pc' : 'mobile';
+				}
+
+				// 애니메이션 초기화
+				function initAnimation() {
+					const newMode = getCurrentMode();
+					
+					// 같은 모드면 재초기화하지 않음
+					if (currentMode === newMode) return;
+					
+					// ✅ 기존 애니메이션 완전히 정리
+					if (cleanupFn) {
+						cleanupFn();
+						cleanupFn = null;
+					}
+					
+					currentMode = newMode;
+					
+					if (currentMode === 'pc') {
+						console.log('💻 Switching to PC Mode');
+						cleanupFn = mainPcAnimation();
+					} else {
+						console.log('📱 Switching to Mobile Mode');
+						cleanupFn = mainMoAnimation();
+					}
+				}
+
+				// ✅ 모드 전환용 리사이즈 이벤트 (별도 관리)
+				let resizeModeTimer = null;
+				window.addEventListener('resize', () => {
+					clearTimeout(resizeModeTimer);
+					resizeModeTimer = setTimeout(() => {
+						initAnimation();
+					}, 200);
+				});
+
+				// ✅ 초기 로드 애니메이션 먼저 실행
+				initLoadAnimation();
+
+				// 초기 실행
+				initAnimation();
 			});
-	</script>
+		</script>	
 	</body>
 </html>

@@ -1,703 +1,458 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<%-include('../_templates/_guide.head.ejs', {
-	pageJavascript: ''
-}) %>
-<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>
+	<head>
+		<%-include('../_templates/_guide.head.ejs', {
+			pageJavascript: ''
+		}) %>
+		<!-- Swiper JS -->
+		<script src="../../assets/js/lenis.min.js"></script>
+		<script src="../../assets/js/common-ui.js"></script>
+		<style>
+			* {margin:0; padding:0;}
 
-<script>
-	const lenis = new Lenis()
+			.section-wrap {position: relative;}
+			.section {font-size: 60px;}
+			.section-01{width:100%; height: 100vh; position: sticky; top: 0;}
+			.section-02 {width:100%; height: 200vh; position: sticky; top: 0;}
+			.section-02 p {
+				font-size: 60px;
+				position: sticky;
+				top:0;
+				text-align: center;
+				width: 100%;
+				height: 100vh;
+				background-color: rgb(26, 187, 236);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.section-03 {width:100%; height: 300vh; position: sticky; top: 0; padding:0 20px; box-sizing: border-box;}
+			.section-03 p {
+					font-size: 60px;
+					position: sticky;
+					top:0;
+					text-align: center;
+					width: 100%;
+					height: 100vh;
+					background-color: rgb(172, 36, 149);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+			}
 
-	function raf(time) {
-		lenis.raf(time)
-		requestAnimationFrame(raf)
-	}
+			.section-01 {background-color: red;}
+			.section-02 {background-color: orange;}
+			.section-03 {background-color: yellow;}
+			.section-04 {background-color: orange; height: auto;}
+	</style>
 
-	requestAnimationFrame(raf)
-
-
-	$(document).ready(function(){
-		sectionAnimations_Case01('[data-section-animation="case-1"]');
-	});
-
-	let resizeTimeout;
-	window.addEventListener('resize', () => {
-		clearTimeout(resizeTimeout);
-		resizeTimeout = setTimeout(() => {
-			ScrollTrigger.refresh();
-		}, 1000);
-	});
-</script>
-</head>
-<body>
-<div id="wrap">
-	<div id="guide-list">
-		<!-- page-body -->
-		<div class="page-body">
-			<!-- local-head -->
-			<div class="local-head blind">
-				<h2 class="local-subject">
-					<span class="local-name">SEBANG</span>
-				</h2>
-			</div>
-			<!-- //local-head -->
-			<!-- local-body -->
-			<div class="local-body mix2">
-				<!-- section -->
-				<section class="section story-01" data-section-animation="case-1">
+	</head>
+	<body class="gcar">
+		<div id="wrap">
+			<!-- page-body -->
+			<div class="page-body">
+        		<main id="main" class="page main">
 					<div class="section-wrap">
-						<div class="section-body">
-							<div class="post-display">
-								<ul class="post-list">
-									<li class="post-item post-01">
-										<div class="post-wrap">
-											<img src="../assets/images/main/story-01-thumnail-a.jpg" alt=" ">
-										</div>
-									</li>
-									<li class="post-item post-02">
-										<div class="post-wrap">
-											<img src="../assets/images/main/story-01-thumnail-b.jpg" alt=" ">
-										</div>
-									</li>
-									<li class="post-item post-03">
-										<div class="post-wrap">
-											<img src="../assets/images/main/story-01-thumnail-c.jpg" alt=" ">
-										</div>
-									</li>
-									<li class="post-item post-04">
-										<div class="post-wrap">
-											<img src="../assets/images/main/story-01-thumnail-d.png" alt=" ">
-										</div>
-									</li>
-									<!-- <li class="post-item post-05">
-										<div class="post-wrap">
-											<div class="post-body">
-												<div class="video-list">
-													<div class="video-item">
-														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video>
-													</div>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="post-item post-06">
-										<div class="post-wrap">
-											<div class="post-body">
-												<div class="video-list">
-													<div class="video-item">
-														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
-													</div>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="post-item post-07">
-										<div class="post-wrap">
-											<div class="post-body">
-												<div class="video-list">
-													<div class="video-item">
-														<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-03.mp4" type="video/mp4"></video>
-													</div>
-												</div>
-											</div>
-										</div>
-									</li> -->
-									<li class="post-item post-08">
-										<div class="post-wrap">
-											<div class="post-body">
-												<div class="video-list swiper">
-													<div class="swiper-wrapper">
-														<div class="swiper-slide video-item video-00" style="background-color: red;">
-															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-bg.mp4" type="video/mp4"></video>
-														</div>
-														
-														<div class="swiper-slide video-item video-01" style="background-color: orange;">
-															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-01.mp4" type="video/mp4"></video>
-														</div>
-														<div class="swiper-slide video-item video-02" style="background-color: yellow;">
-															<video autoplay="" muted="" plays
-							
-							
-															오늘의 세상을 움직이는 일
-															
-															세방그룹inline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
-														</div>
-														<div class="swiper-slide video-item video-03" style="background-color: green;">
-															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-03.mp4" type="video/mp4"></video>
-														</div>
-														
-														<div class="swiper-slide video-item video-04" style="background-color: blue;">
-															<video autoplay="" muted="" playsinline="" loop=""><source src="../assets/movies/video-02.mp4" type="video/mp4"></video>
-														</div>
-													</div>
-												</div>
-												<div class="data-list">
-													<div class="data-item style-a">
-														<p class="data-text base">오늘의 세상을 움직이는 일</p>
-													</div>
-													<div class="data-item style-b">
-														<p class="data-text base">세방그룹이 지속가능한 내일로</p>
-														<p class="data-text clip-path">세방그룹이 지속가능한 내일로</p>
-													</div>
-													<div class="data-item style-b">
-														<p class="data-text base">만들어갑니다</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</li>									
-									<li class="post-item post-09">
-										<div class="post-wrap">
-												<div class="post-body">
-													<div class="data-display">
-														<div class="data-inner title">
-															<div class="data-list sub">
-																<div class="data-wrap">
-																	<div class="data-item"><span class="data-name">글로벌 물류 파트너</span></div>
-																	<div class="data-item"><span class="data-name">연축전지 NO.1</span></div>
-																	<div class="data-item"><span class="data-name">토탈 디지털 솔루션</span></div>
-																	<div class="data-item"><span class="data-name">세상을 위한 세방이의순재단의 노력</span></div>
-																</div>
-															</div>
-															<div class="data-list subject">
-																<div class="data-wrap">
-																	<div class="data-item"><span class="data-name"><em>물류</em> Logistics for Leading Global</span></div>
-																	<div class="data-item"><span class="data-name"><em>제조</em> Battery for Better Life</span></div>
-																	<div class="data-item"><span class="data-name"><em>IT</em> Solution for Digital Tranform</span></div>
-																	<div class="data-item"><span class="data-name"><em>CSR</em> Efforts for a world of Love, Sharing, Dreams</span></div>
-																</div>
-															</div>
-														</div>
-														<div class="data-inner navi">
-															<div class="navi-list">
-																<div class="navi-item current">
-																	<ul class="slide-list tens">
-																		<li class="slide-item">0</li>
-																		<li class="slide-item">1</li>
-																		<li class="slide-item">2</li>
-																		<li class="slide-item">3</li>
-																	</ul>
-																	<ul class="slide-list units">
-																		<li class="slide-item">0</li>
-																		<li class="slide-item">1</li>
-																		<li class="slide-item">2</li>
-																		<li class="slide-item">3</li>
-																	</ul>
-																</div>
-																<div class="navi-item">
-																	<ul class="bar-list">
-																		<li class="bar-item">01</li>
-																		<li class="bar-item">02</li>
-																		<li class="bar-item">03</li>
-																		<li class="bar-item">04</li>
-																	</ul>
-																</div>
-																<div class="navi-item">
-																	<div class="slide-list total">
-																		<div class="slide-item">04</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-										</div>
-									</li>
-								</ul>
-							</div>
+						<div class="section section-01">section-01</div>
+						<div class="section section-02">
+							<p>section-02<br>hahaha1</p>
+						</div>
+						<div class="section section-03">
+							<p>section-03<br>hahaha2</p>
 						</div>
 					</div>
-				</section>
-				<!-- //section -->
-				<section style="width:100%; height:2000px; background-color: brown;"></section>
+					<div class="section section-04 auto-scroll">
+							section-04<br>
+							뽠온갸가 보록데잴미에게 잴가베의 입죠머박는다 즛퍄두뒤글이고 솨뎀도헤덩는데, 반렿 오탄까 낙종간이.
+							뜨드힌이를 져업말린 으죰을 쳠강엄긴다 요니입깈이던 돡니하는 절인은 룬휴타운아 러럼습니다.
+							으깅 녀리에서 으넌 버나가, 판바으 미릭쳰는 벼오온. 아햐안윔을 옥얻옷이 밍자에 아안사혐은 뎡르후톤반을 노머핳쇼에 손샌묜뺜은 운대깅재주으에.
+							보허누가 엥저는 알비고애룀 칠측도래눈이 뇨위골밍래겊다 나안옹다 아찬눌올 디으고며에 소수넌입다웅으뿐 변익미곤이 엡란에요.
+							보가슴으며 스로뭐다 거덩고 익므세면 줘와 디은로에서.
+					</div>
+				</main>
 			</div>
-			<!-- //local-body -->
+			<!--// page-body -->
 		</div>
-		<!-- //page-body -->
-	</div>
-</div>
-<script type="text/javascript">
-	function sectionAnimations_Case01() {
+		<script>
+			window.addEventListener('load', () => {
+				mainAnimation();
 
-		let story_01 = $('.story-01');
-		let windowInnerHeight = $(window).innerHeight();
+				function mainAnimation() {
+						const CONFIG = {
+								SECTION_02_EXIT_THRESHOLD: 0.2, // Section-02 상단 20%에서 Section-01로 스냅
+								SECTION_03_EXIT_THRESHOLD: 0.2,
+								DEBUG: true,
+						};
 
-		// 화면에 노출
-		gsap.to($('.story-01 .post-display'), {
-			opacity: 1,
-			scale: 1,
-			duration: 1,
-			onComplete: function() {
-				$('.story-01').addClass('action-01');
-			}
-		});
+						const log = (...args) => CONFIG.DEBUG && console.log(...args);
+						const snapSections = document.querySelectorAll('.section-01, .section-02, .section-03');
+						const section02 = snapSections[1];
+						const section03 = snapSections[2];
 
-		let scrollTimeline = ScrollTrigger.create({
-			trigger: story_01,
-			start: 'top top',
-			//markers: true,
-			end: () => {
-					if (window.innerWidth >= 1024) {
-							return 14.5 * (windowInnerHeight / 1);
-					} else {
-							return 14.5 * (windowInnerHeight / 1);
+						// 섹션 위치 계산
+						const getSectionPositions = () => {
+								let cumulativeHeight = 0;
+								const positions = [];
+
+								snapSections.forEach((section, i) => {
+										positions.push(cumulativeHeight);
+										cumulativeHeight += section.offsetHeight;
+										log(`📏 Section-${i + 1} position: ${positions[i]}px, height: ${section.offsetHeight}px`);
+								});
+
+								return positions;
+						};
+
+						let sectionPositions = getSectionPositions();
+
+						let isSnapping = false;
+						let currentSectionIndex = 0;
+						let wheelCooldown = false;
+
+						// 현재 섹션 인덱스 계산
+						const getCurrentSectionIndex = () => {
+								const scrollY = lenis.scroll;
+								for (let i = sectionPositions.length - 1; i >= 0; i--) {
+										if (scrollY >= sectionPositions[i] - 10) {
+												return i;
+										}
+								}
+								return 0;
+						};
+
+						// 스냅 실행
+						const snapTo = (targetIndex, toBottom = false) => {
+								if (isSnapping) return;
+
+								isSnapping = true;
+								wheelCooldown = true;
+
+								let targetTop = sectionPositions[targetIndex];
+								
+								// Section-02로 스냅할 때 하단으로 이동 옵션
+								if (toBottom && targetIndex === 1) {
+										targetTop = sectionPositions[1] + section02.offsetHeight - window.innerHeight;
+										log(`🎯 Snapping to Section-02 BOTTOM (${targetTop}px)`);
+								} else {
+										log(`🎯 Snapping to Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
+								}
+
+								lenis.stop();
+
+								lenis.scrollTo(targetTop, {
+										duration: 1.2,
+										easing: (t) => 1 - Math.pow(1 - t, 3),
+										force: true,
+										lock: true,
+										onComplete: () => {
+												isSnapping = false;
+												currentSectionIndex = targetIndex;
+												lenis.start();
+												log(`✅ Snap complete - now at Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
+
+												setTimeout(() => {
+														wheelCooldown = false;
+														log('🔓 Wheel unlocked');
+												}, 600);
+										}
+								});
+						};
+
+						// 스냅 처리 로직
+						const handleSnap = (currentIndex, direction) => {
+								const scrollY = lenis.scroll;
+								log(`📍 Current: Section-${currentIndex + 1}, Direction: ${direction > 0 ? 'DOWN ⬇' : 'UP ⬆'}, ScrollY: ${Math.round(scrollY)}`);
+
+								if (direction > 0) {
+										// 아래로 스크롤 ⬇
+										if (currentIndex === 0) {
+												snapTo(1);
+										} else if (currentIndex === 1) {
+												// Section-02 내부는 자유 스크롤
+												const section02Bottom = sectionPositions[1] + section02.offsetHeight;
+
+												if (scrollY >= section02Bottom - window.innerHeight) {
+														snapTo(2); // Section-03으로 스냅
+												}
+										} else if (currentIndex === 2) {
+												// Section-03 내부는 자유 스크롤
+												const section03Bottom = sectionPositions[2] + section03.offsetHeight;
+
+												if (scrollY >= section03Bottom - window.innerHeight) {
+														log('🔓 Entering Section-04 - Free scroll enabled');
+												}
+										}
+								} else {
+										// 위로 스크롤 ⬆
+										const section02Top = sectionPositions[1];
+										const section02Bottom = section02Top + section02.offsetHeight;
+										const section03Top = sectionPositions[2];
+										const section03Bottom = section03Top + section03.offsetHeight;
+
+										// Section-04에서 Section-03으로 자유 스크롤
+										if (scrollY > section03Bottom) {
+												log('📍 In Section-04, scrolling up - Free scroll');
+												return;
+										}
+
+										if (currentIndex === 0) {
+												// Section-01에서는 위로 갈 곳이 없음
+												return;
+										} else if (currentIndex === 1) {
+												// Section-02에서 위로 스크롤 시 상단 20%에서만 Section-01로 스냅
+												const sectionTop = sectionPositions[1];
+												const sectionHeight = section02.offsetHeight;
+												const progress = scrollY - sectionTop;
+												const threshold = sectionHeight * CONFIG.SECTION_02_EXIT_THRESHOLD;
+
+												if (progress < threshold) {
+														log('🎯 Section-02 top 20% → Snap to Section-01');
+														snapTo(0);
+												} else {
+														log('📍 Section-02 middle/bottom - Free scroll');
+												}
+										} else if (currentIndex === 2) {
+												const sectionTop = sectionPositions[2];
+												const sectionHeight = section03.offsetHeight;
+												const progress = scrollY - sectionTop;
+												const threshold = sectionHeight * CONFIG.SECTION_03_EXIT_THRESHOLD;
+
+												if (progress < threshold) {
+														log('🎯 Section-03 top 20% → Snap to Section-02 BOTTOM');
+														snapTo(1, true); // toBottom = true로 Section-02 하단으로 이동
+												} else {
+														log('📍 Section-03 middle/bottom - Free scroll');
+												}
+										}
+								}
+						};
+
+						// 휠 이벤트 직접 감지
+						window.addEventListener('wheel', (e) => {
+								// 스냅 중이거나 쿨다운 중이면 완전히 무시
+								if (isSnapping || wheelCooldown) {
+										e.preventDefault();
+										e.stopPropagation();
+										e.stopImmediatePropagation();
+										log('🚫 Wheel blocked - snap in progress');
+										return false;
+								}
+
+								const scrollY = lenis.scroll;
+								const sectionIndex = getCurrentSectionIndex();
+								const direction = e.deltaY > 0 ? 1 : -1;
+
+								log(`🖱 Wheel: deltaY=${e.deltaY.toFixed(1)}, direction=${direction > 0 ? 'DOWN' : 'UP'}, section=${sectionIndex + 1}`);
+
+								// Section-04 영역에서는 자유 스크롤
+								const section03Bottom = sectionPositions[2] + snapSections[2].offsetHeight;
+								if (scrollY > section03Bottom && direction > 0) {
+										return;
+								}
+
+								if (Math.abs(e.deltaY) > 1) {
+										e.preventDefault();
+										handleSnap(sectionIndex, direction);
+								}
+						}, { passive: false, capture: true });
+
+						// 초기 섹션 설정
+						currentSectionIndex = getCurrentSectionIndex();
+						log(`🚀 Initial Section: ${currentSectionIndex + 1}`);
+
+						// 리사이즈 대응
+						let resizeTimer;
+						window.addEventListener('resize', () => {
+								clearTimeout(resizeTimer);
+								resizeTimer = setTimeout(() => {
+										sectionPositions = getSectionPositions();
+										const index = getCurrentSectionIndex();
+										if (index >= 0) {
+												lenis.scrollTo(sectionPositions[index], { immediate: true });
+												currentSectionIndex = index;
+										}
+								}, 150);
+						});
+
+						log('✅ Lenis Sticky Snap Scroll Activated');
 					}
-			},
-			pin: '.story-01 .section-wrap',
-		});
+			});
+			// window.addEventListener('load', () => {
+			// 	mainAnimation();
 
-		// 1. 화면이 커지고 나서
-		let action_01 = ScrollTrigger.create({
-			trigger: story_01,
-			//markers: true,
-			start: () => {
-					if (window.innerWidth >= 1024) {
-						return (0.1 * (windowInnerHeight / 1)) + 'px top';
-					} else {
-						return (0.1 * (windowInnerHeight / 1)) + 'px top';
-					}
-			},
-			end: () => {
-					if (window.innerWidth >= 1024) {
-						return (0.5 * (windowInnerHeight / 1)) + 'px top';
-					} else {
-						return (0.5 * (windowInnerHeight / 1)) + 'px top';
-					}
-			},
-			onEnter: () => {
-				//$('.story-01').addClass('action-01');
-			},
-			onEnterBack: () => {
-				//$('.story-01').removeClass('action-01');
-				$('.story-01').removeClass('action-02');
-			},
-			onLeave: () => {
-				//$('.story-01').addClass('action-01');
-				$('.story-01').addClass('action-02');
-			},
-			onLeaveBack: () => {
-				//$('.story-01').removeClass('action-01');
-				$('.story-01').removeClass('action-02');
-			},
-		});
+			// 	function mainAnimation() {
+			// 			const CONFIG = {
+			// 					SECTION_03_EXIT_THRESHOLD: 0.2,
+			// 					DEBUG: true,
+			// 			};
 
-		// 2.
-		let action_02 = gsap.timeline({
-				scrollTrigger: {
-					trigger: story_01,
-					//markers: true,
-					//toggleActions: 'play none none reverse',
-					scrub: true,
-					start: () => {
-							if (window.innerWidth >= 1024) {
-								return (1 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (1 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-					end: () => {
-							if (window.innerWidth >= 1024) {
-								return (1.5 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (1.5 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-				}
-		});
-		action_02
-		.add('action-02')
-		.to('.story-01 .post-08 .video-00', {
-			height: '85%',
-		}, 'action-02')
-		.to('.story-01 .post-09', {
-			clipPath: 'inset(85% 0 0 0)',
-		}, 'action-02')
-		//
-		let action_03 = gsap.timeline({
-				scrollTrigger: {
-					trigger: story_01,
-					//markers: true,
-					//toggleActions: 'play none none reverse',
-					scrub: true,
-					start: () => {
-							if (window.innerWidth >= 1024) {
-								return (2 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (2 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-					end: () => {
-							if (window.innerWidth >= 1024) {
-								return (2.1 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (2.1 * (windowInnerHeight / 1)) + 'px top';
-							}
-					}
-				}
-		});
-		action_03
-		.add('action_03')
-		.to('.story-01 .post-08 .video-00', {
-			height: '10%',
-		}, 'action_03')
-		.to('.story-01 .post-08 .video-01', {
-			height: '90%',
-		}, 'action_03')
-		.to('.story-01 .post-09', {
-			clipPath: 'inset(10% 0 0 0)',
-		}, 'action_03')
+			// 			const log = (...args) => CONFIG.DEBUG && console.log(...args);
+			// 			const snapSections = document.querySelectorAll('.section-01, .section-02, .section-03');
+			// 			const section03 = snapSections[2];
 
-		//
-		let action_04 = gsap.timeline({
-				scrollTrigger: {
-					trigger: story_01,
-					//markers: true,
-					//toggleActions: 'play none none reverse',
-					scrub: true,
-					start: () => {
-							if (window.innerWidth >= 1024) {
-								return (3 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (3 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-					end: () => {
-						if (window.innerWidth >= 1024) {
-							return (3.5 * (windowInnerHeight / 1)) + 'px top';
-						} else {
-							return (3.5 * (windowInnerHeight / 1)) + 'px top';
-						}
-					},
-				}
-		});
-		action_04
-		.add('action_04')
-		.to('.story-01 .post-08 .video-00', {
-			height: '0',
-		}, 'action_04')
-		.to('.story-01 .post-08 .video-01', {
-			height: '85%',
-		}, 'action_04')		
-		.to('.story-01 .post-09 ', {
-			clipPath: 'inset(0 0 0 0)',
-		}, 'action_04')
+			// 			// 섹션 위치 계산
+			// 			const getSectionPositions = () => {
+			// 					let cumulativeHeight = 0;
+			// 					const positions = [];
 
-		let action_05 = gsap.timeline({
-				scrollTrigger: {
-					trigger: story_01,
-					//markers: true,
-					//toggleActions: 'play none none reverse',
-					scrub: true,
-					start: () => {
-							if (window.innerWidth >= 1024) {
-								return (4 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (4 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-					end: () => {
-							if (window.innerWidth >= 1024) {
-								return (4.1 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (4.1 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-				}
-		});
-		action_05
-		.add('action_05')
-		.to('.story-01 .post-08 .video-01', {
-			height: '10%',
-		}, 'action_05')
-		.to('.story-01 .post-08 .video-02', {
-			height: '90%',
-		}, 'action_05')
-		.to('.story-01 .post-09 .data-list.sub .data-wrap', {
-			top: '-100%',
-		}, 'action_05')
-		.to('.story-01 .post-09 .data-list.subject .data-wrap', {
-			top: '-100%',
-		}, 'action_05')
+			// 					snapSections.forEach((section, i) => {
+			// 							positions.push(cumulativeHeight);
+			// 							cumulativeHeight += section.offsetHeight;
+			// 							log(`📏 Section-${i + 1} position: ${positions[i]}px, height: ${section.offsetHeight}px`);
+			// 					});
 
-		let action_06 = gsap.timeline({
-				scrollTrigger: {
-					trigger: story_01,
-					//markers: true,
-					//toggleActions: 'play none none reverse',
-					scrub: true,
-					start: () => {
-							if (window.innerWidth >= 1024) {
-								return (5 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (5 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-					end: () => {
-							if (window.innerWidth >= 1024) {
-								return (5.5 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (5.5 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-				}
-		});
-		action_06
-		.add('action_05')
-		.to('.story-01 .post-08 .video-01', {
-			height: '0%',
-		}, 'action_05')
-		.to('.story-01 .post-08 .video-02', {
-			height: '85%',
-		}, 'action_05')
+			// 					return positions;
+			// 			};
 
-		let action_07 = gsap.timeline({
-				scrollTrigger: {
-					trigger: story_01,
-					//markers: true,
-					//toggleActions: 'play none none reverse',
-					scrub: true,
-					start: () => {
-							if (window.innerWidth >= 1024) {
-								return (6 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (6 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-					end: () => {
-							if (window.innerWidth >= 1024) {
-								return (6.1 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (6.1 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-				}
-		});
-		action_07
-		.add('action_05')
-		.to('.story-01 .post-08 .video-02', {
-			height: '10%',
-		}, 'action_05')
-		.to('.story-01 .post-08 .video-03', {
-			height: '90%',
-		}, 'action_05')
-		.to('.story-01 .post-09 .data-list.sub .data-wrap', {
-			top: '-200%',
-		}, 'action_05')
-		.to('.story-01 .post-09 .data-list.subject .data-wrap', {
-			top: '-200%',
-		}, 'action_05')
+			// 			let sectionPositions = getSectionPositions();
 
-		let action_08 = gsap.timeline({
-				scrollTrigger: {
-					trigger: story_01,
-					//markers: true,
-					//toggleActions: 'play none none reverse',
-					scrub: true,
-					start: () => {
-							if (window.innerWidth >= 1024) {
-								return (7 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (7 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-					end: () => {
-							if (window.innerWidth >= 1024) {
-								return (7.5 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (7.5 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-				}
-		});
-		action_08
-		.add('action_08')
-		.to('.story-01 .post-08 .video-02', {
-			height: '0%',
-		}, 'action_08')
-		.to('.story-01 .post-08 .video-03', {
-			height: '85%',
-		}, 'action_08')
+			// 			let isSnapping = false;
+			// 			let currentSectionIndex = 0;
+			// 			let wheelCooldown = false;
 
-		let action_09 = gsap.timeline({
-			scrollTrigger: {
-				trigger: story_01,
-				//markers: true,
-				//toggleActions: 'play none none reverse',
-				scrub: true,
-				start: () => {
-						if (window.innerWidth >= 1024) {
-							return (8 * (windowInnerHeight / 1)) + 'px top';
-						} else {
-							return (8 * (windowInnerHeight / 1)) + 'px top';
-						}
-				},
-				end: () => {
-						if (window.innerWidth >= 1024) {
-							return (8.1 * (windowInnerHeight / 1)) + 'px top';
-						} else {
-							return (8.1 * (windowInnerHeight / 1)) + 'px top';
-						}
-				},
-			}
-		});
-		action_09
-		.add('action_09')
-		.to('.story-01 .post-08 .video-03', {
-			height: '10%',
-		}, 'action_09')
-		.to('.story-01 .post-08 .video-04', {
-			height: '95%',
-		}, 'action_09')
-		.to('.story-01 .post-09 .data-list.sub .data-wrap', {
-			top: '-300%',
-		}, 'action_09')
-		.to('.story-01 .post-09 .data-list.subject .data-wrap', {
-			top: '-300%',
-		}, 'action_09')
+			// 			// 현재 섹션 인덱스 계산
+			// 			const getCurrentSectionIndex = () => {
+			// 					const scrollY = lenis.scroll;
+			// 					for (let i = sectionPositions.length - 1; i >= 0; i--) {
+			// 							if (scrollY >= sectionPositions[i] - 10) {
+			// 									return i;
+			// 							}
+			// 					}
+			// 					return 0;
+			// 			};
 
-		let action_10 = gsap.timeline({
-				scrollTrigger: {
-					trigger: story_01,
-					//markers: true,
-					//toggleActions: 'play none none reverse',
-					scrub: true,
-					start: () => {
-							if (window.innerWidth >= 1024) {
-								return (9.5 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (9.5 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-					end: () => {
-							if (window.innerWidth >= 1024) {
-								return (10 * (windowInnerHeight / 1)) + 'px top';
-							} else {
-								return (10 * (windowInnerHeight / 1)) + 'px top';
-							}
-					},
-					onEnter: () => {
-						//console.log('들어왔슈')
-						$('.post-08 .video-list .video-item').css('transition', 'all .5s ease-out');
-					},
-					onEnterBack: () => {
-						//console.log('나갔다가 들어왔유');
-						$('.post-08 .video-list .video-item').css('transition', 'all .5s ease-out');
-					},
-					onLeave: () => {
-						//console.log('떠났슈');
-						//$('.post-08 .video-list .video-item').css('transition', 'none');
-					},
-					onLeaveBack: () => {
-						//console.log('나갔다가 들어왔유22');
-						$('.post-08 .video-list .video-item').css('transition', 'all .5s ease-out');
-					},
-				}
-		});
-		action_10
-		.add('action_10')
-		.to('.story-01 .post-08 .video-03', {
-			height: '0%',
-		}, 'action_10')
-		.to('.story-01 .post-09', {
-			opacity: '0',			
-		}, 'action_10')
+			// 			// 스냅 실행
+			// 			const snapTo = (targetIndex) => {
+			// 					if (isSnapping) return;
 
-			
+			// 					isSnapping = true;
+			// 					wheelCooldown = true;
 
-		const mySwiper = new Swiper(".swiper", {
-			slidesPerView: "auto",
-			freeMode: true,
-			spaceBetween: 9,
-		});
+			// 					const targetTop = sectionPositions[targetIndex];
+			// 					log(`🎯 Snapping to Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
 
-		let action_11 = ScrollTrigger.create({
-			trigger: story_01,
-			markers: true,
-			//toggleActions: 'play none none reverse',
-			start: () => {
-					if (window.innerWidth >= 1024) {
-						return (11 * (windowInnerHeight / 1)) + 'px top';
-					} else {
-						return (11 * (windowInnerHeight / 1)) + 'px top';
-					}
-			},
-			end: () => {
-					if (window.innerWidth >= 1024) {
-						return (11.5 * (windowInnerHeight / 1)) + 'px top';
-					} else {
-						return (11.5 * (windowInnerHeight / 1)) + 'px top';
-					}
-			},
-			onEnter: () => {
-				console.log('들어왔슈')
-				$('.story-01').addClass('action-09');
-				$('.post-08 .video-list .video-item').css('transition', 'none');
+			// 					// ✅ 2. 스냅 중 Lenis 스크롤 비활성화 (중단 방지)
+			// 					lenis.stop();
 
-				//슬라이더 이동 비활성화
-				mySwiper.disable();				
-			},
-			onEnterBack: () => {
-				console.log('나갔다가 들어왔유');
-				$('.post-08 .video-list .video-item').css('transition', 'none');
-			},
-			onLeave: () => {
-				console.log('떠났슈');
-				$('.story-01').addClass('action-09');
-				$('.post-08 .video-list .video-item').css('transition', 'all .5s ease-out');
-			},
-			onLeaveBack: () => {
-				console.log('나갔다가 들어왔유22');
-				$('.story-01').removeClass('action-09');
-				$('.post-08 .video-list .video-item').css('transition', 'none');				
-			},
-		});	
+			// 					lenis.scrollTo(targetTop, {
+			// 							duration: 1.2,
+			// 							easing: (t) => 1 - Math.pow(1 - t, 3),
+			// 							force: true,
+			// 							lock: true,
+			// 							onComplete: () => {
+			// 									isSnapping = false;
+			// 									currentSectionIndex = targetIndex;
+			// 									lenis.start(); // ✅ 스냅 완료 후 Lenis 재활성화
+			// 									log(`✅ Snap complete - now at Section-${String(targetIndex + 1).padStart(2, '0')} (${targetTop}px)`);
 
-		
+			// 									// 쿨다운 해제
+			// 									setTimeout(() => {
+			// 											wheelCooldown = false;
+			// 											log('🔓 Wheel unlocked');
+			// 									}, 600); // 쿨다운 시간 증가
+			// 							}
+			// 					});
+			// 			};
 
-		let action_12 = ScrollTrigger.create({
-			trigger: story_01,
-			//markers: true,
-			//toggleActions: 'play none none reverse',
-			start: () => {
-					if (window.innerWidth >= 1024) {
-						return (12.5 * (windowInnerHeight / 1)) + 'px top';
-					} else {
-						return (12.5 * (windowInnerHeight / 1)) + 'px top';
-					}
-			},
-			end: () => {
-					if (window.innerWidth >= 1024) {
-						return (13.5 * (windowInnerHeight / 1)) + 'px top';
-					} else {
-						return (13.5 * (windowInnerHeight / 1)) + 'px top';
-					}
-			},
-			onEnter: () => {
-				//console.log('들어왔슈')
-				$('.story-01').addClass('action-10');
-				$('.post-08 .video-list .video-item').css('transition', 'all .5s ease-out');
+			// 			// 스냅 처리 로직
+			// 			const handleSnap = (currentIndex, direction) => {
+			// 					const scrollY = lenis.scroll;
+			// 					log(`📍 Current: Section-${currentIndex + 1}, Direction: ${direction > 0 ? 'DOWN ⬇' : 'UP ⬆'}, ScrollY: ${Math.round(scrollY)}`);
 
-				mySwiper.enable();	
-			},
-			onEnterBack: () => {
-				//console.log('나갔다가 들어왔유');
-				$('.story-01').removeClass('action-11');
-			},
-			onLeave: () => {
-				$('.story-01').addClass('action-10');
-				$('.story-01').addClass('action-11');
-			},
-			onLeaveBack: () => {
-				//console.log('나갔다가 들어왔유22');
-				$('.story-01').removeClass('action-10');
+			// 					if (direction > 0) {
+			// 							// 아래로 스크롤 ⬇
+			// 							if (currentIndex === 0) {
+			// 									snapTo(1);
+			// 							} else if (currentIndex === 1) {
+			// 									snapTo(2);
+			// 							} else if (currentIndex === 2) {
+			// 									// Section-03 내부는 자유 스크롤
+			// 									const section03Bottom = sectionPositions[2] + section03.offsetHeight;
 
-				mySwiper.disable();	
-				mySwiper.setTranslate(0);
-				mySwiper.update();
-			},
-		});
-	}
-</script>
-</body>
+			// 									if (scrollY >= section03Bottom - window.innerHeight) {
+			// 											log('🔓 Entering Section-04 - Free scroll enabled');
+			// 									}
+			// 							}
+			// 					} else {
+			// 							// 위로 스크롤 ⬆
+			// 							const section03Top = sectionPositions[2];
+			// 							const section03Bottom = section03Top + section03.offsetHeight;
+
+			// 							// Section-04에서 Section-03으로 자유 스크롤
+			// 							if (scrollY > section03Bottom) {
+			// 									log('📍 In Section-04, scrolling up - Free scroll');
+			// 									return;
+			// 							}
+
+			// 							if (currentIndex === 1) {
+			// 									snapTo(0);
+			// 							} else if (currentIndex === 2) {
+			// 									const sectionTop = sectionPositions[2];
+			// 									const sectionHeight = section03.offsetHeight;
+			// 									const progress = scrollY - sectionTop;
+			// 									const threshold = sectionHeight * CONFIG.SECTION_03_EXIT_THRESHOLD;
+
+			// 									if (progress < threshold) {
+			// 											log('🎯 Section-03 top 20% → Snap to Section-02');
+			// 											snapTo(1);
+			// 									} else {
+			// 											log('📍 Section-03 middle/bottom - Free scroll');
+			// 									}
+			// 							}
+			// 					}
+			// 			};
+
+			// 			// ✅ 3. 휠 이벤트 직접 감지 (세게 스크롤해도 감지)
+			// 			window.addEventListener('wheel', (e) => {
+			// 					// ✅ 스냅 중이거나 쿨다운 중이면 완전히 무시
+			// 					if (isSnapping || wheelCooldown) {
+			// 							e.preventDefault();
+			// 							e.stopPropagation();
+			// 							e.stopImmediatePropagation();
+			// 							log('🚫 Wheel blocked - snap in progress');
+			// 							return false;
+			// 					}
+
+			// 					const scrollY = lenis.scroll;
+			// 					const sectionIndex = getCurrentSectionIndex();
+			// 					const direction = e.deltaY > 0 ? 1 : -1;
+
+			// 					log(`🖱 Wheel: deltaY=${e.deltaY.toFixed(1)}, direction=${direction > 0 ? 'DOWN' : 'UP'}, section=${sectionIndex + 1}`);
+
+			// 					// Section-04 영역에서는 자유 스크롤
+			// 					const section03Bottom = sectionPositions[2] + snapSections[2].offsetHeight;
+			// 					if (scrollY > section03Bottom && direction > 0) {
+			// 							return;
+			// 					}
+
+			// 					// ✅ 임계값 없이 바로 처리 (세게 스크롤해도 감지)
+			// 					if (Math.abs(e.deltaY) > 1) {
+			// 							e.preventDefault(); // 기본 스크롤 방지
+			// 							handleSnap(sectionIndex, direction);
+			// 					}
+			// 			}, { passive: false, capture: true });
+
+			// 			// 초기 섹션 설정
+			// 			currentSectionIndex = getCurrentSectionIndex();
+			// 			log(`🚀 Initial Section: ${currentSectionIndex + 1}`);
+
+			// 			// 리사이즈 대응
+			// 			let resizeTimer;
+			// 			window.addEventListener('resize', () => {
+			// 					clearTimeout(resizeTimer);
+			// 					resizeTimer = setTimeout(() => {
+			// 							sectionPositions = getSectionPositions();
+			// 							const index = getCurrentSectionIndex();
+			// 							if (index >= 0) {
+			// 									lenis.scrollTo(sectionPositions[index], { immediate: true });
+			// 									currentSectionIndex = index;
+			// 							}
+			// 					}, 150);
+			// 			});
+
+			// 			log('✅ Lenis Sticky Snap Scroll Activated');
+			// 		}
+			// });
+		</script>
+	</body>
 </html>

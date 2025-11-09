@@ -14,8 +14,8 @@
                 right: 0;
                 left: 0;
                 height: 5.6rem;
-                background: custom-color(neutral, 800);
-                color: custom-color(neutral, 000);
+                background: color(neutral, 800);
+                color: color(neutral, 000);
                 font-size: 1.6rem;
                 line-height: 5.6rem;
                 text-align: center;
@@ -110,16 +110,16 @@
                               width: 16rem;
                               flex-direction: column;
                               padding: 0.8rem;
-                              background-color: custom-color(neutral, 000);
+                              background-color: color(neutral, 000);
                               border-radius: 1.2rem;
-                              border: 0.1rem solid custom-color(neutral, 200);
+                              border: 0.1rem solid color(neutral, 200);
                               box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.08);
 
                               .lnb-item {
                                   .lnb-name {
                                       display: block;
                                       padding: 0.6rem 0;
-                                      @include fontInfo(600, 1.8rem, custom-color(neutral, 500));
+                                      @include fontInfo(600, 1.8rem, color(neutral, 500));
                                       line-height: 150%;
                                       text-align: center;
                                       transition: $transition5;
@@ -127,8 +127,8 @@
                                       &:hover,
                                       &:focus {
                                           border-radius: 0.8rem;
-                                          background-color: custom-color(neutral, 100);
-                                          color: custom-color(neutral, 800);
+                                          background-color: color(neutral, 100);
+                                          color: color(neutral, 800);
                                       }
                                   }
                               }
@@ -182,7 +182,7 @@
               width: 100%;
               height: 0;
               max-height: 100vh;
-              background-color: custom-color(neutral, 000);
+              background-color: color(neutral, 000);
               opacity: 0;
               visibility: hidden;
               transition: $transition8;
@@ -219,11 +219,11 @@
                           @include mobile {
                               order: 2;
                               padding: 3.6rem 2rem 3.6rem 2rem;
-                              border-top: 0.1rem solid custom-color(neutral, 200);
+                              border-top: 0.1rem solid color(neutral, 200);
                           }
 
                           .page-head-sitemap-subject {
-                              @include fontInfo(500, 2.4rem, custom-color(neutral, 700));
+                              @include fontInfo(500, 2.4rem, color(neutral, 700));
                               line-height: 150%;
 
                               @include mobile {
@@ -250,7 +250,7 @@
                                   .nav-link {
                                       display: flex;
                                       align-items: center;
-                                      @include fontInfo(600, 1.8rem, custom-color(neutral, 700));
+                                      @include fontInfo(600, 1.8rem, color(neutral, 700));
                                       line-height: 120%;
 
                                       @include mobile {
@@ -262,7 +262,7 @@
                                           display: block;
                                           width: 2.4rem;
                                           height: 2.4rem;
-                                          background: icon(out-link-01, custom-color(neutral, 700)) no-repeat center / 0.9rem;
+                                          background: icon(out-link-01, color(neutral, 700)) no-repeat center / 0.9rem;
                                       }
                                   }
                               }
@@ -289,22 +289,22 @@
 
                                   &.insta {
                                       .sns-link {
-                                          background: icon(sns-insta, custom-color(neutral, 850)) no-repeat center / 1.9rem;
+                                          background: icon(sns-insta, color(neutral, 850)) no-repeat center / 1.9rem;
                                       }
                                   }
                                   &.blog {
                                       .sns-link {
-                                          background: icon(sns-blog, custom-color(neutral, 850)) no-repeat center / 2.2rem;
+                                          background: icon(sns-blog, color(neutral, 850)) no-repeat center / 2.2rem;
                                       }
                                   }
                                   &.youtube {
                                       .sns-link {
-                                          background: icon(sns-youtube, custom-color(neutral, 850)) no-repeat center / 2.2rem;
+                                          background: icon(sns-youtube, color(neutral, 850)) no-repeat center / 2.2rem;
                                       }
                                   }
                                   &.facebook {
                                       .sns-link {
-                                          background: icon(sns-facebook, custom-color(neutral, 850)) no-repeat center / 1rem;
+                                          background: icon(sns-facebook, color(neutral, 850)) no-repeat center / 1rem;
                                       }
                                   }
                               }
@@ -341,7 +341,7 @@
                               }
 
                               & + .gnb-item {
-                                  border-left: 0.1rem solid custom-color(neutral, 200);
+                                  border-left: 0.1rem solid color(neutral, 200);
 
                                   @include mobile {
                                       border-left: none;
@@ -349,7 +349,7 @@
                               }
 
                               .gnb-name {
-                                  @include fontInfo(700, 3.2rem, custom-color(neutral, 850));
+                                  @include fontInfo(700, 3.2rem, color(neutral, 850));
                                   line-height: 120%;
 
                                   @include mobile {
@@ -358,7 +358,7 @@
                                       align-items: center;
                                       width: 100%;
                                       padding: 1.2rem 2rem;
-                                      @include fontInfo(600, 2.4rem, custom-color(neutral, 850));
+                                      @include fontInfo(600, 2.4rem, color(neutral, 850));
                                   }
                               }
 
@@ -370,7 +370,7 @@
                                               content: '';
                                               width: 2.4rem;
                                               height: 2.4rem;
-                                              background: icon(arrow-down-01, custom-color(neutral, 300)) no-repeat center / 1.6rem;
+                                              background: icon(arrow-down-01, color(neutral, 300)) no-repeat center / 1.6rem;
                                               transition: $transition5;
                                           }
                                       }
@@ -407,19 +407,19 @@
 
                                       .lnb-item {
                                           .lnb-name {
-                                              @include fontInfo(500, 2rem, custom-color(neutral, 700));
+                                              @include fontInfo(500, 2rem, color(neutral, 700));
                                               line-height: 150%;
                                               transition: $transition3;
 
                                               @include mobile {
                                                   padding: 0 2rem;
-                                                  @include fontInfo(500, 1.6rem, custom-color(neutral, 700));
+                                                  @include fontInfo(500, 1.6rem, color(neutral, 700));
                                                   line-height: 160%;
                                               }
 
                                               &:hover,
                                               &:focus {
-                                                  color: custom-color(primary, 400);
+                                                  color: color(primary, 400);
                                               }
                                           }
                                       }
@@ -443,7 +443,7 @@
                   .gnb-list {
                       .gnb-item {
                           .gnb-name {
-                              color: custom-color(neutral, 000);
+                              color: color(neutral, 000);
                           }
                           .lnb {
                               .lnb-list {
@@ -461,7 +461,7 @@
                   .page-control {
                       .goto-page-navi {
                           div {
-                              background: custom-color(neutral, 000);
+                              background: color(neutral, 000);
                           }
                       }
                   }
@@ -479,7 +479,7 @@
                   .gnb-list {
                       .gnb-item {
                           .gnb-name {
-                              color: custom-color(neutral, 850);
+                              color: color(neutral, 850);
                           }
                           .lnb {
                               .lnb-list {
@@ -496,7 +496,7 @@
                   .page-control {
                       .goto-page-navi {
                           div {
-                              background: custom-color(neutral, 850);
+                              background: color(neutral, 850);
                           }
                       }
                   }
@@ -505,7 +505,7 @@
       }
       &.white {
           top: 0;
-          background-color: custom-color(neutral, 000);
+          background-color: color(neutral, 000);
 
           .page-head-wrap {
               .page-head-subject {
@@ -517,7 +517,7 @@
                   .gnb-list {
                       .gnb-item {
                           .gnb-name {
-                              color: custom-color(neutral, 850);
+                              color: color(neutral, 850);
                           }
                       }
                   }
@@ -526,7 +526,7 @@
                   .page-control {
                       .goto-page-navi {
                           div {
-                              background: custom-color(neutral, 850);
+                              background: color(neutral, 850);
                           }
                       }
                   }
@@ -569,7 +569,7 @@
                   .page-control {
                       .goto-page-navi {
                           div {
-                              background: custom-color(neutral, 850);
+                              background: color(neutral, 850);
 
                               &:nth-child(2) {
                                   transform: translateY(0.5rem) rotate(45deg);
@@ -599,7 +599,7 @@
 
   .page-footer {
     padding: 4rem 2rem 4.8rem 2rem;
-    background-color: custom-color(neutral, 850);
+    background-color: color(neutral, 850);
 
     @include mobile {
       padding: 6.4rem 2rem;
@@ -685,11 +685,11 @@
               }
 
               .data-name {
-                @include fontInfo(500, 1.6rem, custom-color(neutral, 000));
+                @include fontInfo(500, 1.6rem, color(neutral, 000));
                 line-height: 150%;
 
                 @include mobile {
-                  @include fontInfo(500, 1.4rem, custom-color(neutral, 000));
+                  @include fontInfo(500, 1.4rem, color(neutral, 000));
                 }
 
                 .strong {
@@ -747,7 +747,7 @@
                   display: block;
                   width: 0.1rem;
                   height: 0.9rem;
-                  background-color: custom-color(neutral, 700);
+                  background-color: color(neutral, 700);
                 }
               }
             }
@@ -803,22 +803,22 @@
 
             &.insta {
               .sns-link {
-                background: icon(sns-insta, custom-color(neutral, 000)) no-repeat center / 1.9rem;
+                background: icon(sns-insta, color(neutral, 000)) no-repeat center / 1.9rem;
               }
             }
             &.blog {
               .sns-link {
-                background: icon(sns-blog, custom-color(neutral, 000)) no-repeat center / 2.2rem;
+                background: icon(sns-blog, color(neutral, 000)) no-repeat center / 2.2rem;
               }
             }
             &.youtube {
               .sns-link {
-                background: icon(sns-youtube, custom-color(neutral, 000)) no-repeat center / 2.2rem;
+                background: icon(sns-youtube, color(neutral, 000)) no-repeat center / 2.2rem;
               }
             }
             &.facebook {
               .sns-link {
-                background: icon(sns-facebook, custom-color(neutral, 000)) no-repeat center / 1rem;
+                background: icon(sns-facebook, color(neutral, 000)) no-repeat center / 1rem;
               }
             }
           }

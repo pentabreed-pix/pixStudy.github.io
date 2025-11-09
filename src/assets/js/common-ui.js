@@ -6,7 +6,7 @@ frontCommon.Html = (function () {
             reset: function () {
                 frontCommonResize();
                 frontCommonScroll();
-                header();
+                //header();
                 select();
             },
 
@@ -79,7 +79,8 @@ function initLenis() {
 
     return {
         create: createLenis,
-        destroy: destroyLenis
+        destroy: destroyLenis,
+        getInstance: () => lenis  // ✅ lenis 인스턴스 접근 메서드 추가
     };
 }
 
