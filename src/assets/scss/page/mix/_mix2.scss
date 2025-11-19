@@ -1,6 +1,272 @@
 .local-body.mix2 {
   overflow: hidden;
-  font-family: "Sebang", sans-serif;
+  // font-family: "Sebang", sans-serif;
+
+  .post-list {
+      &.module-c {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6.4rem 2.4rem;
+          @include mobile {
+            gap: 4.4rem 2rem;
+          }
+          .post-item {
+            width: calc(25% - 1.8rem);
+            position: relative;
+            @include mobile {
+              width: calc(50% - 1rem);
+            }
+              .post-wrap {
+                  .label {
+                    position: absolute;
+                    top: 1.2rem;
+                    left: 1.2rem;
+                    padding: 0.2rem 0.9rem;
+                    background: #fff;
+                    border-radius: 1.6rem;
+                    font-size: 1.6rem;
+                    @include mobile {
+                      font-size: 1.4rem;
+                    }
+                  }
+                  .post-figure {
+                    img{
+                      width: 100%;
+                    }
+                  }
+                  .post-head {
+                    .subject {
+                      margin: 2rem 0 0.4rem 0;
+                      color: #171717;
+                      font-size: 2rem;
+                      font-weight: 600;
+                      line-height: 3rem;
+                      @include mobile {
+                        margin: 1.6rem 0 0.4rem 0;
+                        font-size: 1.6rem;
+                        line-height: 2.4rem;
+                      }
+                    }
+                    .desc {
+                      margin-bottom: 1.6rem;
+                      color: #434343;
+                      font-size: 1.6rem;
+                      line-height: 2.4rem;
+                      font-weight: 400;
+                      @include mobile {
+                        margin-bottom: 1.2rem;
+                        font-size: 1.4rem;
+                        line-height: 2.1rem;
+                      }
+                    }
+                  }
+                  .post-body {
+                    .date {
+                      color: #B4B4B4;
+                      font-size: 1.6rem;
+                      line-height: 2.4rem;
+                      font-weight: 400;
+                      @include mobile {
+                        font-size: 1.4rem;
+                        line-height: 2.1rem;
+                      }
+                    }
+                  }
+              }
+          }
+      }
+      &.module-d {
+        &.fake-scroll {
+          position: relative;
+        }
+        .post-inform {
+          display: flex;
+          gap: 2.4rem;
+          @include mobile {
+            gap: 2rem;
+          }
+          &.fake-scroll__content {
+            width: 100%;
+            height: calc(100% - 1.4rem); /* 트랙 높이 제외 */
+            padding-bottom: 1.4rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none; /* Firefox */
+            &::-webkit-scrollbar {
+              display: none; /* Chrome, Safari, Opera */
+            }
+            &:after {
+              content: '';
+              width: 24rem;
+              height: 100%;
+              position: absolute;
+              right: 0;;
+              background: linear-gradient(90deg, rgba(255, 255, 255, 0.00) 0%, #FFF 100%);
+            }
+          }
+          .post-item {
+            width: 50rem;
+            flex-shrink: 0;
+            .post-wrap{
+              .post-figure {
+                img{
+                  width: 100%;
+                }
+              }
+              .post-head {
+                .subject {
+                  margin: 2.4rem 0 0.4rem 0;
+                  color: #171717;
+                  font-size: 2.4rem;
+                  font-weight: 600;
+                  line-height: 3.6rem;
+                  @include mobile {
+                    margin: 1.2rem 0 0.4rem 0;
+                    font-size: 1.8rem;
+                    line-height: 2.7rem;
+                  }
+                }
+                .desc {
+                  margin-bottom: 1.6rem;
+                  color: #434343;
+                  font-size: 2rem;
+                  line-height: 3rem;
+                  font-weight: 400;
+                  @include mobile {
+                    margin-bottom: 1.2rem;
+                    font-size: 1.6rem;
+                    line-height: 2.4rem;
+                  }
+                }
+              }
+              .post-body {
+                .date {
+                  color: #B4B4B4;
+                  font-size: 1.6rem;
+                  line-height: 2.4rem;
+                  font-weight: 400;
+                  @include mobile {
+                    font-size: 1.4rem;
+                    line-height: 2.1rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .fake-scroll__track {
+          width: 144rem;
+          position: absolute;
+          left: 1rem;
+          right: 1rem;
+          bottom: 0.4rem;
+          height: 0.4rem;
+          background: #ddd;
+          border-radius: 99rem;
+        }
+        .fake-scroll__thumb {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 6rem; /* JS에서 다시 계산 */
+          border-radius: 99rem;
+          background: #222;
+          transform: translateX(0);
+        }
+      }
+  }
+ .swiper-list {
+    &.module-a {
+      .post-list {
+        .post-item {
+          .post-wrap {
+            position: relative;
+            .label {
+              position: absolute;
+              top: 4.8rem;
+              left: 4.4rem;
+              padding: 0.2rem 0.9rem;
+              background: #000;
+              border-radius: 1.6rem;
+              color: #fff;
+              font-size: 1.6rem;
+              z-index: 1;
+              @include mobile {
+                font-size: 1.4rem;
+              }
+            }
+            .post-figure {
+              img{
+                width: 100%;
+                max-width: 100%;
+              }
+            }
+            .post-inform {
+              position: absolute;
+              top: 2.4rem;
+              left: 2.4rem;
+              padding: 6.4rem 2rem 2.4rem 2rem;
+              background: #fff;
+              border-radius: 2rem 2rem 2rem 0;
+              &:after{
+                width: 15.8rem;
+                height: 2.1rem;
+                position: absolute;
+                left: 0;
+                bottom: -2.1rem;
+                background: url('/assets/images/main/white-down.svg') no-repeat center center;
+                content: '';
+              }
+              .post-head {
+                min-width: 18rem;
+                @include mobile {
+                  min-width: 16.8rem;
+                }
+                .subject {
+                  color: #171717;
+                  font-size: 2.4rem;
+                  font-weight: 600;
+                  line-height: 3.6rem;
+                  @include mobile {
+                    font-size: 1.8rem;
+                    line-height: 2.7rem;
+                  }
+                }
+                .desc {
+                  color: #222;
+                  margin-top: 1.2rem;
+                  font-size: 1.6rem;
+                  font-weight: 400;
+                  line-height: 2.4rem;
+                  @include mobile {
+                    margin-top: 0.8rem;
+                    font-size: 1.4rem;
+                    line-height: 2.1rem;
+                  }
+                }
+              }
+              .post-body {
+                .date {
+                  color: #B4B4B4;
+                  margin-top: 1.2rem;
+                  font-size: 1.6rem;
+                  font-weight: 400;
+                  line-height: 2.4rem;
+                  @include mobile {
+                    margin-top: 0.8rem;
+                    font-size: 1.4rem;
+                    line-height: 2.1rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 
   section {
     &.story-01 {
@@ -492,5 +758,4 @@
     }
   }
 }
-
 
